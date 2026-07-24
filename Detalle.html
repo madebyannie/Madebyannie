@@ -102,7 +102,7 @@ body {
 .header-detalle{
     background:#F5F2E8;
     padding:20px 40px;
-
+    width:100%;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -334,16 +334,16 @@ footer p{
 @media (max-width: 768px){
 
 .header-detalle{
-   padding:15px 25px 25px;
+    width:100%;
+    max-width:none;
+    margin:0;
 }
-
 .carrito{
-    display:flex;
-    align-items:center;
-    gap:4px;
-    text-decoration:none;
-    color:#7A6F60;
-    font-size:18px;
+    position:absolute;
+    right:0;
+    top:50%;
+    transform:translateY(-50%);
+
 }
 
 .logo{
@@ -357,67 +357,55 @@ footer p{
 .menu{
 
     display:none;
-
     position:absolute;
-
     top:60px;
-
     left:15px;
-
     background:#F5F2E8;
-
     border-radius:18px;
-
     box-shadow:0 5px 15px rgba(0,0,0,.15);
-
     padding:10px;
-
     flex-direction:column;
-
     gap:10px;
 
 }
 
 .menu.activo{
-
     display:flex;
 
 }
 
 .menu a{
-
     text-decoration:none;
-
     color:#7A6F60;
-
     padding:8px 12px;
-
     border-radius:12px;
-
 }
 
 .menu-btn{
-
-    display:block;
+    position:absolute;
+    left:0;
+    top:50%;
+    transform:translateY(-50%);
 
 }
 
 .barra{
 
+    width:100%;
     display:flex;
-
-    justify-content:space-between;
-
+    justify-content:center;
     align-items:center;
+    position:relative;
+    margin-top:15px;
 
 }
-
 .logo-header{
-   display:flex;
-   justify-content:center;
-   align-items:center;
-   gap:8px;
-   flex-wrap:wrap;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    width:100%;
 
 }
 
