@@ -30,6 +30,15 @@ body {
     color: #7A6F60;
 }
 
+.menu-btn{
+    display:none;
+    background:none;
+    border:none;
+    font-size:28px;
+    color:#7A6F60;
+    cursor:pointer;
+}
+
 .header{
 
     background:#F5F2E8;
@@ -41,22 +50,17 @@ body {
 }
 
 .logo-header{
-
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     gap:12px;
-
 }
 
 .barra{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+    display:flex;
+    justify-content:center;
+    margin-top:18px;
 }
-
 .menu{
     display: flex;
     justify-content: center;
@@ -64,16 +68,14 @@ body {
 }
 
 .carrito{
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    text-decoration: none;
-    color: #7A6F60;
-    font-size: 22px;
+    position:absolute;
+    right:35px;
+    top:50%;
+    transform:translateY(-50%);
+
+    color:#7A6F60;
+    font-size:22px;
+    text-decoration:none;
 }
 
 .logo{
@@ -95,6 +97,16 @@ body {
     font-size:20px;
     color:#7A6F60;
 
+}
+
+.header-detalle{
+    background:#F5F2E8;
+    padding:20px 40px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    position:relative;
 }
 
 .texto-logo p{
@@ -154,7 +166,7 @@ body {
 }
 
 .zoom{
-    width:110%;
+    width:100%;
     max-width:420px;
     aspect-ratio:1/1;
     overflow:hidden;
@@ -343,13 +355,61 @@ footer p{
 }
 
 .menu{
+
+    display:none;
+
+    position:absolute;
+
+    top:60px;
+
+    left:15px;
+
+    background:#F5F2E8;
+
+    border-radius:18px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+    padding:10px;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.menu.activo{
+
     display:flex;
-    gap:6px;
+
 }
 
 .menu a{
-    padding:8px 10px;
-    font-size:14px;
+
+    text-decoration:none;
+
+    color:#7A6F60;
+
+    padding:8px 12px;
+
+    border-radius:12px;
+
+}
+
+.menu-btn{
+
+    display:block;
+
+}
+
+.barra{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
 }
 
 .logo-header{
@@ -359,13 +419,6 @@ footer p{
    gap:8px;
    flex-wrap:wrap;
 
-}
-
-.barra{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    width:100%;
 }
 
   .tarjeta{
@@ -397,7 +450,7 @@ footer p{
 
 <body>
 
-<header class="header">
+<header class="header-detalle">
 
     <div class="logo-header">
 
@@ -410,6 +463,10 @@ footer p{
     </div>
 
     <div class="barra">
+
+        <button class="menu-btn" onclick="abrirMenu()">
+            ☰
+        </button>
 
         <nav class="menu">
 
@@ -429,7 +486,6 @@ footer p{
     </div>
 
 </header>
-
 <div class="tarjeta">
 
     <div id="visor" onclick="cerrarVisor()">
