@@ -335,19 +335,20 @@ footer p{
 @media (max-width: 768px){
 
 .header-detalle{
-    width:87%;
+    width:100%;
+    box-sizing:border-box;
     max-width:none;
     position:relative;
-    padding:15px 20px 25px;
+    padding:20px 20px 30px;
     margin:0;
 }
 .carrito{
-    width:14px;
+    width:auto;
     position:absolute;
-    right:0;
+    right:18px;
     font-size:20px;
-    top:15px;
-    transform:translateY(-50%);
+    top:18px;
+    transform:none
 
 }
 
@@ -370,7 +371,7 @@ footer p{
     background:#F5F2E8;
     flex-direction:column;
     gap:18px;
-    padding:90px 20;
+    padding:90px 20px;
     transition:left .35s ease;
     z-index:999;
     box-shadow:8px 0 15px rgba(0,0,0,.15);
@@ -394,25 +395,20 @@ footer p{
 
 .menu-btn{
     position:absolute;
-    left:15;
+    left:18px;
     display:block;
-    top:15px;
+    top:18px;
     font-size:20px;
     background:none;
     color:#7A6F60;
     cursor:pointer;
-    transform:translateY(-50%);
+    transform:none;
 
 }
 
 .barra{
-
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    position:relative;
-    margin-top:15px;
+  display:block;
+  margin:0;
 
 }
 .logo-header{
@@ -421,8 +417,7 @@ footer p{
     justify-content:center;
     align-items:center;
     gap:8px;
-    margin-top:15px;
-    width:100%;
+    padding-top10px;
 
 }
 
@@ -467,7 +462,7 @@ footer p{
 
     </div>
 
-    <<div class="barra">
+    <div class="barra">
 
     <button class="menu-btn" onclick="abrirMenu()">
         <i class="fa-solid fa-bars"></i>
