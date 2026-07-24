@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=2">
-<link rel="shortcut icon" href="favicon.png?v=2">
-
+<link rel="icon" href="favicon.png">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&display=swap" rel="stylesheet">
 
 <!-- Google tag (gtag.js) -->
@@ -30,22 +30,155 @@ body {
     color: #7A6F60;
 }
 
-.tarjeta {
-    background-color: #F5F2E8;
-    margin: 40px auto;
-    padding: 30px;
-    border-radius: 20px;
-    width: 320px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+.header{
+
+    background:#F5F2E8;
+
+    padding:18px 35px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.logo-header{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.barra{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+}
+
+.logo{
+
+    width:90px;
+}
+
+.texto{
+
+    font-family:"Pacifico", cursive;
+
+    font-size:32px;
+
+    color:#7A6F60;
+}
+
+.texto-logo h1{
+
+    margin:0;
+
+    font-family:"Pacifico", cursive;
+
+    font-size:20px;
+
+    color:#7A6F60;
+
+}
+
+.texto-logo p{
+
+    margin:0;
+
+    font-family:"Quicksand", sans-serif;
+
+    color:#A9C7E8;
+
+    font-size:14px;
+
+}
+
+.menu{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.menu a{
+
+    background:#A9C7E8;
+
+    color:white;
+
+    padding:10px 18px;
+
+    border-radius:15px;
+
+    text-decoration:none;
+
+    font-family:"Quicksand";
+
+    transition:.25s;
+
+}
+
+.menu a:hover{
+
+    background:#7A6F60;
+
+}
+
+.carrito{
+
+    position:absolute;
+
+    right:0;
+
+    font-size:19px;
+
+    color:#7A6F60;
+
+    text-decoration:none;
+
+}
+
+   .tarjeta{
+    max-width:1100px;
+    margin:40px auto;
+
+    display:flex;
+
+    gap:50px;
+
+    align-items:flex-start;
+
+    background:#F5F2E8;
+
+    border-radius:25px;
+
+    padding:35px;
 }
 
 #nombre {
     margin-bottom: 5px;
+     font-size: 24px;
+    white-space: nowrap;
+    margin: 10px 0 5px;
 }
 
 #precio {
     font-family: "Quicksand", sans-serif;
-    color: #7A6F60;
+    color: gray;
     font-size: 18px;
     margin-top: 10px;
     margin-bottom: 12px;
@@ -56,31 +189,39 @@ body {
    text-align: left;
 }
 
-.zoom {
-    width: 230px;
-    height: 230px;
+.zoom{
 
-    overflow: hidden;
+    width:100%;
+    max-width:420px;
 
-    border-radius: 15px;
+    aspect-ratio:1/1;
 
-    margin: auto;
+    overflow:hidden;
 
-    cursor: zoom-in;
+    border-radius:20px;
+
+    cursor:zoom-in;
 }
 
-#principal {
+#principal{
 
-    width: 100%;
-    height: 100%;
+    width:100%;
+    height:100%;
 
-    object-fit: cover;
+    object-fit:cover;
 
-    transition: transform 0.1s ease;
+    transition:transform .15s;
 }
 
-.mini {
-    margin-top: 10px;
+.mini{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    margin-top:15px;
 }
 
 .mini img {
@@ -103,6 +244,26 @@ body {
 
 .boton:hover {
     background-color: #7A6F60;
+}
+
+.galeria{
+    width:40%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.info{
+    width:60%;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.info h2,
+.info h3,
+.info p{
+    text-align:left;
 }
 
 footer{
@@ -204,43 +365,168 @@ footer p{
 
     border-radius: 15px;
 }
+
+@media (max-width: 768px){
+
+   .header-detalle{
+
+    padding:12px 18px;
+
+}
+
+.logo{
+
+    width:45px;
+}
+
+.texto{
+
+    font-size:24px;
+}
+
+.barra{
+
+    justify-content:space-between;
+}
+
+.menu{
+
+    gap:8px;
+}
+
+.menu a{
+
+    padding:8px 12px;
+
+    font-size:14px;
+}
+
+.logo-header{
+
+    width:52px;
+
+}
+
+.volver,
+.carrito{
+
+    font-size:26px;
+
+}
+
+  .tarjeta{
+
+    flex-direction:column;
+
+    width:95%;
+
+    padding:20px;
+
+    gap:25px;
+}
+
+.galeria,
+.info{
+
+    width:100%;
+}
+
+.info{
+
+    align-items:center;
+}
+
+.info h2,
+.info h3,
+.info p{
+
+    text-align:center;
+  }
+}
+
 </style>
 </head>
 
 <body>
 
+<header class="header">
+
+    <div class="logo-header">
+
+        <span class="texto">✢ Made</span>
+
+        <img src="Ann.png" class="logo">
+
+        <span class="texto">by Annie ✢</span>
+
+    </div>
+
+    <div class="barra">
+
+        <nav class="menu">
+
+            <a href="index.html">Inicio</a>
+
+            <a href="Productos.html">Productos</a>
+
+            <a href="Personaliza.html">Personalizar</a>
+
+        </nav>
+
+        <a href="Carrito.html" class="carrito">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>0</span>
+        </a>
+
+    </div>
+
+</header>
+
 <div class="tarjeta">
 
-<h2 id="nombre"></h2>
+    <div id="visor" onclick="cerrarVisor()">
+        <img id="imagenGrande">
+    </div>
 
-<h3 id="precio"></h3>
+    <!-- Columna izquierda -->
+    <div class="galeria">
 
-<div id="estadoProducto"></div>
+        <div class="zoom"
+            onmousemove="zoom(event)"
+            onmouseleave="resetZoom()"
+            onclick="abrirVisor()">
 
-<div id="visor" onclick="cerrarVisor()">
-    <img id="imagenGrande">
+            <img id="principal">
+
+        </div>
+
+        <div class="mini">
+            <img id="img1" onclick="cambiar(this)">
+            <img id="img2" onclick="cambiar(this)">
+        </div>
+
+    </div>
+
+    <!-- Columna derecha -->
+    <div class="info">
+
+        <h2 id="nombre"></h2>
+
+        <h3 id="precio"></h3>
+
+        <div id="estadoProducto"></div>
+
+        <p id="desc"></p>
+
+        <p class="nota">
+            nota..
+        </p>
+
+        <a id="btnPedir" class="boton">Pedir</a>
+
+    </div>
+
 </div>
-
-<div class="zoom"
-     onmousemove="zoom(event)"
-     onmouseleave="resetZoom()"
-     onclick="abrirVisor()">
-
-    <img id="principal">
-
-</div>
-
-<div class="mini">
-    <img id="img1" onclick="cambiar(this)">
-    <img id="img2" onclick="cambiar(this)">
-</div>
-
-<p id="desc"></p>
-
-<a id="btnPedir" class="boton">Pedir</a>
-
-</div>
-
 <footer>
 
     <div class="redes">
@@ -253,7 +539,9 @@ footer p{
             <img src="Whats.png" alt="WhatsApp">
         </a>
     </div>
-
+ <p>
+ •Ibarra•Ecuador
+</p>
     © 2026 Made by Annie
 </footer>
 
