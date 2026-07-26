@@ -102,7 +102,6 @@ header {
 }
 
 .contenedor {
-    flex: 1;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -112,8 +111,9 @@ header {
 
 .carrito{
     position: absolute;
-    top: 25px;
-    right: 30px;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
     text-decoration: none;
     color: #7b6858;
     font-size: 28px;
@@ -308,6 +308,13 @@ footer p{
     transition:.2s;
 }
 
+.barra{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .redes img:hover{
     transform:scale(1.15);
 }
@@ -381,8 +388,8 @@ footer p{
   }
 
 .carrito{
-    top: 18px;
-    right: 10px;
+    top: 50%;
+    right: 15px;
     font-size: 24px;
 }
 
@@ -552,8 +559,10 @@ footer p{
 
      onclick="verProducto(this)"
 
-     data-img1="manilla.png"
-     data-img2="manilla.png"
+     data-img1="manilla-estrellas-portada.png"
+     data-img2="manilla-estrellas-negra.png"
+     data-img3="manilla-estrellas-blanca.png"
+     data-img4="manilla-estrellas-detalle.png"
 
      data-precio="$3.00"
 
@@ -567,7 +576,7 @@ footer p{
         <span class="etiqueta pedido">ENCARGO</span>
     </div>
 
-    <img src="manilla.png">
+    <img src="manilla-estrellas-portada.png">
 
     <h3 class="nombre">Twins Stars</h3>
 
@@ -610,6 +619,10 @@ function verProducto(card) {
 
     let img2 = card.getAttribute("data-img2");
 
+    let img3 = card.getAttribute("data-img3");
+
+    let img4 = card.getAttribute("data-img4");
+
     let unico = card.getAttribute("data-unico");
 
     let vendido = card.getAttribute("data-vendido");
@@ -630,6 +643,10 @@ function verProducto(card) {
     + "&img1=" + encodeURIComponent(img1)
 
     + "&img2=" + encodeURIComponent(img2)
+ 
+    + "&img3=" + encodeURIComponent(img3)
+
+    + "&img4=" + encodeURIComponent(img4)
 
     + "&unico=" + encodeURIComponent(unico)
 
