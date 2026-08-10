@@ -64,6 +64,27 @@ body{
     gap:10px;
 }
 
+/* BOTÓN HAMBURGUESA */
+
+.menu-btn{
+    display:none;
+    position:absolute;
+    left:15px;
+    top:15px;
+    font-size:20px;
+    background:none;
+    border:none;
+    color:#7A6F60;
+    cursor:pointer;
+    z-index:10001;
+}
+
+/* BOTÓN CERRAR */
+
+.cerrar-menu{
+    display:none;
+}
+
 .menu a{
     background:none;
     padding:0;
@@ -311,20 +332,97 @@ footer{
         font-size:28px;
     }
 
+
+    /* HAMBURGUESA */
+
+    .menu-btn{
+        display:block;
+    }
+
+
+    /* MENÚ LATERAL */
+
+    .menu{
+        position:fixed;
+
+        left:0;
+        top:0;
+
+        width:240px;
+        height:100vh;
+
+        background:#F5F2E8;
+
+        display:flex;
+        flex-direction:column;
+
+        align-items:flex-start;
+        justify-content:flex-start;
+
+        padding:80px 25px 30px;
+
+        gap:20px;
+
+        box-sizing:border-box;
+
+        transform:translateX(-100%);
+        transition:transform .35s ease;
+
+        z-index:9999;
+    }
+
+
+    /* CUANDO SE ABRE */
+
+    .menu.activo{
+        transform:translateX(0);
+    }
+
+
+    .menu a{
+        font-size:20px;
+    }
+
+
+    /* BOTÓN X */
+
+    .cerrar-menu{
+        display:block;
+
+        position:absolute;
+
+        top:18px;
+        right:18px;
+
+        background:none;
+        border:none;
+
+        font-size:28px;
+
+        color:#7A6F60;
+
+        cursor:pointer;
+    }
+
+
+    /* CARRITO */
+
     .carrito{
         right:18px;
         top:15px;
+
         transform:none;
+
         font-size:18px;
     }
+
 
     .barra{
         margin:0;
     }
 
-    .menu{
-        flex-direction:column;
-    }
+
+    /* PRODUCTOS DEL CARRITO */
 
     .producto-carrito{
         flex-wrap:wrap;
@@ -345,6 +443,7 @@ footer{
         text-align:center;
     }
 
+  }
 }
 
 </style>
@@ -367,28 +466,54 @@ footer{
     </div>
 
 
-    <div class="barra">
+   <div class="barra">
 
-        <nav class="menu">
+    <!-- HAMBURGUESA -->
 
-            <a href="index.html">Inicio</a>
+    <button class="menu-btn" onclick="abrirMenu()">
 
-            <a href="Productos.html">Productos</a>
+        <i class="fa-solid fa-bars"></i>
 
-            <a href="Perzonaliza.html">Personalizar</a>
-
-        </nav>
+    </button>
 
 
-        <a href="Carrito.html" class="carrito">
+    <!-- MENÚ -->
 
-            <i class="fa-solid fa-cart-shopping"></i>
+    <nav class="menu" id="menu">
 
-            <span id="contador">0</span>
+        <button class="cerrar-menu" onclick="cerrarMenu()">
 
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+
+        <a href="index.html">
+            Inicio
         </a>
 
-    </div>
+        <a href="Productos.html">
+            Productos
+        </a>
+
+        <a href="Perzonaliza.html">
+            Personalizar
+        </a>
+
+    </nav>
+
+
+    <!-- CARRITO -->
+
+    <a href="Carrito.html" class="carrito">
+
+        <i class="fa-solid fa-cart-shopping"></i>
+
+        <span id="contador">0</span>
+
+    </a>
+
+</div>
 
 </header>
 
@@ -722,6 +847,21 @@ function realizarPedido(){
 /* INICIAR */
 
 mostrarCarrito();
+function abrirMenu(){
+
+    document
+        .getElementById("menu")
+        .classList.add("activo");
+
+}
+
+
+function cerrarMenu(){
+
+    document
+        .getElementById("menu")
+        .classList.remove("activo");
+}
 
 </script>
 
