@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" href="favicon.png">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&display=swap" rel="stylesheet">
+
+<title>Carrito | Made by Annie</title>
+
+<style>
+
+body{
+    background-color:#DCEAF7;
+    font-family:"Pacifico", cursive;
+    margin:0;
+    padding:0;
+    color:#7A6F60;
+}
+
+/* HEADER */
+
+.header-detalle{
+    width:100%;
+    background:#F5F2E8;
+    padding:20px 40px;
+    box-sizing:border-box;
+    margin:0;
+    position:relative;
+}
+
+.logo-header{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+}
+
+.logo{
+    width:90px;
+}
+
+.texto{
+    font-family:"Pacifico", cursive;
+    font-size:32px;
+    color:#7A6F60;
+}
+
+.barra{
+    display:flex;
+    justify-content:center;
+    margin-top:18px;
+}
+
+.menu{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+
+.menu a{
+    background:none;
+    padding:0;
+    border-radius:0;
+    color:#7A6F60;
+    text-decoration:none;
+    font-family:"Quicksand",sans-serif;
+    font-size:20px;
+    transition:.25s;
+}
+
+.menu a:hover{
+    color:#A9C7E8;
+}
+
+.carrito{
+    position:absolute;
+    right:35px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#7A6F60;
+    font-size:22px;
+    text-decoration:none;
+}
+
+.carrito span{
+    font-family:"Quicksand",sans-serif;
+    font-size:15px;
+}
+
+/* CONTENIDO */
+
+.contenedor{
+    width:min(1000px,90%);
+    margin:40px auto;
+}
+
+.titulo{
+    font-size:32px;
+    margin-bottom:25px;
+}
+
+/* PRODUCTO */
+
+.producto-carrito{
+    background:#F5F2E8;
+    border-radius:20px;
+    padding:20px;
+    margin-bottom:18px;
+
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.producto-carrito img{
+    width:110px;
+    height:110px;
+    object-fit:cover;
+    border-radius:15px;
+}
+
+.info-producto{
+    flex:1;
+    text-align:left;
+}
+
+.info-producto h3{
+    margin:0 0 8px;
+    font-family:"Pacifico",cursive;
+    font-size:22px;
+}
+
+.info-producto p{
+    margin:0;
+    font-family:"Quicksand",sans-serif;
+    color:#7A6F60;
+}
+
+/* CANTIDAD */
+
+.cantidad{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.cantidad button{
+    width:30px;
+    height:30px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#A9C7E8;
+    color:white;
+
+    cursor:pointer;
+    font-size:16px;
+}
+
+.cantidad span{
+    font-family:"Quicksand",sans-serif;
+    min-width:20px;
+    text-align:center;
+}
+
+/* ELIMINAR */
+
+.eliminar{
+    border:none;
+    background:none;
+    color:#7A6F60;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.eliminar:hover{
+    color:#A9C7E8;
+}
+
+/* RESUMEN */
+
+.resumen{
+    background:#F5F2E8;
+    border-radius:20px;
+    padding:25px;
+    margin-top:30px;
+
+    text-align:right;
+}
+
+.resumen h3{
+    font-family:"Quicksand",sans-serif;
+    font-size:22px;
+    margin:0 0 20px;
+}
+
+.total{
+    font-family:"Pacifico",cursive;
+    font-size:28px;
+}
+
+/* BOTONES */
+
+.botones{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:20px;
+    flex-wrap:wrap;
+}
+
+.boton{
+    display:inline-block;
+    padding:12px 22px;
+
+    background:#A9C7E8;
+    color:white;
+
+    border-radius:15px;
+
+    font-family:"Quicksand",sans-serif;
+    text-decoration:none;
+
+    border:none;
+    cursor:pointer;
+
+    font-size:16px;
+}
+
+.boton:hover{
+    background:#7A6F60;
+}
+
+/* CARRITO VACÍO */
+
+.vacio{
+    background:#F5F2E8;
+    border-radius:25px;
+    padding:50px 20px;
+    text-align:center;
+}
+
+.vacio i{
+    font-size:50px;
+    margin-bottom:20px;
+}
+
+.vacio h2{
+    font-size:25px;
+    margin:10px 0;
+}
+
+.vacio p{
+    font-family:"Quicksand",sans-serif;
+}
+
+/* FOOTER */
+
+footer{
+    background:#F5F2E8;
+    padding:25px 15px;
+    width:100%;
+    box-sizing:border-box;
+    text-align:center;
+    margin-top:60px;
+    color:#7A6F60;
+    font-family:"Quicksand",sans-serif;
+}
+
+.redes{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    margin-bottom:10px;
+}
+
+.redes img{
+    width:35px;
+    transition:.2s;
+}
+
+.redes img:hover{
+    transform:translateY(-2px);
+}
+
+.redes a{
+    color:#A9C7E8;
+}
+
+/* CELULAR */
+
+@media(max-width:768px){
+
+    .header-detalle{
+        padding:15px 20px 20px;
+    }
+
+    .logo{
+        width:50px;
+    }
+
+    .texto{
+        font-size:28px;
+    }
+
+    .carrito{
+        right:18px;
+        top:15px;
+        transform:none;
+        font-size:18px;
+    }
+
+    .barra{
+        margin:0;
+    }
+
+    .menu{
+        flex-direction:column;
+    }
+
+    .producto-carrito{
+        flex-wrap:wrap;
+        justify-content:center;
+        text-align:center;
+    }
+
+    .info-producto{
+        width:calc(100% - 130px);
+    }
+
+    .cantidad{
+        width:100%;
+        justify-content:center;
+    }
+
+    .resumen{
+        text-align:center;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<header class="header-detalle">
+
+    <div class="logo-header">
+
+        <span class="texto">Made</span>
+
+        <img src="Ann.png" class="logo">
+
+        <span class="texto">by Annie</span>
+
+    </div>
+
+
+    <div class="barra">
+
+        <nav class="menu">
+
+            <a href="index.html">Inicio</a>
+
+            <a href="Productos.html">Productos</a>
+
+            <a href="Perzonaliza.html">Personalizar</a>
+
+        </nav>
+
+
+        <a href="Carrito.html" class="carrito">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            <span id="contador">0</span>
+
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<main class="contenedor">
+
+    <h1 class="titulo">
+        Mi carrito 🛒
+    </h1>
+
+
+    <div id="contenidoCarrito"></div>
+
+
+</main>
+
+
+
+<footer>
+
+    <div class="redes">
+
+        <a href="https://instagram.com/madebyannie.art" target="_blank">
+
+            <img src="Insta.png" alt="Instagram">
+
+        </a>
+
+
+        <a href="https://wa.me/593982906711" target="_blank">
+
+            <img src="Whats.png" alt="WhatsApp">
+
+        </a>
+
+    </div>
+
+    <p>•Ibarra•Ecuador</p>
+
+    © 2026 Made by Annie
+
+</footer>
+
+
+
+<script>
+
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+
+/* MOSTRAR CARRITO */
+
+function mostrarCarrito(){
+
+    const contenedor =
+        document.getElementById("contenidoCarrito");
+
+    const contador =
+        document.getElementById("contador");
+
+
+    /* CONTADOR */
+
+    let cantidadTotal = carrito.reduce(
+        (total, producto) =>
+        total + producto.cantidad,
+        0
+    );
+
+    contador.innerText = cantidadTotal;
+
+
+    /* CARRITO VACÍO */
+
+    if(carrito.length === 0){
+
+        contenedor.innerHTML = `
+
+            <div class="vacio">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <h2>Tu carrito está vacío</h2>
+
+                <p>
+                    Aquí aparecerán los productos
+                    que agregues.
+                </p>
+
+                <div class="botones">
+
+                    <a
+                    href="Productos.html"
+                    class="boton">
+
+                        Ver productos
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    let total = 0;
+
+
+    contenedor.innerHTML = "";
+
+
+    /* PRODUCTOS */
+
+    carrito.forEach((producto,index)=>{
+
+        total += producto.precio * producto.cantidad;
+
+
+        const elemento =
+        document.createElement("div");
+
+        elemento.className =
+        "producto-carrito";
+
+
+        elemento.innerHTML = `
+
+            <img
+                src="${producto.img}"
+                alt="${producto.nombre}"
+            >
+
+            <div class="info-producto">
+
+                <h3>
+                    ${producto.nombre}
+                </h3>
+
+                <p>
+                    ${producto.precioTexto}
+                </p>
+
+            </div>
+
+
+            <div class="cantidad">
+
+                <button
+                    onclick="cambiarCantidad(${index}, -1)">
+                    −
+                </button>
+
+                <span>
+                    ${producto.cantidad}
+                </span>
+
+                <button
+                    onclick="cambiarCantidad(${index}, 1)">
+                    +
+                </button>
+
+            </div>
+
+
+            <button
+                class="eliminar"
+                onclick="eliminarProducto(${index})">
+
+                <i class="fa-solid fa-trash"></i>
+
+            </button>
+
+        `;
+
+
+        contenedor.appendChild(elemento);
+
+    });
+
+
+    /* RESUMEN */
+
+    const resumen =
+    document.createElement("div");
+
+    resumen.className = "resumen";
+
+
+    resumen.innerHTML = `
+
+        <h3>
+
+            Total:
+
+            <span class="total">
+                $${total.toFixed(2)}
+            </span>
+
+        </h3>
+
+
+        <div class="botones">
+
+            <a
+                href="Productos.html"
+                class="boton">
+
+                Seguir comprando
+
+            </a>
+
+
+            <button
+                class="boton"
+                onclick="realizarPedido()">
+
+                Realizar pedido
+
+            </button>
+
+        </div>
+
+    `;
+
+
+    contenedor.appendChild(resumen);
+
+}
+
+
+/* CAMBIAR CANTIDAD */
+
+function cambiarCantidad(index, cambio){
+
+    carrito[index].cantidad += cambio;
+
+
+    if(carrito[index].cantidad <= 0){
+
+        carrito.splice(index,1);
+
+    }
+
+
+    guardarCarrito();
+
+}
+
+
+/* ELIMINAR */
+
+function eliminarProducto(index){
+
+    carrito.splice(index,1);
+
+    guardarCarrito();
+
+}
+
+
+function guardarCarrito(){
+
+    localStorage.setItem(
+        "carrito",
+        JSON.stringify(carrito)
+    );
+
+    mostrarCarrito();
+
+}
+
+function realizarPedido(){
+
+    if(carrito.length === 0){
+
+        return;
+
+    }
+
+
+    let mensaje =
+        "Hola! Quisiera realizar este pedido:%0A%0A";
+
+
+    let total = 0;
+
+
+    carrito.forEach(producto=>{
+
+        let subtotal =
+            producto.precio *
+            producto.cantidad;
+
+
+        total += subtotal;
+
+
+        mensaje +=
+            "• " +
+            producto.nombre +
+            " x" +
+            producto.cantidad +
+            " — $" +
+            subtotal.toFixed(2) +
+            "%0A";
+
+    });
+
+
+    mensaje +=
+        "%0A*Total: $" +
+        total.toFixed(2) +
+        "*";
+
+
+    window.open(
+        "https://wa.me/593982906711?text=" +
+        mensaje,
+        "_blank"
+    );
+
+}
+
+
+/* INICIAR */
+
+mostrarCarrito();
+
+</script>
+
+</body>
+</html>

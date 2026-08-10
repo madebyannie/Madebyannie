@@ -510,19 +510,22 @@ footer p{
     width:100%;
     display:flex;
     flex-direction:column;
-    align-items:center;
+    align-items:flex-start;
 }
 
 .info p{
-    max-width:90%;
+    max-width:100%;
 }
 
 .info h2,
 .info h3,
 .info p{
+    text-align:left;
+}
 
-    text-align:center;
-  }
+#estadoProducto{
+    justify-content:flex-start;
+}
 }
 
 </style>
@@ -598,7 +601,7 @@ footer p{
             nota..
         </p>
 
-        <a id="btnPedir" class="boton">Pedir</a>
+        <a id="btnPedir" class="boton">Agregar al carrito</a>
 
     </div>
 
@@ -739,13 +742,64 @@ function cambiar(img) {
     document.getElementById("principal").src = img.src;
 }
 
-document.getElementById("btnPedir").href =
+document.getElementById("btnPedir").onclick = function(){
 
-"Pedir.html?producto=" + encodeURIComponent(nombre)
+    let carrito =
+        JSON.parse(localStorage.getItem("carrito")) || [];
 
-+ "&img=" + encodeURIComponent(img1)
 
-+ "&desc=" + encodeURIComponent(desc);
+    let precioNumero =
+        parseFloat(
+            precio.replace(/[^0-9.]/g, "")
+        );
+
+
+    let productoExistente =
+        carrito.find(
+            producto => producto.nombre === nombre
+        );
+
+
+    if(productoExistente){
+
+        productoExistente.cantidad += 1;
+
+    }else{
+
+        carrito.push({
+
+            nombre: nombre,
+
+            precio: precioNumero,
+
+            precioTexto: precio,
+
+            img: img1,
+
+            desc: desc,
+
+            cantidad: 1
+
+        });
+
+    }
+
+
+    localStorage.setItem(
+        "carrito",
+        JSON.stringify(carrito)
+    );
+
+
+    actualizarContador();
+
+
+    alert(
+        nombre +
+        " se agregó al carrito 🛒"
+    );
+
+};
 
 function zoom(event) {
 
@@ -793,7 +847,27 @@ function abrirMenu(){
 
 }
 
+function actualizarContador(){
 
+    let carrito =
+        JSON.parse(localStorage.getItem("carrito")) || [];
+
+
+    let cantidad =
+        carrito.reduce(
+            (total, producto) =>
+            total + producto.cantidad,
+            0
+        );
+
+
+    document.querySelector(".carrito span").innerText =
+        cantidad;
+
+}
+
+
+actualizarContador();
 
 </script>
 
