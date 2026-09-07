@@ -585,12 +585,46 @@ footer p{
     <p class="ver-mas">Ver detalles</p>
 
     <p class="desc">
-    Set de dos pulseras elaboradas con hilo elástico de alta resistencia.Su diseño ofrece un ajuste cómodo y versátil, ideal para uso diario o como un regalo significativo para compartir. 
+   Set de dos pulseras elaboradas con hilo elástico de alta resistencia.Su diseño ofrece un ajuste cómodo y versatil, ideal para uso diario o para compartir un detalle único con tu persona favorita.
     </p>
 
  </div>
-</div>
+<div style="width: 100% ; flex-basis: 100%; height: 0; margin: 0; padding: 0;"><div/>
+<div class="card producto" style="margin-left: 550px; margin-bottom: 40px;"
 
+     onclick="verProducto(this)"
+
+     data-img1="rosario-portada.png"
+     data-img2="rosario-portada-1.png"
+     data-img3="rosario-detalle-2.png"
+     data-img4="rosario-detalle-3.png"
+     data-img5="rosario-detalle-4.png"
+
+     data-precio="$12.00"
+
+     data-unico="si"
+     data-nuevo="si"
+     data-proximamente="no"
+     data-pedido="no"
+     data-vendido="no">
+
+     <div class="etiquetas">
+        <span class="etiqueta nuevo">DISPONIBLE</span>
+        <span class="etiqueta unico">UNICO</span>
+    </div>
+
+    <img src="rosario-portada.png">
+
+    <h3 class="nombre">Vampire kiss</h3>
+
+    <div class="precio">$12.00</div>
+    <p class="ver-mas">Ver detalles</p>
+
+    <p class="desc">
+     Rosario estilo gótico con murciélago y cruz.Diseñado con broche de apertura,cadena regulable para ajistar el tamaño y una caída larga que llega más abajo del pecho.
+    </p>
+  </div>
+</div>
 <footer>
 <div class="redes">
 
@@ -624,6 +658,8 @@ function verProducto(card) {
 
     let img4 = card.getAttribute("data-img4");
 
+    let img5 = card.getAttribute("data-img5");
+
     let unico = card.getAttribute("data-unico");
 
     let vendido = card.getAttribute("data-vendido");
@@ -648,6 +684,8 @@ function verProducto(card) {
     + "&img3=" + encodeURIComponent(img3)
 
     + "&img4=" + encodeURIComponent(img4)
+
+    + "&img5=" + encodeURIComponent(img5)
 
     + "&unico=" + encodeURIComponent(unico)
 

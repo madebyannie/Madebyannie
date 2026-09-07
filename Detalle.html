@@ -45,6 +45,67 @@ body {
     cursor:pointer;
 }
 
+.recomendaciones {
+    width: min(1100px, 90%);
+    margin: 30px auto 40px;
+    box-sizing: border-box;
+}
+
+.recomendaciones h3 {
+    font-family: "Pacifico", cursive;
+    color: #7A6F60;
+    text-align: left;
+    margin: 0 0 18px;
+    font-size: 22px;
+}
+
+.productos-recomendados {
+    display: flex;
+    gap: 18px;
+    width: 100%;
+    overflow-x: auto;
+    padding: 5px 5px 12px;
+    box-sizing: border-box;
+}
+
+.recomendado {
+    min-width: 180px;
+    max-width: 180px;
+    background: #F5F2E8;
+    border-radius: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.recomendado:hover {
+    transform: translateY(-3px);
+}
+
+.recomendado img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.recomendado h4 {
+    font-family: "Quicksand", sans-serif;
+    color: #7A6F60;
+    font-size: 14px;
+    margin: 9px 2px 3px;
+    text-align: left;
+}
+
+.recomendado p {
+    font-family: "Quicksand", sans-serif;
+    color: #7A6F60;
+    font-size: 12px;
+    margin: 0 2px;
+    text-align: left;
+}
+
 .menu-btn{
 
     position:absolute;
@@ -298,6 +359,17 @@ footer p{
     margin:8px 0;
 } 
 
+.nota-producto {
+    font-family: "Quicksand", sans-serif;
+    text-align: left;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    color: #7A6F60;
+    font-size: 14px;
+}
+
 #estadoProducto {
     display: flex;
     justify-content: center;
@@ -436,6 +508,7 @@ footer p{
 
     font-size:20px;
 }
+
 
 .menu-btn{
 
@@ -593,19 +666,18 @@ footer p{
 
         <h3 id="precio"></h3>
 
-        <div id="estadoProducto"></div>
+       <div id="estadoProducto"></div>
 
-        <p id="desc"></p>
+    <p id="desc"></p>
 
-        <p class="nota">
-            nota..
-        </p>
+    <div id="nota-producto" class="nota-producto"></div>
 
-        <a id="btnPedir" class="boton">Agregar al carrito</a>
-
-    </div>
+    <a id="btnPedir" class="boton">Agregar al carrito</a> 
 
 </div>
+
+</div>
+
 <footer>
 
     <div class="redes">
@@ -641,6 +713,8 @@ let img2 = params.get("img2");
 let img3 = params.get("img3");
 
 let img4 = params.get("img4");
+
+let img5 = params.get("img5");
 
 let unico = params.get("unico");
 
@@ -708,7 +782,7 @@ if (nuevo == "si") {
 
     estado.innerHTML += `
     <span class="estado nuevoGrande">
-        NUEVO
+        DISPONIBLE
     </span>
     `;
 }
@@ -717,7 +791,7 @@ if (unico == "si") {
 
     estado.innerHTML += `
     <span class="estado unicoGrande">
-        PIEZA UNICA
+        UNICO
     </span>
     `;
 }
@@ -734,6 +808,41 @@ if (vendido == "si") {
 if (vendido == "si" || proximamente == "si" || pedido == "si") {
 
     document.getElementById("btnPedir").style.display = "none";
+
+}
+
+const notaProducto = document.getElementById("nota-producto");
+
+if (pedido == "si" && unico == "si") {
+
+    notaProducto.innerHTML = `
+        <strong>Nota:</strong>
+        Este diseño fue realizado bajo pedido y puede adaptarse
+        según las preferencias del cliente. Los colores, dijes y
+        otros detalles pueden variar de acuerdo con la personalización
+        solicitada.
+    `;
+
+} else if (pedido == "si") {
+
+    notaProducto.innerHTML = `
+        <strong>Nota:</strong>
+        Este producto se realiza bajo pedido. Algunos detalles del
+        diseño pueden adaptarse según las preferencias del cliente
+        y la disponibilidad de materiales.
+    `;
+
+} else if (unico == "si") {
+
+    notaProducto.innerHTML = `
+        <strong>Nota:</strong>
+        Esta pieza es única y no se encuentra disponible para
+        reproducción idéntica.
+    `;
+
+} else {
+
+    notaProducto.style.display = "none";
 
 }
 
@@ -846,12 +955,10 @@ function abrirMenu(){
     document.getElementById("menu").classList.toggle("activo");
 
 }
-
 function actualizarContador(){
 
     let carrito =
         JSON.parse(localStorage.getItem("carrito")) || [];
-
 
     let cantidad =
         carrito.reduce(
@@ -860,15 +967,11 @@ function actualizarContador(){
             0
         );
 
-
     document.querySelector(".carrito span").innerText =
         cantidad;
-
 }
 
-
 actualizarContador();
-
 </script>
 
 </body>
