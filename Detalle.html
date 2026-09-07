@@ -297,12 +297,23 @@ body {
     border-radius: 15px;
     font-family: "Quicksand", sans-serif;
     text-decoration: none;
+    cursor: pointer;
+    transition: .25s;
 }
 
 .boton:hover {
     background-color: #7A6F60;
 }
 
+.boton.deshabilitado {
+    background-color: #C8C8C8;
+    color: #F5F5F5;
+    cursor: not-allowed;
+}
+
+.boton.deshabilitado:hover {
+    background-color: #C8C8C8;
+}
 .galeria{
     width:40%;
     display:flex;
@@ -736,7 +747,7 @@ document.getElementById("principal").src = img1;
 
 const mini = document.getElementById("miniaturas");
 
-const imagenes = [img1, img2, img3, img4];
+const imagenes = [img1, img2, img3, img4, img5];
 
 imagenes.forEach(imagen => {
 
@@ -805,9 +816,16 @@ if (vendido == "si") {
     `;
 }
 
-if (vendido == "si" || proximamente == "si" || pedido == "si") {
+const btnPedir = document.getElementById("btnPedir");
 
-    document.getElementById("btnPedir").style.display = "none";
+if (
+    vendido == "si" ||
+    proximamente == "si" ||
+    pedido == "si"
+) {
+
+    btnPedir.classList.add("deshabilitado");
+    btnPedir.innerText = "No disponible";
 
 }
 
@@ -823,16 +841,29 @@ if (pedido == "si" && unico == "si") {
         solicitada.
     `;
 
-} else if (pedido == "si") {
+} else if (
+    nuevo == "si" &&
+    unico != "si" &&
+    vendido != "si" &&
+    pedido != "si" &&
+    proximamente != "si"
+) {
 
     notaProducto.innerHTML = `
         <strong>Nota:</strong>
-        Este producto se realiza bajo pedido. Algunos detalles del
-        diseño pueden adaptarse según las preferencias del cliente
-        y la disponibilidad de materiales.
+        Este diseño puede volver a realizarse según la disponibilidad
+        de materiales y las preferencias del cliente.
     `;
 
 } else if (unico == "si") {
+
+    notaProducto.innerHTML = `
+        <strong>Nota:</strong>
+        Esta pieza es única y no se encuentra disponible para
+        reproducción idéntica.
+    `;
+
+} else if (pedido == "si") {
 
     notaProducto.innerHTML = `
         <strong>Nota:</strong>
@@ -845,7 +876,6 @@ if (pedido == "si" && unico == "si") {
     notaProducto.style.display = "none";
 
 }
-
 function cambiar(img) {
 
     document.getElementById("principal").src = img.src;
@@ -853,21 +883,26 @@ function cambiar(img) {
 
 document.getElementById("btnPedir").onclick = function(){
 
+    if (
+        vendido == "si" ||
+        proximamente == "si" ||
+        pedido == "si"
+    ) {
+        return;
+    }
+
     let carrito =
         JSON.parse(localStorage.getItem("carrito")) || [];
-
 
     let precioNumero =
         parseFloat(
             precio.replace(/[^0-9.]/g, "")
         );
 
-
     let productoExistente =
         carrito.find(
             producto => producto.nombre === nombre
         );
-
 
     if(productoExistente){
 
@@ -893,15 +928,12 @@ document.getElementById("btnPedir").onclick = function(){
 
     }
 
-
     localStorage.setItem(
         "carrito",
         JSON.stringify(carrito)
     );
 
-
     actualizarContador();
-
 
     alert(
         nombre +

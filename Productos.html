@@ -6,7 +6,8 @@
 <link rel="icon" href="favicon.png">
 <title>Productos</title>
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&display=swap" rel="stylesheet">
-
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMHEYCXL32"></script>
 <script>
@@ -110,34 +111,44 @@ header {
 }
 
 .carrito{
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    transform: translateY(-50%);
-    text-decoration: none;
-    color: #7b6858;
-    font-size: 28px;
-    transition: 0.2s;
+    position:absolute;
+    right:15px;
+    top:50%;
+    transform:translateY(-50%);
+
+    color:#7A6F60;
+    font-size:22px;
+    text-decoration:none;
+
+    transition:.2s;
 }
 
 .carrito:hover{
-    color: #A9C7E8;
-    transform: scale(1.1);
+    color:#A9C7E8;
+    transform:translateY(-50%) scale(1.1);
 }
 
-.contador{
-    position: absolute;
-    top: -6px;
-    right: -8px;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: #A9C7E8;
-    color: white;
-    font-size: 11px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.carrito span{
+    position:absolute;
+
+    top:-8px;
+    right:-10px;
+
+    width:18px;
+    height:18px;
+
+    border-radius:50%;
+
+    background:#A9C7E8;
+    color:white;
+
+    font-family:"Quicksand", sans-serif;
+    font-size:10px;
+    font-weight:bold;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 .card {
@@ -321,6 +332,21 @@ footer p{
 
 @media (max-width: 600px) {
 
+   .carrito{
+    top:50%;
+    right:15px;
+    font-size:20px;
+    transform:translateY(-50%);
+}
+
+.carrito span{
+    width:16px;
+    height:16px;
+    font-size:8px;
+    top:-7px;
+    right:-9px;
+}
+
     nav {
         display: flex;
         justify-content: center;
@@ -413,9 +439,10 @@ footer p{
     <span class="texto">by Annie ₊⊹</span>
 </div>
 
-<div class="carrito">
+<a href="Carrito.html" class="carrito">
     <i class="fa-solid fa-cart-shopping"></i>
-</div>
+    <span class="contador" id="contadorCarrito">0</span>
+</a>
 
 </header>
 
@@ -589,6 +616,7 @@ footer p{
     </p>
 
  </div>
+
 <div class="card producto"
 
      onclick="verProducto(this)"
@@ -597,8 +625,7 @@ footer p{
      data-img2="rosario-portada-1.png"
      data-img3="rosario-detalle-2.png"
      data-img4="rosario-detalle-3.png"
-     data-img5="rosario-detalle-4.png"
-
+     
      data-precio="$12.00"
 
      data-unico="si"
@@ -700,6 +727,24 @@ function verProducto(card) {
 
     window.location.href = url;
 }
+
+function actualizarContador(){
+
+    let carrito =
+        JSON.parse(localStorage.getItem("carrito")) || [];
+
+    let cantidad =
+        carrito.reduce(
+            (total, producto) =>
+            total + producto.cantidad,
+            0
+        );
+
+    document.querySelector(".carrito span").innerText =
+        cantidad;
+}
+
+actualizarContador();
 
 </script>
 
