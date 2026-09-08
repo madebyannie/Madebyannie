@@ -1,1 +1,3590 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#DCEAF7">
+<link rel="manifest" href="manifest.json">
+
+<title>Costos | Made by Annie</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+/* =====================================================
+   COLORES
+===================================================== */
+
+:root{
+
+    --celeste:#DCEAF7;
+
+    --celeste-claro:#EEF6FD;
+
+    --crema:#F5F2E8;
+
+    --boton:#A9C7E8;
+
+    --cafe:#7A6F60;
+
+    --blanco:#FFFFFF;
+
+    --verde:#CFE8D5;
+
+    --verde-texto:#52745A;
+
+    --amarillo:#F7E6B5;
+
+    --amarillo-texto:#856F35;
+
+    --rojo:#E8C9C4;
+
+    --rojo-texto:#89534C;
+
+    --borde:#D7D0C5;
+
+    --sombra:rgba(122,111,96,.15);
+
+}
+
+
+/* =====================================================
+   GENERAL
+===================================================== */
+
+*{
+
+    box-sizing:border-box;
+
+}
+
+
+body{
+
+    margin:0;
+
+    padding:0;
+
+    background-color:var(--celeste);
+
+    color:var(--cafe);
+
+    font-family:"Quicksand",sans-serif;
+
+}
+
+
+button,
+input,
+select,
+textarea{
+
+    font-family:"Quicksand",sans-serif;
+
+}
+
+
+button{
+
+    cursor:pointer;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+
+    background-color:var(--crema);
+
+    padding:22px 15px;
+
+    text-align:center;
+
+    box-shadow:0 3px 10px var(--sombra);
+
+}
+
+
+.logo{
+
+    margin:0;
+
+    font-family:"Pacifico",cursive;
+
+    font-size:32px;
+
+}
+
+
+.subtitulo{
+
+    margin:5px 0 0;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+
+/* =====================================================
+   CONTENEDOR
+===================================================== */
+
+.contenedor{
+
+    width:92%;
+
+    max-width:1050px;
+
+    margin:30px auto 60px;
+
+}
+
+
+.titulo{
+
+    margin:0;
+
+    font-family:"Pacifico",cursive;
+
+    font-size:29px;
+
+    text-align:center;
+
+}
+
+
+.descripcion{
+
+    max-width:700px;
+
+    margin:8px auto 28px;
+
+    text-align:center;
+
+    font-size:14px;
+
+    line-height:1.6;
+
+}
+
+
+/* =====================================================
+   TARJETAS
+===================================================== */
+
+.tarjeta{
+
+    background-color:var(--crema);
+
+    border-radius:24px;
+
+    padding:25px;
+
+    margin-bottom:30px;
+
+    box-shadow:0 5px 15px var(--sombra);
+
+}
+
+
+.tarjeta-titulo{
+
+    margin-top:0;
+
+    margin-bottom:20px;
+
+    font-family:"Pacifico",cursive;
+
+    font-size:23px;
+
+}
+
+
+/* =====================================================
+   FORMULARIOS
+===================================================== */
+
+.campo{
+
+    margin-bottom:18px;
+
+}
+
+
+.campo label{
+
+    display:block;
+
+    margin-bottom:7px;
+
+    font-weight:700;
+
+}
+
+
+.campo input,
+.campo select,
+.campo textarea{
+
+    width:100%;
+
+    padding:13px;
+
+    border:2px solid var(--boton);
+
+    border-radius:13px;
+
+    outline:none;
+
+    background-color:white;
+
+    color:var(--cafe);
+
+    font-size:15px;
+
+}
+
+
+.campo textarea{
+
+    min-height:90px;
+
+    resize:vertical;
+
+}
+
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus{
+
+    border-color:var(--cafe);
+
+}
+
+
+.ayuda{
+
+    margin:6px 0 0;
+
+    font-size:12px;
+
+    opacity:.8;
+
+}
+
+
+.fila{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:16px;
+
+}
+
+
+/* =====================================================
+   BOTONES
+===================================================== */
+
+.btn-principal{
+
+    width:100%;
+
+    padding:14px 20px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background-color:var(--boton);
+
+    color:var(--cafe);
+
+    font-size:16px;
+
+    font-weight:700;
+
+    transition:.2s;
+
+}
+
+
+.btn-principal:hover{
+
+    background-color:var(--cafe);
+
+    color:white;
+
+}
+
+
+.btn-secundario{
+
+    padding:12px 18px;
+
+    border:none;
+
+    border-radius:13px;
+
+    background-color:var(--celeste);
+
+    color:var(--cafe);
+
+    font-weight:700;
+
+}
+
+
+.btn-peligro{
+
+    padding:12px 18px;
+
+    border:none;
+
+    border-radius:13px;
+
+    background-color:var(--rojo);
+
+    color:var(--cafe);
+
+    font-weight:700;
+
+}
+
+
+/* =====================================================
+   IMAGEN
+===================================================== */
+
+.zona-imagen{
+
+    padding:18px;
+
+    border:2px dashed var(--boton);
+
+    border-radius:17px;
+
+    background-color:var(--celeste-claro);
+
+    text-align:center;
+
+}
+
+
+.zona-imagen input{
+
+    border:none;
+
+    padding:0;
+
+    background:transparent;
+
+}
+
+
+.vista-previa{
+
+    display:none;
+
+    width:150px;
+
+    height:150px;
+
+    object-fit:cover;
+
+    margin:15px auto 0;
+
+    border-radius:20px;
+
+}
+
+
+/* =====================================================
+   RESUMEN
+===================================================== */
+
+.resumen{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:15px;
+
+    margin-bottom:30px;
+
+}
+
+
+.resumen-card{
+
+    padding:18px;
+
+    border-radius:19px;
+
+    background-color:var(--crema);
+
+    text-align:center;
+
+    box-shadow:0 4px 12px var(--sombra);
+
+}
+
+
+.resumen-icono{
+
+    font-size:27px;
+
+}
+
+
+.resumen-numero{
+
+    display:block;
+
+    margin-top:5px;
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+
+.resumen-texto{
+
+    font-size:12px;
+
+}
+
+
+/* =====================================================
+   MATERIALES
+===================================================== */
+
+.materiales{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,minmax(0,1fr));
+
+    gap:20px;
+
+}
+
+
+.material{
+
+    background-color:white;
+
+    border-radius:23px;
+
+    padding:20px;
+
+    box-shadow:0 4px 12px var(--sombra);
+
+}
+
+
+.imagen-material{
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
+
+    display:block;
+
+    margin-bottom:17px;
+
+    border-radius:19px;
+
+}
+
+
+.sin-imagen{
+
+    width:100%;
+
+    height:180px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-bottom:17px;
+
+    border-radius:19px;
+
+    background-color:var(--celeste-claro);
+
+    font-size:48px;
+
+}
+
+
+.material-nombre{
+
+    margin-bottom:5px;
+
+    font-family:"Pacifico",cursive;
+
+    font-size:23px;
+
+    text-align:center;
+
+}
+
+
+.categoria{
+
+    display:block;
+
+    margin-bottom:15px;
+
+    text-align:center;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    opacity:.75;
+
+}
+
+
+.dato{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:12px;
+
+    padding:9px 0;
+
+    border-bottom:1px dashed var(--borde);
+
+    font-size:14px;
+
+}
+
+
+.dato strong{
+
+    text-align:right;
+
+}
+
+
+.costo{
+
+    margin-top:16px;
+
+    padding:15px;
+
+    border-radius:17px;
+
+    background-color:var(--celeste-claro);
+
+    text-align:center;
+
+}
+
+
+.costo span{
+
+    display:block;
+
+    font-size:12px;
+
+}
+
+
+.costo strong{
+
+    display:block;
+
+    margin-top:4px;
+
+    font-size:25px;
+
+}
+
+
+.stock{
+
+    margin-top:12px;
+
+    padding:12px;
+
+    border-radius:14px;
+
+    text-align:center;
+
+    font-size:13px;
+
+    font-weight:700;
+
+}
+
+
+.stock-verde{
+
+    background-color:var(--verde);
+
+    color:var(--verde-texto);
+
+}
+
+
+.stock-amarillo{
+
+    background-color:var(--amarillo);
+
+    color:var(--amarillo-texto);
+
+}
+
+
+.stock-rojo{
+
+    background-color:var(--rojo);
+
+    color:var(--rojo-texto);
+
+}
+
+
+.notas{
+
+    margin-top:14px;
+
+    padding:12px;
+
+    border-radius:14px;
+
+    background-color:var(--crema);
+
+    font-size:13px;
+
+    line-height:1.5;
+
+}
+
+
+.acciones{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:10px;
+
+    margin-top:15px;
+
+}
+
+
+/* =====================================================
+   CALCULADORA
+===================================================== */
+
+.selector-material{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr auto;
+
+    gap:10px;
+
+    align-items:end;
+
+    margin-bottom:15px;
+
+    padding:15px;
+
+    border-radius:17px;
+
+    background-color:var(--celeste-claro);
+
+}
+
+
+.lista-uso{
+
+    margin-top:20px;
+
+}
+
+
+.uso{
+
+    display:grid;
+
+    grid-template-columns:1.5fr 1fr 1fr auto;
+
+    gap:10px;
+
+    align-items:center;
+
+    padding:13px;
+
+    margin-bottom:10px;
+
+    border-radius:15px;
+
+    background-color:white;
+
+    box-shadow:0 2px 7px var(--sombra);
+
+}
+
+
+.uso-nombre{
+
+    font-weight:700;
+
+}
+
+
+.uso-costo{
+
+    text-align:right;
+
+    font-weight:700;
+
+}
+
+
+.btn-quitar{
+
+    width:35px;
+
+    height:35px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background-color:var(--rojo);
+
+    color:var(--cafe);
+
+    font-weight:bold;
+
+}
+
+
+.resultado{
+
+    margin-top:25px;
+
+    padding:22px;
+
+    border-radius:21px;
+
+    background-color:var(--celeste-claro);
+
+}
+
+
+.resultado-linea{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:10px 0;
+
+    border-bottom:1px dashed var(--borde);
+
+}
+
+
+.resultado-total{
+
+    margin-top:12px;
+
+    padding:18px;
+
+    border-radius:17px;
+
+    background-color:white;
+
+    text-align:center;
+
+}
+
+
+.resultado-total span{
+
+    display:block;
+
+    font-size:13px;
+
+}
+
+
+.resultado-total strong{
+
+    display:block;
+
+    margin-top:5px;
+
+    font-size:30px;
+
+}
+
+
+.ganancia{
+
+    margin-top:12px;
+
+    padding:18px;
+
+    border-radius:17px;
+
+    background-color:var(--verde);
+
+    text-align:center;
+
+}
+
+
+.ganancia strong{
+
+    display:block;
+
+    font-size:28px;
+
+}
+
+
+/* =====================================================
+   PRODUCTOS GUARDADOS
+===================================================== */
+
+.productos{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,minmax(0,1fr));
+
+    gap:20px;
+
+}
+
+
+.producto{
+
+    background-color:white;
+
+    border-radius:23px;
+
+    padding:20px;
+
+    box-shadow:0 4px 12px var(--sombra);
+
+}
+
+
+.imagen-producto{
+
+    width:100%;
+
+    height:230px;
+
+    object-fit:cover;
+
+    border-radius:18px;
+
+    margin-bottom:15px;
+
+}
+
+
+.producto-sin-imagen{
+
+    width:100%;
+
+    height:180px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:18px;
+
+    margin-bottom:15px;
+
+    background-color:var(--celeste-claro);
+
+    font-size:50px;
+
+}
+
+
+.producto-nombre{
+
+    font-family:"Pacifico",cursive;
+
+    font-size:23px;
+
+    text-align:center;
+
+}
+
+
+.producto-precio{
+
+    margin-top:15px;
+
+    padding:15px;
+
+    border-radius:16px;
+
+    background-color:var(--celeste-claro);
+
+    text-align:center;
+
+}
+
+
+.producto-precio strong{
+
+    display:block;
+
+    font-size:28px;
+
+}
+
+
+.producto-ganancia{
+
+    margin-top:10px;
+
+    padding:12px;
+
+    border-radius:14px;
+
+    background-color:var(--verde);
+
+    text-align:center;
+
+    font-weight:700;
+
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:1000;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background-color:rgba(0,0,0,.35);
+
+}
+
+
+.modal.activo{
+
+    display:flex;
+
+}
+
+
+.modal-contenido{
+
+    width:100%;
+
+    max-width:600px;
+
+    max-height:90vh;
+
+    overflow-y:auto;
+
+    padding:25px;
+
+    border-radius:24px;
+
+    background-color:var(--crema);
+
+}
+
+
+.modal-cabecera{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+
+.modal-titulo{
+
+    margin:0;
+
+    font-family:"Pacifico",cursive;
+
+}
+
+
+.btn-cerrar{
+
+    width:40px;
+
+    height:40px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background-color:var(--boton);
+
+    color:var(--cafe);
+
+    font-size:20px;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    padding:25px 15px;
+
+    background-color:var(--crema);
+
+    text-align:center;
+
+    font-size:13px;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:750px){
+
+    .materiales,
+    .productos{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .selector-material{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .uso{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+
+    .uso-costo{
+
+        text-align:left;
+
+    }
+
+
+    .resumen{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+@media(max-width:500px){
+
+    .fila{
+
+        grid-template-columns:1fr;
+
+        gap:0;
+
+    }
+
+
+    .acciones{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .contenedor{
+
+        width:94%;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h1 class="logo" id="logoSecreto" title="">
+        Made by Annie
+    </h1>
+
+    <p class="subtitulo">
+        🌷 Mi calculadora de costos
+    </p>
+
+</header>
+
+
+<main class="contenedor" id="contenidoApp" style="display:none;">
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<h2 class="titulo">
+    Mis materiales 🧵
+</h2>
+
+<p class="descripcion">
+
+    Guarda tus materiales y sus precios para saber
+    exactamente cuánto cuesta fabricar cada producto.
+
+</p>
+
+
+<!-- =====================================================
+     RESUMEN
+===================================================== -->
+
+<section class="resumen">
+
+    <div class="resumen-card">
+
+        <div class="resumen-icono">
+            📦
+        </div>
+
+        <span
+            id="totalMateriales"
+            class="resumen-numero"
+        >
+            0
+        </span>
+
+        <span class="resumen-texto">
+            Materiales
+        </span>
+
+    </div>
+
+
+    <div class="resumen-card">
+
+        <div class="resumen-icono">
+            🟢
+        </div>
+
+        <span
+            id="stockDisponible"
+            class="resumen-numero"
+        >
+            0
+        </span>
+
+        <span class="resumen-texto">
+            Con stock
+        </span>
+
+    </div>
+
+
+    <div class="resumen-card">
+
+        <div class="resumen-icono">
+            🛒
+        </div>
+
+        <span
+            id="stockBajo"
+            class="resumen-numero"
+        >
+            0
+        </span>
+
+        <span class="resumen-texto">
+            Stock bajo
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     AGREGAR MATERIAL
+===================================================== -->
+
+<section class="tarjeta">
+
+<h2 class="tarjeta-titulo">
+    📦 Agregar material
+</h2>
+
+
+<div class="campo">
+
+<label>
+    Nombre del material
+</label>
+
+<input
+    type="text"
+    id="nombre"
+    placeholder="Ej: Cadena dorada"
+>
+
+</div>
+
+
+<div class="campo">
+
+<label>
+    Categoría
+</label>
+
+<select id="categoria">
+
+<option>Mullos y cuentas</option>
+
+<option>Cadenas</option>
+
+<option>Hilos</option>
+
+<option>Dijes</option>
+
+<option>Argollas y piezas</option>
+
+<option>Arcilla</option>
+
+<option>Pintura</option>
+
+<option>Resina</option>
+
+<option>Empaque</option>
+
+<option>Otros</option>
+
+</select>
+
+</div>
+
+
+<div class="campo">
+
+<label>
+    📷 Foto del material
+</label>
+
+<div class="zona-imagen">
+
+<input
+    type="file"
+    id="imagen"
+    accept="image/*"
+    onchange="previsualizarImagen(event)"
+>
+
+<img
+    id="vistaPrevia"
+    class="vista-previa"
+    alt="Vista previa"
+>
+
+</div>
+
+</div>
+
+
+<div class="fila">
+
+<div class="campo">
+
+<label>
+    💵 Precio de compra
+</label>
+
+<input
+    type="number"
+    id="precio"
+    min="0"
+    step="0.01"
+    placeholder="3.00"
+>
+
+</div>
+
+
+<div class="campo">
+
+<label>
+    📦 Cantidad comprada
+</label>
+
+<input
+    type="number"
+    id="cantidad"
+    min="0"
+    step="0.01"
+    placeholder="2"
+>
+
+</div>
+
+</div>
+
+
+<div class="campo">
+
+<label>
+    📏 Unidad
+</label>
+
+<select id="unidad">
+
+<option value="unidades">
+    Unidades / piezas
+</option>
+
+<option value="metros">
+    Metros
+</option>
+
+<option value="centimetros">
+    Centímetros
+</option>
+
+<option value="gramos">
+    Gramos
+</option>
+
+<option value="kilogramos">
+    Kilogramos
+</option>
+
+<option value="mililitros">
+    Mililitros
+</option>
+
+<option value="litros">
+    Litros
+</option>
+
+</select>
+
+</div>
+
+
+<div class="campo">
+
+<label>
+    ⚠️ Stock mínimo
+</label>
+
+<input
+    type="number"
+    id="stockMinimo"
+    min="0"
+    step="0.01"
+    value="1"
+>
+
+</div>
+
+
+<div class="campo">
+
+<label>
+    📝 Notas
+</label>
+
+<textarea
+    id="notas"
+    placeholder="Ej: Cadena dorada brillante"
+></textarea>
+
+</div>
+
+
+<button
+    class="btn-principal"
+    onclick="guardarMaterial()"
+>
+
+✨ Guardar material
+
+</button>
+
+</section>
+
+
+<!-- =====================================================
+     MIS MATERIALES
+===================================================== -->
+
+<section>
+
+<h2 class="titulo">
+    📋 Mis materiales
+</h2>
+
+<br>
+
+<div
+    id="listaMateriales"
+    class="materiales"
+></div>
+
+</section>
+
+
+<br><br>
+
+
+<!-- =====================================================
+     CALCULADORA DE PRODUCTO
+===================================================== -->
+
+<section class="tarjeta">
+
+<h2 class="tarjeta-titulo">
+    🧁 Calcular producto
+</h2>
+
+
+<p class="descripcion">
+
+    Arma tu producto seleccionando los materiales
+    y colocando cuánto utilizaste de cada uno.
+
+</p>
+
+
+<div class="campo">
+
+<label>
+    🧁 Nombre del producto
+</label>
+
+<input
+    type="text"
+    id="nombreProducto"
+    placeholder="Ej: Manilla Ocean Mist"
+>
+
+</div>
+
+
+<div class="campo">
+
+<label>
+    📷 Foto del producto
+</label>
+
+<div class="zona-imagen">
+
+<input
+    type="file"
+    id="imagenProducto"
+    accept="image/*"
+    onchange="previsualizarProducto(event)"
+>
+
+<img
+    id="vistaProducto"
+    class="vista-previa"
+    alt="Vista previa producto"
+>
+
+</div>
+
+</div>
+
+
+<h3>
+    🧵 Materiales utilizados
+</h3>
+
+
+<div class="selector-material">
+
+
+<div class="campo">
+
+<label>
+    Material
+</label>
+
+<select id="materialSeleccionado">
+
+<option value="">
+    Selecciona un material
+</option>
+
+</select>
+
+</div>
+
+
+<div class="campo">
+
+<label>
+    Cantidad
+</label>
+
+<input
+    type="number"
+    id="cantidadUsada"
+    min="0"
+    step="0.001"
+    placeholder="35"
+>
+
+</div>
+
+
+<div class="campo">
+
+<label>
+    Unidad
+</label>
+
+<select id="unidadUsada">
+
+<option value="unidades">
+    unidades
+</option>
+
+<option value="metros">
+    metros
+</option>
+
+<option value="centimetros">
+    cm
+</option>
+
+<option value="gramos">
+    gramos
+</option>
+
+<option value="kilogramos">
+    kg
+</option>
+
+<option value="mililitros">
+    ml
+</option>
+
+<option value="litros">
+    L
+</option>
+
+</select>
+
+</div>
+
+
+<button
+    class="btn-secundario"
+    onclick="agregarMaterialAlProducto()"
+>
+    ➕ Agregar
+</button>
+
+</div>
+
+
+<div
+    id="listaUso"
+    class="lista-uso"
+></div>
+
+
+<!-- MANO DE OBRA -->
+
+<h3>
+    👩🏻‍🎨 Mano de obra
+</h3>
+
+
+<div class="fila">
+
+
+<div class="campo">
+
+<label>
+    Tiempo trabajado (minutos)
+</label>
+
+<input
+    type="number"
+    id="minutosTrabajo"
+    min="0"
+    step="1"
+    value="30"
+    oninput="calcularProducto()"
+>
+
+</div>
+
+
+<div class="campo">
+
+<label>
+    ¿Cuánto quieres ganar por hora?
+</label>
+
+<input
+    type="number"
+    id="precioHora"
+    min="0"
+    step="0.01"
+    value="3"
+    oninput="calcularProducto()"
+>
+
+</div>
+
+</div>
+
+
+<!-- EMPAQUE -->
+
+<div class="campo">
+
+<label>
+    📦 Costo del empaque
+</label>
+
+<input
+    type="number"
+    id="costoEmpaque"
+    min="0"
+    step="0.01"
+    value="0"
+    oninput="calcularProducto()"
+>
+
+</div>
+
+
+<!-- PRECIO VENTA -->
+
+<div class="campo">
+
+<label>
+    💰 Precio de venta
+</label>
+
+<input
+    type="number"
+    id="precioVenta"
+    min="0"
+    step="0.01"
+    placeholder="Ej: 6.00"
+    oninput="calcularProducto()"
+>
+
+</div>
+
+
+<!-- RESULTADO -->
+
+<div class="resultado">
+
+
+<div class="resultado-linea">
+
+<span>
+    🧵 Materiales
+</span>
+
+<strong id="resultadoMateriales">
+    $0.00
+</strong>
+
+</div>
+
+
+<div class="resultado-linea">
+
+<span>
+    👩🏻‍🎨 Mano de obra
+</span>
+
+<strong id="resultadoManoObra">
+    $0.00
+</strong>
+
+</div>
+
+
+<div class="resultado-linea">
+
+<span>
+    📦 Empaque
+</span>
+
+<strong id="resultadoEmpaque">
+    $0.00
+</strong>
+
+</div>
+
+
+<div class="resultado-total">
+
+<span>
+    💗 COSTO TOTAL
+</span>
+
+<strong id="resultadoTotal">
+    $0.00
+</strong>
+
+</div>
+
+
+<div class="ganancia">
+
+<span>
+    ✨ GANANCIA
+</span>
+
+<strong id="resultadoGanancia">
+    $0.00
+</strong>
+
+<div id="resultadoMargen">
+    Margen: 0%
+</div>
+
+</div>
+
+
+</div>
+
+
+<br>
+
+
+<button
+    class="btn-principal"
+    onclick="guardarProducto()"
+>
+
+💾 Guardar producto
+
+</button>
+
+
+<br><br>
+
+
+<button
+    class="btn-secundario"
+    onclick="fabricarProducto()"
+>
+
+🧵 Fabricar y descontar materiales
+
+</button>
+
+</section>
+
+
+<!-- =====================================================
+     MIS PRODUCTOS
+===================================================== -->
+
+<section>
+
+<h2 class="titulo">
+    🧁 Mis productos
+</h2>
+
+<br>
+
+<div
+    id="listaProductos"
+    class="productos"
+></div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+Made with ♡ by Annie
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let materiales =
+JSON.parse(
+localStorage.getItem(
+"materialesMadeByAnnieV3"
+)
+) || [];
+
+
+let productos =
+JSON.parse(
+localStorage.getItem(
+"productosMadeByAnnieV3"
+)
+) || [];
+
+
+let imagenMaterial = "";
+
+let imagenProducto = "";
+
+let materialesProducto = [];
+
+
+/* =====================================================
+   INICIO
+===================================================== */
+
+mostrarMateriales();
+
+mostrarProductos();
+
+actualizarResumen();
+
+actualizarSelectorMateriales();
+
+
+/* =====================================================
+   IMAGEN MATERIAL
+===================================================== */
+
+function previsualizarImagen(event){
+
+const archivo =
+event.target.files[0];
+
+if(!archivo) return;
+
+const lector =
+new FileReader();
+
+lector.onload=function(e){
+
+imagenMaterial=e.target.result;
+
+const imagen =
+document.getElementById(
+"vistaPrevia"
+);
+
+imagen.src=
+imagenMaterial;
+
+imagen.style.display=
+"block";
+
+};
+
+lector.readAsDataURL(archivo);
+
+}
+
+
+/* =====================================================
+   IMAGEN PRODUCTO
+===================================================== */
+
+function previsualizarProducto(event){
+
+const archivo =
+event.target.files[0];
+
+if(!archivo) return;
+
+const lector =
+new FileReader();
+
+lector.onload=function(e){
+
+imagenProducto=e.target.result;
+
+const imagen =
+document.getElementById(
+"vistaProducto"
+);
+
+imagen.src=
+imagenProducto;
+
+imagen.style.display=
+"block";
+
+};
+
+lector.readAsDataURL(archivo);
+
+}
+
+
+/* =====================================================
+   CONVERSION
+===================================================== */
+
+function convertirAUnidadBase(
+cantidad,
+unidad
+){
+
+if(unidad==="centimetros")
+return cantidad/100;
+
+if(unidad==="gramos")
+return cantidad/1000;
+
+if(unidad==="mililitros")
+return cantidad/1000;
+
+return cantidad;
+
+}
+
+
+/* =====================================================
+   CONVERSION DESDE BASE
+===================================================== */
+
+function convertirDesdeBase(
+cantidad,
+unidad
+){
+
+if(unidad==="centimetros")
+return cantidad*100;
+
+if(unidad==="gramos")
+return cantidad*1000;
+
+if(unidad==="mililitros")
+return cantidad*1000;
+
+return cantidad;
+
+}
+
+
+/* =====================================================
+   GUARDAR DATOS
+===================================================== */
+
+function guardarDatos(){
+
+localStorage.setItem(
+"materialesMadeByAnnieV3",
+JSON.stringify(materiales)
+);
+
+}
+
+
+/* =====================================================
+   GUARDAR MATERIAL
+===================================================== */
+
+function guardarMaterial(){
+
+const nombre =
+document
+.getElementById("nombre")
+.value
+.trim();
+
+
+const categoria =
+document
+.getElementById("categoria")
+.value;
+
+
+const precio =
+parseFloat(
+document
+.getElementById("precio")
+.value
+);
+
+
+const cantidad =
+parseFloat(
+document
+.getElementById("cantidad")
+.value
+);
+
+
+const unidad =
+document
+.getElementById("unidad")
+.value;
+
+
+const stockMinimo =
+parseFloat(
+document
+.getElementById("stockMinimo")
+.value
+);
+
+
+const notas =
+document
+.getElementById("notas")
+.value
+.trim();
+
+
+if(!nombre){
+
+alert(
+"🌷 Escribe el nombre del material."
+);
+
+return;
+
+}
+
+
+if(
+isNaN(precio) ||
+precio<=0
+){
+
+alert(
+"💗 Escribe un precio válido."
+);
+
+return;
+
+}
+
+
+if(
+isNaN(cantidad) ||
+cantidad<=0
+){
+
+alert(
+"💗 Escribe una cantidad válida."
+);
+
+return;
+
+}
+
+
+const cantidadBase =
+convertirAUnidadBase(
+cantidad,
+unidad
+);
+
+
+const material={
+
+id:Date.now(),
+
+nombre:nombre,
+
+categoria:categoria,
+
+precio:precio,
+
+cantidadComprada:cantidad,
+
+unidadOriginal:unidad,
+
+cantidadBase:cantidadBase,
+
+stock:cantidadBase,
+
+stockMinimo:
+convertirAUnidadBase(
+stockMinimo || 0,
+unidad
+),
+
+costoUnitario:
+precio/cantidadBase,
+
+imagen:
+imagenMaterial,
+
+notas:notas
+
+};
+
+
+materiales.push(material);
+
+
+guardarDatos();
+
+mostrarMateriales();
+
+actualizarResumen();
+
+actualizarSelectorMateriales();
+
+limpiarMaterial();
+
+
+alert(
+"✨ ¡Material guardado!"
+);
+
+}
+
+
+/* =====================================================
+   MOSTRAR MATERIALES
+===================================================== */
+
+function mostrarMateriales(){
+
+const lista =
+document.getElementById(
+"listaMateriales"
+);
+
+
+lista.innerHTML="";
+
+
+if(materiales.length===0){
+
+lista.innerHTML=`
+
+<div class="material">
+
+<div class="sin-imagen">
+📦
+</div>
+
+<div class="material-nombre">
+Todavía no tienes materiales
+</div>
+
+<p style="text-align:center">
+Agrega tu primer material arriba ✨
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+materiales.forEach(
+material=>{
+
+let imagenHTML=
+material.imagen
+?
+`
+<img
+src="${material.imagen}"
+class="imagen-material"
+>
+`
+:
+`
+<div class="sin-imagen">
+📦
+</div>
+`;
+
+
+let clase="stock-verde";
+
+let estado="🟢 Stock suficiente";
+
+
+if(material.stock<=0){
+
+clase="stock-rojo";
+
+estado="🔴 Agotado";
+
+}
+
+else if(
+material.stock<=material.stockMinimo
+){
+
+clase="stock-amarillo";
+
+estado="🟡 Stock bajo";
+
+}
+
+
+lista.innerHTML+=`
+
+<article class="material">
+
+${imagenHTML}
+
+<div class="material-nombre">
+
+${escapar(material.nombre)}
+
+</div>
+
+<span class="categoria">
+
+${escapar(material.categoria)}
+
+</span>
+
+
+<div class="dato">
+
+<span>
+💵 Precio
+</span>
+
+<strong>
+$${material.precio.toFixed(2)}
+</strong>
+
+</div>
+
+
+<div class="dato">
+
+<span>
+📦 Compraste
+</span>
+
+<strong>
+${formatear(
+material.cantidadComprada
+)}
+${unidadCorta(
+material.unidadOriginal
+)}
+</strong>
+
+</div>
+
+
+<div class="dato">
+
+<span>
+📊 Stock
+</span>
+
+<strong>
+${mostrarStock(material)}
+</strong>
+
+</div>
+
+
+<div class="costo">
+
+<span>
+Costo por ${unidadSingular(
+material.unidadOriginal
+)}
+</span>
+
+<strong>
+$${material.costoUnitario.toFixed(4)}
+</strong>
+
+</div>
+
+
+<div class="stock ${clase}">
+
+${estado}
+
+</div>
+
+
+${
+material.notas
+?
+`
+<div class="notas">
+📝 ${escapar(material.notas)}
+</div>
+`
+:""
+}
+
+
+<div class="acciones">
+
+<button
+class="btn-secundario"
+onclick="editarMaterial(${material.id})"
+>
+✏️ Editar
+</button>
+
+
+<button
+class="btn-peligro"
+onclick="eliminarMaterial(${material.id})"
+>
+🗑️ Eliminar
+</button>
+
+</div>
+
+</article>
+
+`;
+
+});
+
+}
+
+
+/* =====================================================
+   MOSTRAR STOCK
+===================================================== */
+
+function mostrarStock(material){
+
+return
+formatear(
+convertirDesdeBase(
+material.stock,
+material.unidadOriginal
+)
+)
++
+" "
++
+unidadCorta(
+material.unidadOriginal
+);
+
+}
+
+
+/* =====================================================
+   UNIDADES
+===================================================== */
+
+function unidadCorta(unidad){
+
+const mapa={
+
+unidades:"uds",
+
+metros:"m",
+
+centimetros:"cm",
+
+gramos:"g",
+
+kilogramos:"kg",
+
+mililitros:"ml",
+
+litros:"L"
+
+};
+
+return mapa[unidad] || unidad;
+
+}
+
+
+function unidadSingular(unidad){
+
+const mapa={
+
+unidades:"unidad",
+
+metros:"metro",
+
+centimetros:"cm",
+
+gramos:"g",
+
+kilogramos:"kg",
+
+mililitros:"ml",
+
+litros:"L"
+
+};
+
+return mapa[unidad] || unidad;
+
+}
+
+
+/* =====================================================
+   FORMATEAR
+===================================================== */
+
+function formatear(numero){
+
+return Number(
+numero.toFixed(3)
+);
+
+}
+
+
+/* =====================================================
+   EDITAR MATERIAL
+===================================================== */
+
+function editarMaterial(id){
+
+const material =
+materiales.find(
+m=>m.id===id
+);
+
+if(!material) return;
+
+
+const nuevoNombre =
+prompt(
+"Nombre del material:",
+material.nombre
+);
+
+if(
+nuevoNombre===null
+) return;
+
+
+const nuevoPrecio =
+parseFloat(
+prompt(
+"Precio de compra:",
+material.precio
+)
+);
+
+
+if(
+isNaN(nuevoPrecio) ||
+nuevoPrecio<=0
+){
+
+alert(
+"Precio inválido."
+);
+
+return;
+
+}
+
+
+material.nombre=
+nuevoNombre.trim();
+
+material.precio=
+nuevoPrecio;
+
+material.costoUnitario=
+nuevoPrecio/
+material.cantidadBase;
+
+
+guardarDatos();
+
+mostrarMateriales();
+
+actualizarSelectorMateriales();
+
+}
+
+
+/* =====================================================
+   ELIMINAR MATERIAL
+===================================================== */
+
+function eliminarMaterial(id){
+
+const material=
+materiales.find(
+m=>m.id===id
+);
+
+if(!material) return;
+
+
+if(
+!confirm(
+`¿Eliminar "${material.nombre}"?`
+)
+) return;
+
+
+materiales=
+materiales.filter(
+m=>m.id!==id
+);
+
+
+guardarDatos();
+
+mostrarMateriales();
+
+actualizarResumen();
+
+actualizarSelectorMateriales();
+
+}
+
+
+/* =====================================================
+   RESUMEN
+===================================================== */
+
+function actualizarResumen(){
+
+document.getElementById(
+"totalMateriales"
+).textContent=
+materiales.length;
+
+
+document.getElementById(
+"stockDisponible"
+).textContent=
+materiales.filter(
+m=>m.stock>0
+).length;
+
+
+document.getElementById(
+"stockBajo"
+).textContent=
+materiales.filter(
+m=>
+m.stock>0 &&
+m.stock<=m.stockMinimo
+).length;
+
+}
+
+
+/* =====================================================
+   SELECTOR MATERIAL
+===================================================== */
+
+function actualizarSelectorMateriales(){
+
+const select=
+document.getElementById(
+"materialSeleccionado"
+);
+
+
+select.innerHTML=`
+
+<option value="">
+Selecciona un material
+</option>
+
+`;
+
+
+materiales.forEach(
+material=>{
+
+select.innerHTML+=`
+
+<option value="${material.id}">
+
+${escapar(material.nombre)}
+
+</option>
+
+`;
+
+});
+
+}
+
+
+/* =====================================================
+   AGREGAR MATERIAL AL PRODUCTO
+===================================================== */
+
+function agregarMaterialAlProducto(){
+
+const id=
+parseInt(
+document
+.getElementById(
+"materialSeleccionado"
+)
+.value
+);
+
+
+const cantidad=
+parseFloat(
+document
+.getElementById(
+"cantidadUsada"
+)
+.value
+);
+
+
+const unidad=
+document
+.getElementById(
+"unidadUsada"
+)
+.value;
+
+
+if(!id){
+
+alert(
+"🩵 Selecciona un material."
+);
+
+return;
+
+}
+
+
+if(
+isNaN(cantidad) ||
+cantidad<=0
+){
+
+alert(
+"🩵 Escribe una cantidad válida."
+);
+
+return;
+
+}
+
+
+const material=
+materiales.find(
+m=>m.id===id
+);
+
+
+if(!material) return;
+
+
+const cantidadBase=
+convertirAUnidadBase(
+cantidad,
+unidad
+);
+
+
+const costo=
+cantidadBase*
+material.costoUnitario;
+
+
+materialesProducto.push({
+
+id:Date.now(),
+
+materialId:id,
+
+nombre:material.nombre,
+
+cantidad:cantidad,
+
+unidad:unidad,
+
+cantidadBase:cantidadBase,
+
+costo:costo
+
+});
+
+
+mostrarMaterialesProducto();
+
+calcularProducto();
+
+
+document.getElementById(
+"cantidadUsada"
+).value="";
+
+}
+
+
+/* =====================================================
+   MOSTRAR MATERIALES PRODUCTO
+===================================================== */
+
+function mostrarMaterialesProducto(){
+
+const lista=
+document.getElementById(
+"listaUso"
+);
+
+
+lista.innerHTML="";
+
+
+materialesProducto.forEach(
+(item,index)=>{
+
+lista.innerHTML+=`
+
+<div class="uso">
+
+<div class="uso-nombre">
+
+🧵 ${escapar(item.nombre)}
+
+</div>
+
+
+<div>
+
+${formatear(item.cantidad)}
+${unidadCorta(item.unidad)}
+
+</div>
+
+
+<div class="uso-costo">
+
+$${item.costo.toFixed(2)}
+
+</div>
+
+
+<button
+class="btn-quitar"
+onclick="quitarMaterialProducto(${index})"
+>
+×
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+
+/* =====================================================
+   QUITAR MATERIAL
+===================================================== */
+
+function quitarMaterialProducto(index){
+
+materialesProducto.splice(
+index,
+1
+);
+
+mostrarMaterialesProducto();
+
+calcularProducto();
+
+}
+
+
+/* =====================================================
+   CALCULAR PRODUCTO
+===================================================== */
+
+function calcularProducto(){
+
+let costoMateriales=0;
+
+
+materialesProducto.forEach(
+item=>{
+
+costoMateriales+=
+item.costo;
+
+});
+
+
+const minutos=
+parseFloat(
+document
+.getElementById(
+"minutosTrabajo"
+)
+.value
+) || 0;
+
+
+const precioHora=
+parseFloat(
+document
+.getElementById(
+"precioHora"
+)
+.value
+) || 0;
+
+
+const empaque=
+parseFloat(
+document
+.getElementById(
+"costoEmpaque"
+)
+.value
+) || 0;
+
+
+const precioVenta=
+parseFloat(
+document
+.getElementById(
+"precioVenta"
+)
+.value
+) || 0;
+
+
+const manoObra=
+(minutos/60)*
+precioHora;
+
+
+const total=
+costoMateriales+
+manoObra+
+empaque;
+
+
+const ganancia=
+precioVenta-total;
+
+
+let margen=0;
+
+
+if(precioVenta>0){
+
+margen=
+(ganancia/
+precioVenta)*
+100;
+
+}
+
+
+document.getElementById(
+"resultadoMateriales"
+).textContent=
+"$"+
+costoMateriales.toFixed(2);
+
+
+document.getElementById(
+"resultadoManoObra"
+).textContent=
+"$"+
+manoObra.toFixed(2);
+
+
+document.getElementById(
+"resultadoEmpaque"
+).textContent=
+"$"+
+empaque.toFixed(2);
+
+
+document.getElementById(
+"resultadoTotal"
+).textContent=
+"$"+
+total.toFixed(2);
+
+
+document.getElementById(
+"resultadoGanancia"
+).textContent=
+"$"+
+ganancia.toFixed(2);
+
+
+document.getElementById(
+"resultadoMargen"
+).textContent=
+"Margen: "+
+margen.toFixed(1)+
+"%";
+
+}
+
+
+/* =====================================================
+   GUARDAR PRODUCTO
+===================================================== */
+
+function guardarProducto(){
+
+const nombre=
+document
+.getElementById(
+"nombreProducto"
+)
+.value
+.trim();
+
+
+if(!nombre){
+
+alert(
+"🧁 Escribe el nombre del producto."
+);
+
+return;
+
+}
+
+
+if(
+materialesProducto.length===0
+){
+
+alert(
+"🧵 Agrega al menos un material."
+);
+
+return;
+
+}
+
+
+const minutos=
+parseFloat(
+document
+.getElementById(
+"minutosTrabajo"
+)
+.value
+) || 0;
+
+
+const precioHora=
+parseFloat(
+document
+.getElementById(
+"precioHora"
+)
+.value
+) || 0;
+
+
+const empaque=
+parseFloat(
+document
+.getElementById(
+"costoEmpaque"
+)
+.value
+) || 0;
+
+
+const precioVenta=
+parseFloat(
+document
+.getElementById(
+"precioVenta"
+)
+.value
+) || 0;
+
+
+const materialesCosto=
+materialesProducto.reduce(
+(total,item)=>
+total+item.costo,
+0
+);
+
+
+const manoObra=
+(minutos/60)*
+precioHora;
+
+
+const costoTotal=
+materialesCosto+
+manoObra+
+empaque;
+
+
+const ganancia=
+precioVenta-
+costoTotal;
+
+
+const producto={
+
+id:Date.now(),
+
+nombre:nombre,
+
+imagen:
+imagenProducto,
+
+materiales:
+[...materialesProducto],
+
+minutos:minutos,
+
+precioHora:precioHora,
+
+empaque:empaque,
+
+precioVenta:precioVenta,
+
+costoMateriales:
+materialesCosto,
+
+manoObra:
+manoObra,
+
+costoTotal:
+costoTotal,
+
+ganancia:
+ganancia
+
+};
+
+
+productos.push(producto);
+
+
+localStorage.setItem(
+"productosMadeByAnnieV3",
+JSON.stringify(productos)
+);
+
+
+mostrarProductos();
+
+
+alert(
+"🧁 ¡Producto guardado!"
+);
+
+}
+
+
+/* =====================================================
+   MOSTRAR PRODUCTOS
+===================================================== */
+
+function mostrarProductos(){
+
+const lista=
+document.getElementById(
+"listaProductos"
+);
+
+
+lista.innerHTML="";
+
+
+if(productos.length===0){
+
+lista.innerHTML=`
+
+<div class="producto">
+
+<div class="producto-sin-imagen">
+🧁
+</div>
+
+<div class="producto-nombre">
+Todavía no tienes productos
+</div>
+
+<p style="text-align:center">
+Calcula tu primera creación arriba ✨
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+productos.forEach(
+producto=>{
+
+let imagen=
+producto.imagen
+?
+`
+<img
+src="${producto.imagen}"
+class="imagen-producto"
+>
+`
+:
+`
+<div class="producto-sin-imagen">
+🧁
+</div>
+`;
+
+
+lista.innerHTML+=`
+
+<article class="producto">
+
+${imagen}
+
+
+<div class="producto-nombre">
+
+${escapar(producto.nombre)}
+
+</div>
+
+
+<div class="dato">
+
+<span>
+🧵 Materiales
+</span>
+
+<strong>
+$${producto.costoMateriales.toFixed(2)}
+</strong>
+
+</div>
+
+
+<div class="dato">
+
+<span>
+👩🏻‍🎨 Mano de obra
+</span>
+
+<strong>
+$${producto.manoObra.toFixed(2)}
+</strong>
+
+</div>
+
+
+<div class="dato">
+
+<span>
+📦 Empaque
+</span>
+
+<strong>
+$${producto.empaque.toFixed(2)}
+</strong>
+
+</div>
+
+
+<div class="producto-precio">
+
+<span>
+Costo real
+</span>
+
+<strong>
+$${producto.costoTotal.toFixed(2)}
+</strong>
+
+<span>
+Precio de venta:
+$${producto.precioVenta.toFixed(2)}
+</span>
+
+</div>
+
+
+<div class="producto-ganancia">
+
+✨ Ganancia:
+$${producto.ganancia.toFixed(2)}
+
+</div>
+
+
+<br>
+
+
+<button
+class="btn-peligro"
+onclick="eliminarProducto(${producto.id})"
+>
+🗑️ Eliminar
+</button>
+
+</article>
+
+`;
+
+});
+
+}
+
+
+/* =====================================================
+   ELIMINAR PRODUCTO
+===================================================== */
+
+function eliminarProducto(id){
+
+if(
+!confirm(
+"¿Eliminar este producto?"
+)
+) return;
+
+
+productos=
+productos.filter(
+p=>p.id!==id
+);
+
+
+localStorage.setItem(
+"productosMadeByAnnieV3",
+JSON.stringify(productos)
+);
+
+
+mostrarProductos();
+
+}
+
+
+/* =====================================================
+   FABRICAR PRODUCTO
+===================================================== */
+
+function fabricarProducto(){
+
+if(
+materialesProducto.length===0
+){
+
+alert(
+"🧵 Primero agrega los materiales utilizados."
+);
+
+return;
+
+}
+
+
+const confirmar=
+confirm(
+"🩵 Esto descontará los materiales utilizados de tu stock. ¿Ya fabricaste este producto?"
+);
+
+
+if(!confirmar)
+return;
+
+
+for(
+const item of materialesProducto
+){
+
+const material=
+materiales.find(
+m=>m.id===item.materialId
+);
+
+
+if(!material)
+continue;
+
+
+if(
+material.stock<
+item.cantidadBase
+){
+
+alert(
+`⚠️ No tienes suficiente "${material.nombre}".`
+);
+
+return;
+
+}
+
+}
+
+
+for(
+const item of materialesProducto
+){
+
+const material=
+materiales.find(
+m=>m.id===item.materialId
+);
+
+
+if(material){
+
+material.stock-=
+item.cantidadBase;
+
+}
+
+}
+
+
+guardarDatos();
+
+mostrarMateriales();
+
+actualizarResumen();
+
+alert(
+"🧵 ¡Materiales descontados del inventario!"
+);
+
+}
+
+
+/* =====================================================
+   LIMPIAR MATERIAL
+===================================================== */
+
+function limpiarMaterial(){
+
+document.getElementById(
+"nombre"
+).value="";
+
+
+document.getElementById(
+"precio"
+).value="";
+
+
+document.getElementById(
+"cantidad"
+).value="";
+
+
+document.getElementById(
+"notas"
+).value="";
+
+
+document.getElementById(
+"imagen"
+).value="";
+
+
+document.getElementById(
+"vistaPrevia"
+).style.display=
+"none";
+
+
+imagenMaterial="";
+
+}
+
+
+/* =====================================================
+   ESCAPAR HTML
+===================================================== */
+
+function escapar(texto){
+
+return String(texto)
+
+.replace(/&/g,"&amp;")
+
+.replace(/</g,"&lt;")
+
+.replace(/>/g,"&gt;")
+
+.replace(/"/g,"&quot;")
+
+.replace(/'/g,"&#039;");
+
+}
+
+</script>
+
+<div id="accesoSecreto" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(122,111,96,.35);align-items:center;justify-content:center;padding:20px;">
+  <div style="background:#F5F2E8;padding:28px;border-radius:24px;width:min(360px,100%);box-shadow:0 10px 30px rgba(0,0,0,.2);text-align:center;">
+    <div style="font-size:42px">☁️</div>
+    <h2 style="font-family:Pacifico,cursive;margin:8px 0 15px">Zona de Annie</h2>
+    <p style="font-size:13px">Este acceso es solo para ti 🩵</p>
+    <input id="claveSecreta" type="password" placeholder="Contraseña" style="width:100%;padding:13px;border:2px solid #A9C7E8;border-radius:13px;outline:none;font-family:Quicksand,sans-serif;box-sizing:border-box;">
+    <button onclick="entrarZonaAnnie()" style="width:100%;margin-top:12px;padding:13px;border:0;border-radius:15px;background:#A9C7E8;color:#7A6F60;font-weight:700;font-family:Quicksand,sans-serif;cursor:pointer">🔐 Entrar</button>
+    <button onclick="cerrarZonaAnnie()" style="margin-top:10px;padding:10px 16px;border:0;border-radius:12px;background:#DCEAF7;color:#7A6F60;font-weight:700;font-family:Quicksand,sans-serif;cursor:pointer">Cancelar</button>
+  </div>
+</div>
+<script>
+/* Acceso discreto: toca 7 veces el logo. Cambia la contraseña aquí. */
+const CLAVE_ANNIE = "annie2026";
+let toquesLogo = 0;
+let reinicioToques;
+const logoSecreto = document.getElementById("logoSecreto");
+if (logoSecreto) {
+  logoSecreto.addEventListener("click", () => {
+    toquesLogo++;
+    clearTimeout(reinicioToques);
+    reinicioToques = setTimeout(() => toquesLogo = 0, 1800);
+    if (toquesLogo >= 7) {
+      toquesLogo = 0;
+      document.getElementById("accesoSecreto").style.display = "flex";
+      document.getElementById("claveSecreta").focus();
+    }
+  });
+}
+function entrarZonaAnnie(){
+  const clave = document.getElementById("claveSecreta").value;
+  if(clave === CLAVE_ANNIE){
+    document.getElementById("accesoSecreto").style.display = "none";
+    document.getElementById("contenidoApp").style.display = "block";
+    sessionStorage.setItem("annieAcceso", "1");
+    alert("☁️ Bienvenida, Annie 🩵");
+  } else {
+    alert("💭 Contraseña incorrecta");
+  }
+}
+function cerrarZonaAnnie(){
+  document.getElementById("accesoSecreto").style.display = "none";
+  document.getElementById("claveSecreta").value = "";
+}
+</script>
+<script>
+if (sessionStorage.getItem("annieAcceso") === "1") { document.getElementById("contenidoApp").style.display = "block"; } else { document.getElementById("accesoSecreto").style.display = "flex"; }
+if ('serviceWorker' in navigator) { window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(()=>{})); }
+</script>
+</body>
+
+</html>
