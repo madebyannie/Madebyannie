@@ -3583,7 +3583,6 @@ function cerrarZonaAnnie(){
 </script>
 <script>
 if (sessionStorage.getItem("annieAcceso") === "1") { document.getElementById("contenidoApp").style.display = "block"; } else { document.getElementById("accesoSecreto").style.display = "flex"; }
-if ('serviceWorker' in navigator) { window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(()=>{})); }
 </script>
 </body>
 
