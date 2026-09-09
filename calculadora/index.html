@@ -13,53 +13,53 @@
 :root{--celeste:#DCEAF7;--celeste-claro:#EEF6FD;--crema:#F5F2E8;--boton:#A9C7E8;--cafe:#7A6F60;--blanco:#FFF;--verde:#CFE8D5;--verde-texto:#52745A;--amarillo:#F7E6B5;--amarillo-texto:#856F35;--rojo:#E8C9C4;--rojo-texto:#89534C;--borde:#D7D0C5;--sombra:rgba(122,111,96,.15)}
 *{box-sizing:border-box}body{margin:0;background:var(--celeste);color:var(--cafe);font-family:Quicksand,sans-serif}button,input,select,textarea{font-family:Quicksand,sans-serif}button{cursor:pointer}
 header{background:var(--crema);padding:22px 15px;text-align:center;box-shadow:0 3px 10px var(--sombra)}.logo{margin:0;font-family:Pacifico,cursive;font-size:32px}.subtitulo{margin:5px 0 0;font-size:14px;font-weight:600}
-.contenedor{width:92%;max-width:1050px;margin:30px auto 60px}.titulo{margin:0;font-family:Pacifico,cursive;font-size:29px;text-align:center}.descripcion{max-width:700px;margin:8px auto 28px;text-align:center;font-size:14px;line-height:1.6}
-.tarjeta{background:var(--crema);border-radius:24px;padding:25px;margin-bottom:30px;box-shadow:0 5px 15px var(--sombra)}.tarjeta-titulo{margin-top:0;margin-bottom:20px;font-family:Pacifico,cursive;font-size:23px}
-.campo{margin-bottom:18px}.campo label{display:block;margin-bottom:7px;font-weight:700}.campo input,.campo select,.campo textarea{width:100%;padding:13px;border:2px solid var(--boton);border-radius:13px;outline:none;background:#fff;color:var(--cafe);font-size:15px}.campo textarea{min-height:90px;resize:vertical}.campo input:focus,.campo select:focus,.campo textarea:focus{border-color:var(--cafe)}
+.resultado-linea img{width:20px;height:20px;object-fit:contain;vertical-align:middle;margin-right:4px}.subtitulo-seccion{display:flex;align-items:center;gap:7px}.subtitulo-seccion img{width:26px;height:26px;object-fit:contain}.tarjeta-titulo{display:flex;align-items:center;gap:8px}.tarjeta-titulo img{width:30px;height:30px;object-fit:contain}.btn-principal{width:100%;padding:14px 20px;border:0;border-radius:16px;background:var(--boton);color:var(--cafe);font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px}.btn-principal img{width:24px;height:24px;object-fit:contain}.boton-entrar{width:100%;margin-top:12px;padding:13px;border:0;border-radius:15px;background:#A9C7E8;color:#7A6F60;font-weight:700;font-family:"Quicksand",sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px}.boton-entrar img{width:22px;height:22px;object-fit:contain}.contenedor{width:92%;max-width:1050px;margin:30px auto 60px}.titulo{margin:0;font-family:Pacifico,cursive;font-size:29px;text-align:center}.descripcion{max-width:700px;margin:8px auto 28px;text-align:center;font-size:14px;line-height:1.6}
+.resultado-linea span{display:flex;align-items:center;gap:7px}.resultado-linea span img{width:22px;height:22px;object-fit:contain}.tarjeta{background:var(--crema);border-radius:24px;padding:25px;margin-bottom:30px;box-shadow:0 5px 15px var(--sombra)}.tarjeta-titulo{margin-top:0;margin-bottom:20px;font-family:Pacifico,cursive;font-size:23px}
+.campo label img{width:20px;height:20px;object-fit:contain;vertical-align:middle;margin-right:4px}.campo{margin-bottom:18px}.campo label{display:block;margin-bottom:7px;font-weight:700}.campo input,.campo select,.campo textarea{width:100%;padding:13px;border:2px solid var(--boton);border-radius:13px;outline:none;background:#fff;color:var(--cafe);font-size:15px}.campo textarea{min-height:90px;resize:vertical}.campo input:focus,.campo select:focus,.campo textarea:focus{border-color:var(--cafe)}
 .fila{display:grid;grid-template-columns:1fr 1fr;gap:16px}.btn-principal{width:100%;padding:14px 20px;border:0;border-radius:16px;background:var(--boton);color:var(--cafe);font-size:16px;font-weight:700}.btn-principal:hover{background:var(--cafe);color:#fff}.btn-secundario,.btn-peligro{padding:12px 18px;border:0;border-radius:13px;font-weight:700}.btn-secundario{background:var(--celeste);color:var(--cafe)}.btn-peligro{background:var(--rojo);color:var(--cafe)}
 .zona-imagen{padding:18px;border:2px dashed var(--boton);border-radius:17px;background:var(--celeste-claro);text-align:center}.zona-imagen input{border:0;padding:0;background:transparent}.vista-previa{display:none;width:150px;height:150px;object-fit:cover;margin:15px auto 0;border-radius:20px}
-.resumen{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-bottom:30px}.resumen-card{padding:18px;border-radius:19px;background:var(--crema);text-align:center;box-shadow:0 4px 12px var(--sombra)}.resumen-icono{font-size:27px}.resumen-numero{display:block;margin-top:5px;font-size:24px;font-weight:700}.resumen-texto{font-size:12px}
+.resumen{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-bottom:30px}.resumen-card{padding:18px;border-radius:19px;background:var(--crema);text-align:center;box-shadow:0 4px 12px var(--sombra)}.resumen-icono{width:24px;height:24px;margin:0 auto 5px}.resumen-numero{display:block;margin-top:5px;font-size:24px;font-weight:700}.resumen-texto{font-size:12px}
 .materiales,.productos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.material,.producto{background:#fff;border-radius:23px;padding:20px;box-shadow:0 4px 12px var(--sombra)}.imagen-material,.imagen-producto{width:100%;height:220px;object-fit:cover;display:block;margin-bottom:17px;border-radius:19px}.sin-imagen,.producto-sin-imagen{width:100%;height:180px;display:flex;align-items:center;justify-content:center;margin-bottom:17px;border-radius:19px;background:var(--celeste-claro);font-size:48px}.material-nombre,.producto-nombre{margin-bottom:5px;font-family:Pacifico,cursive;font-size:23px;text-align:center}.categoria{display:block;margin-bottom:15px;text-align:center;font-size:12px;font-weight:700;opacity:.75}.dato{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed var(--borde);font-size:14px}.dato strong{text-align:right}.costo,.producto-precio{margin-top:16px;padding:15px;border-radius:17px;background:var(--celeste-claro);text-align:center}.costo span,.producto-precio span{display:block;font-size:12px}.costo strong,.producto-precio strong{display:block;margin-top:4px;font-size:25px}.stock{margin-top:12px;padding:12px;border-radius:14px;text-align:center;font-size:13px;font-weight:700}.stock-verde{background:var(--verde);color:var(--verde-texto)}.stock-amarillo{background:var(--amarillo);color:var(--amarillo-texto)}.stock-rojo{background:var(--rojo);color:var(--rojo-texto)}.notas{margin-top:14px;padding:12px;border-radius:14px;background:var(--crema);font-size:13px;line-height:1.5}.acciones{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:15px}
-.selector-material{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:10px;align-items:end;margin-bottom:15px;padding:15px;border-radius:17px;background:var(--celeste-claro)}.uso{display:grid;grid-template-columns:1.5fr 1fr 1fr auto;gap:10px;align-items:center;padding:13px;margin-bottom:10px;border-radius:15px;background:#fff;box-shadow:0 2px 7px var(--sombra)}.uso-nombre{font-weight:700}.uso-costo{text-align:right;font-weight:700}.btn-quitar{width:35px;height:35px;border:0;border-radius:50%;background:var(--rojo);color:var(--cafe);font-weight:bold}.resultado{margin-top:25px;padding:22px;border-radius:21px;background:var(--celeste-claro)}.resultado-linea{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dashed var(--borde)}.resultado-total{margin-top:12px;padding:18px;border-radius:17px;background:#fff;text-align:center}.resultado-total span{display:block;font-size:13px}.resultado-total strong{display:block;margin-top:5px;font-size:30px}.ganancia{margin-top:12px;padding:18px;border-radius:17px;background:var(--verde);text-align:center}.ganancia strong{display:block;font-size:28px}.producto-ganancia{margin-top:10px;padding:12px;border-radius:14px;background:var(--verde);text-align:center;font-weight:700}
+.cinna-acceso{width:140px;height:140px;object-fit:contain;display:block;margin:0 auto 8px}
+.sin-imagen img{width:120px;height:120px;object-fit:contain}.resumen-icono img{width:100%;height:100%;object-fit:contain;display:block}.selector-material{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:10px;align-items:end;margin-bottom:15px;padding:15px;border-radius:17px;background:var(--celeste-claro)}.uso{display:grid;grid-template-columns:1.5fr 1fr 1fr auto;gap:10px;align-items:center;padding:13px;margin-bottom:10px;border-radius:15px;background:#fff;box-shadow:0 2px 7px var(--sombra)}.uso-nombre{font-weight:700}.uso-costo{text-align:right;font-weight:700}.btn-quitar{width:35px;height:35px;border:0;border-radius:50%;background:var(--rojo);color:var(--cafe);font-weight:bold}.resultado{margin-top:25px;padding:22px;border-radius:21px;background:var(--celeste-claro)}.resultado-linea{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dashed var(--borde)}.resultado-total{margin-top:12px;padding:18px;border-radius:17px;background:#fff;text-align:center}.resultado-total span{display:block;font-size:13px}.resultado-total strong{display:block;margin-top:5px;font-size:30px}.ganancia{margin-top:12px;padding:18px;border-radius:17px;background:var(--verde);text-align:center}.ganancia strong{display:block;font-size:28px}.producto-ganancia{margin-top:10px;padding:12px;border-radius:14px;background:var(--verde);text-align:center;font-weight:700}
 footer{padding:25px 15px;background:var(--crema);text-align:center;font-size:13px}.acciones-respaldo{display:grid;grid-template-columns:1fr 1fr;gap:12px}.respaldo-card{margin-top:30px}
 #cargando{position:fixed;inset:0;z-index:9998;background:rgba(220,234,247,.9);display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}#cargando div{background:var(--crema);padding:25px;border-radius:24px;box-shadow:0 10px 30px var(--sombra)}
 #accesoSecreto{display:none;position:fixed;inset:0;z-index:9999;background:rgba(122,111,96,.35);align-items:center;justify-content:center;padding:20px}#accesoSecreto>div{background:var(--crema);padding:28px;border-radius:24px;width:min(360px,100%);box-shadow:0 10px 30px rgba(0,0,0,.2);text-align:center}
-@media(max-width:750px){.materiales,.productos{grid-template-columns:1fr}.selector-material{grid-template-columns:1fr}.uso{grid-template-columns:1fr 1fr}.uso-costo{text-align:left}.resumen{grid-template-columns:1fr}}
+@media(max-width:750px){.materiales,.productos{grid-template-columns:1fr}.selector-material{grid-template-columns:1fr}.uso{grid-template-columns:1fr 1fr}.uso-costo{text-align:left}.resumen{grid-template-columns:repeat(3,1fr);gap:8px}.resumen-card{padding:12px 5px;border-radius:17px}.resumen-numero{font-size:19px;margin-top:2px}.resumen-texto{font-size:10px;line-height:1.2}}
 @media(max-width:500px){.fila{grid-template-columns:1fr;gap:0}.acciones{grid-template-columns:1fr}.contenedor{width:94%}}
 </style>
 </head>
 <body>
-<header><h1 class="logo" id="logoSecreto">Made by Annie</h1><p class="subtitulo">🌷 Mi calculadora de costos</p></header>
+<header><h1 class="logo" id="logoSecreto">Made by Annie</h1><p class="subtitulo"> Mi calculadora de costos</p></header>
 
 <main class="contenedor" id="contenidoApp" style="display:none">
-<h2 class="titulo">Mis materiales 🧵</h2><p class="descripcion">Guarda tus materiales y sus precios para saber exactamente cuánto cuesta fabricar cada producto.</p>
+<h2 class="titulo">Mis materiales</h2>
 
 <section class="resumen">
-<div class="resumen-card"><div class="resumen-icono">📦</div><span id="totalMateriales" class="resumen-numero">0</span><span class="resumen-texto">Materiales</span></div>
-<div class="resumen-card"><div class="resumen-icono">🟢</div><span id="stockDisponible" class="resumen-numero">0</span><span class="resumen-texto">Con stock</span></div>
-<div class="resumen-card"><div class="resumen-icono">🛒</div><span id="stockBajo" class="resumen-numero">0</span><span class="resumen-texto">Stock bajo</span></div>
+<div class="resumen-card"><div class="resumen-icono"><img src="iconos/material.png" alt=""></div><span id="totalMateriales" class="resumen-numero">0</span><span class="resumen-texto">Materiales</span></div>
+<div class="resumen-card"><div class="resumen-icono"><img src="iconos/stock.png" alt=""></div><span id="stockDisponible" class="resumen-numero">0</span><span class="resumen-texto">Con stock</span></div>
+<div class="resumen-card"><div class="resumen-icono"><img src="iconos/bajo.png" alt=""></div><span id="stockBajo" class="resumen-numero">0</span><span class="resumen-texto">Stock bajo</span></div>
 </section>
 
 <section class="tarjeta">
-<h2 class="tarjeta-titulo">📦 Agregar material</h2>
+<h2 class="tarjeta-titulo"> Agregar material</h2>
 <div class="campo"><label>Nombre del material</label><input id="nombre" type="text" placeholder="Ej: Cadena dorada"></div>
 <div class="campo"><label>Categoría</label><select id="categoria"><option>Mullos y cuentas</option><option>Cadenas</option><option>Hilos</option><option>Dijes</option><option>Argollas y piezas</option><option>Arcilla</option><option>Pintura</option><option>Resina</option><option>Empaque</option><option>Otros</option></select></div>
-<div class="campo"><label>📷 Foto del material</label><div class="zona-imagen"><input type="file" id="imagen" accept="image/*" onchange="previsualizarImagen(event)"><img id="vistaPrevia" class="vista-previa"></div></div>
-<div class="fila"><div class="campo"><label>💵 Precio de compra</label><input id="precio" type="number" min="0" step="0.01" placeholder="3.00"></div><div class="campo"><label>📦 Cantidad comprada</label><input id="cantidad" type="number" min="0" step="0.01" placeholder="2"></div></div>
-<div class="campo"><label>📏 Unidad</label><select id="unidad"><option value="unidades">Unidades / piezas</option><option value="metros">Metros</option><option value="centimetros">Centímetros</option><option value="gramos">Gramos</option><option value="kilogramos">Kilogramos</option><option value="mililitros">Mililitros</option><option value="litros">Litros</option></select></div>
-<div class="campo"><label>⚠️ Stock mínimo</label><input id="stockMinimo" type="number" min="0" step="0.01" value="1"></div>
-<div class="campo"><label>📝 Notas</label><textarea id="notas" placeholder="Ej: Cadena dorada brillante"></textarea></div>
-<button class="btn-principal" onclick="guardarMaterial()">✨ Guardar material</button>
+<div class="campo"><label> Foto del material</label><div class="zona-imagen"><input type="file" id="imagen" accept="image/*" onchange="previsualizarImagen(event)"><img id="vistaPrevia" class="vista-previa"></div></div>
+<div class="fila"><div class="campo"><label> Precio de compra</label><input id="precio" type="number" min="0" step="0.01" placeholder="3.00"></div><div class="campo"><label>Cantidad comprada</label><input id="cantidad" type="number" min="0" step="0.01" placeholder="2"></div></div>
+<div class="campo"><label> Unidad</label><select id="unidad"><option value="unidades">Unidades / piezas</option><option value="metros">Metros</option><option value="centimetros">Centímetros</option><option value="gramos">Gramos</option><option value="kilogramos">Kilogramos</option><option value="mililitros">Mililitros</option><option value="litros">Litros</option></select></div>
+<div class="campo"><label> Stock mínimo</label><input id="stockMinimo" type="number" min="0" step="0.01" value="1"></div>
+<div class="campo"><label><img src="iconos/notas.png" alt=""> Notas</label><textarea id="notas" placeholder="Ej: Cadena dorada brillante"></textarea></div>
+<button class="btn-principal" onclick="guardarMaterial()"><img src="iconos/guardar.png" alt="">Guardar material</button>
 </section>
 
-<section><h2 class="titulo">📋 Mis materiales</h2><br><div id="listaMateriales" class="materiales"></div></section><br><br>
+<section><h2 class="titulo"> Mis materiales</h2><br><div id="listaMateriales" class="materiales"></div></section><br><br>
 
 <section class="tarjeta">
-<h2 class="tarjeta-titulo">🧁 Calcular producto</h2>
-<p class="descripcion">Arma tu producto seleccionando los materiales y colocando cuánto utilizaste de cada uno.</p>
-<div class="campo"><label>🧁 Nombre del producto</label><input id="nombreProducto" type="text" placeholder="Ej: Manilla Ocean Mist"></div>
-<div class="campo"><label>📷 Foto del producto</label><div class="zona-imagen"><input type="file" id="imagenProducto" accept="image/*" onchange="previsualizarProducto(event)"><img id="vistaProducto" class="vista-previa"></div></div>
-<h3>🧵 Materiales utilizados</h3>
+<h2 class="tarjeta-titulo"><img src="iconos/calcular.png" alt=""> Calcular producto</h2>
+<div class="campo"><label> Nombre del producto</label><input id="nombreProducto" type="text" placeholder="Ej: Manilla Ocean Mist"></div>
+<div class="campo"><label> Foto del producto</label><div class="zona-imagen"><input type="file" id="imagenProducto" accept="image/*" onchange="previsualizarProducto(event)"><img id="vistaProducto" class="vista-previa"></div></div>
+<h3 class="subtitulo-seccion"><img src="iconos/utilizados.png" alt=""> Materiales utilizados</h3>
 <div class="selector-material">
 <div class="campo"><label>Material</label><select id="materialSeleccionado"><option value="">Selecciona un material</option></select></div>
 <div class="campo"><label>Cantidad</label><input id="cantidadUsada" type="number" min="0" step="0.001" placeholder="35"></div>
@@ -67,28 +67,27 @@ footer{padding:25px 15px;background:var(--crema);text-align:center;font-size:13p
 <button class="btn-secundario" onclick="agregarMaterialAlProducto()">➕ Agregar</button>
 </div>
 <div id="listaUso"></div>
-<h3>👩🏻‍🎨 Mano de obra</h3>
+<h3 class="subtitulo-seccion"><img src="iconos/me.png" alt=""> Mano de obra</h3>
 <div class="fila"><div class="campo"><label>Tiempo trabajado (minutos)</label><input id="minutosTrabajo" type="number" min="0" value="30" oninput="calcularProducto()"></div><div class="campo"><label>¿Cuánto quieres ganar por hora?</label><input id="precioHora" type="number" min="0" step="0.01" value="3" oninput="calcularProducto()"></div></div>
-<div class="campo"><label>📦 Costo del empaque</label><input id="costoEmpaque" type="number" min="0" step="0.01" value="0" oninput="calcularProducto()"></div>
-<div class="campo"><label>💰 Precio de venta</label><input id="precioVenta" type="number" min="0" step="0.01" placeholder="Ej: 6.00" oninput="calcularProducto()"></div>
+<div class="campo"><label><img src="iconos/empaque.png" alt=""> Costo del empaque</label><input id="costoEmpaque" type="number" min="0" step="0.01" value="0" oninput="calcularProducto()"></div>
+<div class="campo"><label> Precio de venta</label><input id="precioVenta" type="number" min="0" step="0.01" placeholder="Ej: 6.00" oninput="calcularProducto()"></div>
 <div class="resultado">
-<div class="resultado-linea"><span>🧵 Materiales</span><strong id="resultadoMateriales">$0.00</strong></div>
-<div class="resultado-linea"><span>👩🏻‍🎨 Mano de obra</span><strong id="resultadoManoObra">$0.00</strong></div>
-<div class="resultado-linea"><span>📦 Empaque</span><strong id="resultadoEmpaque">$0.00</strong></div>
+<div class="resultado-linea"><span><img src="iconos/utilizados.png" alt=""> Materiales</span><strong id="resultadoMateriales">$0.00</strong></div>
+<div class="resultado-linea"> <span><img src="iconos/me.png" alt=""> Mano de obra</span><strong id="resultadoManoObra">$0.00</strong></div>
+<div class="resultado-linea"> <span><img src="iconos/empaque.png" alt=""> Empaque</span><strong id="resultadoEmpaque">$0.00</strong></div>
 <div class="resultado-total"><span>💗 COSTO TOTAL</span><strong id="resultadoTotal">$0.00</strong></div>
-<div class="ganancia"><span>✨ GANANCIA</span><strong id="resultadoGanancia">$0.00</strong><div id="resultadoMargen">Margen: 0%</div></div>
+<div class="ganancia"><span> GANANCIA</span><strong id="resultadoGanancia">$0.00</strong><div id="resultadoMargen">Margen: 0%</div></div>
 </div><br>
-<button class="btn-principal" onclick="guardarProducto()">💾 Guardar producto</button><br><br>
-<button class="btn-secundario" onclick="fabricarProducto()">🧵 Fabricar y descontar materiales</button>
+<button class="btn-principal" onclick="guardarProducto()"> Guardar producto</button><br><br>
+<button class="btn-secundario" onclick="fabricarProducto()"> Fabricar y descontar materiales</button>
 </section>
 
-<section><h2 class="titulo">🧁 Mis productos</h2><br><div id="listaProductos" class="productos"></div></section>
+<section><h2 class="titulo"> Mis productos</h2><br><div id="listaProductos" class="productos"></div></section>
 <section class="tarjeta respaldo-card">
-<h2 class="tarjeta-titulo">💾 Mis respaldos</h2>
-<p class="descripcion">Guarda una copia de tus materiales y productos para poder recuperarlos si cambias de celular, borras los datos o quieres tener una copia segura.</p>
+<h2 class="tarjeta-titulo"> Mis respaldos</h2>
 <div class="acciones-respaldo">
-<button class="btn-principal" type="button" onclick="exportarRespaldo()">📤 Guardar respaldo</button>
-<button class="btn-secundario" type="button" onclick="document.getElementById('archivoRespaldo').click()">📥 Restaurar respaldo</button>
+<button class="btn-principal" type="button" onclick="exportarRespaldo()">Guardar respaldo</button>
+<button class="btn-secundario" type="button" onclick="document.getElementById('archivoRespaldo').click()">Restaurar respaldo</button>
 </div>
 <input id="archivoRespaldo" type="file" accept="application/json,.json" style="display:none" onchange="importarRespaldo(event)">
 <p class="ayuda" style="text-align:center;margin-top:12px">El respaldo incluye tus datos y las fotos guardadas dentro de la calculadora.</p>
@@ -97,7 +96,7 @@ footer{padding:25px 15px;background:var(--crema);text-align:center;font-size:13p
 </main>
 <footer>Made with ♡ by Annie</footer>
 
-<div id="accesoSecreto"><div><div style="font-size:42px">☁️</div><h2 style="font-family:Pacifico,cursive;margin:8px 0 15px">Zona de Annie</h2><p style="font-size:13px">Este acceso es solo para ti 🩵</p><input id="claveSecreta" type="password" placeholder="Contraseña" style="width:100%;padding:13px;border:2px solid #A9C7E8;border-radius:13px;outline:none;font-family:Quicksand,sans-serif"><button onclick="entrarZonaAnnie()" style="width:100%;margin-top:12px;padding:13px;border:0;border-radius:15px;background:#A9C7E8;color:#7A6F60;font-weight:700">🔐 Entrar</button><button onclick="cerrarZonaAnnie()" style="margin-top:10px;padding:10px 16px;border:0;border-radius:12px;background:#DCEAF7;color:#7A6F60;font-weight:700">Cancelar</button></div></div>
+<div id="accesoSecreto"><div><img src="iconos/cinna.png" class="cinna-acceso" alt="Cinnamoroll"><h2 style="font-family:Pacifico,cursive;margin:8px 0 15px">Zona de Annie</h2><input id="claveSecreta" type="password" placeholder="Contraseña" style="width:100%;padding:13px;border:2px solid #A9C7E8;border-radius:13px;outline:none;font-family:Quicksand,sans-serif"><button onclick="entrarZonaAnnie()" class="boton-entrar"><img src="iconos/candado.png" alt="">Entrar</button><button onclick="cerrarZonaAnnie()" style="margin-top:10px;padding:10px 16px;border:0;border-radius:12px;background:#DCEAF7;color:#7A6F60;font-weight:700">Cancelar</button></div></div>
 
 <script>
 /* =====================================================
@@ -158,9 +157,9 @@ function guardarDatos(){localStorage.setItem("materialesMadeByAnnieV3",JSON.stri
 
 function guardarMaterial(){
   const nombre=$("nombre").value.trim(), categoria=$("categoria").value, precio=parseFloat($("precio").value), cantidad=parseFloat($("cantidad").value), unidad=$("unidad").value, stockMinimo=parseFloat($("stockMinimo").value)||0, notas=$("notas").value.trim();
-  if(!nombre)return alert("🌷 Escribe el nombre del material.");
-  if(!Number.isFinite(precio)||precio<=0)return alert("💗 Escribe un precio válido.");
-  if(!Number.isFinite(cantidad)||cantidad<=0)return alert("💗 Escribe una cantidad válida.");
+  if(!nombre)return alert(" Escribe el nombre del material.");
+  if(!Number.isFinite(precio)||precio<=0)return alert(" Escribe un precio válido.");
+  if(!Number.isFinite(cantidad)||cantidad<=0)return alert(" Escribe una cantidad válida.");
   const cantidadBase=convertirAUnidadBase(cantidad,unidad);
   materiales.push({id:Date.now(),nombre,categoria,precio,cantidadComprada:cantidad,unidadOriginal:unidad,cantidadBase,stock:cantidadBase,stockMinimo:convertirAUnidadBase(stockMinimo,unidad),costoUnitario:precio/cantidadBase,imagen:imagenMaterial,notas});
   guardarDatos();mostrarMateriales();actualizarResumen();actualizarSelectorMateriales();limpiarMaterial();alert("✨ ¡Material guardado!");
@@ -168,11 +167,11 @@ function guardarMaterial(){
 
 function mostrarMateriales(){
   const lista=$("listaMateriales");lista.innerHTML="";
-  if(!materiales.length){lista.innerHTML='<div class="material"><div class="sin-imagen">📦</div><div class="material-nombre">Todavía no tienes materiales</div><p style="text-align:center">Agrega tu primer material arriba ✨</p></div>';return;}
+  if(!materiales.length){lista.innerHTML='<div class="material"><div class="sin-imagen"><img src="iconos/tener.png" alt=""></div><div class="material-nombre">Todavía no tienes materiales</div><p style="text-align:center">Agrega tu primer material arriba</p></div>';return;}
   materiales.forEach(m=>{
     const clase=m.stock<=0?"stock-rojo":m.stock<=m.stockMinimo?"stock-amarillo":"stock-verde";
-    const estado=m.stock<=0?"🔴 Agotado":m.stock<=m.stockMinimo?"🟡 Stock bajo":"🟢 Stock suficiente";
-    lista.innerHTML+=`<article class="material">${m.imagen?`<img src="${m.imagen}" class="imagen-material">`:'<div class="sin-imagen">📦</div>'}<div class="material-nombre">${escapar(m.nombre)}</div><span class="categoria">${escapar(m.categoria)}</span><div class="dato"><span>💵 Precio</span><strong>$${Number(m.precio).toFixed(2)}</strong></div><div class="dato"><span>📦 Compraste</span><strong>${formatear(m.cantidadComprada)} ${unidadCorta(m.unidadOriginal)}</strong></div><div class="dato"><span>📊 Stock</span><strong>${formatear(convertirDesdeBase(m.stock,m.unidadOriginal))} ${unidadCorta(m.unidadOriginal)}</strong></div><div class="costo"><span>Costo por ${unidadSingular(m.unidadOriginal)}</span><strong>$${Number(m.costoUnitario).toFixed(4)}</strong></div><div class="stock ${clase}">${estado}</div>${m.notas?`<div class="notas">📝 ${escapar(m.notas)}</div>`:""}<div class="acciones"><button class="btn-secundario" onclick="editarMaterial(${m.id})">✏️ Editar</button><button class="btn-peligro" onclick="eliminarMaterial(${m.id})">🗑️ Eliminar</button></div></article>`;
+    const estado=m.stock<=0?"Agotado":m.stock<=m.stockMinimo?" Stock bajo":" Stock suficiente";
+    lista.innerHTML+=`<article class="material">${m.imagen?`<img src="${m.imagen}" class="imagen-material">`:'<div class="sin-imagen"><img src="iconos/tener.png" alt=""></div>'}<div class="material-nombre">${escapar(m.nombre)}</div><span class="categoria">${escapar(m.categoria)}</span><div class="dato"><span>💵 Precio</span><strong>$${Number(m.precio).toFixed(2)}</strong></div><div class="dato"><span>📦 Compraste</span><strong>${formatear(m.cantidadComprada)} ${unidadCorta(m.unidadOriginal)}</strong></div><div class="dato"><span>📊 Stock</span><strong>${formatear(convertirDesdeBase(m.stock,m.unidadOriginal))} ${unidadCorta(m.unidadOriginal)}</strong></div><div class="costo"><span>Costo por ${unidadSingular(m.unidadOriginal)}</span><strong>$${Number(m.costoUnitario).toFixed(4)}</strong></div><div class="stock ${clase}">${estado}</div>${m.notas?`<div class="notas">📝 ${escapar(m.notas)}</div>`:""}<div class="acciones"><button class="btn-secundario" onclick="editarMaterial(${m.id})">✏️ Editar</button><button class="btn-peligro" onclick="eliminarMaterial(${m.id})"> Eliminar</button></div></article>`;
   });
 }
 
@@ -206,23 +205,23 @@ function calcularProducto(){
 }
 
 function guardarProducto(){
-  const nombre=$("nombreProducto").value.trim();if(!nombre)return alert("🧁 Escribe el nombre del producto.");if(!materialesProducto.length)return alert("🧵 Agrega al menos un material.");
+  const nombre=$("nombreProducto").value.trim();if(!nombre)return alert(" Escribe el nombre del producto.");if(!materialesProducto.length)return alert("Agrega al menos un material.");
   const r=calcularProducto();
   productos.push({id:Date.now(),nombre,imagen:imagenProducto,materiales:[...materialesProducto],minutos:parseFloat($("minutosTrabajo").value)||0,precioHora:parseFloat($("precioHora").value)||0,empaque:r.empaque,precioVenta:r.precioVenta,costoMateriales:r.costoMateriales,manoObra:r.manoObra,costoTotal:r.total,ganancia:r.ganancia});
-  guardarDatos();mostrarProductos();alert("🧁 ¡Producto guardado!");
+  guardarDatos();mostrarProductos();alert(" ¡Producto guardado!");
 }
 function mostrarProductos(){
   const l=$("listaProductos");l.innerHTML="";
-  if(!productos.length){l.innerHTML='<div class="producto"><div class="producto-sin-imagen">🧁</div><div class="producto-nombre">Todavía no tienes productos</div><p style="text-align:center">Calcula tu primera creación arriba ✨</p></div>';return;}
-  productos.forEach(p=>{l.innerHTML+=`<article class="producto">${p.imagen?`<img src="${p.imagen}" class="imagen-producto">`:'<div class="producto-sin-imagen">🧁</div>'}<div class="producto-nombre">${escapar(p.nombre)}</div><div class="dato"><span>🧵 Materiales</span><strong>$${Number(p.costoMateriales).toFixed(2)}</strong></div><div class="dato"><span>👩🏻‍🎨 Mano de obra</span><strong>$${Number(p.manoObra).toFixed(2)}</strong></div><div class="dato"><span>📦 Empaque</span><strong>$${Number(p.empaque).toFixed(2)}</strong></div><div class="producto-precio"><span>Costo real</span><strong>$${Number(p.costoTotal).toFixed(2)}</strong><span>Precio de venta: $${Number(p.precioVenta).toFixed(2)}</span></div><div class="producto-ganancia">✨ Ganancia: $${Number(p.ganancia).toFixed(2)}</div><br><button class="btn-peligro" onclick="eliminarProducto(${p.id})">🗑️ Eliminar</button></article>`});
+  if(!productos.length){l.innerHTML='<div class="producto"><div class="producto-sin-imagen"><img src="iconos/aun.png" alt=""></div><div class="producto-nombre">Todavía no tienes productos</div><p style="text-align:center">Calcula tu primera creación arriba </p></div>';return;}
+  productos.forEach(p=>{l.innerHTML+=`<article class="producto">${p.imagen?`<img src="${p.imagen}" class="imagen-producto">`:'<div class="producto-sin-imagen"><img src="iconos/aun.png" alt=""></div>'}<div class="producto-nombre">${escapar(p.nombre)}</div><div class="dato"><span><img src="iconos/utilizados.png" alt=""> Materiales</span><strong>$${Number(p.costoMateriales).toFixed(2)}</strong></div><div class="dato"><span><img src="iconos/me.png" alt=""> Mano de obra</span><strong>$${Number(p.manoObra).toFixed(2)}</strong></div><div class="dato"><span><img src="iconos/empaque.png" alt=""> Empaque</span><strong>$${Number(p.empaque).toFixed(2)}</strong></div><div class="producto-precio"><span>Costo real</span><strong>$${Number(p.costoTotal).toFixed(2)}</strong><span>Precio de venta: $${Number(p.precioVenta).toFixed(2)}</span></div><div class="producto-ganancia"> Ganancia: $${Number(p.ganancia).toFixed(2)}</div><br><button class="btn-peligro" onclick="eliminarProducto(${p.id})"> Eliminar</button></article>`});
 }
 function eliminarProducto(id){if(!confirm("¿Eliminar este producto?"))return;productos=productos.filter(p=>p.id!==id);guardarDatos();mostrarProductos()}
 function fabricarProducto(){
-  if(!materialesProducto.length)return alert("🧵 Primero agrega los materiales utilizados.");
+  if(!materialesProducto.length)return alert(" Primero agrega los materiales utilizados.");
   if(!confirm("🩵 Esto descontará los materiales utilizados de tu stock. ¿Ya fabricaste este producto?"))return;
-  for(const item of materialesProducto){const m=materiales.find(x=>x.id===item.materialId);if(m&&m.stock<item.cantidadBase)return alert(`⚠️ No tienes suficiente "${m.nombre}".`)}
+  for(const item of materialesProducto){const m=materiales.find(x=>x.id===item.materialId);if(m&&m.stock<item.cantidadBase)return alert(` No tienes suficiente "${m.nombre}".`)}
   for(const item of materialesProducto){const m=materiales.find(x=>x.id===item.materialId);if(m)m.stock-=item.cantidadBase}
-  guardarDatos();mostrarMateriales();actualizarResumen();alert("🧵 ¡Materiales descontados del inventario!");
+  guardarDatos();mostrarMateriales();actualizarResumen();alert(" ¡Materiales descontados del inventario!");
 }
 function limpiarMaterial(){["nombre","precio","cantidad","notas"].forEach(id=>$(id).value="");$("imagen").value="";$("vistaPrevia").style.display="none";imagenMaterial=""}
 
@@ -236,7 +235,7 @@ function exportarRespaldo(){
   const a=document.createElement("a");
   const fecha=new Date().toISOString().slice(0,10);
   a.href=url;a.download=`respaldo-calculadora-annie-${fecha}.json`;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
-  alert("💾 ¡Respaldo guardado! Puedes conservar ese archivo en Google Drive, tu PC o donde quieras.");
+  alert(" ¡Respaldo guardado! Puedes conservar ese archivo en Google Drive, tu PC o donde quieras.");
 }
 function importarRespaldo(event){
   const archivo=event.target.files[0];if(!archivo)return;
@@ -245,11 +244,11 @@ function importarRespaldo(event){
     try{
       const respaldo=JSON.parse(e.target.result);
       if(!respaldo||!Array.isArray(respaldo.materiales)||!Array.isArray(respaldo.productos))throw new Error("formato");
-      if(!confirm("⚠️ Restaurar este respaldo reemplazará los materiales y productos actuales de este dispositivo. ¿Continuar?"))return;
+      if(!confirm(" Restaurar este respaldo reemplazará los materiales y productos actuales de este dispositivo. ¿Continuar?"))return;
       materiales=respaldo.materiales;productos=respaldo.productos;materialesProducto=[];
       guardarDatos();mostrarMateriales();mostrarProductos();actualizarResumen();actualizarSelectorMateriales();mostrarMaterialesProducto();calcularProducto();
-      alert("✨ ¡Respaldo restaurado correctamente!");
-    }catch(err){alert("💭 Ese archivo no parece ser un respaldo válido de la calculadora de Annie.");}
+      alert(" ¡Respaldo restaurado correctamente!");
+    }catch(err){alert("Ese archivo no parece ser un respaldo válido de la calculadora de Annie.");}
     event.target.value="";
   };
   lector.readAsText(archivo);
@@ -258,9 +257,9 @@ function importarRespaldo(event){
 function escapar(texto){return String(texto).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;")}
 
 /* Acceso discreto local: toca 7 veces el logo. */
-const CLAVE_ANNIE="annie2026";let toquesLogo=0,reinicioToques;
+const CLAVE_ANNIE="Annie0505<3";let toquesLogo=0,reinicioToques;
 $("logoSecreto").addEventListener("click",()=>{toquesLogo++;clearTimeout(reinicioToques);reinicioToques=setTimeout(()=>toquesLogo=0,1800);if(toquesLogo>=7){toquesLogo=0;$("accesoSecreto").style.display="flex";$("claveSecreta").focus()}});
-function entrarZonaAnnie(){if($("claveSecreta").value===CLAVE_ANNIE){$("accesoSecreto").style.display="none";$("contenidoApp").style.display="block";sessionStorage.setItem("annieAcceso","1");$("claveSecreta").value="";alert("☁️ Bienvenida, Annie 🩵")}else alert("💭 Contraseña incorrecta")}
+function entrarZonaAnnie(){if($("claveSecreta").value===CLAVE_ANNIE){$("accesoSecreto").style.display="none";$("contenidoApp").style.display="block";sessionStorage.setItem("annieAcceso","1");$("claveSecreta").value="";alert("☁️ Bienvenida, Annie")}else alert("💭 Contraseña incorrecta")}
 function cerrarZonaAnnie(){$("accesoSecreto").style.display="none";$("claveSecreta").value=""}
 
 iniciar();
