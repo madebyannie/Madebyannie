@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#DCEAF7">
 <link rel="manifest" href="manifest.json">
+
 <title>Costos | Made by Annie</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 :root{
 --celeste:#DCEAF7;
 --celeste-claro:#EEF6FD;
@@ -30,48 +32,88 @@
 --sombra:rgba(122,111,96,.15)
 }
 
-*{box-sizing:border-box}
+*{
+box-sizing:border-box
+}
+
+html{
+scroll-behavior:smooth
+}
 
 body{
 margin:0;
 background:var(--celeste);
 color:var(--cafe);
+font-family:Quicksand,sans-serif;
+padding-bottom:78px
+}
+
+button,
+input,
+select,
+textarea{
 font-family:Quicksand,sans-serif
 }
 
-button,input,select,textarea{
-font-family:Quicksand,sans-serif
+button{
+cursor:pointer
 }
 
-button{cursor:pointer}
+/* HEADER */
 
 header{
 background:var(--crema);
-padding:22px 15px;
+padding:18px 15px;
 text-align:center;
-box-shadow:0 3px 10px var(--sombra)
+box-shadow:0 3px 10px var(--sombra);
+position:sticky;
+top:0;
+z-index:100
 }
 
 .logo{
 margin:0;
 font-family:Pacifico,cursive;
-font-size:32px
+font-size:30px;
+cursor:pointer
 }
 
 .subtitulo{
-margin:5px 0 0;
-font-size:14px;
+margin:3px 0 0;
+font-size:13px;
 font-weight:600
 }
+
+/* CONTENEDOR */
 
 .contenedor{
 width:92%;
 max-width:1050px;
-margin:30px auto 60px
+margin:25px auto 40px
+}
+
+.pantalla{
+display:none;
+animation:aparecer .2s ease
+}
+
+.pantalla.activa{
+display:block
+}
+
+@keyframes aparecer{
+from{
+opacity:0;
+transform:translateY(5px)
+}
+to{
+opacity:1;
+transform:translateY(0)
+}
 }
 
 .titulo{
-margin:0;
+margin:0 0 8px;
 font-family:Pacifico,cursive;
 font-size:29px;
 text-align:center
@@ -79,28 +121,131 @@ text-align:center
 
 .descripcion{
 max-width:700px;
-margin:8px auto 28px;
+margin:8px auto 25px;
 text-align:center;
 font-size:14px;
 line-height:1.6
 }
 
+/* INICIO */
+
+.bienvenida{
+background:var(--crema);
+border-radius:25px;
+padding:25px;
+text-align:center;
+box-shadow:0 5px 15px var(--sombra);
+margin-bottom:20px
+}
+
+.bienvenida img{
+width:105px;
+height:105px;
+object-fit:contain;
+margin-bottom:5px
+}
+
+.bienvenida h2{
+font-family:Pacifico,cursive;
+font-size:26px;
+margin:5px 0
+}
+
+.bienvenida p{
+font-size:14px;
+line-height:1.5
+}
+
+.accesos{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+margin-bottom:25px
+}
+
+.acceso-card{
+background:#fff;
+border:0;
+border-radius:21px;
+padding:20px 12px;
+color:var(--cafe);
+box-shadow:0 4px 12px var(--sombra);
+font-weight:700;
+font-size:14px;
+transition:.2s
+}
+
+.acceso-card:hover{
+transform:translateY(-2px)
+}
+
+.acceso-card img{
+width:42px;
+height:42px;
+object-fit:contain;
+display:block;
+margin:0 auto 8px
+}
+
+/* RESUMEN */
+
+.resumen{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+margin-bottom:25px
+}
+
+.resumen-card{
+padding:16px 8px;
+border-radius:19px;
+background:var(--crema);
+text-align:center;
+box-shadow:0 4px 12px var(--sombra)
+}
+
+.resumen-icono{
+width:25px;
+height:25px;
+margin:0 auto 5px
+}
+
+.resumen-icono img{
+width:100%;
+height:100%;
+object-fit:contain
+}
+
+.resumen-numero{
+display:block;
+margin-top:4px;
+font-size:23px;
+font-weight:700
+}
+
+.resumen-texto{
+font-size:11px
+}
+
+/* TARJETAS */
+
 .tarjeta{
 background:var(--crema);
 border-radius:24px;
-padding:25px;
-margin-bottom:30px;
+padding:24px;
+margin-bottom:25px;
 box-shadow:0 5px 15px var(--sombra)
 }
 
 .tarjeta-titulo{
 display:flex;
 align-items:center;
+justify-content:center;
 gap:8px;
-margin-top:0;
-margin-bottom:20px;
+margin:0 0 20px;
 font-family:Pacifico,cursive;
-font-size:23px
+font-size:23px;
+text-align:center
 }
 
 .tarjeta-titulo img{
@@ -112,7 +257,8 @@ object-fit:contain
 .subtitulo-seccion{
 display:flex;
 align-items:center;
-gap:7px
+gap:7px;
+margin-top:22px
 }
 
 .subtitulo-seccion img{
@@ -121,8 +267,10 @@ height:26px;
 object-fit:contain
 }
 
+/* CAMPOS */
+
 .campo{
-margin-bottom:18px
+margin-bottom:17px
 }
 
 .campo label{
@@ -168,23 +316,25 @@ display:block;
 margin-top:6px;
 font-size:12px;
 line-height:1.4;
-opacity:.75
+opacity:.72
 }
 
 .fila{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:16px
+gap:15px
 }
+
+/* BOTONES */
 
 .btn-principal{
 width:100%;
-padding:14px 20px;
+padding:14px 18px;
 border:0;
 border-radius:16px;
 background:var(--boton);
 color:var(--cafe);
-font-size:16px;
+font-size:15px;
 font-weight:700;
 display:flex;
 align-items:center;
@@ -198,14 +348,15 @@ color:#fff
 }
 
 .btn-principal img{
-width:24px;
-height:24px;
+width:23px;
+height:23px;
 object-fit:contain
 }
 
 .btn-secundario,
-.btn-peligro{
-padding:12px 18px;
+.btn-peligro,
+.btn-comprado{
+padding:11px 15px;
 border:0;
 border-radius:13px;
 font-weight:700
@@ -221,28 +372,12 @@ background:var(--rojo);
 color:var(--cafe)
 }
 
-.boton-entrar{
-width:100%;
-margin-top:12px;
-padding:13px;
-border:0;
-border-radius:15px;
-background:#A9C7E8;
-color:#7A6F60;
-font-weight:700;
-font-family:"Quicksand",sans-serif;
-cursor:pointer;
-display:flex;
-align-items:center;
-justify-content:center;
-gap:7px
+.btn-comprado{
+background:var(--verde);
+color:var(--verde-texto)
 }
 
-.boton-entrar img{
-width:22px;
-height:22px;
-object-fit:contain
-}
+/* IMAGEN */
 
 .zona-imagen{
 padding:18px;
@@ -267,128 +402,87 @@ margin:15px auto 0;
 border-radius:20px
 }
 
-/* RESUMEN */
-
-.resumen{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px;
-margin-bottom:30px
-}
-
-.resumen-card{
-padding:18px;
-border-radius:19px;
-background:var(--crema);
-text-align:center;
-box-shadow:0 4px 12px var(--sombra)
-}
-
-.resumen-icono{
-width:24px;
-height:24px;
-margin:0 auto 5px
-}
-
-.resumen-icono img{
-width:100%;
-height:100%;
-object-fit:contain;
-display:block
-}
-
-.resumen-numero{
-display:block;
-margin-top:5px;
-font-size:24px;
-font-weight:700
-}
-
-.resumen-texto{
-font-size:12px
-}
-
-/* MATERIALES */
+/* MATERIALES Y PRODUCTOS */
 
 .materiales,
 .productos{
 display:grid;
 grid-template-columns:repeat(2,minmax(0,1fr));
-gap:20px
+gap:18px
 }
 
 .material,
 .producto{
 background:#fff;
 border-radius:23px;
-padding:20px;
+padding:19px;
 box-shadow:0 4px 12px var(--sombra)
 }
 
 .imagen-material,
 .imagen-producto{
 width:100%;
-height:220px;
+height:210px;
 object-fit:cover;
 display:block;
-margin-bottom:17px;
+margin-bottom:15px;
 border-radius:19px
 }
 
 .sin-imagen,
 .producto-sin-imagen{
 width:100%;
-height:180px;
+height:170px;
 display:flex;
 align-items:center;
 justify-content:center;
-margin-bottom:17px;
+margin-bottom:15px;
 border-radius:19px;
-background:var(--celeste-claro);
-font-size:48px
+background:var(--celeste-claro)
 }
 
-.sin-imagen img{
-width:120px;
-height:120px;
+.sin-imagen img,
+.producto-sin-imagen img{
+width:115px;
+height:115px;
 object-fit:contain
 }
 
 .material-nombre,
 .producto-nombre{
-margin-bottom:5px;
+margin-bottom:4px;
 font-family:Pacifico,cursive;
-font-size:23px;
+font-size:22px;
 text-align:center
 }
 
 .categoria{
 display:block;
-margin-bottom:15px;
+margin-bottom:13px;
 text-align:center;
 font-size:12px;
 font-weight:700;
-opacity:.75
+opacity:.7
 }
 
 .dato{
 display:flex;
 justify-content:space-between;
 gap:12px;
-padding:9px 0;
+padding:8px 0;
 border-bottom:1px dashed var(--borde);
-font-size:14px
+font-size:13px
 }
 
 .dato span{
 display:flex;
 align-items:center;
-gap:7px
+gap:6px
 }
 
 .dato span img{
-width:20px;
-height:20px;
+width:19px;
+height:19px;
 object-fit:contain
 }
 
@@ -398,8 +492,8 @@ text-align:right
 
 .costo,
 .producto-precio{
-margin-top:16px;
-padding:15px;
+margin-top:15px;
+padding:14px;
 border-radius:17px;
 background:var(--celeste-claro);
 text-align:center
@@ -415,12 +509,12 @@ font-size:12px
 .producto-precio strong{
 display:block;
 margin-top:4px;
-font-size:25px
+font-size:24px
 }
 
 .stock{
-margin-top:12px;
-padding:12px;
+margin-top:11px;
+padding:11px;
 border-radius:14px;
 text-align:center;
 font-size:13px;
@@ -443,8 +537,8 @@ color:var(--rojo-texto)
 }
 
 .notas{
-margin-top:14px;
-padding:12px;
+margin-top:13px;
+padding:11px;
 border-radius:14px;
 background:var(--crema);
 font-size:13px;
@@ -454,19 +548,19 @@ line-height:1.5
 .acciones{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:10px;
-margin-top:15px
+gap:9px;
+margin-top:14px
 }
 
-/* PRODUCTOS */
+/* CALCULADORA */
 
 .selector-material{
 display:grid;
 grid-template-columns:2fr 1fr 1fr auto;
-gap:10px;
+gap:9px;
 align-items:end;
 margin-bottom:15px;
-padding:15px;
+padding:14px;
 border-radius:17px;
 background:var(--celeste-claro)
 }
@@ -474,10 +568,10 @@ background:var(--celeste-claro)
 .uso{
 display:grid;
 grid-template-columns:1.5fr 1fr 1fr auto;
-gap:10px;
+gap:9px;
 align-items:center;
-padding:13px;
-margin-bottom:10px;
+padding:12px;
+margin-bottom:9px;
 border-radius:15px;
 background:#fff;
 box-shadow:0 2px 7px var(--sombra)
@@ -503,8 +597,8 @@ font-weight:bold
 }
 
 .resultado{
-margin-top:25px;
-padding:22px;
+margin-top:23px;
+padding:20px;
 border-radius:21px;
 background:var(--celeste-claro)
 }
@@ -512,7 +606,7 @@ background:var(--celeste-claro)
 .resultado-linea{
 display:flex;
 justify-content:space-between;
-padding:10px 0;
+padding:9px 0;
 border-bottom:1px dashed var(--borde)
 }
 
@@ -529,8 +623,8 @@ object-fit:contain
 }
 
 .resultado-total{
-margin-top:12px;
-padding:18px;
+margin-top:11px;
+padding:17px;
 border-radius:17px;
 background:#fff;
 text-align:center
@@ -543,13 +637,13 @@ font-size:13px
 
 .resultado-total strong{
 display:block;
-margin-top:5px;
-font-size:30px
+margin-top:4px;
+font-size:29px
 }
 
 .ganancia{
-margin-top:12px;
-padding:18px;
+margin-top:11px;
+padding:17px;
 border-radius:17px;
 background:var(--verde);
 text-align:center
@@ -557,19 +651,84 @@ text-align:center
 
 .ganancia strong{
 display:block;
-font-size:28px
+font-size:27px
 }
 
-.producto-ganancia{
-margin-top:10px;
-padding:12px;
-border-radius:14px;
-background:var(--verde);
-text-align:center;
+/* COMPRAS */
+
+.compra-form{
+display:grid;
+grid-template-columns:2fr 1fr auto;
+gap:10px;
+align-items:end
+}
+
+.compras{
+display:grid;
+gap:12px
+}
+
+.compra-item{
+background:#fff;
+border-radius:18px;
+padding:15px;
+box-shadow:0 3px 9px var(--sombra);
+display:grid;
+grid-template-columns:1fr auto;
+gap:12px;
+align-items:center
+}
+
+.compra-info strong{
+display:block;
+font-size:16px;
+margin-bottom:4px
+}
+
+.compra-info span{
+font-size:12px;
+opacity:.7
+}
+
+.compra-acciones{
+display:flex;
+gap:7px;
+align-items:center
+}
+
+.compra-item.comprado{
+opacity:.55
+}
+
+.compra-item.comprado .compra-info strong{
+text-decoration:line-through
+}
+
+.etiqueta-auto{
+display:inline-block;
+margin-top:6px;
+padding:4px 8px;
+border-radius:8px;
+background:var(--amarillo);
+color:var(--amarillo-texto);
+font-size:10px;
 font-weight:700
 }
 
-/* RESPALDO */
+.sin-compras{
+padding:25px;
+border-radius:20px;
+background:var(--celeste-claro);
+text-align:center
+}
+
+.sin-compras img{
+width:80px;
+height:80px;
+object-fit:contain
+}
+
+/* RESPALDOS */
 
 .acciones-respaldo{
 display:grid;
@@ -577,13 +736,44 @@ grid-template-columns:1fr 1fr;
 gap:12px
 }
 
-.respaldo-card{
-margin-top:30px
+/* NAVEGACIÓN */
+
+.navegacion{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+height:70px;
+background:var(--crema);
+box-shadow:0 -4px 15px var(--sombra);
+z-index:500;
+display:grid;
+grid-template-columns:repeat(5,1fr);
+padding:6px 4px
 }
 
-.ayuda{
-font-size:12px;
-opacity:.75
+.nav-btn{
+border:0;
+background:transparent;
+color:var(--cafe);
+font-size:10px;
+font-weight:700;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:3px;
+border-radius:13px
+}
+
+.nav-btn img{
+width:25px;
+height:25px;
+object-fit:contain
+}
+
+.nav-btn.activo{
+background:var(--celeste);
 }
 
 /* ACCESO */
@@ -616,11 +806,32 @@ box-shadow:0 10px 30px rgba(0,0,0,.2);
 text-align:center
 }
 
+.boton-entrar{
+width:100%;
+margin-top:12px;
+padding:13px;
+border:0;
+border-radius:15px;
+background:var(--boton);
+color:var(--cafe);
+font-weight:700;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:7px
+}
+
+.boton-entrar img{
+width:22px;
+height:22px;
+object-fit:contain
+}
+
 footer{
-padding:25px 15px;
+padding:20px 15px;
 background:var(--crema);
 text-align:center;
-font-size:13px
+font-size:12px
 }
 
 /* RESPONSIVE */
@@ -644,25 +855,26 @@ grid-template-columns:1fr 1fr
 text-align:left
 }
 
+.compra-form{
+grid-template-columns:1fr
+}
+
 .resumen{
-grid-template-columns:repeat(3,1fr);
-gap:8px
+gap:7px
 }
 
 .resumen-card{
-padding:12px 5px;
-border-radius:17px
+padding:12px 5px
 }
 
 .resumen-numero{
-font-size:19px;
-margin-top:2px
+font-size:19px
 }
 
 .resumen-texto{
-font-size:10px;
-line-height:1.2
+font-size:10px
 }
+
 }
 
 @media(max-width:500px){
@@ -672,14 +884,54 @@ grid-template-columns:1fr;
 gap:0
 }
 
+.accesos{
+grid-template-columns:1fr 1fr
+}
+
 .acciones{
 grid-template-columns:1fr
+}
+
+.compra-item{
+grid-template-columns:1fr
+}
+
+.compra-acciones{
+justify-content:flex-end
 }
 
 .contenedor{
 width:94%
 }
+
 }
+
+/* PC: navegación superior pequeña */
+
+@media(min-width:751px){
+
+.navegacion{
+position:static;
+width:92%;
+max-width:1050px;
+height:auto;
+margin:18px auto 0;
+border-radius:20px;
+box-shadow:0 4px 12px var(--sombra);
+padding:7px
+}
+
+.nav-btn{
+font-size:12px;
+padding:8px
+}
+
+body{
+padding-bottom:0
+}
+
+}
+
 </style>
 
 </head>
@@ -687,60 +939,288 @@ width:94%
 <body>
 
 <header>
-<h1 class="logo" id="logoSecreto">Made by Annie</h1>
-<p class="subtitulo">Mi calculadora de costos</p>
+
+<h1 class="logo" id="logoSecreto">
+Made by Annie
+</h1>
+
+<p class="subtitulo">
+Mi calculadora de costos
+</p>
+
 </header>
 
-<main class="contenedor" id="contenidoApp" style="display:none">
+<!-- NAVEGACIÓN -->
 
-<h2 class="titulo">Mis materiales</h2>
+<nav class="navegacion">
 
-<section class="resumen">
+<button class="nav-btn activo" data-pantalla="inicio" onclick="irA('inicio')">
 
-<div class="resumen-card">
-<div class="resumen-icono">
+<img src="iconos/aun.png" alt="">
+
+Inicio
+
+</button>
+
+<button class="nav-btn" data-pantalla="materiales" onclick="irA('materiales')">
+
 <img src="iconos/material.png" alt="">
-</div>
-<span id="totalMateriales" class="resumen-numero">0</span>
-<span class="resumen-texto">Materiales</span>
-</div>
 
-<div class="resumen-card">
-<div class="resumen-icono">
+Materiales
+
+</button>
+
+<button class="nav-btn" data-pantalla="calcular" onclick="irA('calcular')">
+
+<img src="iconos/calcular.png" alt="">
+
+Calcular
+
+</button>
+
+<button class="nav-btn" data-pantalla="productos" onclick="irA('productos')">
+
+<img src="iconos/utilizados.png" alt="">
+
+Productos
+
+</button>
+
+<button class="nav-btn" data-pantalla="compras" onclick="irA('compras')">
+
 <img src="iconos/stock.png" alt="">
+
+Compras
+
+</button>
+
+</nav>
+
+<main class="contenedor">
+
+<!-- =====================================================
+     INICIO
+===================================================== -->
+
+<section id="pantalla-inicio" class="pantalla activa">
+
+<div class="bienvenida">
+
+<img src="iconos/cinna.png" alt="">
+
+<h2>
+Hola, Annie
+</h2>
+
+<p>
+Aquí puedes organizar tus materiales, calcular tus productos y llevar el control de lo que necesitas comprar.
+</p>
+
 </div>
-<span id="stockDisponible" class="resumen-numero">0</span>
-<span class="resumen-texto">Con stock</span>
+
+<div class="accesos">
+
+<button class="acceso-card" onclick="irA('materiales')">
+
+<img src="iconos/material.png" alt="">
+
+Mis materiales
+
+</button>
+
+<button class="acceso-card" onclick="irA('calcular')">
+
+<img src="iconos/calcular.png" alt="">
+
+Calcular producto
+
+</button>
+
+<button class="acceso-card" onclick="irA('productos')">
+
+<img src="iconos/utilizados.png" alt="">
+
+Mis productos
+
+</button>
+
+<button class="acceso-card" onclick="irA('compras')">
+
+<img src="iconos/stock.png" alt="">
+
+Lista de compras
+
+</button>
+
+</div>
+
+<div class="resumen">
+
+<div class="resumen-card">
+
+<div class="resumen-icono">
+
+<img src="iconos/material.png" alt="">
+
+</div>
+
+<span id="inicioMateriales" class="resumen-numero">
+0
+</span>
+
+<span class="resumen-texto">
+Materiales
+</span>
+
 </div>
 
 <div class="resumen-card">
+
 <div class="resumen-icono">
-<img src="iconos/bajo.png" alt="">
+
+<img src="iconos/stock.png" alt="">
+
 </div>
-<span id="stockBajo" class="resumen-numero">0</span>
-<span class="resumen-texto">Stock bajo</span>
+
+<span id="inicioStock" class="resumen-numero">
+0
+</span>
+
+<span class="resumen-texto">
+Con stock
+</span>
+
+</div>
+
+<div class="resumen-card">
+
+<div class="resumen-icono">
+
+<img src="iconos/bajo.png" alt="">
+
+</div>
+
+<span id="inicioBajo" class="resumen-numero">
+0
+</span>
+
+<span class="resumen-texto">
+Stock bajo
+</span>
+
+</div>
+
+</div>
+
+<div class="tarjeta">
+
+<h2 class="tarjeta-titulo">
+
+<img src="iconos/bajo.png" alt="">
+
+Materiales por reponer
+
+</h2>
+
+<div id="inicioBajos"></div>
+
 </div>
 
 </section>
 
-<!-- AGREGAR MATERIAL -->
+<!-- =====================================================
+     MATERIALES
+===================================================== -->
+
+<section id="pantalla-materiales" class="pantalla">
+
+<h2 class="titulo">
+Mis materiales
+</h2>
+
+<p class="descripcion">
+Registra cuánto compraste y cuánto tienes actualmente para conocer tu inventario y el costo real de cada unidad.
+</p>
+
+<div class="resumen">
+
+<div class="resumen-card">
+
+<div class="resumen-icono">
+<img src="iconos/material.png" alt="">
+</div>
+
+<span id="totalMateriales" class="resumen-numero">0</span>
+
+<span class="resumen-texto">
+Materiales
+</span>
+
+</div>
+
+<div class="resumen-card">
+
+<div class="resumen-icono">
+<img src="iconos/stock.png" alt="">
+</div>
+
+<span id="stockDisponible" class="resumen-numero">0</span>
+
+<span class="resumen-texto">
+Con stock
+</span>
+
+</div>
+
+<div class="resumen-card">
+
+<div class="resumen-icono">
+<img src="iconos/bajo.png" alt="">
+</div>
+
+<span id="stockBajo" class="resumen-numero">0</span>
+
+<span class="resumen-texto">
+Stock bajo
+</span>
+
+</div>
+
+</div>
 
 <section class="tarjeta">
 
 <h2 class="tarjeta-titulo">
-<img src="iconos/material.png" alt="">
+
+<img src="iconos/guardar.png" alt="">
+
 Agregar material
+
 </h2>
 
 <div class="campo">
-<label>Nombre del material</label>
-<input id="nombre" type="text" placeholder="Ej: Mulos rosados">
+
+<label>
+Nombre del material
+</label>
+
+<input
+id="nombre"
+type="text"
+placeholder="Ej: Mullos rosados"
+
+>
+
 </div>
 
 <div class="campo">
-<label>Categoría</label>
+
+<label>
+Categoría
+</label>
 
 <select id="categoria">
+
 <option>Mullos y cuentas</option>
 <option>Cadenas</option>
 <option>Hilos</option>
@@ -751,13 +1231,16 @@ Agregar material
 <option>Resina</option>
 <option>Empaque</option>
 <option>Otros</option>
+
 </select>
 
 </div>
 
 <div class="campo">
 
-<label>Foto del material</label>
+<label>
+Foto del material
+</label>
 
 <div class="zona-imagen">
 
@@ -769,7 +1252,11 @@ onchange="previsualizarImagen(event)"
 
 >
 
-<img id="vistaPrevia" class="vista-previa">
+<img
+id="vistaPrevia"
+class="vista-previa"
+
+>
 
 </div>
 
@@ -779,7 +1266,9 @@ onchange="previsualizarImagen(event)"
 
 <div class="campo">
 
-<label>Precio de compra</label>
+<label>
+Precio de compra
+</label>
 
 <input
 id="precio"
@@ -798,7 +1287,9 @@ Lo que pagaste por toda la funda, paquete o cantidad.
 
 <div class="campo">
 
-<label>Cantidad comprada</label>
+<label>
+Cantidad comprada
+</label>
 
 <input
 id="cantidad"
@@ -810,7 +1301,7 @@ placeholder="600"
 >
 
 <small class="ayuda-campo">
-Ej: si la funda trae 600 mullos, escribe 600.
+Por ejemplo: 600 mullos.
 </small>
 
 </div>
@@ -819,29 +1310,52 @@ Ej: si la funda trae 600 mullos, escribe 600.
 
 <div class="campo">
 
-<label>Unidad</label>
+<label>
+Unidad
+</label>
 
 <select id="unidad">
 
-<option value="unidades">Unidades / piezas</option>
-<option value="metros">Metros</option>
-<option value="centimetros">Centímetros</option>
-<option value="gramos">Gramos</option>
-<option value="kilogramos">Kilogramos</option>
-<option value="mililitros">Mililitros</option>
-<option value="litros">Litros</option>
+<option value="unidades">
+Unidades / piezas
+</option>
+
+<option value="metros">
+Metros
+</option>
+
+<option value="centimetros">
+Centímetros
+</option>
+
+<option value="gramos">
+Gramos
+</option>
+
+<option value="kilogramos">
+Kilogramos
+</option>
+
+<option value="mililitros">
+Mililitros
+</option>
+
+<option value="litros">
+Litros
+</option>
 
 </select>
 
 </div>
 
-<!-- NUEVO INVENTARIO -->
-
 <div class="campo">
 
 <label>
+
 <img src="iconos/stock.png" alt="">
+
 Cantidad actual
+
 </label>
 
 <input
@@ -854,14 +1368,16 @@ placeholder="450"
 >
 
 <small class="ayuda-campo">
-¿Cuánto tienes actualmente? Por ejemplo, si compraste 600 mullos y ya usaste 150, escribe 450.
+Si compraste 600 y actualmente tienes 450, escribe 450.
 </small>
 
 </div>
 
 <div class="campo">
 
-<label>Stock mínimo</label>
+<label>
+Stock mínimo
+</label>
 
 <input
 id="stockMinimo"
@@ -873,7 +1389,7 @@ value="1"
 >
 
 <small class="ayuda-campo">
-Cuando llegues a esta cantidad, te aparecerá como stock bajo.
+Cuando tu stock llegue a esta cantidad, aparecerá en Compras.
 </small>
 
 </div>
@@ -881,13 +1397,16 @@ Cuando llegues a esta cantidad, te aparecerá como stock bajo.
 <div class="campo">
 
 <label>
+
 <img src="iconos/notas.png" alt="">
+
 Notas
+
 </label>
 
 <textarea
 id="notas"
-placeholder="Ej: Mullos rosados, funda de 600 piezas"
+placeholder="Ej: Funda de 600 mullos"
 ></textarea>
 
 </div>
@@ -899,17 +1418,16 @@ onclick="guardarMaterial()"
 >
 
 <img src="iconos/guardar.png" alt="">
+
 Guardar material
 
 </button>
 
 </section>
 
-<!-- LISTA MATERIALES -->
-
-<section>
-
-<h2 class="titulo">Mis materiales</h2>
+<h2 class="titulo">
+Inventario
+</h2>
 
 <br>
 
@@ -917,20 +1435,27 @@ Guardar material
 
 </section>
 
-<br><br>
+<!-- =====================================================
+     CALCULAR
+===================================================== -->
 
-<!-- CALCULADORA DE PRODUCTO -->
+<section id="pantalla-calcular" class="pantalla">
 
-<section class="tarjeta">
-
-<h2 class="tarjeta-titulo">
-<img src="iconos/calcular.png" alt="">
+<h2 class="titulo">
 Calcular producto
 </h2>
 
+<p class="descripcion">
+Calcula cuánto te cuesta hacer cada creación incluyendo materiales, mano de obra y empaque.
+</p>
+
+<section class="tarjeta">
+
 <div class="campo">
 
-<label>Nombre del producto</label>
+<label>
+Nombre del producto
+</label>
 
 <input
 id="nombreProducto"
@@ -943,7 +1468,9 @@ placeholder="Ej: Manilla Ocean Mist"
 
 <div class="campo">
 
-<label>Foto del producto</label>
+<label>
+Foto del producto
+</label>
 
 <div class="zona-imagen">
 
@@ -955,7 +1482,11 @@ onchange="previsualizarProducto(event)"
 
 >
 
-<img id="vistaProducto" class="vista-previa">
+<img
+id="vistaProducto"
+class="vista-previa"
+
+>
 
 </div>
 
@@ -973,7 +1504,9 @@ Materiales utilizados
 
 <div class="campo">
 
-<label>Material</label>
+<label>
+Material
+</label>
 
 <select id="materialSeleccionado">
 
@@ -987,7 +1520,9 @@ Selecciona un material
 
 <div class="campo">
 
-<label>Cantidad</label>
+<label>
+Cantidad
+</label>
 
 <input
 id="cantidadUsada"
@@ -1002,7 +1537,9 @@ placeholder="35"
 
 <div class="campo">
 
-<label>Unidad</label>
+<label>
+Unidad
+</label>
 
 <select id="unidadUsada">
 
@@ -1024,7 +1561,7 @@ onclick="agregarMaterialAlProducto()"
 
 >
 
-➕ Agregar
+Agregar
 
 </button>
 
@@ -1044,7 +1581,9 @@ Mano de obra
 
 <div class="campo">
 
-<label>Tiempo trabajado (minutos)</label>
+<label>
+Tiempo trabajado (minutos)
+</label>
 
 <input
 id="minutosTrabajo"
@@ -1059,7 +1598,9 @@ oninput="calcularProducto()"
 
 <div class="campo">
 
-<label>¿Cuánto quieres ganar por hora?</label>
+<label>
+¿Cuánto quieres ganar por hora?
+</label>
 
 <input
 id="precioHora"
@@ -1099,7 +1640,9 @@ oninput="calcularProducto()"
 
 <div class="campo">
 
-<label>Precio de venta</label>
+<label>
+Precio de venta
+</label>
 
 <input
 id="precioVenta"
@@ -1156,7 +1699,9 @@ $0.00
 
 <div class="resultado-total">
 
-<span>💗 COSTO TOTAL</span>
+<span>
+COSTO TOTAL
+</span>
 
 <strong id="resultadoTotal">
 $0.00
@@ -1166,7 +1711,9 @@ $0.00
 
 <div class="ganancia">
 
-<span>GANANCIA</span>
+<span>
+GANANCIA
+</span>
 
 <strong id="resultadoGanancia">
 $0.00
@@ -1188,7 +1735,9 @@ onclick="guardarProducto()"
 
 >
 
-💗 Guardar producto
+<img src="iconos/guardar.png" alt="">
+
+Guardar producto
 
 </button>
 
@@ -1206,24 +1755,150 @@ Fabricar y descontar materiales
 
 </section>
 
-<!-- PRODUCTOS -->
+</section>
 
-<section>
+<!-- =====================================================
+     PRODUCTOS
+===================================================== -->
 
-<h2 class="titulo">Mis productos</h2>
+<section id="pantalla-productos" class="pantalla">
 
-<br>
+<h2 class="titulo">
+Mis productos
+</h2>
+
+<p class="descripcion">
+Aquí se guardan las creaciones que hayas calculado.
+</p>
 
 <div id="listaProductos" class="productos"></div>
 
 </section>
 
-<!-- RESPALDOS -->
+<!-- =====================================================
+     COMPRAS
+===================================================== -->
 
-<section class="tarjeta respaldo-card">
+<section id="pantalla-compras" class="pantalla">
+
+<h2 class="titulo">
+Lista de compras
+</h2>
+
+<p class="descripcion">
+Aquí aparecen automáticamente los materiales que necesitan reposición y también puedes agregar tus propias compras.
+</p>
+
+<section class="tarjeta">
 
 <h2 class="tarjeta-titulo">
-💾 Mis respaldos
+
+<img src="iconos/stock.png" alt="">
+
+Agregar a mi lista
+
+</h2>
+
+<div class="compra-form">
+
+<div class="campo">
+
+<label>
+¿Qué quieres comprar?
+</label>
+
+<input
+id="nombreCompra"
+type="text"
+placeholder="Ej: Mullos blancos"
+
+>
+
+</div>
+
+<div class="campo">
+
+<label>
+Cantidad
+</label>
+
+<input
+id="cantidadCompra"
+type="text"
+placeholder="Ej: 600 piezas"
+
+>
+
+</div>
+
+<button
+class="btn-principal"
+onclick="agregarCompraManual()"
+
+>
+
+<img src="iconos/guardar.png" alt="">
+
+Agregar
+
+</button>
+
+</div>
+
+</section>
+
+<section class="tarjeta">
+
+<h2 class="tarjeta-titulo">
+
+<img src="iconos/bajo.png" alt="">
+
+Necesitan reposición
+
+</h2>
+
+<div id="comprasAutomaticas"></div>
+
+</section>
+
+<section class="tarjeta">
+
+<h2 class="tarjeta-titulo">
+
+<img src="iconos/guardar.png" alt="">
+
+Mi lista
+
+</h2>
+
+<div id="listaCompras" class="compras"></div>
+
+</section>
+
+</section>
+
+<!-- =====================================================
+     RESPALDOS
+===================================================== -->
+
+<section id="pantalla-respaldo" class="pantalla">
+
+<h2 class="titulo">
+Respaldos
+</h2>
+
+<p class="descripcion">
+Guarda una copia de tus materiales, inventario, productos y lista de compras.
+</p>
+
+<section class="tarjeta">
+
+<h2 class="tarjeta-titulo">
+
+<img src="iconos/guardar.png" alt="">
+
+Mis respaldos
+
 </h2>
 
 <div class="acciones-respaldo">
@@ -1266,16 +1941,18 @@ class="ayuda"
 style="text-align:center;margin-top:12px"
 >
 
-El respaldo incluye tus materiales, inventario, productos y fotos guardadas dentro de la calculadora.
+El respaldo incluye tus materiales, inventario, productos, fotos y lista de compras.
 
 </p>
+
+</section>
 
 </section>
 
 </main>
 
 <footer>
-Made with ♡ by Annie
+Made with love by Annie
 </footer>
 
 <!-- ACCESO SECRETO -->
@@ -1311,7 +1988,11 @@ class="boton-entrar"
 
 >
 
-<img src="iconos/candado.png" alt="">
+<img
+src="iconos/candado.png"
+alt=""
+
+>
 
 Entrar
 
@@ -1334,27 +2015,79 @@ Cancelar
 <script>
 
 /* =====================================================
-   CALCULADORA LOCAL — MADE BY ANNIE
-   INVENTARIO + COSTO POR UNIDAD
+   DATOS
 ===================================================== */
 
 let materiales =
-JSON.parse(localStorage.getItem("materialesMadeByAnnieV3")) || [];
+JSON.parse(
+localStorage.getItem("materialesMadeByAnnieV3")
+) || [];
+
 
 let productos =
-JSON.parse(localStorage.getItem("productosMadeByAnnieV3")) || [];
-
-let imagenMaterial = "";
-let imagenProducto = "";
-
-let materialesProducto = [];
+JSON.parse(
+localStorage.getItem("productosMadeByAnnieV3")
+) || [];
 
 
-const $ = id => document.getElementById(id);
+let compras =
+JSON.parse(
+localStorage.getItem("comprasMadeByAnnieV1")
+) || [];
+
+
+let imagenMaterial="";
+
+let imagenProducto="";
+
+let materialesProducto=[];
+
+
+const $ =
+id=>document.getElementById(id);
 
 
 /* =====================================================
-   CONVERSIÓN DE UNIDADES
+   NAVEGACIÓN
+===================================================== */
+
+function irA(nombre){
+
+document
+.querySelectorAll(".pantalla")
+.forEach(p=>{
+p.classList.remove("activa");
+});
+
+
+const pantalla =
+$("pantalla-"+nombre);
+
+
+if(pantalla)
+pantalla.classList.add("activa");
+
+
+document
+.querySelectorAll(".nav-btn")
+.forEach(btn=>{
+btn.classList.toggle(
+"activo",
+btn.dataset.pantalla===nombre
+);
+});
+
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+/* =====================================================
+   CONVERSIONES
 ===================================================== */
 
 function convertirAUnidadBase(cantidad,unidad){
@@ -1390,15 +2123,17 @@ return cantidad;
 
 
 /* =====================================================
-   NORMALIZAR MATERIALES ANTIGUOS
-   Esto permite conservar tus materiales actuales.
+   NORMALIZAR
 ===================================================== */
 
 function normalizarMateriales(){
 
-materiales = materiales.map(m => {
+materiales =
+materiales.map(m=>{
 
-const unidad = m.unidadOriginal || "unidades";
+const unidad =
+m.unidadOriginal || "unidades";
+
 
 const cantidadComprada =
 Number(
@@ -1406,6 +2141,7 @@ m.cantidadComprada ??
 m.cantidad ??
 0
 );
+
 
 const cantidadBase =
 Number(
@@ -1419,8 +2155,10 @@ unidad
 
 let stock =
 Number.isFinite(Number(m.stock))
-? Number(m.stock)
-: cantidadBase;
+?
+Number(m.stock)
+:
+cantidadBase;
 
 
 const stockMinimo =
@@ -1431,11 +2169,17 @@ m.stockMinimo ??
 
 
 const costoUnitario =
-Number.isFinite(Number(m.costoUnitario))
-? Number(m.costoUnitario)
-: cantidadBase > 0
-? Number(m.precio || 0) / cantidadBase
-: 0;
+Number.isFinite(
+Number(m.costoUnitario)
+)
+?
+Number(m.costoUnitario)
+:
+cantidadBase>0
+?
+Number(m.precio||0)/cantidadBase
+:
+0;
 
 
 return {
@@ -1444,15 +2188,15 @@ return {
 
 unidadOriginal:unidad,
 
-cantidadComprada:cantidadComprada,
+cantidadComprada,
 
-cantidadBase:cantidadBase,
+cantidadBase,
 
 stock:Math.max(0,stock),
 
-stockMinimo:stockMinimo,
+stockMinimo,
 
-costoUnitario:costoUnitario,
+costoUnitario,
 
 cantidadActual:
 convertirDesdeBase(
@@ -1468,7 +2212,7 @@ unidad
 
 
 /* =====================================================
-   GUARDAR DATOS
+   GUARDAR
 ===================================================== */
 
 function guardarDatos(){
@@ -1481,6 +2225,11 @@ JSON.stringify(materiales)
 localStorage.setItem(
 "productosMadeByAnnieV3",
 JSON.stringify(productos)
+);
+
+localStorage.setItem(
+"comprasMadeByAnnieV1",
+JSON.stringify(compras)
 );
 
 }
@@ -1502,7 +2251,16 @@ actualizarResumen();
 
 actualizarSelectorMateriales();
 
-if(sessionStorage.getItem("annieAcceso")==="1"){
+mostrarCompras();
+
+mostrarComprasAutomaticas();
+
+actualizarInicio();
+
+
+if(
+sessionStorage.getItem("annieAcceso")==="1"
+){
 
 $("contenidoApp").style.display="block";
 
@@ -1521,21 +2279,29 @@ $("accesoSecreto").style.display="flex";
 
 function previsualizarImagen(event){
 
-const archivo=event.target.files[0];
+const archivo =
+event.target.files[0];
 
 if(!archivo)return;
 
-const lector=new FileReader();
+
+const lector =
+new FileReader();
+
 
 lector.onload=e=>{
 
-imagenMaterial=e.target.result;
+imagenMaterial =
+e.target.result;
 
-$("vistaPrevia").src=imagenMaterial;
+$("vistaPrevia").src =
+imagenMaterial;
 
-$("vistaPrevia").style.display="block";
+$("vistaPrevia")
+.style.display="block";
 
 };
+
 
 lector.readAsDataURL(archivo);
 
@@ -1544,21 +2310,29 @@ lector.readAsDataURL(archivo);
 
 function previsualizarProducto(event){
 
-const archivo=event.target.files[0];
+const archivo =
+event.target.files[0];
 
 if(!archivo)return;
 
-const lector=new FileReader();
+
+const lector =
+new FileReader();
+
 
 lector.onload=e=>{
 
-imagenProducto=e.target.result;
+imagenProducto =
+e.target.result;
 
-$("vistaProducto").src=imagenProducto;
+$("vistaProducto").src =
+imagenProducto;
 
-$("vistaProducto").style.display="block";
+$("vistaProducto")
+.style.display="block";
 
 };
+
 
 lector.readAsDataURL(archivo);
 
@@ -1574,47 +2348,79 @@ function guardarMaterial(){
 const nombre =
 $("nombre").value.trim();
 
+
 const categoria =
 $("categoria").value;
 
+
 const precio =
-parseFloat($("precio").value);
+parseFloat(
+$("precio").value
+);
+
 
 const cantidad =
-parseFloat($("cantidad").value);
+parseFloat(
+$("cantidad").value
+);
+
 
 const unidad =
 $("unidad").value;
 
+
 const cantidadActual =
-parseFloat($("cantidadActual").value);
+parseFloat(
+$("cantidadActual").value
+);
+
 
 const stockMinimo =
-parseFloat($("stockMinimo").value)||0;
+parseFloat(
+$("stockMinimo").value
+)||0;
+
 
 const notas =
 $("notas").value.trim();
 
 
 if(!nombre)
-return alert("🩵 Escribe el nombre del material.");
+return alert(
+"Escribe el nombre del material."
+);
 
 
-if(!Number.isFinite(precio)||precio<=0)
-return alert("🩵 Escribe un precio válido.");
+if(
+!Number.isFinite(precio)||
+precio<=0
+)
+return alert(
+"Escribe un precio válido."
+);
 
 
-if(!Number.isFinite(cantidad)||cantidad<=0)
-return alert("🩵 Escribe una cantidad comprada válida.");
+if(
+!Number.isFinite(cantidad)||
+cantidad<=0
+)
+return alert(
+"Escribe una cantidad comprada válida."
+);
 
 
-if(!Number.isFinite(cantidadActual)||cantidadActual<0)
-return alert("🩵 Escribe una cantidad actual válida.");
+if(
+!Number.isFinite(cantidadActual)||
+cantidadActual<0
+)
+return alert(
+"Escribe una cantidad actual válida."
+);
 
 
 if(cantidadActual>cantidad)
 return alert(
-"🩵 La cantidad actual no puede ser mayor que la cantidad comprada."
+"La cantidad actual no puede ser mayor que la cantidad comprada."
 );
 
 
@@ -1639,15 +2445,6 @@ unidad
 );
 
 
-/*
-   EJEMPLO:
-
-   Precio = $3
-   Cantidad = 600
-
-   3 / 600 = $0.005 por pieza
-*/
-
 const costoUnitario =
 precio/cantidadBase;
 
@@ -1656,29 +2453,29 @@ materiales.push({
 
 id:Date.now(),
 
-nombre:nombre,
+nombre,
 
-categoria:categoria,
+categoria,
 
-precio:precio,
+precio,
 
 cantidadComprada:cantidad,
 
-cantidadActual:cantidadActual,
+cantidadActual,
 
 unidadOriginal:unidad,
 
-cantidadBase:cantidadBase,
+cantidadBase,
 
 stock:stockBase,
 
 stockMinimo:stockMinimoBase,
 
-costoUnitario:costoUnitario,
+costoUnitario,
 
 imagen:imagenMaterial,
 
-notas:notas
+notas
 
 });
 
@@ -1691,13 +2488,17 @@ actualizarResumen();
 
 actualizarSelectorMateriales();
 
+mostrarComprasAutomaticas();
+
+actualizarInicio();
+
 limpiarMaterial();
 
+
 alert(
-"✨ ¡Material guardado!\n\n" +
-"Costo por " +
-unidadSingular(unidad) +
-": $" +
+"Material guardado.\n\nCosto por "+
+unidadSingular(unidad)+
+": $"+
 costoUnitario.toFixed(4)
 );
 
@@ -1710,7 +2511,8 @@ costoUnitario.toFixed(4)
 
 function mostrarMateriales(){
 
-const lista=$("listaMateriales");
+const lista =
+$("listaMateriales");
 
 lista.innerHTML="";
 
@@ -1723,7 +2525,10 @@ lista.innerHTML=`
 
 <div class="sin-imagen">
 
-<img src="iconos/tener.png" alt="">
+<img
+src="iconos/tener.png"
+alt=""
+>
 
 </div>
 
@@ -1732,7 +2537,7 @@ Todavía no tienes materiales
 </div>
 
 <p style="text-align:center">
-Agrega tu primer material arriba
+Agrega tu primer material arriba.
 </p>
 
 </div>
@@ -1746,28 +2551,28 @@ return;
 
 materiales.forEach(m=>{
 
-const stockActual =
+const stock =
 Number(m.stock)||0;
 
 
-const stockMinimo =
+const minimo =
 Number(m.stockMinimo)||0;
 
 
-const cantidadComprada =
+const compradaBase =
 Number(m.cantidadBase)||0;
 
 
 const utilizadoBase =
 Math.max(
 0,
-cantidadComprada-stockActual
+compradaBase-stock
 );
 
 
 const stockMostrado =
 convertirDesdeBase(
-stockActual,
+stock,
 m.unidadOriginal
 );
 
@@ -1780,19 +2585,27 @@ m.unidadOriginal
 
 
 const clase =
-stockActual<=0
-? "stock-rojo"
-: stockActual<=stockMinimo
-? "stock-amarillo"
-: "stock-verde";
+stock<=0
+?
+"stock-rojo"
+:
+stock<=minimo
+?
+"stock-amarillo"
+:
+"stock-verde";
 
 
 const estado =
-stockActual<=0
-? "Agotado"
-: stockActual<=stockMinimo
-? "Stock bajo"
-: "Stock suficiente";
+stock<=0
+?
+"Agotado"
+:
+stock<=minimo
+?
+"Stock bajo"
+:
+"Stock suficiente";
 
 
 lista.innerHTML+=`
@@ -1843,7 +2656,9 @@ ${escapar(m.categoria)}
 
 <div class="dato">
 
-<span>💵 Precio de compra</span>
+<span>
+Precio de compra
+</span>
 
 <strong>
 $${Number(m.precio).toFixed(2)}
@@ -1854,11 +2669,13 @@ $${Number(m.precio).toFixed(2)}
 
 <div class="dato">
 
-<span>📦 Compraste</span>
+<span>
+Compraste
+</span>
 
 <strong>
 
-${formatear(m.cantidadComprada)}
+${formatear(m.cantidadBase)}
 
 ${unidadCorta(m.unidadOriginal)}
 
@@ -1870,8 +2687,14 @@ ${unidadCorta(m.unidadOriginal)}
 <div class="dato">
 
 <span>
-<img src="iconos/stock.png" alt="">
+
+<img
+src="iconos/stock.png"
+alt=""
+>
+
 Stock actual
+
 </span>
 
 <strong>
@@ -1887,7 +2710,9 @@ ${unidadCorta(m.unidadOriginal)}
 
 <div class="dato">
 
-<span>🧸 Ya utilizado</span>
+<span>
+Ya utilizado
+</span>
 
 <strong>
 
@@ -1924,17 +2749,12 @@ ${estado}
 
 ${
 m.notas
-
 ?
-
 `<div class="notas">
-📝 ${escapar(m.notas)}
+${escapar(m.notas)}
 </div>`
-
 :
-
 ""
-
 }
 
 
@@ -1944,7 +2764,9 @@ m.notas
 class="btn-secundario"
 onclick="editarMaterial(${m.id})"
 >
-✏️ Editar
+
+Editar
+
 </button>
 
 
@@ -1952,7 +2774,9 @@ onclick="editarMaterial(${m.id})"
 class="btn-peligro"
 onclick="eliminarMaterial(${m.id})"
 >
-🗑️ Eliminar
+
+Eliminar
+
 </button>
 
 </div>
@@ -2032,7 +2856,9 @@ Number(numero).toFixed(3)
 function editarMaterial(id){
 
 const m =
-materiales.find(x=>x.id===id);
+materiales.find(
+x=>x.id===id
+);
 
 if(!m)return;
 
@@ -2058,13 +2884,10 @@ m.precio
 if(
 !Number.isFinite(precioNuevo)||
 precioNuevo<=0
-){
-
+)
 return alert(
-"🩵 Precio inválido."
+"Precio inválido."
 );
-
-}
 
 
 const stockActual =
@@ -2086,22 +2909,19 @@ stockActual
 if(
 !Number.isFinite(stockNuevo)||
 stockNuevo<0
-){
-
+)
 return alert(
-"🩵 Cantidad actual inválida."
+"Cantidad actual inválida."
 );
 
-}
 
-
-if(stockNuevo>Number(m.cantidadComprada)){
-
+if(
+stockNuevo>
+Number(m.cantidadComprada)
+)
 return alert(
-"🩵 La cantidad actual no puede ser mayor que la cantidad comprada."
+"La cantidad actual no puede ser mayor que la cantidad comprada."
 );
-
-}
 
 
 m.nombre =
@@ -2131,7 +2951,9 @@ actualizarResumen();
 
 actualizarSelectorMateriales();
 
-alert("✨ Material actualizado.");
+mostrarComprasAutomaticas();
+
+actualizarInicio();
 
 }
 
@@ -2143,7 +2965,9 @@ alert("✨ Material actualizado.");
 function eliminarMaterial(id){
 
 const m =
-materiales.find(x=>x.id===id);
+materiales.find(
+x=>x.id===id
+);
 
 if(
 !m||
@@ -2167,6 +2991,10 @@ actualizarResumen();
 
 actualizarSelectorMateriales();
 
+mostrarComprasAutomaticas();
+
+actualizarInicio();
+
 }
 
 
@@ -2176,33 +3004,133 @@ actualizarSelectorMateriales();
 
 function actualizarResumen(){
 
-$("totalMateriales").textContent =
+const total =
 materiales.length;
 
 
-$("stockDisponible").textContent =
+const stock =
 materiales.filter(
 m=>Number(m.stock)>0
 ).length;
 
 
-$("stockBajo").textContent =
+const bajo =
 materiales.filter(
 m=>
 Number(m.stock)>0 &&
 Number(m.stock)<=Number(m.stockMinimo)
+||
+Number(m.stock)<=0
 ).length;
+
+
+$("totalMateriales").textContent =
+total;
+
+$("stockDisponible").textContent =
+stock;
+
+$("stockBajo").textContent =
+bajo;
+
+$("inicioMateriales").textContent =
+total;
+
+$("inicioStock").textContent =
+stock;
+
+$("inicioBajo").textContent =
+bajo;
 
 }
 
 
 /* =====================================================
-   SELECTOR DE MATERIALES
+   INICIO
+===================================================== */
+
+function actualizarInicio(){
+
+const bajos =
+materiales.filter(
+m=>
+Number(m.stock)<=Number(m.stockMinimo)
+);
+
+
+if(!bajos.length){
+
+$("inicioBajos").innerHTML=`
+
+<div class="sin-compras">
+
+<img
+src="iconos/stock.png"
+alt=""
+>
+
+<p>
+No tienes materiales pendientes de reposición.
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+$("inicioBajos").innerHTML =
+bajos.map(m=>`
+
+<div class="compra-item">
+
+<div class="compra-info">
+
+<strong>
+${escapar(m.nombre)}
+</strong>
+
+<span>
+
+Stock actual:
+${formatear(
+convertirDesdeBase(
+m.stock,
+m.unidadOriginal
+)
+)}
+${unidadCorta(m.unidadOriginal)}
+
+</span>
+
+</div>
+
+<button
+class="btn-secundario"
+onclick="irA('compras')"
+>
+
+Ver compras
+
+</button>
+
+</div>
+
+`).join("");
+
+}
+
+
+/* =====================================================
+   SELECTOR
 ===================================================== */
 
 function actualizarSelectorMateriales(){
 
-$("materialSeleccionado").innerHTML =
+$("materialSeleccionado").innerHTML=
 
 '<option value="">Selecciona un material</option>'+
 
@@ -2211,7 +3139,6 @@ materiales.map(m=>`
 <option value="${m.id}">
 
 ${escapar(m.nombre)}
-
 — stock:
 ${formatear(
 convertirDesdeBase(
@@ -2229,7 +3156,7 @@ ${unidadCorta(m.unidadOriginal)}
 
 
 /* =====================================================
-   AGREGAR MATERIAL AL PRODUCTO
+   MATERIAL PARA PRODUCTO
 ===================================================== */
 
 function agregarMaterialAlProducto(){
@@ -2258,7 +3185,7 @@ x=>x.id===id
 
 if(!m)
 return alert(
-"🩵 Selecciona un material."
+"Selecciona un material."
 );
 
 
@@ -2267,7 +3194,7 @@ if(
 cantidad<=0
 )
 return alert(
-"🩵 Escribe una cantidad válida."
+"Escribe una cantidad válida."
 );
 
 
@@ -2278,44 +3205,14 @@ unidad
 );
 
 
-const stockDisponible =
-Number(m.stock)||0;
-
-
-if(cantidadBase>stockDisponible){
-
-const disponible =
-convertirDesdeBase(
-stockDisponible,
-m.unidadOriginal
-);
-
-
+if(
+cantidadBase>
+Number(m.stock)
+)
 return alert(
-
-`🩵 No tienes suficiente "${m.nombre}".\n\n`+
-
-`Stock disponible: ${formatear(disponible)} ${unidadCorta(m.unidadOriginal)}\n`+
-
-`Estás intentando usar: ${formatear(cantidad)} ${unidadCorta(unidad)}`
-
+`No tienes suficiente "${m.nombre}".`
 );
 
-}
-
-
-/*
-   IMPORTANTE:
-
-   El costo se calcula usando el costo
-   original por unidad.
-
-   Ejemplo:
-
-   $3 / 600 = $0.005
-
-   20 mullos = $0.10
-*/
 
 const costo =
 cantidadBase*m.costoUnitario;
@@ -2329,13 +3226,13 @@ materialId:id,
 
 nombre:m.nombre,
 
-cantidad:cantidad,
+cantidad,
 
-unidad:unidad,
+unidad,
 
-cantidadBase:cantidadBase,
+cantidadBase,
 
-costo:costo
+costo
 
 });
 
@@ -2350,12 +3247,12 @@ $("cantidadUsada").value="";
 
 
 /* =====================================================
-   MOSTRAR MATERIALES DEL PRODUCTO
+   MOSTRAR USO
 ===================================================== */
 
 function mostrarMaterialesProducto(){
 
-$("listaUso").innerHTML =
+$("listaUso").innerHTML=
 
 materialesProducto.map(
 (x,i)=>`
@@ -2364,19 +3261,16 @@ materialesProducto.map(
 
 <div class="uso-nombre">
 
-🧵 ${escapar(x.nombre)}
+${escapar(x.nombre)}
 
 </div>
-
 
 <div>
 
 ${formatear(x.cantidad)}
-
 ${unidadCorta(x.unidad)}
 
 </div>
-
 
 <div class="uso-costo">
 
@@ -2384,11 +3278,11 @@ $${Number(x.costo).toFixed(2)}
 
 </div>
 
-
 <button
 class="btn-quitar"
 onclick="quitarMaterialProducto(${i})"
 >
+
 ×
 </button>
 
@@ -2401,7 +3295,7 @@ onclick="quitarMaterialProducto(${i})"
 
 
 /* =====================================================
-   QUITAR MATERIAL DEL PRODUCTO
+   QUITAR
 ===================================================== */
 
 function quitarMaterialProducto(i){
@@ -2419,7 +3313,7 @@ calcularProducto();
 
 
 /* =====================================================
-   CALCULAR PRODUCTO
+   CALCULAR
 ===================================================== */
 
 function calcularProducto(){
@@ -2431,48 +3325,48 @@ materialesProducto.reduce(
 );
 
 
-const min =
+const minutos =
 parseFloat(
 $("minutosTrabajo").value
 )||0;
 
 
-const h =
+const precioHora =
 parseFloat(
 $("precioHora").value
 )||0;
 
 
-const e =
+const empaque =
 parseFloat(
 $("costoEmpaque").value
 )||0;
 
 
-const v =
+const precioVenta =
 parseFloat(
 $("precioVenta").value
 )||0;
 
 
 const manoObra =
-min/60*h;
+minutos/60*precioHora;
 
 
 const total =
 costoMateriales+
 manoObra+
-e;
+empaque;
 
 
 const ganancia =
-v-total;
+precioVenta-total;
 
 
 const margen =
-v
+precioVenta
 ?
-(ganancia/v)*100
+ganancia/precioVenta*100
 :
 0;
 
@@ -2480,22 +3374,17 @@ v
 $("resultadoMateriales").textContent =
 "$"+costoMateriales.toFixed(2);
 
-
 $("resultadoManoObra").textContent =
 "$"+manoObra.toFixed(2);
 
-
 $("resultadoEmpaque").textContent =
-"$"+e.toFixed(2);
-
+"$"+empaque.toFixed(2);
 
 $("resultadoTotal").textContent =
 "$"+total.toFixed(2);
 
-
 $("resultadoGanancia").textContent =
 "$"+ganancia.toFixed(2);
-
 
 $("resultadoMargen").textContent =
 "Margen: "+margen.toFixed(1)+"%";
@@ -2507,9 +3396,9 @@ costoMateriales,
 
 manoObra,
 
-empaque:e,
+empaque,
 
-precioVenta:v,
+precioVenta,
 
 total,
 
@@ -2532,13 +3421,13 @@ $("nombreProducto").value.trim();
 
 if(!nombre)
 return alert(
-"🩵 Escribe el nombre del producto."
+"Escribe el nombre del producto."
 );
 
 
 if(!materialesProducto.length)
 return alert(
-"🩵 Agrega al menos un material."
+"Agrega al menos un material."
 );
 
 
@@ -2550,7 +3439,7 @@ productos.push({
 
 id:Date.now(),
 
-nombre:nombre,
+nombre,
 
 imagen:imagenProducto,
 
@@ -2568,23 +3457,17 @@ parseFloat(
 $("precioHora").value
 )||0,
 
-empaque:
-r.empaque,
+empaque:r.empaque,
 
-precioVenta:
-r.precioVenta,
+precioVenta:r.precioVenta,
 
-costoMateriales:
-r.costoMateriales,
+costoMateriales:r.costoMateriales,
 
-manoObra:
-r.manoObra,
+manoObra:r.manoObra,
 
-costoTotal:
-r.total,
+costoTotal:r.total,
 
-ganancia:
-r.ganancia
+ganancia:r.ganancia
 
 });
 
@@ -2594,27 +3477,27 @@ guardarDatos();
 mostrarProductos();
 
 alert(
-"✨ ¡Producto guardado!"
+"Producto guardado."
 );
 
 }
 
 
 /* =====================================================
-   MOSTRAR PRODUCTOS
+   PRODUCTOS
 ===================================================== */
 
 function mostrarProductos(){
 
-const l =
+const lista =
 $("listaProductos");
 
-l.innerHTML="";
+lista.innerHTML="";
 
 
 if(!productos.length){
 
-l.innerHTML=`
+lista.innerHTML=`
 
 <div class="producto">
 
@@ -2635,7 +3518,7 @@ Todavía no tienes productos
 
 <p style="text-align:center">
 
-Calcula tu primera creación arriba 💗
+Calcula tu primera creación arriba.
 
 </p>
 
@@ -2650,7 +3533,7 @@ return;
 
 productos.forEach(p=>{
 
-l.innerHTML+=`
+lista.innerHTML+=`
 
 <article class="producto">
 
@@ -2662,7 +3545,7 @@ p.imagen
 `<img
 src="${p.imagen}"
 class="imagen-producto"
-alt="${escapar(p.nombre)}"
+alt=""
 >`
 
 :
@@ -2693,7 +3576,10 @@ ${escapar(p.nombre)}
 
 <span>
 
-<img src="iconos/utilizados.png" alt="">
+<img
+src="iconos/utilizados.png"
+alt=""
+>
 
 Materiales
 
@@ -2712,7 +3598,10 @@ $${Number(p.costoMateriales).toFixed(2)}
 
 <span>
 
-<img src="iconos/me.png" alt="">
+<img
+src="iconos/me.png"
+alt=""
+>
 
 Mano de obra
 
@@ -2731,7 +3620,10 @@ $${Number(p.manoObra).toFixed(2)}
 
 <span>
 
-<img src="iconos/empaque.png" alt="">
+<img
+src="iconos/empaque.png"
+alt=""
+>
 
 Empaque
 
@@ -2748,7 +3640,9 @@ $${Number(p.empaque).toFixed(2)}
 
 <div class="producto-precio">
 
-<span>Costo real</span>
+<span>
+Costo real
+</span>
 
 <strong>
 
@@ -2766,9 +3660,11 @@ $${Number(p.precioVenta).toFixed(2)}
 </div>
 
 
-<div class="producto-ganancia">
+<div
+style="margin-top:10px;padding:12px;border-radius:14px;background:var(--verde);text-align:center;font-weight:700"
+>
 
-💗 Ganancia:
+Ganancia:
 $${Number(p.ganancia).toFixed(2)}
 
 </div>
@@ -2781,7 +3677,7 @@ class="btn-peligro"
 onclick="eliminarProducto(${p.id})"
 >
 
-🗑️ Eliminar
+Eliminar
 
 </button>
 
@@ -2821,28 +3717,24 @@ mostrarProductos();
 
 
 /* =====================================================
-   FABRICAR PRODUCTO
+   FABRICAR
 ===================================================== */
 
 function fabricarProducto(){
 
-if(!materialesProducto.length){
-
+if(!materialesProducto.length)
 return alert(
-"🩵 Primero agrega los materiales utilizados."
+"Primero agrega los materiales utilizados."
 );
-
-}
 
 
 if(
 !confirm(
-"🩵 Esto descontará los materiales utilizados de tu stock. ¿Ya fabricaste este producto?"
+"Esto descontará los materiales utilizados de tu stock. ¿Ya fabricaste este producto?"
 )
-)return;
+)
+return;
 
-
-/* PRIMERO COMPROBAMOS TODO */
 
 for(
 const item of materialesProducto
@@ -2860,17 +3752,13 @@ m.stock<item.cantidadBase
 ){
 
 return alert(
-
-`🩵 No tienes suficiente "${m.nombre}".`
-
+`No tienes suficiente "${m.nombre}".`
 );
 
 }
 
 }
 
-
-/* DESPUÉS DESCONTAMOS */
 
 for(
 const item of materialesProducto
@@ -2912,15 +3800,20 @@ actualizarResumen();
 
 actualizarSelectorMateriales();
 
+mostrarComprasAutomaticas();
+
+actualizarInicio();
+
+
 alert(
-"✨ ¡Materiales descontados del inventario!"
+"Materiales descontados del inventario."
 );
 
 }
 
 
 /* =====================================================
-   LIMPIAR FORMULARIO
+   LIMPIAR MATERIAL
 ===================================================== */
 
 function limpiarMaterial(){
@@ -2932,13 +3825,16 @@ function limpiarMaterial(){
 "cantidadActual",
 "notas"
 ].forEach(
-id=>$(id).value=""
+id=>{
+$(id).value="";
+}
 );
 
 
 $("imagen").value="";
 
-$("vistaPrevia").style.display="none";
+$("vistaPrevia")
+.style.display="none";
 
 imagenMaterial="";
 
@@ -2948,14 +3844,318 @@ $("stockMinimo").value="1";
 
 
 /* =====================================================
-   RESPALDOS
+   COMPRAS MANUALES
+===================================================== */
+
+function agregarCompraManual(){
+
+const nombre =
+$("nombreCompra")
+.value.trim();
+
+
+const cantidad =
+$("cantidadCompra")
+.value.trim();
+
+
+if(!nombre)
+return alert(
+"Escribe qué quieres comprar."
+);
+
+
+compras.push({
+
+id:Date.now(),
+
+nombre,
+
+cantidad,
+
+comprado:false,
+
+manual:true
+
+});
+
+
+guardarDatos();
+
+mostrarCompras();
+
+$("nombreCompra").value="";
+
+$("cantidadCompra").value="";
+
+
+alert(
+"Agregado a tu lista de compras."
+);
+
+}
+
+
+/* =====================================================
+   COMPRAS AUTOMÁTICAS
+===================================================== */
+
+function obtenerComprasAutomaticas(){
+
+return materiales.filter(
+m=>
+Number(m.stock)<=
+Number(m.stockMinimo)
+);
+
+}
+
+
+function mostrarComprasAutomaticas(){
+
+const lista =
+$("comprasAutomaticas");
+
+
+const bajos =
+obtenerComprasAutomaticas();
+
+
+if(!bajos.length){
+
+lista.innerHTML=`
+
+<div class="sin-compras">
+
+<img
+src="iconos/stock.png"
+alt=""
+>
+
+<p>
+No hay materiales que necesiten reposición.
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+lista.innerHTML =
+bajos.map(m=>`
+
+<div class="compra-item">
+
+<div class="compra-info">
+
+<strong>
+
+${escapar(m.nombre)}
+
+</strong>
+
+<span>
+
+Stock actual:
+${formatear(
+convertirDesdeBase(
+m.stock,
+m.unidadOriginal
+)
+)}
+${unidadCorta(m.unidadOriginal)}
+
+</span>
+
+<span>
+
+Stock mínimo:
+${formatear(
+convertirDesdeBase(
+m.stockMinimo,
+m.unidadOriginal
+)
+)}
+${unidadCorta(m.unidadOriginal)}
+
+</span>
+
+<br>
+
+<span class="etiqueta-auto">
+
+REPOSICIÓN AUTOMÁTICA
+
+</span>
+
+</div>
+
+
+<button
+class="btn-secundario"
+onclick="irA('materiales')"
+>
+
+Ver material
+
+</button>
+
+</div>
+
+`).join("");
+
+}
+
+
+/* =====================================================
+   MOSTRAR LISTA MANUAL
+===================================================== */
+
+function mostrarCompras(){
+
+const lista =
+$("listaCompras");
+
+
+if(!compras.length){
+
+lista.innerHTML=`
+
+<div class="sin-compras">
+
+<img
+src="iconos/guardar.png"
+alt=""
+>
+
+<p>
+Todavía no tienes compras añadidas.
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+lista.innerHTML =
+compras.map(c=>`
+
+<div class="compra-item ${c.comprado?"comprado":""}">
+
+<div class="compra-info">
+
+<strong>
+
+${escapar(c.nombre)}
+
+</strong>
+
+<span>
+
+${
+c.cantidad
+?
+"Cantidad: "+escapar(c.cantidad)
+:
+"Cantidad no especificada"
+}
+
+</span>
+
+</div>
+
+
+<div class="compra-acciones">
+
+<button
+class="btn-comprado"
+onclick="marcarCompra(${c.id})"
+>
+
+${c.comprado?"Pendiente":"Comprado"}
+
+</button>
+
+
+<button
+class="btn-peligro"
+onclick="eliminarCompra(${c.id})"
+>
+
+Eliminar
+
+</button>
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+
+/* =====================================================
+   MARCAR COMPRA
+===================================================== */
+
+function marcarCompra(id){
+
+const compra =
+compras.find(
+c=>c.id===id
+);
+
+if(!compra)return;
+
+
+compra.comprado =
+!compra.comprado;
+
+
+guardarDatos();
+
+mostrarCompras();
+
+}
+
+
+/* =====================================================
+   ELIMINAR COMPRA
+===================================================== */
+
+function eliminarCompra(id){
+
+compras =
+compras.filter(
+c=>c.id!==id
+);
+
+
+guardarDatos();
+
+mostrarCompras();
+
+}
+
+
+/* =====================================================
+   RESPALDO
 ===================================================== */
 
 function exportarRespaldo(){
 
 const respaldo={
 
-version:2,
+version:3,
 
 app:
 "Calculadora de costos Made by Annie",
@@ -2965,7 +4165,9 @@ new Date().toISOString(),
 
 materiales,
 
-productos
+productos,
+
+compras
 
 };
 
@@ -3001,7 +4203,7 @@ new Date()
 
 a.href=url;
 
-a.download =
+a.download=
 `respaldo-calculadora-annie-${fecha}.json`;
 
 
@@ -3015,14 +4217,14 @@ URL.revokeObjectURL(url);
 
 
 alert(
-"💾 ¡Respaldo guardado! Puedes conservar ese archivo en Google Drive, tu PC o donde quieras."
+"Respaldo guardado correctamente."
 );
 
 }
 
 
 /* =====================================================
-   IMPORTAR RESPALDO
+   RESTAURAR
 ===================================================== */
 
 function importarRespaldo(event){
@@ -3060,9 +4262,10 @@ throw new Error("formato");
 
 if(
 !confirm(
-"🩵 Restaurar este respaldo reemplazará los materiales y productos actuales de este dispositivo. ¿Continuar?"
+"Restaurar este respaldo reemplazará los datos actuales. ¿Continuar?"
 )
-)return;
+)
+return;
 
 
 materiales =
@@ -3073,10 +4276,16 @@ productos =
 respaldo.productos;
 
 
+compras =
+Array.isArray(respaldo.compras)
+?
+respaldo.compras
+:
+[];
+
+
 materialesProducto=[];
 
-
-/* NORMALIZAMOS EL INVENTARIO */
 
 normalizarMateriales();
 
@@ -3091,20 +4300,26 @@ actualizarResumen();
 
 actualizarSelectorMateriales();
 
+mostrarCompras();
+
+mostrarComprasAutomaticas();
+
+actualizarInicio();
+
 mostrarMaterialesProducto();
 
 calcularProducto();
 
 
 alert(
-"✨ ¡Respaldo restaurado correctamente!"
+"Respaldo restaurado correctamente."
 );
 
 
 }catch(err){
 
 alert(
-"💭 Ese archivo no parece ser un respaldo válido de la calculadora de Annie."
+"El archivo no parece ser un respaldo válido."
 );
 
 }
@@ -3121,7 +4336,7 @@ lector.readAsText(archivo);
 
 
 /* =====================================================
-   SEGURIDAD HTML
+   LIMPIAR HTML
 ===================================================== */
 
 function escapar(texto){
@@ -3154,7 +4369,8 @@ let toquesLogo=0;
 let reinicioToques;
 
 
-$("logoSecreto").addEventListener(
+$("logoSecreto")
+.addEventListener(
 "click",
 ()=>{
 
@@ -3210,13 +4426,13 @@ sessionStorage.setItem(
 $("claveSecreta").value="";
 
 alert(
-"☁️ Bienvenida, Annie"
+"Bienvenida, Annie"
 );
 
 }else{
 
 alert(
-"💭 Contraseña incorrecta"
+"Contraseña incorrecta"
 );
 
 }
@@ -3235,7 +4451,7 @@ $("claveSecreta").value="";
 
 
 /* =====================================================
-   ARRANCAR
+   INICIAR APP
 ===================================================== */
 
 iniciar();
