@@ -1,7 +1,7 @@
 {
   "name": "Calculadora Made by Annie",
   "short_name": "Calculadora",
-  "start_url": "./index.html"
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#DCEAF7",
   "theme_color": "#A9C7E8",
