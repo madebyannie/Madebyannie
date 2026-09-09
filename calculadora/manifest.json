@@ -1,16 +1,12 @@
 {
-  "name": "Calculadora Made by Annie",
-  "short_name": "Calculadora",
+  "name": "Made by Annie - Costos",
+  "short_name": "Annie Costos",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#DCEAF7",
-  "theme_color": "#A9C7E8",
-  "orientation": "portrait",
+  "theme_color": "#DCEAF7",
+  "lang": "es",
   "icons": [
-    {
-      "src": "./icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml"
-    }
+    {"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
   ]
 }
