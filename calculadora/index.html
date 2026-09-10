@@ -1556,19 +1556,20 @@ font-size:12px;
 
 @media(max-width:750px){
 
-    .materiales{
+   .materiales{
         width:100%;
-        padding:0 12px;
+        padding:0 10px;
         box-sizing:border-box;
         align-items:center;
     }
 
-   .material{
-        width:80%;
-        max-width:320px;
+    .material{
+        width:86%;
+        max-width:340px;
         grid-template-columns:75px 1fr;
-        gap:9px;
+        gap:10px;
         padding:9px;
+        box-sizing:border-box;
     }
 
     .material>.imagen-material,
@@ -1582,25 +1583,31 @@ font-size:12px;
         height:48px;
     }
 
+    .material-info{
+        align-self:start;
+        margin-top:0;
+    }
+
     .material-nombre{
         font-size:16px;
+        line-height:1.15;
     }
 
     .material-info p{
         font-size:10px;
+        margin-top:3px;
     }
 
- .productos{
+  .productos{
         grid-template-columns:1fr;
         width:100%;
         max-width:340px;
         margin:0 auto;
-        padding:0 10px;
-        box-sizing:border-box;
+        padding:0;
     }
 
     .producto{
-        width:80%;
+        width:86%;
         max-width:260px;
         margin:0 auto;
     }
