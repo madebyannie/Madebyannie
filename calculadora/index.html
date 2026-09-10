@@ -1538,9 +1538,68 @@ grid-template-columns:1fr;
 }
 @media(max-width:1050px){.materiales{grid-template-columns:1fr;max-width:500px;margin:0 auto;}.material{width:100%;}}
 @media(max-width:600px){.material{grid-template-columns:85px 1fr;padding:10px;gap:10px;}.material>.imagen-material,.material>.sin-imagen{width:85px;height:85px;}.material>.sin-imagen img{width:52px;height:52px;}}
+@media (max-width: 700px){
 
+    .materiales{
+        grid-template-columns:1fr;
+        padding:0 12px;
+        box-sizing:border-box;
+    }
 
+    .material{
+        width:100%;
+        max-width:500px;
+        margin:auto;
+        grid-template-columns:85px 1fr;
+        gap:10px;
+        padding:9px 10px;
+    }
 
+    .material>.imagen-material,
+    .material>.sin-imagen{
+        width:85px;
+        height:85px;
+    }
+
+    .material>.sin-imagen img{
+        width:52px;
+        height:52px;
+    }
+
+    .material-nombre{
+        font-size:16px;
+    }
+
+    .categoria{
+        font-size:9px;
+    }
+
+    .dato{
+        font-size:9px;
+    }
+
+    .dato span img{
+        width:12px;
+        height:12px;
+    }
+
+    .costo strong{
+        font-size:14px;
+    }
+
+    .stock,
+    .notas{
+        font-size:8px;
+    }
+
+    .acciones{
+        gap:4px;
+    }
+
+    .acciones button{
+        padding:5px 2px;
+        font-size:8px;
+    }
 
 /* =====================================================
    PC
