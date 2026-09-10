@@ -5,429 +5,2532 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#DCEAF7">
 
-<title>Made by Annie art</title>
+<link rel="manifest" href="manifest.json">
 
-<meta name="description"
-content="Llaveros de arcilla y accesorios personalizados. Encuentra el detalle tierno y único para ti.">
+<title>Costos | Made by Annie</title>
 
-<link rel="icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&display=swap" rel="stylesheet">
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMHEYCXL32"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-ZMHEYCXL32');
-</script>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-body {
-    background-color: #DCEAF7;
-    font-family: "Quicksand", sans-serif;
-    text-align: center;
-    margin: 0;
+/* COLORES */
+:root{
+--celeste:#DCEAF7;
+--celeste-claro:#EEF6FD;
+--crema:#F5F2E8;
+--boton:#A9C7E8;
+--cafe:#7A6F60;
+--blanco:#FFF;
+--verde:#CFE8D5;
+--verde-texto:#52745A;
+--amarillo:#F7E6B5;
+--amarillo-texto:#856F35;
+--rojo:#E8C9C4;
+--rojo-texto:#89534C;
+--borde:#D7D0C5;
+--sombra:rgba(122,111,96,.15);
 }
 
-header {
-    background-color: #F5F2E8;
-    padding: 50px;
-    text-align: center;
+/* GENERAL */
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--celeste);color:var(--cafe);font-family:Quicksand,sans-serif;padding-bottom:78px;}
+button,input,select,textarea{font-family:Quicksand,sans-serif;}
+button{cursor:pointer;}
+
+/* HEADER */
+header{background:var(--crema);padding:18px 15px;text-align:center;box-shadow:0 3px 10px var(--sombra);position:sticky;top:0;z-index:100;}
+.logo{margin:0;font-family:Pacifico,cursive;font-size:30px;cursor:pointer;}
+.subtitulo{margin:3px 0 0;font-size:13px;font-weight:600;}
+
+/* PANTALLAS */
+.contenedor{width:92%;max-width:1050px;margin:25px auto 40px;}
+.pantalla{display:none;animation:aparecer .2s ease;}
+.pantalla.activa{display:block;}
+@keyframes aparecer{from{opacity:0;transform:translateY(5px);}to{opacity:1;transform:translateY(0);}}
+
+/* TITULOS */
+.titulo{margin:0 0 8px;font-family:Pacifico,cursive;font-size:29px;text-align:center;}
+.descripcion{max-width:700px;margin:8px auto 25px;text-align:center;font-size:14px;line-height:1.6;}
+
+/* INICIO */
+.bienvenida{background:var(--crema);border-radius:25px;padding:25px;text-align:center;box-shadow:0 5px 15px var(--sombra);margin-bottom:20px;}
+.bienvenida img{width:105px;height:105px;object-fit:contain;margin-bottom:5px;}
+.bienvenida h2{font-family:Pacifico,cursive;font-size:26px;margin:5px 0;}
+.bienvenida p{font-size:14px;line-height:1.5;}
+.accesos{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-bottom:25px;}
+.acceso-card{background:#fff;border:0;border-radius:21px;padding:20px 12px;color:var(--cafe);box-shadow:0 4px 12px var(--sombra);font-weight:700;font-size:14px;transition:.2s;}
+.acceso-card:hover{transform:translateY(-2px);}
+.acceso-card img{width:42px;height:42px;object-fit:contain;display:block;margin:0 auto 8px;}
+
+/* RESUMEN */
+.resumen{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:25px;}
+.resumen-card{padding:16px 8px;border-radius:19px;background:var(--crema);text-align:center;box-shadow:0 4px 12px var(--sombra);}
+.resumen-icono{width:25px;height:25px;margin:0 auto 5px;}
+.resumen-icono img{width:100%;height:100%;object-fit:contain;}
+.resumen-numero{display:block;margin-top:4px;font-size:23px;font-weight:700;}
+.resumen-texto{font-size:11px;}
+
+/* TARJETAS */
+.tarjeta{background:var(--crema);border-radius:24px;padding:24px;margin-bottom:25px;box-shadow:0 5px 15px var(--sombra);}
+.tarjeta-titulo{display:flex;align-items:center;justify-content:center;gap:8px;margin:0 0 20px;font-family:Pacifico,cursive;font-size:23px;text-align:center;}
+.tarjeta-titulo img{width:30px;height:30px;object-fit:contain;}
+.subtitulo-seccion{display:flex;align-items:center;gap:7px;margin-top:22px;}
+.subtitulo-seccion img{width:26px;height:26px;object-fit:contain;}
+
+/* CAMPOS */
+.campo{margin-bottom:17px;}
+.campo label{display:block;margin-bottom:7px;font-weight:700;}
+.campo label img{width:20px;height:20px;object-fit:contain;vertical-align:middle;margin-right:4px;}
+.campo input,.campo select,.campo textarea{width:100%;padding:13px;border:2px solid var(--boton);border-radius:13px;outline:none;background:#fff;color:var(--cafe);font-size:15px;}
+.campo textarea{min-height:90px;resize:vertical;}
+.campo input:focus,.campo select:focus,.campo textarea:focus{border-color:var(--cafe);}
+.ayuda-campo{display:block;margin-top:6px;font-size:12px;line-height:1.4;opacity:.72;}
+.fila{display:grid;grid-template-columns:1fr 1fr;gap:15px;}
+
+/* BOTONES */
+.btn-principal{width:100%;padding:14px 18px;border:0;border-radius:16px;background:var(--boton);color:var(--cafe);font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;}
+.btn-principal:hover{background:var(--cafe);color:#fff;}
+.btn-principal img{width:23px;height:23px;object-fit:contain;}
+.btn-secundario,.btn-peligro,.btn-comprado{padding:11px 15px;border:0;border-radius:13px;font-weight:700;}
+.btn-secundario{background:var(--celeste);color:var(--cafe);}
+.btn-peligro{background:var(--rojo);color:var(--cafe);}
+.btn-comprado{background:var(--verde);color:var(--verde-texto);}
+
+/* IMAGENES */
+.zona-imagen{padding:18px;border:2px dashed var(--boton);border-radius:17px;background:var(--celeste-claro);text-align:center;}
+.zona-imagen input{border:0;padding:0;background:transparent;}
+.vista-previa{display:none;width:150px;height:150px;object-fit:cover;margin:15px auto 0;border-radius:20px;}
+
+/* MATERIALES Y PRODUCTOS */
+.materiales{display:flex;flex-direction:column;align-items:center;gap:18px;width:100%;box-sizing:border-box;}
+.material{display:grid;grid-template-columns:100px 1fr;gap:3px 12px;align-items:start;background:#fff;border-radius:18px;padding:12px;width:500px;box-sizing:border-box;box-shadow:0 4px 12px var(--sombra);}
+
+/* IMAGEN MATERIAL */
+.material>.imagen-material,.material>.sin-imagen{grid-column:1;grid-row:1 / -1;width:100px;height:1313:01 10/9/20260px;margin:0;border-radius:15px;}
+.material>.imagen-material{object-fit:cover;}
+.material>.sin-imagen{display:flex;align-items:center;justify-content:center;background:var(--celeste-claro);}
+.material>.sin-imagen img{width:60px;height:60px;object-fit:contain;}
+
+/* INFORMACION DEL MATERIAL */
+.material>.material-info{grid-column:2;grid-row:1;min-width:0;align-self:start;text-align:left;}
+.material-nombre{margin:0 0 3px;font-family:Pacifico,cursive;font-size:20px;line-height:1.2;text-align:left;}
+.material-info .categoria{display:block;margin:0 0 3px;text-align:left;}
+.material-info .dato{margin:0;}
+.material-info .costo,.material-info .stock,.material-info .notas,.material-info .acciones{margin-top:5px;}
+.categoria{display:block;margin-bottom:3px;text-align:left;font-size:12px;font-weight:700;opacity:.7;}
+.dato{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:3px 0;border-bottom:1px dashed var(--borde);font-size:10px;}
+.dato span{display:flex;align-items:center;gap:4px;}
+.dato span img{width:14px;height:14px;object-fit:contain;}
+.costo{margin-top:5px;padding:5px;border-radius:9px;background:var(--celeste-claro);text-align:center;}
+.costo span{display:block;font-size:15px;}
+.costo strong{display:block;font-size:15px;}
+.stock{margin-top:5px;padding:5px;border-radius:8px;text-align:center;font-size:9px;font-weight:700;}
+.notas{margin-top:5px;padding:5px;border-radius:8px;background:var(--crema);font-size:15px;line-height:1.2;}
+.acciones{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:5px;}
+.acciones button{padding:6px 3px;font-size:9px;}
+
+/* PRODUCTOS */
+.productos{display:grid;grid-template-columns:repeat(1,480px);gap:18px;justify-content:center;align-items:start;}
+.producto{width:500px;box-sizing:border-box;background:#fff;border-radius:18px;padding:15px;box-shadow:0 4px 12px var(--sombra);}
+.producto-sin-imagen{width:100%;height:130px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;border-radius:15px;background:var(--celeste-claro);}
+.producto-sin-imagen img{width:85px;height:85px;object-fit:contain;}
+.imagen-producto{width:100%;height:150px;object-fit:cover;display:block;margin-bottom:10px;border-radius:15px;}
+.producto-nombre{margin:0 0 8px;font-family:Pacifico,cursive;font-size:19px;text-align:center;}
+.producto .dato{display:flex;justify-content:space-between;align-items:center;gap:7px;padding:4px 0;font-size:11px;}
+.producto-precio{margin-top:8px;padding:8px;border-radius:11px;background:var(--celeste-claro);text-align:center;}
+.producto-precio span{display:block;font-size:10px;}
+.producto-precio strong{display:block;font-size:18px;margin-top:2px;}
+
+/* CALCULADORA */
+.selector-material{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:9px;align-items:end;margin-bottom:15px;padding:14px;border-radius:17px;background:var(--celeste-claro);}
+.uso{display:grid;grid-template-columns:1.5fr 1fr 1fr auto;gap:9px;align-items:center;padding:12px;margin-bottom:9px;border-radius:15px;background:#fff;box-shadow:0 2px 7px var(--sombra);}
+.uso-nombre{font-weight:700;}
+.uso-costo{text-align:right;font-weight:700;}
+.btn-quitar{width:35px;height:35px;border:0;border-radius:50%;background:var(--rojo);color:var(--cafe);font-weight:bold;}
+.resultado{margin-top:23px;padding:20px;border-radius:21px;background:var(--celeste-claro);}
+.resultado-linea{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed var(--borde);}
+.resultado-linea span{display:flex;align-items:center;gap:7px;}
+.resultado-linea span img{width:22px;height:22px;object-fit:contain;}
+.resultado-total{margin-top:11px;padding:17px;border-radius:17px;background:#fff;text-align:center;}
+.resultado-total span{display:block;font-size:13px;}
+.resultado-total strong{display:block;margin-top:4px;font-size:29px;}
+.ganancia{margin-top:11px;padding:17px;border-radius:17px;background:var(--verde);text-align:center;}
+.ganancia strong{display:block;font-size:27px;}
+
+/* LISTA DE COMPRAS */
+.compra-form{display:grid;grid-template-columns:2fr 1fr auto;gap:10px;align-items:end;}
+.compras{display:grid;gap:12px;}
+.compra-item{background:#fff;border-radius:18px;padding:15px;box-shadow:0 3px 9px var(--sombra);display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;}
+.compra-info strong{display:block;font-size:16px;margin-bottom:4px;}
+.compra-info span{font-size:12px;opacity:.7;display:block;margin-top:3px;}
+.compra-acciones{display:flex;gap:7px;align-items:center;}
+.compra-item.comprado{opacity:.55;}
+.compra-item.comprado .compra-info strong{text-decoration:line-through;}
+.etiqueta-auto{display:inline-block;margin-top:6px;padding:4px 8px;border-radius:8px;background:var(--amarillo);color:var(--amarillo-texto);font-size:10px;font-weight:700;}
+.sin-compras{padding:25px;border-radius:20px;background:var(--celeste-claro);text-align:center;}
+.sin-compras img{width:80px;height:80px;object-fit:contain;}
+
+/* REPOSICION */
+.reposicion{margin-top:13px;padding:13px;border-radius:15px;background:var(--celeste-claro);font-size:12px;line-height:1.5;}
+.btn-reponer{width:100%;margin-top:9px;padding:11px;border:0;border-radius:13px;background:var(--verde);color:var(--verde-texto);font-weight:700;}
+
+/* RESPALDOS */
+.acciones-respaldo{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+
+/* NAVEGACION */
+.navegacion{position:fixed;bottom:0;left:0;right:0;height:72px;background:var(--crema);box-shadow:0 -4px 15px var(--sombra);z-index:500;display:grid;grid-template-columns:repeat(6,1fr);padding:6px 3px;}
+.nav-btn{border:0;background:transparent;color:var(--cafe);font-size:9px;font-weight:700;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:13px;}
+.nav-btn img{width:24px;height:24px;object-fit:contain;}
+.nav-btn.activo{background:var(--celeste);}
+
+/* ACCESO SECRETO */
+.cinna-acceso{width:140px;height:140px;object-fit:contain;display:block;margin:0 auto 8px;}
+#accesoSecreto{display:none;position:fixed;inset:0;z-index:9999;background:rgba(122,111,96,.35);align-items:center;justify-content:center;padding:20px;}
+#accesoSecreto>div{background:var(--crema);padding:28px;border-radius:24px;width:min(360px,100%);box-shadow:0 10px 30px rgba(0,0,0,.2);text-align:center;}
+.boton-entrar{width:100%;margin-top:12px;padding:13px;border:0;border-radius:15px;background:var(--boton);color:var(--cafe);font-weight:700;display:flex;align-items:center;justify-content:center;gap:7px;}
+.boton-entrar img{width:22px;height:22px;object-fit:contain;}
+
+/* MODAL EDITAR / REPONER */
+.modal{display:none;position:fixed;inset:0;z-index:9000;background:rgba(122,111,96,.38);padding:20px;align-items:center;justify-content:center;}
+.modal.activo{display:flex;}
+.modal-contenido{width:min(620px,100%);max-height:90vh;overflow-y:auto;background:var(--crema);border-radius:25px;padding:24px;box-shadow:0 12px 35px rgba(0,0,0,.2);}
+.modal-titulo{font-family:Pacifico,cursive;font-size:25px;text-align:center;margin:0 0 20px;}
+.modal-botones{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
+
+/* FOOTER */
+footer{padding:20px 15px;background:var(--crema);text-align:center;font-size:12px;}
+
+@media(max-width:750px){
+.materiales{width:100%;padding:0 10px;box-sizing:border-box;align-items:center;}
+.material{width:100%;max-width:375px;grid-template-columns:75px 1fr;gap:10px;padding:9px;box-sizing:border-box;}
+.material>.imagen-material,.material>.sin-imagen{width:75px;height:75px;}
+.material>.sin-imagen img{width:48px;height:48px;}
+.material-info{align-self:start;transform:translateY(12px);}
+.material-nombre{font-size:16px;line-height:1.15;}
+.material-info p{margin:0 !important;padding:0 !important;font-size:11px;line-height:1.3;text-align:left;position:relative;top:-10px;}
+.productos{grid-template-columns:1fr;width:100%;max-width:360px;margin:0 auto;padding:0;}
+.producto{width:100%;max-width:370px;margin:0 auto;}
 }
-
-nav {
-    text-align: center;
-    margin: 25px;
-}
-
-nav a {
-    margin: 8px;
-    padding: 10px 15px;
-    background-color: #A9C7E8;
-    color: white;
-    text-decoration: none;
-    border-radius: 15px;
-    display: inline-block;
-}
-
-nav a:hover {
-    background-color: #7A6F60;
-}
-
-main {
-    width: 90%;
-    max-width: 900px;
-    margin: auto;
-}
-
-.boton {
-   display: inline-block;
-   margin-top: 20px;
-   font-size: 15px;
-   padding: 14px 30px;
-   background: #A9C7E8;
-   color: white;
-   text-decoration: none;
-   border-radius: 999px;
-   font-family:"Quicksand", sans-serif;
-   font-weigth: bold;
-   letter-spacing:.5px;
-   transition: 3s;
-   box-shadow: 0 6px 15px rgba(169,199,232,.45);
-}
-
-.boton:hover {
-    background: #BFD8F0;
-    transform: translateY(-4px);
-    color: #7A6F60   
-}
-
-.boton::after {
-     content:"☁︎";
-}
-
-.card {
-    background: #F5F2E8;
-    padding: 15px;
-    margin: 15px auto;
-    width: 60%;
-    border-radius: 40px;
-    box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
-    text-align: center;
-    color: #7A6F60;
-}
-
-.card h3 {
-    font-family: "Pacifico", cursive;
-    font-size: 25px;
-}
-
-.card p {
-    font-family: "Quicksand", sans-serif;
-}
-
-.card:hover {
-    transition: 0.3s;
-    transform: translateY(-5px);
-    background-color: #EEF6FD;
-}
-
-footer {
-    text-align: center;
-    padding: 45px 20px;
-    color: #7A6F60;
-    font-family: 'Quicksand', sans-serif;
-    background: #F7F1E8;
-    text-aling: center;
-}
-
-.logo {
-    width: 155px;
-    height: 155px;
-    border-radius: 50%;
-    object-fit: cover;
-    image-rendering: -webkit-optimize-contrast;
-    filter: contrast(1.02);
-}
-
-.texto {
-    font-family: "Pacifico", cursive;
-    font-size: 40px;
-    color: #7A6F60;
-}
-
-.marca {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    text-align: center;
-    flex-wrap: nowrap;
-}
-
-.reciente {
-    cursor: pointer;
-}
-
-.imagen-producto {
-    position: relative;
-    width: fit-content;
-    margin: auto;
-}
-
-.reciente img {
-    width: 220px;
-    border-radius: 20px;
-    display: block;
-}
-
-.proximamente-solo{
-    animation: flotar 3s ease-in-out infinite;
-}
-
-@keyframes flotar{
-    0%{
-        transform: translateY(0px);
-    }
-    50%{
-        transform: translateY(-8px);
-    }
-    100%{
-        transform: translateY(0px);
-    }
-}
-.etiquetas {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-
-    z-index: 10;
-}
-
-.etiqueta {
-    padding: 5px 10px;
-    border-radius: 15px;
-    color: white;
-    font-size: 10px;
-    font-weight: bold;
-    font-family: "Quicksand", sans-serif;
-}
-
-.nuevo {
-    background-color: #A9C7E8;
-}
-
-.proximamente {
-    background-color: #7A6F60;
-}
-
-.unico {
-    background-color: #A9C7E8;
-}
-
-.vendido {
-    background-color: #7A6F60;
-}
-
-.redes{
-    display:flex;
-    justify-content:center;
-    gap:25px;
-    margin-bottom:10px;
-}
-
-.redes img{
-    width:35px;
-    transition:.2s;
-}
-
-.redes img:hover{
-    transform:translateY(-2px);
-    color:#A9C7E8;
-}
-
-.redes a{
-    color:#A9C7E8;
-    transition:.25s;
-}
-
-footer{
-    background:#F5F2E8;
-    padding:25px 15px;
-    text-align:center;
-    margin-top:auto;
-    color:#7A6F60;
-}
-
-footer p{
-    margin:8px 0;
-} 
-
-@media (max-width: 600px) {
-
-    nav {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-
-    nav a {
-        margin: 0;
-        font-size: 14px;
-        padding: 8px 12px;
-    }
-
-    .texto {
-        font-size: 28px;
-        white-space: nowrap;
-    }
-
-    .logo {
-        width: 90px;
-        height: 90px;
-    }
-
-    .marca {
-        gap: 5px;
-        flex-wrap: nowrap;
-    }
-
-    .card {
-        width: 85%;
-    }
-
-    .reciente img {
-        width: 170px;
-    }
-}
-
 </style>
 </head>
 
 <body>
 
 <header>
-
-<div class="marca">
-
-    <span class="texto">⊹₊Made</span>
-
-    <img src="Ann.png" class="logo">
-
-    <span class="texto">by Annie ₊⊹</span>
-
-</div>
-
+<h1 class="logo" id="logoSecreto">Made by Annie</h1>
+<p class="subtitulo">Mi calculadora de costos</p>
 </header>
 
-<nav>
+<nav class="navegacion">
 
-    <a href="Productos.html">Productos</a>
+<button class="nav-btn activo" data-pantalla="inicio" onclick="irA('inicio')">
+<img src="iconos/aun.png" alt="">
+Inicio
+</button>
+
+<button class="nav-btn" data-pantalla="materiales" onclick="irA('materiales')">
+<img src="iconos/material.png" alt="">
+Materiales
+</button>
+
+<button class="nav-btn" data-pantalla="calcular" onclick="irA('calcular')">
+<img src="iconos/calcular.png" alt="">
+Calcular
+</button>
+
+<button class="nav-btn" data-pantalla="productos" onclick="irA('productos')">
+<img src="iconos/utilizados.png" alt="">
+Productos
+</button>
+
+<button class="nav-btn" data-pantalla="compras" onclick="irA('compras')">
+<img src="iconos/stock.png" alt="">
+Compras
+</button>
+
+<button class="nav-btn" data-pantalla="respaldo" onclick="irA('respaldo')">
+<img src="iconos/guardar.png" alt="">
+Respaldos
+</button>
+
 </nav>
 
-<main>
+<main class="contenedor" id="contenidoApp" style="display:none">
 
+<!-- INICIO -->
 
-<div class="card">
+<section id="pantalla-inicio" class="pantalla activa">
 
-    <h3>Bienvenido a Made by Annie</h3>
+<div class="bienvenida">
+
+<img src="iconos/cinna.png" alt="">
+
+<h2>Hola, Annie</h2>
+
 <p>
-Cada accesorio que encontrarás aqui está hecho con dedicación y mucho cariño.Explora nuestros diseños o crea uno personalizado para ti.
+Aquí puedes organizar tus materiales,
+calcular tus productos y llevar el control
+de lo que necesitas comprar.
 </p>
 
-<a href="Perzonaliza.html" class="boton">
-Haz tu pedido
-</a>
 </div>
 
-<div class="card">
+<div class="accesos">
 
-    <h3>Cuidados y reparaciones</h3>
-<p>
-Cada pieza está elaborada a mano con mucho cariño <br> y atención a los detalles.
-Si tu accesorio presenta algún inconveniente relacionado con su elaboración durante los primeros 7 dias después de la entrega, contáctame y con gusto revisaré el caso. Pasado ese tiempo,algunas reparaciones podrán realizarse con un pequeño costo, dependiendo del tipo de reparación.
+<button class="acceso-card" onclick="irA('materiales')">
+<img src="iconos/material.png" alt="">
+Mis materiales
+</button>
+
+<button class="acceso-card" onclick="irA('calcular')">
+<img src="iconos/calcular.png" alt="">
+Calcular producto
+</button>
+
+<button class="acceso-card" onclick="irA('productos')">
+<img src="iconos/utilizados.png" alt="">
+Mis productos
+</button>
+
+<button class="acceso-card" onclick="irA('compras')">
+<img src="iconos/stock.png" alt="">
+Lista de compras
+</button>
+
+<button class="acceso-card" onclick="irA('respaldo')">
+<img src="iconos/guardar.png" alt="">
+Respaldos
+</button>
+
+</div>
+
+<div class="resumen">
+
+<div class="resumen-card">
+
+<div class="resumen-icono">
+<img src="iconos/material.png" alt="">
+</div>
+
+<span id="inicioMateriales" class="resumen-numero">0</span>
+<span class="resumen-texto">Materiales</span>
+
+</div>
+
+<div class="resumen-card">
+
+<div class="resumen-icono">
+<img src="iconos/stock.png" alt="">
+</div>
+
+<span id="inicioStock" class="resumen-numero">0</span>
+<span class="resumen-texto">Con stock</span>
+
+</div>
+
+<div class="resumen-card">
+
+<div class="resumen-icono">
+<img src="iconos/bajo.png" alt="">
+</div>
+
+<span id="inicioBajo" class="resumen-numero">0</span>
+<span class="resumen-texto">Stock bajo</span>
+
+</div>
+
+</div>
+
+<div class="tarjeta">
+
+<h2 class="tarjeta-titulo">
+<img src="iconos/bajo.png" alt="">
+Materiales por reponer
+</h2>
+
+<div id="inicioBajos"></div>
+
+</div>
+
+</section>
+
+<!-- MATERIALES -->
+
+<section id="pantalla-materiales" class="pantalla">
+
+<h2 class="titulo">Mis materiales</h2>
+
+<p class="descripcion">
+Registra cuánto compraste y cuánto tienes actualmente
+para conocer tu inventario y el costo real de cada unidad.
 </p>
+
+<div class="resumen">
+
+<div class="resumen-card">
+
+<div class="resumen-icono">
+<img src="iconos/material.png" alt="">
 </div>
 
-<div class="card">
+<span id="totalMateriales" class="resumen-numero">0</span>
+<span class="resumen-texto">Materiales</span>
 
-    <a href="Info.html"
-       style="text-decoration:none; color:inherit;">
-
-        <h3>¿Cómo comprar?</h3>
-
-        <p>
-       Te explicamos paso a paso como realizar tu pedido,las opciones de pago y el proceso de entrega para que comprar sea fácil y seguro.
-        </p>
-
-    </a>
 </div>
+
+<div class="resumen-card">
+
+<div class="resumen-icono">
+<img src="iconos/stock.png" alt="">
+</div>
+
+<span id="stockDisponible" class="resumen-numero">0</span>
+<span class="resumen-texto">Con stock</span>
+
+</div>
+
+<div class="resumen-card">
+
+<div class="resumen-icono">
+<img src="iconos/bajo.png" alt="">
+</div>
+
+<span id="stockBajo" class="resumen-numero">0</span>
+<span class="resumen-texto">Stock bajo</span>
+
+</div>
+
+</div>
+
+<section class="tarjeta">
+
+<h2 class="tarjeta-titulo">
+<img src="iconos/guardar.png" alt="">
+Agregar material
+</h2>
+
+<div class="campo">
+
+<label>Nombre del material</label>
+
+<input id="nombre" type="text" placeholder="Ej: Mullos rosados">
+
+</div>
+
+<div class="campo">
+
+<label>Categoría</label>
+
+<select id="categoria">
+
+<option>Mullos y cuentas</option>
+<option>Cadenas</option>
+<option>Hilos</option>
+<option>Dijes</option>
+<option>Argollas y piezas</option>
+<option>Arcilla</option>
+<option>Pintura</option>
+<option>Resina</option>
+<option>Empaque</option>
+<option>Otros</option>
+
+</select>
+
+</div>
+
+<div class="campo">
+
+<label>Foto del material</label>
+
+<div class="zona-imagen">
+
+<input type="file" id="imagen" accept="image/*" onchange="previsualizarImagen(event)">
+
+<img id="vistaPrevia" class="vista-previa">
+
+</div>
+
+</div>
+
+<div class="fila">
+
+<div class="campo">
+
+<label>Precio de compra</label>
+
+<input id="precio" type="number" min="0" step="0.01" placeholder="3.00">
+
+<small class="ayuda-campo">
+Lo que pagaste por toda la funda,
+paquete o cantidad.
+</small>
+
+</div>
+
+<div class="campo">
+
+<label>Cantidad comprada</label>
+
+<input id="cantidad" type="number" min="0" step="0.01" placeholder="600">
+
+<small class="ayuda-campo">
+Ejemplo: una funda con 600 mullos.
+</small>
+
+</div>
+
+</div>
+
+<div class="campo">
+
+<label>Unidad</label>
+
+<select id="unidad">
+
+<option value="unidades">Unidades / piezas</option>
+<option value="metros">Metros</option>
+<option value="centimetros">Centímetros</option>
+<option value="gramos">Gramos</option>
+<option value="kilogramos">Kilogramos</option>
+<option value="mililitros">Mililitros</option>
+<option value="litros">Litros</option>
+
+</select>
+
+</div>
+
+<div class="campo">
+
+<label>
+<img src="iconos/stock.png" alt="">
+Cantidad actual
+</label>
+
+<input id="cantidadActual" type="number" min="0" step="0.01" placeholder="450">
+
+<small class="ayuda-campo">
+Si compraste 600 y actualmente tienes 450,
+escribe 450.
+</small>
+
+</div>
+
+<div class="campo">
+
+<label>Stock mínimo</label>
+
+<input id="stockMinimo" type="number" min="0" step="0.01" value="20">
+
+<small class="ayuda-campo">
+Cuando llegues a esta cantidad,
+aparecerá en tu lista de compras.
+</small>
+
+</div>
+<div class="campo">
+
+<label>
+<img src="iconos/notas.png" alt="">
+Notas
+</label>
+
+<textarea id="notas" placeholder="Ej: Funda de 600 mullos"></textarea>
+
+</div>
+
+<button class="btn-principal" onclick="guardarMaterial()">
+<img src="iconos/guardar.png" alt="">
+Guardar material
+</button>
+
+</section>
+
+<h2 class="titulo">Inventario</h2>
+
+<br>
+
+<div id="listaMateriales" class="materiales"></div>
+
+</section>
+
+<!-- CALCULAR -->
+
+<section id="pantalla-calcular" class="pantalla">
+
+<h2 class="titulo">Calcular producto</h2>
+
+<p class="descripcion">
+Calcula cuánto te cuesta hacer cada creación
+incluyendo materiales, mano de obra y empaque.
+</p>
+
+<section class="tarjeta">
+
+<div class="campo">
+
+<label>Nombre del producto</label>
+
+<input id="nombreProducto" type="text" placeholder="Ej: Manilla Ocean Mist">
+
+</div>
+
+<div class="campo">
+
+<label>Foto del producto</label>
+
+<div class="zona-imagen">
+
+<input type="file" id="imagenProducto" accept="image/*" onchange="previsualizarProducto(event)">
+
+<img id="vistaProducto" class="vista-previa">
+
+</div>
+
+</div>
+
+<h3 class="subtitulo-seccion">
+<img src="iconos/utilizados.png" alt="">
+Materiales utilizados
+</h3>
+
+<div class="selector-material">
+
+<div class="campo">
+
+<label>Material</label>
+
+<select id="materialSeleccionado">
+
+<option value="">Selecciona un material</option>
+
+</select>
+
+</div>
+
+<div class="campo">
+
+<label>Cantidad</label>
+
+<input id="cantidadUsada" type="number" min="0" step="0.001" placeholder="35">
+
+</div>
+
+<div class="campo">
+
+<label>Unidad</label>
+
+<select id="unidadUsada">
+
+<option value="unidades">unidades</option>
+<option value="metros">metros</option>
+<option value="centimetros">cm</option>
+<option value="gramos">gramos</option>
+<option value="kilogramos">kg</option>
+<option value="mililitros">ml</option>
+<option value="litros">L</option>
+
+</select>
+
+</div>
+
+<button class="btn-secundario" onclick="agregarMaterialAlProducto()">
+Agregar
+</button>
+
+</div>
+
+<div id="listaUso"></div>
+
+<h3 class="subtitulo-seccion">
+<img src="iconos/me.png" alt="">
+Mano de obra
+</h3>
+
+<div class="fila">
+
+<div class="campo">
+
+<label>Tiempo trabajado (minutos)</label>
+
+<input id="minutosTrabajo" type="number" min="0" value="30" oninput="calcularProducto()">
+
+</div>
+
+<div class="campo">
+
+<label>¿Cuánto quieres ganar por hora?</label>
+
+<input id="precioHora" type="number" min="0" step="0.01" value="3" oninput="calcularProducto()">
+
+</div>
+
+</div>
+
+<div class="campo">
+
+<label>
+<img src="iconos/empaque.png" alt="">
+Costo del empaque
+</label>
+
+<input id="costoEmpaque" type="number" min="0" step="0.01" value="0" oninput="calcularProducto()">
+
+</div>
+
+<div class="campo">
+
+<label>Precio de venta</label>
+
+<input id="precioVenta" type="number" min="0" step="0.01" placeholder="Ej: 6.00" oninput="calcularProducto()">
+
+</div>
+
+<div class="resultado">
+
+<div class="resultado-linea">
+
+<span>
+<img src="iconos/utilizados.png" alt="">
+Materiales
+</span>
+
+<strong id="resultadoMateriales">$0.00</strong>
+
+</div>
+
+<div class="resultado-linea">
+
+<span>
+<img src="iconos/me.png" alt="">
+Mano de obra
+</span>
+
+<strong id="resultadoManoObra">$0.00</strong>
+
+</div>
+
+<div class="resultado-linea">
+
+<span>
+<img src="iconos/empaque.png" alt="">
+Empaque
+</span>
+
+<strong id="resultadoEmpaque">$0.00</strong>
+
+</div>
+
+<div class="resultado-total">
+
+<span>COSTO TOTAL</span>
+
+<strong id="resultadoTotal">$0.00</strong>
+
+</div>
+
+<div class="ganancia">
+
+<span>GANANCIA</span>
+
+<strong id="resultadoGanancia">$0.00</strong>
+
+<div id="resultadoMargen">Margen: 0%</div>
+
+</div>
+
+</div>
+
+<br>
+
+<button class="btn-principal" onclick="guardarProducto()">
+<img src="iconos/guardar.png" alt="">
+Guardar producto
+</button>
+
+<br><br>
+
+<button class="btn-secundario" onclick="fabricarProducto()">
+Fabricar y descontar materiales
+</button>
+
+</section>
+
+</section>
+
+<!-- PRODUCTOS -->
+
+<section id="pantalla-productos" class="pantalla">
+
+<h2 class="titulo">Mis productos</h2>
+
+<p class="descripcion">
+Aquí se guardan las creaciones que hayas calculado.
+</p>
+
+<div id="listaProductos" class="productos"></div>
+
+</section>
+
+<!-- COMPRAS -->
+
+<section id="pantalla-compras" class="pantalla">
+
+<h2 class="titulo">Lista de compras</h2>
+
+<p class="descripcion">
+Aquí aparecen los materiales que necesitan reposición
+y también puedes agregar tus propias compras.
+</p>
+
+<section class="tarjeta">
+
+<h2 class="tarjeta-titulo">
+<img src="iconos/stock.png" alt="">
+Agregar a mi lista
+</h2>
+
+<div class="compra-form">
+
+<div class="campo">
+
+<label>¿Qué quieres comprar?</label>
+
+<input id="nombreCompra" type="text" placeholder="Ej: Mullos blancos">
+
+</div>
+
+<div class="campo">
+
+<label>Cantidad</label>
+
+<input id="cantidadCompra" type="text" placeholder="Ej: 600 piezas">
+
+</div>
+
+<button class="btn-principal" onclick="agregarCompraManual()">
+<img src="iconos/guardar.png" alt="">
+Agregar
+</button>
+
+</div>
+
+</section>
+
+<section class="tarjeta">
+
+<h2 class="tarjeta-titulo">
+<img src="iconos/bajo.png" alt="">
+Necesitan reposición
+</h2>
+
+<div id="comprasAutomaticas"></div>
+
+</section>
+
+<section class="tarjeta">
+
+<h2 class="tarjeta-titulo">
+<img src="iconos/guardar.png" alt="">
+Mi lista
+</h2>
+
+<div id="listaCompras" class="compras"></div>
+
+</section>
+
+</section>
+
+<!-- RESPALDOS -->
+
+<section id="pantalla-respaldo" class="pantalla">
+
+<h2 class="titulo">Respaldos</h2>
+
+<p class="descripcion">
+Guarda una copia de tus materiales, inventario,
+productos y lista de compras.
+</p>
+
+<section class="tarjeta">
+
+<h2 class="tarjeta-titulo">
+<img src="iconos/guardar.png" alt="">
+Mis respaldos
+</h2>
+
+<div class="acciones-respaldo">
+
+<button class="btn-principal" type="button" onclick="exportarRespaldo()">
+<img src="iconos/guardar.png" alt="">
+Guardar respaldo
+</button>
+
+<button class="btn-secundario" type="button" onclick="document.getElementById('archivoRespaldo').click()">
+Restaurar respaldo
+</button>
+
+</div>
+
+<input id="archivoRespaldo" type="file" accept="application/json,.json" style="display:none" onchange="importarRespaldo(event)">
+
+<p style="text-align:center;margin-top:15px;font-size:12px;line-height:1.5">
+El respaldo incluye tus datos, inventario,
+productos, fotos y lista de compras.
+</p>
+
+</section>
+
+</section>
 
 </main>
 
 <footer>
- <div class="redes">
-
-    <a href="https://instagram.com/madebyannie.art" target="_blank">
-            <img src="Insta.png" alt="Instagram">
-        </a>
-
-        <a href="https://wa.me/593982906711" target="_blank">
-            <img src="Whats.png" alt="WhatsApp">
-        </a>
-    </div>
-
- <p>
- •Ibarra•Ecuador
-</p>
-   <p>
-        © 2026 Made by Annie
-    </p>
+Made with love by Annie
 </footer>
+
+<!-- MODAL EDITAR MATERIAL -->
+
+<div id="modalEditar" class="modal">
+
+<div class="modal-contenido">
+
+<h2 class="modal-titulo">Editar material</h2>
+
+<div class="campo">
+
+<label>Nombre del material</label>
+
+<input id="editarNombre" type="text">
+
+</div>
+
+<div class="campo">
+
+<label>Categoría</label>
+
+<select id="editarCategoria">
+
+<option>Mullos y cuentas</option>
+<option>Cadenas</option>
+<option>Hilos</option>
+<option>Dijes</option>
+<option>Argollas y piezas</option>
+<option>Arcilla</option>
+<option>Pintura</option>
+<option>Resina</option>
+<option>Empaque</option>
+<option>Otros</option>
+
+</select>
+
+</div>
+
+<div class="campo">
+
+<label>Imagen del material</label>
+
+<div class="zona-imagen">
+
+<input type="file" id="editarImagen" accept="image/*" onchange="previsualizarImagenEditar(event)">
+
+<img id="vistaEditarImagen" class="vista-previa">
+
+</div>
+
+<small class="ayuda-campo">
+Si no seleccionas una nueva imagen,
+se conservará la actual.
+</small>
+
+</div>
+
+<div class="fila">
+
+<div class="campo">
+
+<label>Precio de compra</label>
+
+<input id="editarPrecio" type="number" min="0" step="0.01">
+
+</div>
+
+<div class="campo">
+
+<label>Cantidad comprada</label>
+
+<input id="editarCantidad" type="number" min="0" step="0.01">
+
+</div>
+
+</div>
+
+<div class="campo">
+
+<label>Unidad</label>
+
+<select id="editarUnidad">
+
+<option value="unidades">Unidades / piezas</option>
+<option value="metros">Metros</option>
+<option value="centimetros">Centímetros</option>
+<option value="gramos">Gramos</option>
+<option value="kilogramos">Kilogramos</option>
+<option value="mililitros">Mililitros</option>
+<option value="litros">Litros</option>
+
+</select>
+
+</div>
+
+<div class="fila">
+
+<div class="campo">
+
+<label>Stock actual</label>
+
+<input id="editarStock" type="number" min="0" step="0.01">
+
+</div>
+
+<div class="campo">
+
+<label>Stock mínimo</label>
+
+<input id="editarStockMinimo" type="number" min="0" step="0.01">
+
+</div>
+
+</div>
+
+<div class="campo">
+
+<label>Notas</label>
+
+<textarea id="editarNotas"></textarea>
+
+</div>
+
+<div class="modal-botones">
+
+<button class="btn-secundario" onclick="cerrarModalEditar()">
+Cancelar
+</button>
+
+<button class="btn-principal" onclick="guardarEdicionMaterial()">
+<img src="iconos/guardar.png" alt="">
+Guardar cambios
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- MODAL REPONER MATERIAL -->
+
+<div id="modalReponer" class="modal">
+
+<div class="modal-contenido">
+
+<h2 class="modal-titulo">Reponer material</h2>
+
+<p id="textoReponer" style="text-align:center;line-height:1.5"></p>
+
+<div class="campo">
+
+<label>Precio de la nueva compra</label>
+
+<input id="reponerPrecio" type="number" min="0" step="0.01" placeholder="Ej: 3.00">
+
+<small class="ayuda-campo">
+Lo que pagaste en esta nueva compra.
+</small>
+
+</div>
+
+<div class="campo">
+
+<label>Cantidad que compraste</label>
+
+<input id="reponerCantidad" type="number" min="0" step="0.01" placeholder="Ej: 600">
+
+</div>
+
+<div class="campo">
+
+<label>Stock que tienes después de recibir la compra</label>
+
+<input id="reponerStock" type="number" min="0" step="0.01" placeholder="Ej: 600">
+
+<small class="ayuda-campo">
+Puedes dejar aquí todo lo que tienes
+después de sumar la nueva compra.
+</small>
+
+</div>
+
+<div class="campo">
+
+<label>Notas de esta compra</label>
+
+<textarea id="reponerNotas" placeholder="Ej: Nueva funda de 600 mullos"></textarea>
+
+</div>
+
+<div class="modal-botones">
+
+<button class="btn-secundario" onclick="cerrarModalReponer()">
+Cancelar
+</button>
+
+<button class="btn-principal" onclick="guardarReposicion()">
+<img src="iconos/guardar.png" alt="">
+Guardar reposición
+</button>
+</div>
+
+</div>
+
+</div>
+
+<!-- ACCESO SECRETO -->
+
+<div id="accesoSecreto">
+
+<div>
+
+<img src="iconos/cinna.png" class="cinna-acceso" alt="Cinnamoroll">
+
+<h2 style="font-family:Pacifico,cursive;margin:8px 0 15px">
+Zona de Annie
+</h2>
+
+<input id="claveSecreta" type="password" placeholder="Contraseña" style="width:100%;padding:13px;border:2px solid #A9C7E8;border-radius:13px;outline:none;font-family:Quicksand,sans-serif">
+
+<button onclick="entrarZonaAnnie()" class="boton-entrar">
+<img src="iconos/candado.png" alt="">
+Entrar
+</button>
+
+<button onclick="cerrarZonaAnnie()" style="margin-top:10px;padding:10px 16px;border:0;border-radius:12px;background:#DCEAF7;color:#7A6F60;font-weight:700">
+Cancelar
+</button>
+
+</div>
+
+</div>
 
 <script>
 
-function verProducto(card) {
+/* DATOS */
 
-    let nombre =
-    card.querySelector(".desc").innerText;
+let materiales=JSON.parse(localStorage.getItem("materialesMadeByAnnieV3"))||[];
+let productos=JSON.parse(localStorage.getItem("productosMadeByAnnieV3"))||[];
+let compras=JSON.parse(localStorage.getItem("comprasMadeByAnnieV1"))||[];
 
-    let desc = "";
+let imagenMaterial="";
+let imagenProducto="";
+let imagenEditarMaterial="";
+let materialEditandoId=null;
+let materialReponiendoId=null;
+let materialesProducto=[];
 
-    let img1 =
-    card.getAttribute("data-img1");
+const $=id=>document.getElementById(id);
 
-    let img2 =
-    card.getAttribute("data-img2");
+/* NAVEGACIÓN */
 
-    let unico =
-    card.getAttribute("data-unico");
-
-    let vendido =
-    card.getAttribute("data-vendido");
-
-    let nuevo =
-    card.getAttribute("data-nuevo");
-
-    let proximamente =
-    card.getAttribute("data-proximamente");
-
-    let precio =
-    card.getAttribute("data-precio");
-
-    let url =
-    "Detalle.html?nombre=" + encodeURIComponent(nombre)
-
-    + "&desc=" + encodeURIComponent(desc)
-
-    + "&img1=" + encodeURIComponent(img1)
-
-    + "&img2=" + encodeURIComponent(img2)
-
-    + "&unico=" + encodeURIComponent(unico)
-
-    + "&vendido=" + encodeURIComponent(vendido)
-
-    + "&nuevo=" + encodeURIComponent(nuevo)
-
-    + "&proximamente=" + encodeURIComponent(proximamente)
-
-    + "&precio=" + encodeURIComponent(precio);
-
-    window.location.href = url;
+function irA(nombre){
+document.querySelectorAll(".pantalla").forEach(p=>p.classList.remove("activa"));
+const pantalla=$("pantalla-"+nombre);
+if(pantalla){
+pantalla.classList.add("activa");
+}
+document.querySelectorAll(".nav-btn").forEach(btn=>{
+btn.classList.toggle("activo",btn.dataset.pantalla===nombre);
+});
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
 }
 
-</script>
+/* CONVERSIONES */
 
+function convertirAUnidadBase(cantidad,unidad){
+if(unidad==="centimetros")
+return cantidad/100;
+if(unidad==="gramos")
+return cantidad/1000;
+if(unidad==="mililitros")
+return cantidad/1000;
+return cantidad;
+}
+
+function convertirDesdeBase(cantidad,unidad){
+if(unidad==="centimetros")
+return cantidad*100;
+if(unidad==="gramos")
+return cantidad*1000;
+if(unidad==="mililitros")
+return cantidad*1000;
+return cantidad;
+}
+
+/* NORMALIZAR */
+
+function normalizarMateriales(){
+materiales=materiales.map(m=>{
+const unidad=m.unidadOriginal||"unidades";
+const cantidadComprada=Number(m.cantidadComprada??m.cantidad??0);
+const cantidadBase=Number(m.cantidadBase??convertirAUnidadBase(cantidadComprada,unidad));
+let stock=Number.isFinite(Number(m.stock))?Number(m.stock):cantidadBase;
+const stockMinimo=Number(m.stockMinimo??convertirAUnidadBase(20,unidad));
+const costoUnitario=Number.isFinite(Number(m.costoUnitario))?Number(m.costoUnitario):cantidadBase>0?Number(m.precio||0)/cantidadBase:0;
+
+return{
+...m,
+unidadOriginal:unidad,
+cantidadComprada,
+cantidadBase,
+stock:Math.max(0,stock),
+stockMinimo,
+costoUnitario,
+cantidadActual:convertirDesdeBase(Math.max(0,stock),unidad)
+};
+});
+}
+
+/* GUARDAR DATOS */
+
+function guardarDatos(){
+localStorage.setItem("materialesMadeByAnnieV3",JSON.stringify(materiales));
+localStorage.setItem("productosMadeByAnnieV3",JSON.stringify(productos));
+localStorage.setItem("comprasMadeByAnnieV1",JSON.stringify(compras));
+}
+
+/* INICIAR */
+
+function iniciar(){
+normalizarMateriales();
+mostrarMateriales();
+mostrarProductos();
+actualizarResumen();
+actualizarSelectorMateriales();
+mostrarCompras();
+mostrarComprasAutomaticas();
+actualizarInicio();
+
+if(sessionStorage.getItem("annieAcceso")==="1"){
+$("contenidoApp").style.display="block";
+}else{
+$("accesoSecreto").style.display="flex";
+}
+}
+
+/* PREVISUALIZAR MATERIAL */
+
+function previsualizarImagen(event){
+const archivo=event.target.files[0];
+if(!archivo)
+return;
+
+const lector=new FileReader();
+
+lector.onload=e=>{
+imagenMaterial=e.target.result;
+$("vistaPrevia").src=imagenMaterial;
+$("vistaPrevia").style.display="block";
+};
+
+lector.readAsDataURL(archivo);
+}
+
+/* PREVISUALIZAR IMAGEN EDITADA */
+
+function previsualizarImagenEditar(event){
+const archivo=event.target.files[0];
+if(!archivo)
+return;
+
+const lector=new FileReader();
+
+lector.onload=e=>{
+imagenEditarMaterial=e.target.result;
+$("vistaEditarImagen").src=imagenEditarMaterial;
+$("vistaEditarImagen").style.display="block";
+};
+
+lector.readAsDataURL(archivo);
+}
+
+/* PREVISUALIZAR PRODUCTO */
+
+function previsualizarProducto(event){
+const archivo=event.target.files[0];
+if(!archivo)
+return;
+
+const lector=new FileReader();
+
+lector.onload=e=>{
+imagenProducto=e.target.result;
+$("vistaProducto").src=imagenProducto;
+$("vistaProducto").style.display="block";
+};
+
+lector.readAsDataURL(archivo);
+}
+
+/* GUARDAR MATERIAL */
+
+function guardarMaterial(){
+
+const nombre=$("nombre").value.trim();
+const categoria=$("categoria").value;
+const precio=parseFloat($("precio").value);
+const cantidad=parseFloat($("cantidad").value);
+const unidad=$("unidad").value;
+const cantidadActual=parseFloat($("cantidadActual").value);
+const stockMinimo=parseFloat($("stockMinimo").value);
+const notas=$("notas").value.trim();
+
+if(!nombre)
+return alert("Escribe el nombre del material.");
+
+if(!Number.isFinite(precio)||precio<=0)
+return alert("Escribe un precio válido.");
+
+if(!Number.isFinite(cantidad)||cantidad<=0)
+return alert("Escribe una cantidad comprada válida.");
+
+if(!Number.isFinite(cantidadActual)||cantidadActual<0)
+return alert("Escribe una cantidad actual válida.");
+
+if(cantidadActual>cantidad)
+return alert("La cantidad actual no puede ser mayor que la cantidad comprada.");
+
+const cantidadBase=convertirAUnidadBase(cantidad,unidad);
+
+const stockBase=convertirAUnidadBase(cantidadActual,unidad);
+
+const stockMinimoBase=convertirAUnidadBase(Number.isFinite(stockMinimo)?stockMinimo:20,unidad);
+
+const costoUnitario=precio/cantidadBase;
+
+materiales.push({
+id:Date.now(),
+nombre,
+categoria,
+precio,
+cantidadComprada:cantidad,
+cantidadActual,
+unidadOriginal:unidad,
+cantidadBase,
+stock:stockBase,
+stockMinimo:stockMinimoBase,
+costoUnitario,
+imagen:imagenMaterial,
+notas
+});
+
+guardarDatos();
+mostrarMateriales();
+actualizarResumen();
+actualizarSelectorMateriales();
+mostrarComprasAutomaticas();
+actualizarInicio();
+
+limpiarMaterial();
+
+alert("Material guardado.\n\nCosto por "+unidadSingular(unidad)+": $"+costoUnitario.toFixed(4));
+
+}
+/* MOSTRAR MATERIALES */
+
+function mostrarMateriales(){
+const lista=$("listaMateriales");
+lista.innerHTML="";
+
+if(!materiales.length){
+lista.innerHTML=`
+<div class="material">
+<div class="sin-imagen">
+<img src="iconos/tener.png" alt="">
+</div>
+<div class="material-info">
+<div class="material-nombre">
+Todavía no tienes materiales
+</div>
+<p>
+Agrega tu primer material arriba.
+</p>
+</div>
+</div>
+</div>
+</div>
+`;
+return;
+}
+
+materiales.forEach(m=>{
+const stock=Number(m.stock)||0;
+const minimo=Number(m.stockMinimo)||0;
+const compradaBase=Number(m.cantidadBase)||0;
+const utilizadoBase=Math.max(0,compradaBase-stock);
+const stockMostrado=convertirDesdeBase(stock,m.unidadOriginal);
+const utilizadoMostrado=convertirDesdeBase(utilizadoBase,m.unidadOriginal);
+
+const clase=stock<=0?"stock-rojo":stock<=minimo?"stock-amarillo":"stock-verde";
+
+const estado=stock<=0?"Agotado":stock<=minimo?"Stock bajo":"Stock suficiente";
+
+lista.innerHTML+=`
+<article class="material">
+
+${
+m.imagen
+?
+`<img
+src="${m.imagen}"
+class="imagen-material"
+alt="${escapar(m.nombre)}">`
+:
+`
+<div class="sin-imagen">
+<img
+src="iconos/tener.png"
+alt="">
+</div>
+`
+}
+
+<div class="material-info">
+
+<div class="material-nombre">
+${escapar(m.nombre)}
+</div>
+
+<span class="categoria">
+${escapar(m.categoria)}
+</span>
+
+<div class="dato">
+<span>
+Precio de compra
+</span>
+<strong>
+$${Number(m.precio).toFixed(2)}
+</strong>
+</div>
+
+<div class="dato">
+<span>
+Compraste
+</span>
+<strong>
+${formatear(m.cantidadComprada)}
+${unidadCorta(m.unidadOriginal)}
+</strong>
+</div>
+
+<div class="dato">
+<span>
+<img src="iconos/stock.png" alt="">
+Stock actual
+</span>
+<strong>
+${formatear(stockMostrado)}
+${unidadCorta(m.unidadOriginal)}
+</strong>
+</div>
+
+<div class="dato">
+<span>
+Ya utilizado
+</span>
+<strong>
+${formatear(utilizadoMostrado)}
+${unidadCorta(m.unidadOriginal)}
+</strong>
+</div>
+
+<div class="costo">
+<span>
+Costo por ${unidadSingular(m.unidadOriginal)}
+</span>
+<strong>
+$${Number(m.costoUnitario).toFixed(4)}
+</strong>
+</div>
+
+<div class="stock ${clase}">
+${estado}
+</div>
+
+${
+m.notas
+?
+`<div class="notas">
+${escapar(m.notas)}
+</div>`
+:
+""
+}
+
+<div class="acciones">
+<button class="btn-secundario" onclick="editarMaterial(${m.id})">Editar</button>
+<button class="btn-reponer" onclick="abrirModalReponer(${m.id})">Reponer</button>
+<button class="btn-peligro" onclick="eliminarMaterial(${m.id})">Eliminar</button>
+</div>
+
+</div>
+
+</article>
+`;
+});
+}
+
+/* UNIDADES */
+
+function unidadCorta(unidad){
+return {
+unidades:"uds",
+metros:"m",
+centimetros:"cm",
+gramos:"g",
+kilogramos:"kg",
+mililitros:"ml",
+litros:"L"
+}[unidad]||unidad;
+}
+
+function unidadSingular(unidad){
+return {
+unidades:"unidad",
+metros:"metro",
+centimetros:"cm",
+gramos:"g",
+kilogramos:"kg",
+mililitros:"ml",
+litros:"L"
+}[unidad]||unidad;
+}
+
+function formatear(numero){
+return Number(Number(numero).toFixed(3));
+}
+
+/* EDITAR MATERIAL COMPLETO */
+
+function editarMaterial(id){
+const m=materiales.find(x=>x.id===id);
+if(!m)
+return;
+
+materialEditandoId=id;
+imagenEditarMaterial="";
+
+$("editarNombre").value=m.nombre||"";
+$("editarCategoria").value=m.categoria||"Otros";
+$("editarPrecio").value=m.precio||"";
+$("editarCantidad").value=m.cantidadComprada||"";
+$("editarUnidad").value=m.unidadOriginal||"unidades";
+
+$("editarStock").value=convertirDesdeBase(
+Number(m.stock)||0,
+m.unidadOriginal
+);
+
+$("editarStockMinimo").value=convertirDesdeBase(
+Number(m.stockMinimo)||0,
+m.unidadOriginal
+);
+
+$("editarNotas").value=m.notas||"";
+$("editarImagen").value="";
+
+if(m.imagen){
+$("vistaEditarImagen").src=m.imagen;
+$("vistaEditarImagen").style.display="block";
+}else{
+$("vistaEditarImagen").style.display="none";
+}
+
+$("modalEditar").classList.add("activo");
+}
+
+/* GUARDAR EDICIÓN */
+
+function guardarEdicionMaterial(){
+const m=materiales.find(x=>x.id===materialEditandoId);
+if(!m)
+return;
+
+const nombre=$("editarNombre").value.trim();
+const categoria=$("editarCategoria").value;
+const precio=parseFloat($("editarPrecio").value);
+const cantidad=parseFloat($("editarCantidad").value);
+const unidad=$("editarUnidad").value;
+const stock=parseFloat($("editarStock").value);
+const stockMinimo=parseFloat($("editarStockMinimo").value);
+const notas=$("editarNotas").value.trim();
+
+if(!nombre)
+return alert("Escribe el nombre del material.");
+
+if(!Number.isFinite(precio)||precio<=0)
+return alert("Escribe un precio válido.");
+
+if(!Number.isFinite(cantidad)||cantidad<=0)
+return alert("La cantidad comprada debe ser válida.");
+
+if(!Number.isFinite(stock)||stock<0)
+return alert("El stock actual no es válido.");
+
+if(stock>cantidad)
+return alert("El stock actual no puede ser mayor que la cantidad comprada.");
+
+if(!Number.isFinite(stockMinimo)||stockMinimo<0)
+return alert("El stock mínimo no es válido.");
+
+const cantidadBase=convertirAUnidadBase(cantidad,unidad);
+const stockBase=convertirAUnidadBase(stock,unidad);
+const stockMinimoBase=convertirAUnidadBase(stockMinimo,unidad);
+
+m.nombre=nombre;
+m.categoria=categoria;
+m.precio=precio;
+m.cantidadComprada=cantidad;
+m.unidadOriginal=unidad;
+m.cantidadBase=cantidadBase;
+m.stock=stockBase;
+m.cantidadActual=stock;
+m.stockMinimo=stockMinimoBase;
+m.costoUnitario=precio/cantidadBase;
+m.notas=notas;
+
+if(imagenEditarMaterial){
+m.imagen=imagenEditarMaterial;
+}
+
+guardarDatos();
+mostrarMateriales();
+actualizarResumen();
+actualizarSelectorMateriales();
+mostrarComprasAutomaticas();
+actualizarInicio();
+cerrarModalEditar();
+
+alert("Material actualizado correctamente.");
+}
+
+/* CERRAR EDITAR */
+
+function cerrarModalEditar(){
+$("modalEditar").classList.remove("activo");
+materialEditandoId=null;
+imagenEditarMaterial="";
+$("editarImagen").value="";
+}
+
+/* REPONER MATERIAL */
+
+function abrirModalReponer(id){
+const m=materiales.find(x=>x.id===id);
+if(!m)
+return;
+
+materialReponiendoId=id;
+
+$("textoReponer").innerHTML=`Vas a reponer <strong>${escapar(m.nombre)}</strong>.<br>
+Actualmente tienes
+<strong>${formatear(
+convertirDesdeBase(
+m.stock,
+m.unidadOriginal
+)
+)} ${unidadCorta(m.unidadOriginal)}</strong>.`;
+
+$("reponerPrecio").value="";
+$("reponerCantidad").value="";
+$("reponerStock").value="";
+$("reponerNotas").value="";
+
+$("modalReponer").classList.add("activo");
+}
+
+/* GUARDAR REPOSICIÓN */
+
+function guardarReposicion(){
+const m=materiales.find(x=>x.id===materialReponiendoId);
+if(!m)return;
+const precioNuevo=parseFloat($("reponerPrecio").value);
+const cantidadNueva=parseFloat($("reponerCantidad").value);
+const stockNuevoTotal=parseFloat($("reponerStock").value);
+const notasNueva=$("reponerNotas").value.trim();
+if(!Number.isFinite(precioNuevo)||precioNuevo<=0)return alert("Escribe un precio válido para la nueva compra.");
+if(!Number.isFinite(cantidadNueva)||cantidadNueva<=0)return alert("Escribe una cantidad válida para la nueva compra.");
+if(!Number.isFinite(stockNuevoTotal)||stockNuevoTotal<0)return alert("Escribe el stock que tendrás después de la compra.");
+const stockAnterior=Number(m.stock)||0;
+const cantidadNuevaBase=convertirAUnidadBase(cantidadNueva,m.unidadOriginal);
+const stockNuevoBase=convertirAUnidadBase(stockNuevoTotal,m.unidadOriginal);
+if(stockNuevoBase<stockAnterior)return alert("El nuevo stock no puede ser menor que el stock que ya tenías.");
+const costoNuevaUnidad=precioNuevo/cantidadNuevaBase;
+const costoAnteriorUnidad=Number(m.costoUnitario)||0;
+let nuevoCostoUnitario=costoAnteriorUnidad;
+if(Math.abs(costoNuevaUnidad-costoAnteriorUnidad)>0.000000001){
+const valorInventarioAnterior=stockAnterior*costoAnteriorUnidad;
+const valorNuevaCompra=precioNuevo;
+const valorInventarioTotal=valorInventarioAnterior+valorNuevaCompra;
+nuevoCostoUnitario=stockNuevoBase>0?valorInventarioTotal/stockNuevoBase:costoNuevaUnidad;
+}
+m.stock=stockNuevoBase;
+m.cantidadActual=stockNuevoTotal;
+m.cantidadComprada=(Number(m.cantidadComprada)||0)+cantidadNueva;
+m.cantidadBase=(Number(m.cantidadBase)||0)+cantidadNuevaBase;
+m.precio=precioNuevo;
+m.costoUnitario=nuevoCostoUnitario;
+if(notasNueva){
+m.notas=m.notas?m.notas+"\nNueva compra: "+notasNueva:"Nueva compra: "+notasNueva;
+}
+guardarDatos();
+mostrarMateriales();
+actualizarResumen();
+actualizarSelectorMateriales();
+mostrarComprasAutomaticas();
+actualizarInicio();
+cerrarModalReponer();
+alert("Reposición registrada.\n\nNuevo stock: "+formatear(convertirDesdeBase(m.stock,m.unidadOriginal))+" "+unidadCorta(m.unidadOriginal)+"\nCosto por "+unidadSingular(m.unidadOriginal)+": $"+m.costoUnitario.toFixed(4));
+}
+
+/* CERRAR REPONER */
+
+function cerrarModalReponer(){
+$("modalReponer").classList.remove("activo");
+materialReponiendoId=null;
+}
+
+/* ELIMINAR MATERIAL */
+
+function eliminarMaterial(id){
+const m=materiales.find(x=>x.id===id);
+
+if(!m||!confirm(`¿Eliminar "${m.nombre}"?`))
+return;
+
+materiales=materiales.filter(x=>x.id!==id);
+
+guardarDatos();
+mostrarMateriales();
+actualizarResumen();
+actualizarSelectorMateriales();
+mostrarComprasAutomaticas();
+actualizarInicio();
+}
+
+/* RESUMEN */
+
+function actualizarResumen(){
+const total=materiales.length;
+
+const stock=materiales.filter(
+m=>Number(m.stock)>0
+).length;
+
+const bajo=materiales.filter(
+m=>Number(m.stock)<=Number(m.stockMinimo)
+).length;
+
+$("totalMateriales").textContent=total;
+$("stockDisponible").textContent=stock;
+$("stockBajo").textContent=bajo;
+$("inicioMateriales").textContent=total;
+$("inicioStock").textContent=stock;
+$("inicioBajo").textContent=bajo;
+}
+/* INICIO */
+
+function actualizarInicio(){
+const bajos=materiales.filter(
+m=>Number(m.stock)<=Number(m.stockMinimo)
+);
+
+if(!bajos.length){
+$("inicioBajos").innerHTML=`
+<div class="sin-compras">
+<img src="iconos/stock.png" alt="">
+<p>
+No tienes materiales pendientes
+de reposición.
+</p>
+</div>
+`;
+return;
+}
+
+$("inicioBajos").innerHTML=bajos.map(
+m=>`
+<div class="compra-item">
+<div class="compra-info">
+<strong>
+${escapar(m.nombre)}
+</strong>
+<span>
+Stock actual:
+${formatear(
+convertirDesdeBase(
+m.stock,
+m.unidadOriginal
+)
+)}
+${unidadCorta(m.unidadOriginal)}
+</span>
+</div>
+<button
+class="btn-secundario"
+onclick="irA('compras')">
+Ver compras
+</button>
+</div>
+`
+).join("");
+}
+
+/* SELECTOR */
+
+function actualizarSelectorMateriales(){
+$("materialSeleccionado").innerHTML=
+'<option value="">Selecciona un material</option>'+
+materiales.map(
+m=>`
+<option value="${m.id}">
+${escapar(m.nombre)}
+— stock:
+${formatear(
+convertirDesdeBase(
+m.stock,
+m.unidadOriginal
+)
+)}
+${unidadCorta(
+m.unidadOriginal
+)}
+</option>
+`
+).join("");
+}
+
+/* AGREGAR MATERIAL AL PRODUCTO */
+
+function agregarMaterialAlProducto(){
+const id=parseInt($("materialSeleccionado").value);
+const cantidad=parseFloat($("cantidadUsada").value);
+const unidad=$("unidadUsada").value;
+const m=materiales.find(x=>x.id===id);
+
+if(!m)
+return alert("Selecciona un material.");
+
+if(!Number.isFinite(cantidad)||cantidad<=0)
+return alert("Escribe una cantidad válida.");
+
+const cantidadBase=convertirAUnidadBase(cantidad,unidad);
+
+if(cantidadBase>Number(m.stock))
+return alert(`No tienes suficiente "${m.nombre}".`);
+
+const costo=cantidadBase*m.costoUnitario;
+
+materialesProducto.push({
+id:Date.now(),
+materialId:id,
+nombre:m.nombre,
+cantidad,
+unidad,
+cantidadBase,
+costo
+});
+
+mostrarMaterialesProducto();
+calcularProducto();
+$("cantidadUsada").value="";
+}
+
+/* MOSTRAR MATERIALES USADOS */
+
+function mostrarMaterialesProducto(){
+$("listaUso").innerHTML=
+materialesProducto.map(
+(x,i)=>`
+<div class="uso">
+<div class="uso-nombre">
+${escapar(x.nombre)}
+</div>
+<div>
+${formatear(x.cantidad)}
+${unidadCorta(x.unidad)}
+</div>
+<div class="uso-costo">
+$${Number(x.costo).toFixed(2)}
+</div>
+<button
+class="btn-quitar"
+onclick="quitarMaterialProducto(${i})">
+×
+</button>
+</div>
+`
+).join("");
+}
+
+/* QUITAR MATERIAL */
+
+function quitarMaterialProducto(i){
+materialesProducto.splice(i,1);
+mostrarMaterialesProducto();
+calcularProducto();
+}
+
+/* CALCULAR PRODUCTO */
+
+function calcularProducto(){
+const costoMateriales=materialesProducto.reduce(
+(s,x)=>s+x.costo,
+0
+);
+
+const minutos=parseFloat($("minutosTrabajo").value)||0;
+const precioHora=parseFloat($("precioHora").value)||0;
+const empaque=parseFloat($("costoEmpaque").value)||0;
+const precioVenta=parseFloat($("precioVenta").value)||0;
+const manoObra=minutos/60*precioHora;
+const total=costoMateriales+manoObra+empaque;
+const ganancia=precioVenta-total;
+const margen=precioVenta?ganancia/precioVenta*100:0;
+
+$("resultadoMateriales").textContent="$"+costoMateriales.toFixed(2);
+$("resultadoManoObra").textContent="$"+manoObra.toFixed(2);
+$("resultadoEmpaque").textContent="$"+empaque.toFixed(2);
+$("resultadoTotal").textContent="$"+total.toFixed(2);
+$("resultadoGanancia").textContent="$"+ganancia.toFixed(2);
+$("resultadoMargen").textContent="Margen: "+margen.toFixed(1)+"%";
+
+return {
+costoMateriales,
+manoObra,
+empaque,
+precioVenta,
+total,
+ganancia
+};
+}
+
+/* GUARDAR PRODUCTO */
+
+function guardarProducto(){
+const nombre=$("nombreProducto").value.trim();
+
+if(!nombre)
+return alert("Escribe el nombre del producto.");
+
+if(!materialesProducto.length)
+return alert("Agrega al menos un material.");
+
+const r=calcularProducto();
+
+productos.push({
+id:Date.now(),
+nombre,
+imagen:imagenProducto,
+materiales:[
+...materialesProducto
+],
+minutos:parseFloat($("minutosTrabajo").value)||0,
+precioHora:parseFloat($("precioHora").value)||0,
+empaque:r.empaque,
+precioVenta:r.precioVenta,
+costoMateriales:r.costoMateriales,
+manoObra:r.manoObra,
+costoTotal:r.total,
+ganancia:r.ganancia
+});
+
+guardarDatos();
+mostrarProductos();
+
+alert("Producto guardado.");
+}
+
+/* MOSTRAR PRODUCTOS */
+
+function mostrarProductos(){
+const lista=$("listaProductos");
+lista.innerHTML="";
+
+if(!productos.length){
+lista.innerHTML=`
+<div class="producto">
+<div class="producto-sin-imagen">
+<img src="iconos/aun.png" alt="">
+</div>
+<div class="producto-nombre">
+Todavía no tienes productos
+</div>
+<p style="text-align:center">
+Calcula tu primera creación.
+</p>
+</div>
+`;
+return;
+}
+
+productos.forEach(
+p=>{
+lista.innerHTML+=`
+<article class="producto">
+
+${
+p.imagen
+?
+`<img
+src="${p.imagen}"
+class="imagen-producto"
+alt="">`
+:
+`
+<div class="producto-sin-imagen">
+<img
+src="iconos/aun.png"
+alt="">
+</div>
+`
+}
+
+<div class="producto-nombre">
+${escapar(p.nombre)}
+</div>
+
+<div class="dato">
+<span>
+<img
+src="iconos/utilizados.png"
+alt="">
+Materiales
+</span>
+<strong>
+$${Number(
+p.costoMateriales
+).toFixed(2)}
+</strong>
+</div>
+
+<div class="dato">
+<span>
+<img
+src="iconos/me.png"
+alt="">
+Mano de obra
+</span>
+<strong>
+$${Number(
+p.manoObra
+).toFixed(2)}
+</strong>
+</div>
+
+<div class="dato">
+<span>
+<img
+src="iconos/empaque.png"
+alt="">
+Empaque
+</span>
+<strong>
+$${Number(
+p.empaque
+).toFixed(2)}
+</strong>
+</div>
+
+<div class="producto-precio">
+<span>
+Costo real
+</span>
+<strong>
+$${Number(
+p.costoTotal
+).toFixed(2)}
+</strong>
+<span>
+Precio de venta:
+$${Number(
+p.precioVenta
+).toFixed(2)}
+</span>
+</div>
+
+<div
+style="margin-top:10px;padding:12px;border-radius:14px;background:var(--verde);text-align:center;font-weight:700">
+Ganancia:
+$${Number(
+p.ganancia
+).toFixed(2)}
+</div>
+
+<br>
+
+<button
+class="btn-peligro"
+onclick="eliminarProducto(${p.id})">
+Eliminar
+</button>
+
+</article>
+`;
+});
+}
+
+/* ELIMINAR PRODUCTO */
+
+function eliminarProducto(id){
+if(!confirm("¿Eliminar este producto?"))
+return;
+
+productos=productos.filter(
+p=>p.id!==id
+);
+
+guardarDatos();
+mostrarProductos();
+}
+
+/* FABRICAR */
+
+function fabricarProducto(){
+if(!materialesProducto.length)
+return alert("Primero agrega los materiales utilizados.");
+
+if(!confirm("Esto descontará los materiales utilizados de tu stock. ¿Ya fabricaste este producto?"))
+return;
+
+for(const item of materialesProducto){
+const m=materiales.find(
+x=>x.id===item.materialId
+);
+
+if(m&&m.stock<item.cantidadBase){
+return alert(
+`No tienes suficiente "${m.nombre}".`
+);
+}
+}
+
+for(const item of materialesProducto){
+const m=materiales.find(
+x=>x.id===item.materialId
+);
+
+if(m){
+m.stock-=item.cantidadBase;
+m.stock=Math.max(0,m.stock);
+m.cantidadActual=convertirDesdeBase(
+m.stock,
+m.unidadOriginal
+);
+}
+}
+
+guardarDatos();
+mostrarMateriales();
+actualizarResumen();
+actualizarSelectorMateriales();
+mostrarComprasAutomaticas();
+actualizarInicio();
+
+alert("Materiales descontados del inventario.");
+}
+
+/* LIMPIAR MATERIAL */
+
+function limpiarMaterial(){
+[
+"nombre",
+"precio",
+"cantidad",
+"cantidadActual",
+"notas"
+].forEach(
+id=>{
+$(id).value="";
+}
+);
+
+$("imagen").value="";
+$("vistaPrevia").style.display="none";
+imagenMaterial="";
+$("stockMinimo").value="20";
+}
+
+/* COMPRAS MANUALES */
+
+function agregarCompraManual(){
+const nombre=$("nombreCompra").value.trim();
+const cantidad=$("cantidadCompra").value.trim();
+
+if(!nombre)
+return alert("Escribe qué quieres comprar.");
+
+compras.push({
+id:Date.now(),
+nombre,
+cantidad,
+comprado:false,
+manual:true
+});
+
+guardarDatos();
+mostrarCompras();
+
+$("nombreCompra").value="";
+$("cantidadCompra").value="";
+
+alert("Agregado a tu lista de compras.");
+}
+
+/* COMPRAS AUTOMÁTICAS */
+
+function obtenerComprasAutomaticas(){
+return materiales.filter(
+m=>Number(m.stock)<=Number(m.stockMinimo)
+);
+}
+
+function mostrarComprasAutomaticas(){
+const lista=$("comprasAutomaticas");
+const bajos=obtenerComprasAutomaticas();
+
+if(!bajos.length){
+lista.innerHTML=`
+<div class="sin-compras">
+<img
+src="iconos/stock.png"
+alt="">
+<p>
+No hay materiales que necesiten reposición.
+</p>
+</div>
+`;
+return;
+}
+
+lista.innerHTML=bajos.map(
+m=>`
+<div class="compra-item">
+<div class="compra-info">
+<strong>
+${escapar(m.nombre)}
+</strong>
+<span>
+Stock actual:
+${formatear(
+convertirDesdeBase(
+m.stock,
+m.unidadOriginal
+)
+)}
+${unidadCorta(
+m.unidadOriginal
+)}
+</span>
+<span>
+Stock mínimo:
+${formatear(
+convertirDesdeBase(
+m.stockMinimo,
+m.unidadOriginal
+)
+)}
+${unidadCorta(
+m.unidadOriginal
+)}
+</span>
+<span class="etiqueta-auto">
+REPOSICIÓN AUTOMÁTICA
+</span>
+</div>
+<button
+class="btn-reponer"
+onclick="abrirModalReponer(${m.id})">
+Reponer material
+</button>
+</div>
+`
+).join("");
+}
+
+/* MOSTRAR COMPRAS */
+
+function mostrarCompras(){
+const lista=$("listaCompras");
+
+if(!compras.length){
+lista.innerHTML=`
+<div class="sin-compras">
+<img
+src="iconos/guardar.png"
+alt="">
+<p>
+Todavía no tienes compras añadidas.
+</p>
+</div>
+`;
+return;
+}
+
+lista.innerHTML=compras.map(
+c=>`
+<div class="compra-item ${c.comprado?"comprado":""}">
+
+<div class="compra-info">
+<strong>
+${escapar(c.nombre)}
+</strong>
+<span>
+${
+c.cantidad
+?
+"Cantidad: "+
+escapar(c.cantidad)
+:
+"Cantidad no especificada"
+}
+</span>
+</div>
+
+<div class="compra-acciones">
+<button
+class="btn-comprado"
+onclick="marcarCompra(${c.id})">
+${c.comprado?"Pendiente":"Comprado"}
+</button>
+<button
+class="btn-peligro"
+onclick="eliminarCompra(${c.id})">
+Eliminar
+</button>
+</div>
+
+</div>
+`
+).join("");
+}
+
+/* MARCAR COMPRA */
+
+function marcarCompra(id){
+const compra=compras.find(
+c=>c.id===id
+);
+
+if(!compra)
+return;
+
+compra.comprado=!compra.comprado;
+
+guardarDatos();
+mostrarCompras();
+}
+
+/* ELIMINAR COMPRA */
+
+function eliminarCompra(id){
+compras=compras.filter(
+x=>x.id!==id
+);
+
+guardarDatos();
+mostrarCompras();
+}
+
+/* EXPORTAR */
+
+function exportarRespaldo(){
+const respaldo={
+version:4,
+app:"Calculadora de costos Made by Annie",
+fecha:new Date().toISOString(),
+materiales,
+productos,
+compras
+};
+
+const blob=new Blob(
+[
+JSON.stringify(
+respaldo,
+null,
+2
+)
+],
+{
+type:"application/json"
+}
+);
+
+const url=URL.createObjectURL(blob);
+const a=document.createElement("a");
+const fecha=new Date().toISOString().slice(0,10);
+
+a.href=url;
+a.download=`respaldo-calculadora-annie-${fecha}.json`;
+
+document.body.appendChild(a);
+a.click();
+a.remove();
+URL.revokeObjectURL(url);
+
+alert("Respaldo guardado correctamente.");
+}
+
+/* IMPORTAR */
+
+function importarRespaldo(event){
+const archivo=event.target.files[0];
+
+if(!archivo)
+return;
+
+const lector=new FileReader();
+
+lector.onload=e=>{
+try{
+const respaldo=JSON.parse(
+e.target.result
+);
+
+if(
+!respaldo||
+!Array.isArray(
+respaldo.materiales
+)||
+!Array.isArray(
+respaldo.productos
+)
+){
+throw new Error(
+"formato"
+);
+}
+
+if(!confirm("Restaurar este respaldo reemplazará los datos actuales. ¿Continuar?"))
+return;
+
+materiales=respaldo.materiales;
+productos=respaldo.productos;
+compras=Array.isArray(
+respaldo.compras
+)
+?
+respaldo.compras
+:
+[];
+
+materialesProducto=[];
+
+normalizarMateriales();
+guardarDatos();
+mostrarMateriales();
+mostrarProductos();
+actualizarResumen();
+actualizarSelectorMateriales();
+mostrarCompras();
+mostrarComprasAutomaticas();
+actualizarInicio();
+mostrarMaterialesProducto();
+calcularProducto();
+
+alert("Respaldo restaurado correctamente.");
+
+}catch(err){
+alert("El archivo no parece ser un respaldo válido de la calculadora.");
+}
+
+event.target.value="";
+};
+
+lector.readAsText(archivo);
+}
+
+/* ESCAPAR TEXTO */
+
+function escapar(texto){
+return String(texto)
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+}
+
+/* ACCESO SECRETO */
+
+const CLAVE_ANNIE="Annie0505<3";
+let toquesLogo=0;
+let reinicioToques;
+
+$("logoSecreto").addEventListener(
+"click",
+()=>{
+toquesLogo++;
+clearTimeout(reinicioToques);
+reinicioToques=setTimeout(
+()=>{
+toquesLogo=0;
+},
+1800
+);
+
+if(toquesLogo>=7){
+toquesLogo=0;
+$("accesoSecreto").style.display="flex";
+$("claveSecreta").focus();
+}
+}
+);
+
+function entrarZonaAnnie(){
+if(
+$("claveSecreta")
+.value===
+CLAVE_ANNIE
+){
+$("accesoSecreto").style.display="none";
+$("contenidoApp").style.display="block";
+sessionStorage.setItem(
+"annieAcceso",
+"1"
+);
+$("claveSecreta").value="";
+alert("Bienvenida, Annie");
+}else{
+alert("Contraseña incorrecta");
+}
+}
+
+function cerrarZonaAnnie(){
+$("accesoSecreto").style.display="none";
+$("claveSecreta").value="";
+}
+
+/* INICIAR */
+
+iniciar();
+</script>
 </body>
 </html>
