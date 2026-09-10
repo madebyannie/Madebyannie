@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
 <meta charset="UTF-8">
@@ -693,380 +694,7 @@ border-radius:20px;
    MATERIALES Y PRODUCTOS
 ===================================================== */
 
-.materiales,
-.productos{
-
-display:grid;
-
-grid-template-columns:repeat(2,minmax(0,1fr));
-
-gap:16px;
-
-}
-
-.material,
-.producto{
-
-background:#fff;
-
-border-radius:20px;
-
-padding:14px;
-
-box-shadow:0 4px 12px var(--sombra);
-
-}
-
-
-/* =====================================================
-   TARJETA DE MATERIAL COMPACTA
-===================================================== */
-
-.material{
-
-display:grid;
-
-grid-template-columns:125px 1fr;
-
-gap:15px;
-
-align-items:start;
-
-}
-
-
-/* =====================================================
-   IMAGEN DEL MATERIAL
-===================================================== */
-
-.imagen-material{
-
-width:125px;
-
-height:125px;
-
-object-fit:cover;
-
-display:block;
-
-margin:0;
-
-border-radius:17px;
-
-grid-row:1 / span 7;
-
-}
-
-.material .sin-imagen{
-
-width:125px;
-
-height:125px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-margin:0;
-
-border-radius:17px;
-
-background:var(--celeste-claro);
-
-grid-row:1 / span 7;
-
-}
-
-.material .sin-imagen img{
-
-width:75px;
-
-height:75px;
-
-object-fit:contain;
-
-}
-
-
-/* =====================================================
-   INFORMACION DEL MATERIAL
-===================================================== */
-
-.material-nombre{
-
-margin:0 0 2px;
-
-font-family:Pacifico,cursive;
-
-font-size:20px;
-
-line-height:1.2;
-
-text-align:left;
-
-}
-
-.categoria{
-
-display:block;
-
-margin-bottom:7px;
-
-text-align:left;
-
-font-size:11px;
-
-font-weight:700;
-
-opacity:.7;
-
-}
-
-
-/* =====================================================
-   DATOS DEL MATERIAL
-===================================================== */
-
-.dato{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-gap:10px;
-
-padding:5px 0;
-
-border-bottom:1px dashed var(--borde);
-
-font-size:12px;
-
-}
-
-.dato span{
-
-display:flex;
-
-align-items:center;
-
-gap:5px;
-
-}
-
-.dato span img{
-
-width:17px;
-
-height:17px;
-
-object-fit:contain;
-
-}
-
-.dato strong{
-
-text-align:right;
-
-white-space:nowrap;
-
-}
-
-
-/* =====================================================
-   COSTO
-===================================================== */
-
-.costo{
-
-margin-top:8px;
-
-padding:9px;
-
-border-radius:13px;
-
-background:var(--celeste-claro);
-
-text-align:center;
-
-}
-
-.costo span{
-
-display:block;
-
-font-size:10px;
-
-}
-
-.costo strong{
-
-display:block;
-
-margin-top:2px;
-
-font-size:20px;
-
-}
-
-
-/* =====================================================
-   STOCK
-===================================================== */
-
-.stock{
-
-margin-top:7px;
-
-padding:8px;
-
-border-radius:11px;
-
-text-align:center;
-
-font-size:11px;
-
-font-weight:700;
-
-}
-
-.stock-verde{
-
-background:var(--verde);
-
-color:var(--verde-texto);
-
-}
-
-.stock-amarillo{
-
-background:var(--amarillo);
-
-color:var(--amarillo-texto);
-
-}
-
-.stock-rojo{
-
-background:var(--rojo);
-
-color:var(--rojo-texto);
-
-}
-
-
-/* =====================================================
-   NOTAS
-===================================================== */
-
-.notas{
-
-margin-top:7px;
-
-padding:8px;
-
-border-radius:11px;
-
-background:var(--crema);
-
-font-size:11px;
-
-line-height:1.4;
-
-}
-
-
-/* =====================================================
-   ACCIONES
-===================================================== */
-
-.acciones{
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:7px;
-
-margin-top:8px;
-
-}
-
-.acciones button{
-
-padding:9px 8px;
-
-font-size:12px;
-
-}
-
-
-/* =====================================================
-   PRODUCTOS
-===================================================== */
-
-.imagen-producto{
-
-width:100%;
-
-height:210px;
-
-object-fit:cover;
-
-display:block;
-
-margin-bottom:15px;
-
-border-radius:19px;
-
-}
-
-.producto-sin-imagen{
-
-width:100%;
-
-height:170px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-margin-bottom:15px;
-
-border-radius:19px;
-
-background:var(--celeste-claro);
-
-}
-
-.producto-sin-imagen img{
-
-width:115px;
-
-height:115px;
-
-object-fit:contain;
-
-}
-
-.producto-nombre{
-
-margin-bottom:4px;
-
-font-family:Pacifico,cursive;
-
-font-size:22px;
-
-text-align:center;
-
-}
-
-
+.material{display:grid;grid-template-columns:110px 1fr;gap:13px;align-items:start;background:#fff;border-radius:20px;padding:13px;box-shadow:0 4px 12px var(--sombra);}.material>.imagen-material,.material>.sin-imagen{grid-column:1;grid-row:1 / span 20;width:110px;height:110px;margin:0;border-radius:16px;}.material>.imagen-material{object-fit:cover;}.material>.sin-imagen{display:flex;align-items:center;justify-content:center;background:var(--celeste-claro);}.material>.sin-imagen img{width:65px;height:65px;object-fit:contain;}.material>.material-nombre,.material>.categoria,.material>.dato,.material>.costo,.material>.stock,.material>.notas,.material>.acciones{grid-column:2;}.material-nombre{margin:0 0 2px;font-family:Pacifico,cursive;font-size:18px;text-align:left;line-height:1.2;}.categoria{display:block;margin-bottom:5px;text-align:left;font-size:10px;font-weight:700;opacity:.7;}.dato{display:flex;justify-content:space-between;align-items:center;gap:7px;padding:4px 0;border-bottom:1px dashed var(--borde);font-size:11px;}.dato span{display:flex;align-items:center;gap:4px;}.dato span img{width:15px;height:15px;object-fit:contain;}.dato strong{text-align:right;white-space:nowrap;}.costo{margin-top:6px;padding:7px;border-radius:11px;background:var(--celeste-claro);text-align:center;}.costo span{display:block;font-size:9px;}.costo strong{display:block;margin-top:1px;font-size:17px;}.stock{margin-top:6px;padding:6px;border-radius:9px;text-align:center;font-size:10px;font-weight:700;}.notas{margin-top:6px;padding:6px;border-radius:9px;background:var(--crema);font-size:10px;line-height:1.3;}.acciones{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px;}.acciones button{padding:7px 5px;font-size:10px;}
 /* =====================================================
    CALCULADORA
 ===================================================== */
@@ -1304,6 +932,10 @@ font-size:12px;
 
 opacity:.7;
 
+display:block;
+
+margin-top:3px;
+
 }
 
 .compra-acciones{
@@ -1372,6 +1004,47 @@ object-fit:contain;
 
 
 /* =====================================================
+   REPOSICION
+===================================================== */
+
+.reposicion{
+
+margin-top:13px;
+
+padding:13px;
+
+border-radius:15px;
+
+background:var(--celeste-claro);
+
+font-size:12px;
+
+line-height:1.5;
+
+}
+
+.btn-reponer{
+
+width:100%;
+
+margin-top:9px;
+
+padding:11px;
+
+border:0;
+
+border-radius:13px;
+
+background:var(--verde);
+
+color:var(--verde-texto);
+
+font-weight:700;
+
+}
+
+
+/* =====================================================
    RESPALDOS
 ===================================================== */
 
@@ -1387,7 +1060,7 @@ gap:12px;
 
 
 /* =====================================================
-   NAVEGACION
+   NAVEGACIÓN
 ===================================================== */
 
 .navegacion{
@@ -1553,6 +1226,79 @@ object-fit:contain;
 
 
 /* =====================================================
+   MODAL EDITAR / REPONER
+===================================================== */
+
+.modal{
+
+display:none;
+
+position:fixed;
+
+inset:0;
+
+z-index:9000;
+
+background:rgba(122,111,96,.38);
+
+padding:20px;
+
+align-items:center;
+
+justify-content:center;
+
+}
+
+.modal.activo{
+
+display:flex;
+
+}
+
+.modal-contenido{
+
+width:min(620px,100%);
+
+max-height:90vh;
+
+overflow-y:auto;
+
+background:var(--crema);
+
+border-radius:25px;
+
+padding:24px;
+
+box-shadow:0 12px 35px rgba(0,0,0,.2);
+
+}
+
+.modal-titulo{
+
+font-family:Pacifico,cursive;
+
+font-size:25px;
+
+text-align:center;
+
+margin:0 0 20px;
+
+}
+
+.modal-botones{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:10px;
+
+margin-top:10px;
+
+}
+
+
+/* =====================================================
    FOOTER
 ===================================================== */
 
@@ -1579,49 +1325,6 @@ font-size:12px;
 .productos{
 
 grid-template-columns:1fr;
-
-}
-
-.material{
-
-grid-template-columns:105px 1fr;
-
-gap:12px;
-
-}
-
-.imagen-material,
-.material .sin-imagen{
-
-width:105px;
-
-height:105px;
-
-}
-
-.material .sin-imagen img{
-
-width:65px;
-
-height:65px;
-
-}
-
-.material-nombre{
-
-font-size:18px;
-
-}
-
-.dato{
-
-font-size:11px;
-
-}
-
-.costo strong{
-
-font-size:18px;
 
 }
 
@@ -1693,7 +1396,7 @@ grid-template-columns:1fr 1fr;
 
 .acciones{
 
-grid-template-columns:1fr 1fr;
+grid-template-columns:1fr;
 
 }
 
@@ -1715,38 +1418,19 @@ width:94%;
 
 }
 
-.material{
+.modal-contenido{
 
-grid-template-columns:92px 1fr;
-
-gap:10px;
+padding:19px;
 
 }
 
-.imagen-material,
-.material .sin-imagen{
+.modal-botones{
 
-width:92px;
-
-height:92px;
+grid-template-columns:1fr;
 
 }
+@media(max-width:650px){.material{grid-template-columns:90px 1fr;gap:10px;padding:11px;}.material>.imagen-material,.material>.sin-imagen{width:90px;height:90px;}.material>.sin-imagen img{width:55px;height:55px;}.material-nombre{font-size:16px;}.dato{font-size:10px;}.costo strong{font-size:16px;}}
 
-.material .sin-imagen img{
-
-width:57px;
-
-height:57px;
-
-}
-
-.material-nombre{
-
-font-size:17px;
-
-}
-
-}
 
 
 /* =====================================================
@@ -1795,12 +1479,9 @@ padding-bottom:0;
 
 </head>
 
+
 <body>
 
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
 
 <header>
 
@@ -1815,97 +1496,74 @@ Mi calculadora de costos
 </header>
 
 
-<!-- =====================================================
-     NAVEGACION
-===================================================== -->
-
 <nav class="navegacion">
 
 <button
 class="nav-btn activo"
 data-pantalla="inicio"
-onclick="irA('inicio')"
->
+onclick="irA('inicio')">
 
-<img
-src="iconos/aun.png"
-alt=""
->
+<img src="iconos/aun.png" alt="">
 
 Inicio
 
 </button>
 
+
 <button
 class="nav-btn"
 data-pantalla="materiales"
-onclick="irA('materiales')"
->
+onclick="irA('materiales')">
 
-<img
-src="iconos/material.png"
-alt=""
->
+<img src="iconos/material.png" alt="">
 
 Materiales
 
 </button>
 
+
 <button
 class="nav-btn"
 data-pantalla="calcular"
-onclick="irA('calcular')"
->
+onclick="irA('calcular')">
 
-<img
-src="iconos/calcular.png"
-alt=""
->
+<img src="iconos/calcular.png" alt="">
 
 Calcular
 
 </button>
 
+
 <button
 class="nav-btn"
 data-pantalla="productos"
-onclick="irA('productos')"
->
+onclick="irA('productos')">
 
-<img
-src="iconos/utilizados.png"
-alt=""
->
+<img src="iconos/utilizados.png" alt="">
 
 Productos
 
 </button>
 
+
 <button
 class="nav-btn"
 data-pantalla="compras"
-onclick="irA('compras')"
->
+onclick="irA('compras')">
 
-<img
-src="iconos/stock.png"
-alt=""
->
+<img src="iconos/stock.png" alt="">
 
 Compras
 
 </button>
 
+
 <button
 class="nav-btn"
 data-pantalla="respaldo"
-onclick="irA('respaldo')"
->
+onclick="irA('respaldo')">
 
-<img
-src="iconos/guardar.png"
-alt=""
->
+<img src="iconos/guardar.png" alt="">
 
 Respaldos
 
@@ -1917,8 +1575,7 @@ Respaldos
 <main
 class="contenedor"
 id="contenidoApp"
-style="display:none"
->
+style="display:none">
 
 
 <!-- =====================================================
@@ -1927,26 +1584,20 @@ style="display:none"
 
 <section
 id="pantalla-inicio"
-class="pantalla activa"
->
+class="pantalla activa">
 
 <div class="bienvenida">
 
-<img
-src="iconos/cinna.png"
-alt=""
->
+<img src="iconos/cinna.png" alt="">
 
 <h2>
 Hola, Annie
 </h2>
 
 <p>
-
 Aquí puedes organizar tus materiales,
 calcular tus productos y llevar el control
 de lo que necesitas comprar.
-
 </p>
 
 </div>
@@ -1956,13 +1607,9 @@ de lo que necesitas comprar.
 
 <button
 class="acceso-card"
-onclick="irA('materiales')"
->
+onclick="irA('materiales')">
 
-<img
-src="iconos/material.png"
-alt=""
->
+<img src="iconos/material.png" alt="">
 
 Mis materiales
 
@@ -1971,13 +1618,9 @@ Mis materiales
 
 <button
 class="acceso-card"
-onclick="irA('calcular')"
->
+onclick="irA('calcular')">
 
-<img
-src="iconos/calcular.png"
-alt=""
->
+<img src="iconos/calcular.png" alt="">
 
 Calcular producto
 
@@ -1986,13 +1629,9 @@ Calcular producto
 
 <button
 class="acceso-card"
-onclick="irA('productos')"
->
+onclick="irA('productos')">
 
-<img
-src="iconos/utilizados.png"
-alt=""
->
+<img src="iconos/utilizados.png" alt="">
 
 Mis productos
 
@@ -2001,13 +1640,9 @@ Mis productos
 
 <button
 class="acceso-card"
-onclick="irA('compras')"
->
+onclick="irA('compras')">
 
-<img
-src="iconos/stock.png"
-alt=""
->
+<img src="iconos/stock.png" alt="">
 
 Lista de compras
 
@@ -2016,13 +1651,9 @@ Lista de compras
 
 <button
 class="acceso-card"
-onclick="irA('respaldo')"
->
+onclick="irA('respaldo')">
 
-<img
-src="iconos/guardar.png"
-alt=""
->
+<img src="iconos/guardar.png" alt="">
 
 Respaldos
 
@@ -2037,17 +1668,13 @@ Respaldos
 
 <div class="resumen-icono">
 
-<img
-src="iconos/material.png"
-alt=""
->
+<img src="iconos/material.png" alt="">
 
 </div>
 
 <span
 id="inicioMateriales"
-class="resumen-numero"
->
+class="resumen-numero">
 
 0
 
@@ -2064,17 +1691,13 @@ Materiales
 
 <div class="resumen-icono">
 
-<img
-src="iconos/stock.png"
-alt=""
->
+<img src="iconos/stock.png" alt="">
 
 </div>
 
 <span
 id="inicioStock"
-class="resumen-numero"
->
+class="resumen-numero">
 
 0
 
@@ -2091,17 +1714,13 @@ Con stock
 
 <div class="resumen-icono">
 
-<img
-src="iconos/bajo.png"
-alt=""
->
+<img src="iconos/bajo.png" alt="">
 
 </div>
 
 <span
 id="inicioBajo"
-class="resumen-numero"
->
+class="resumen-numero">
 
 0
 
@@ -2120,10 +1739,7 @@ Stock bajo
 
 <h2 class="tarjeta-titulo">
 
-<img
-src="iconos/bajo.png"
-alt=""
->
+<img src="iconos/bajo.png" alt="">
 
 Materiales por reponer
 
@@ -2142,8 +1758,7 @@ Materiales por reponer
 
 <section
 id="pantalla-materiales"
-class="pantalla"
->
+class="pantalla">
 
 <h2 class="titulo">
 Mis materiales
@@ -2163,17 +1778,13 @@ para conocer tu inventario y el costo real de cada unidad.
 
 <div class="resumen-icono">
 
-<img
-src="iconos/material.png"
-alt=""
->
+<img src="iconos/material.png" alt="">
 
 </div>
 
 <span
 id="totalMateriales"
-class="resumen-numero"
->
+class="resumen-numero">
 
 0
 
@@ -2190,17 +1801,13 @@ Materiales
 
 <div class="resumen-icono">
 
-<img
-src="iconos/stock.png"
-alt=""
->
+<img src="iconos/stock.png" alt="">
 
 </div>
 
 <span
 id="stockDisponible"
-class="resumen-numero"
->
+class="resumen-numero">
 
 0
 
@@ -2217,17 +1824,13 @@ Con stock
 
 <div class="resumen-icono">
 
-<img
-src="iconos/bajo.png"
-alt=""
->
+<img src="iconos/bajo.png" alt="">
 
 </div>
 
 <span
 id="stockBajo"
-class="resumen-numero"
->
+class="resumen-numero">
 
 0
 
@@ -2246,10 +1849,7 @@ Stock bajo
 
 <h2 class="tarjeta-titulo">
 
-<img
-src="iconos/guardar.png"
-alt=""
->
+<img src="iconos/guardar.png" alt="">
 
 Agregar material
 
@@ -2265,8 +1865,7 @@ Nombre del material
 <input
 id="nombre"
 type="text"
-placeholder="Ej: Mullos rosados"
->
+placeholder="Ej: Mullos rosados">
 
 </div>
 
@@ -2336,13 +1935,11 @@ Foto del material
 type="file"
 id="imagen"
 accept="image/*"
-onchange="previsualizarImagen(event)"
->
+onchange="previsualizarImagen(event)">
 
 <img
 id="vistaPrevia"
-class="vista-previa"
->
+class="vista-previa">
 
 </div>
 
@@ -2362,8 +1959,7 @@ id="precio"
 type="number"
 min="0"
 step="0.01"
-placeholder="3.00"
->
+placeholder="3.00">
 
 <small class="ayuda-campo">
 
@@ -2386,8 +1982,7 @@ id="cantidad"
 type="number"
 min="0"
 step="0.01"
-placeholder="600"
->
+placeholder="600">
 
 <small class="ayuda-campo">
 
@@ -2445,10 +2040,7 @@ Litros
 
 <label>
 
-<img
-src="iconos/stock.png"
-alt=""
->
+<img src="iconos/stock.png" alt="">
 
 Cantidad actual
 
@@ -2459,8 +2051,7 @@ id="cantidadActual"
 type="number"
 min="0"
 step="0.01"
-placeholder="450"
->
+placeholder="450">
 
 <small class="ayuda-campo">
 
@@ -2483,8 +2074,7 @@ id="stockMinimo"
 type="number"
 min="0"
 step="0.01"
-value="1"
->
+value="20">
 
 <small class="ayuda-campo">
 
@@ -2500,10 +2090,7 @@ aparecerá en tu lista de compras.
 
 <label>
 
-<img
-src="iconos/notas.png"
-alt=""
->
+<img src="iconos/notas.png" alt="">
 
 Notas
 
@@ -2511,21 +2098,18 @@ Notas
 
 <textarea
 id="notas"
-placeholder="Ej: Funda de 600 mullos"
-></textarea>
+placeholder="Ej: Funda de 600 mullos">
+
+</textarea>
 
 </div>
 
 
 <button
 class="btn-principal"
-onclick="guardarMaterial()"
->
+onclick="guardarMaterial()">
 
-<img
-src="iconos/guardar.png"
-alt=""
->
+<img src="iconos/guardar.png" alt="">
 
 Guardar material
 
@@ -2542,8 +2126,8 @@ Inventario
 
 <div
 id="listaMateriales"
-class="materiales"
-></div>
+class="materiales">
+</div>
 
 </section>
 
@@ -2554,8 +2138,7 @@ class="materiales"
 
 <section
 id="pantalla-calcular"
-class="pantalla"
->
+class="pantalla">
 
 <h2 class="titulo">
 Calcular producto
@@ -2571,6 +2154,7 @@ incluyendo materiales, mano de obra y empaque.
 
 <section class="tarjeta">
 
+
 <div class="campo">
 
 <label>
@@ -2580,8 +2164,7 @@ Nombre del producto
 <input
 id="nombreProducto"
 type="text"
-placeholder="Ej: Manilla Ocean Mist"
->
+placeholder="Ej: Manilla Ocean Mist">
 
 </div>
 
@@ -2598,13 +2181,11 @@ Foto del producto
 type="file"
 id="imagenProducto"
 accept="image/*"
-onchange="previsualizarProducto(event)"
->
+onchange="previsualizarProducto(event)">
 
 <img
 id="vistaProducto"
-class="vista-previa"
->
+class="vista-previa">
 
 </div>
 
@@ -2613,10 +2194,7 @@ class="vista-previa"
 
 <h3 class="subtitulo-seccion">
 
-<img
-src="iconos/utilizados.png"
-alt=""
->
+<img src="iconos/utilizados.png" alt="">
 
 Materiales utilizados
 
@@ -2625,15 +2203,14 @@ Materiales utilizados
 
 <div class="selector-material">
 
+
 <div class="campo">
 
 <label>
 Material
 </label>
 
-<select
-id="materialSeleccionado"
->
+<select id="materialSeleccionado">
 
 <option value="">
 Selecciona un material
@@ -2655,8 +2232,7 @@ id="cantidadUsada"
 type="number"
 min="0"
 step="0.001"
-placeholder="35"
->
+placeholder="35">
 
 </div>
 
@@ -2704,8 +2280,7 @@ L
 
 <button
 class="btn-secundario"
-onclick="agregarMaterialAlProducto()"
->
+onclick="agregarMaterialAlProducto()">
 
 Agregar
 
@@ -2719,10 +2294,7 @@ Agregar
 
 <h3 class="subtitulo-seccion">
 
-<img
-src="iconos/me.png"
-alt=""
->
+<img src="iconos/me.png" alt="">
 
 Mano de obra
 
@@ -2730,6 +2302,7 @@ Mano de obra
 
 
 <div class="fila">
+
 
 <div class="campo">
 
@@ -2742,8 +2315,7 @@ id="minutosTrabajo"
 type="number"
 min="0"
 value="30"
-oninput="calcularProducto()"
->
+oninput="calcularProducto()">
 
 </div>
 
@@ -2760,8 +2332,7 @@ type="number"
 min="0"
 step="0.01"
 value="3"
-oninput="calcularProducto()"
->
+oninput="calcularProducto()">
 
 </div>
 
@@ -2772,10 +2343,7 @@ oninput="calcularProducto()"
 
 <label>
 
-<img
-src="iconos/empaque.png"
-alt=""
->
+<img src="iconos/empaque.png" alt="">
 
 Costo del empaque
 
@@ -2787,8 +2355,7 @@ type="number"
 min="0"
 step="0.01"
 value="0"
-oninput="calcularProducto()"
->
+oninput="calcularProducto()">
 
 </div>
 
@@ -2805,33 +2372,26 @@ type="number"
 min="0"
 step="0.01"
 placeholder="Ej: 6.00"
-oninput="calcularProducto()"
->
+oninput="calcularProducto()">
 
 </div>
 
 
 <div class="resultado">
 
+
 <div class="resultado-linea">
 
 <span>
 
-<img
-src="iconos/utilizados.png"
-alt=""
->
+<img src="iconos/utilizados.png" alt="">
 
 Materiales
 
 </span>
 
-<strong
-id="resultadoMateriales"
->
-
+<strong id="resultadoMateriales">
 $0.00
-
 </strong>
 
 </div>
@@ -2841,21 +2401,14 @@ $0.00
 
 <span>
 
-<img
-src="iconos/me.png"
-alt=""
->
+<img src="iconos/me.png" alt="">
 
 Mano de obra
 
 </span>
 
-<strong
-id="resultadoManoObra"
->
-
+<strong id="resultadoManoObra">
 $0.00
-
 </strong>
 
 </div>
@@ -2865,21 +2418,14 @@ $0.00
 
 <span>
 
-<img
-src="iconos/empaque.png"
-alt=""
->
+<img src="iconos/empaque.png" alt="">
 
 Empaque
 
 </span>
 
-<strong
-id="resultadoEmpaque"
->
-
+<strong id="resultadoEmpaque">
 $0.00
-
 </strong>
 
 </div>
@@ -2891,12 +2437,8 @@ $0.00
 COSTO TOTAL
 </span>
 
-<strong
-id="resultadoTotal"
->
-
+<strong id="resultadoTotal">
 $0.00
-
 </strong>
 
 </div>
@@ -2908,12 +2450,8 @@ $0.00
 GANANCIA
 </span>
 
-<strong
-id="resultadoGanancia"
->
-
+<strong id="resultadoGanancia">
 $0.00
-
 </strong>
 
 <div id="resultadoMargen">
@@ -2930,13 +2468,9 @@ Margen: 0%
 
 <button
 class="btn-principal"
-onclick="guardarProducto()"
->
+onclick="guardarProducto()">
 
-<img
-src="iconos/guardar.png"
-alt=""
->
+<img src="iconos/guardar.png" alt="">
 
 Guardar producto
 
@@ -2948,8 +2482,7 @@ Guardar producto
 
 <button
 class="btn-secundario"
-onclick="fabricarProducto()"
->
+onclick="fabricarProducto()">
 
 Fabricar y descontar materiales
 
@@ -2966,8 +2499,7 @@ Fabricar y descontar materiales
 
 <section
 id="pantalla-productos"
-class="pantalla"
->
+class="pantalla">
 
 <h2 class="titulo">
 Mis productos
@@ -2981,8 +2513,8 @@ Aquí se guardan las creaciones que hayas calculado.
 
 <div
 id="listaProductos"
-class="productos"
-></div>
+class="productos">
+</div>
 
 </section>
 
@@ -2993,8 +2525,7 @@ class="productos"
 
 <section
 id="pantalla-compras"
-class="pantalla"
->
+class="pantalla">
 
 <h2 class="titulo">
 Lista de compras
@@ -3012,10 +2543,7 @@ y también puedes agregar tus propias compras.
 
 <h2 class="tarjeta-titulo">
 
-<img
-src="iconos/stock.png"
-alt=""
->
+<img src="iconos/stock.png" alt="">
 
 Agregar a mi lista
 
@@ -3023,6 +2551,7 @@ Agregar a mi lista
 
 
 <div class="compra-form">
+
 
 <div class="campo">
 
@@ -3033,8 +2562,7 @@ Agregar a mi lista
 <input
 id="nombreCompra"
 type="text"
-placeholder="Ej: Mullos blancos"
->
+placeholder="Ej: Mullos blancos">
 
 </div>
 
@@ -3048,21 +2576,16 @@ Cantidad
 <input
 id="cantidadCompra"
 type="text"
-placeholder="Ej: 600 piezas"
->
+placeholder="Ej: 600 piezas">
 
 </div>
 
 
 <button
 class="btn-principal"
-onclick="agregarCompraManual()"
->
+onclick="agregarCompraManual()">
 
-<img
-src="iconos/guardar.png"
-alt=""
->
+<img src="iconos/guardar.png" alt="">
 
 Agregar
 
@@ -3077,10 +2600,7 @@ Agregar
 
 <h2 class="tarjeta-titulo">
 
-<img
-src="iconos/bajo.png"
-alt=""
->
+<img src="iconos/bajo.png" alt="">
 
 Necesitan reposición
 
@@ -3095,10 +2615,7 @@ Necesitan reposición
 
 <h2 class="tarjeta-titulo">
 
-<img
-src="iconos/guardar.png"
-alt=""
->
+<img src="iconos/guardar.png" alt="">
 
 Mi lista
 
@@ -3106,8 +2623,8 @@ Mi lista
 
 <div
 id="listaCompras"
-class="compras"
-></div>
+class="compras">
+</div>
 
 </section>
 
@@ -3120,8 +2637,7 @@ class="compras"
 
 <section
 id="pantalla-respaldo"
-class="pantalla"
->
+class="pantalla">
 
 <h2 class="titulo">
 Respaldos
@@ -3139,10 +2655,7 @@ productos y lista de compras.
 
 <h2 class="tarjeta-titulo">
 
-<img
-src="iconos/guardar.png"
-alt=""
->
+<img src="iconos/guardar.png" alt="">
 
 Mis respaldos
 
@@ -3151,16 +2664,13 @@ Mis respaldos
 
 <div class="acciones-respaldo">
 
+
 <button
 class="btn-principal"
 type="button"
-onclick="exportarRespaldo()"
->
+onclick="exportarRespaldo()">
 
-<img
-src="iconos/guardar.png"
-alt=""
->
+<img src="iconos/guardar.png" alt="">
 
 Guardar respaldo
 
@@ -3170,8 +2680,7 @@ Guardar respaldo
 <button
 class="btn-secundario"
 type="button"
-onclick="document.getElementById('archivoRespaldo').click()"
->
+onclick="document.getElementById('archivoRespaldo').click()">
 
 Restaurar respaldo
 
@@ -3185,13 +2694,11 @@ id="archivoRespaldo"
 type="file"
 accept="application/json,.json"
 style="display:none"
-onchange="importarRespaldo(event)"
->
+onchange="importarRespaldo(event)">
 
 
 <p
-style="text-align:center;margin-top:15px;font-size:12px;line-height:1.5"
->
+style="text-align:center;margin-top:15px;font-size:12px;line-height:1.5">
 
 El respaldo incluye tus datos, inventario,
 productos, fotos y lista de compras.
@@ -3213,6 +2720,396 @@ Made with love by Annie
 
 
 <!-- =====================================================
+     MODAL EDITAR MATERIAL
+===================================================== -->
+
+<div
+id="modalEditar"
+class="modal">
+
+<div class="modal-contenido">
+
+<h2 class="modal-titulo">
+Editar material
+</h2>
+
+
+<div class="campo">
+
+<label>
+Nombre del material
+</label>
+
+<input
+id="editarNombre"
+type="text">
+
+</div>
+
+
+<div class="campo">
+
+<label>
+Categoría
+</label>
+
+<select id="editarCategoria">
+
+<option>
+Mullos y cuentas
+</option>
+
+<option>
+Cadenas
+</option>
+
+<option>
+Hilos
+</option>
+
+<option>
+Dijes
+</option>
+
+<option>
+Argollas y piezas
+</option>
+
+<option>
+Arcilla
+</option>
+
+<option>
+Pintura
+</option>
+
+<option>
+Resina
+</option>
+
+<option>
+Empaque
+</option>
+
+<option>
+Otros
+</option>
+
+</select>
+
+</div>
+
+
+<div class="campo">
+
+<label>
+Imagen del material
+</label>
+
+<div class="zona-imagen">
+
+<input
+type="file"
+id="editarImagen"
+accept="image/*"
+onchange="previsualizarImagenEditar(event)">
+
+<img
+id="vistaEditarImagen"
+class="vista-previa">
+
+</div>
+
+<small class="ayuda-campo">
+
+Si no seleccionas una nueva imagen,
+se conservará la actual.
+
+</small>
+
+</div>
+
+
+<div class="fila">
+
+
+<div class="campo">
+
+<label>
+Precio de compra
+</label>
+
+<input
+id="editarPrecio"
+type="number"
+min="0"
+step="0.01">
+
+</div>
+
+
+<div class="campo">
+
+<label>
+Cantidad comprada
+</label>
+
+<input
+id="editarCantidad"
+type="number"
+min="0"
+step="0.01">
+
+</div>
+
+</div>
+
+
+<div class="campo">
+
+<label>
+Unidad
+</label>
+
+<select id="editarUnidad">
+
+<option value="unidades">
+Unidades / piezas
+</option>
+
+<option value="metros">
+Metros
+</option>
+
+<option value="centimetros">
+Centímetros
+</option>
+
+<option value="gramos">
+Gramos
+</option>
+
+<option value="kilogramos">
+Kilogramos
+</option>
+
+<option value="mililitros">
+Mililitros
+</option>
+
+<option value="litros">
+Litros
+</option>
+
+</select>
+
+</div>
+
+
+<div class="fila">
+
+
+<div class="campo">
+
+<label>
+Stock actual
+</label>
+
+<input
+id="editarStock"
+type="number"
+min="0"
+step="0.01">
+
+</div>
+
+
+<div class="campo">
+
+<label>
+Stock mínimo
+</label>
+
+<input
+id="editarStockMinimo"
+type="number"
+min="0"
+step="0.01">
+
+</div>
+
+</div>
+
+
+<div class="campo">
+
+<label>
+Notas
+</label>
+
+<textarea
+id="editarNotas">
+</textarea>
+
+</div>
+
+
+<div class="modal-botones">
+
+<button
+class="btn-secundario"
+onclick="cerrarModalEditar()">
+
+Cancelar
+
+</button>
+
+
+<button
+class="btn-principal"
+onclick="guardarEdicionMaterial()">
+
+<img src="iconos/guardar.png" alt="">
+
+Guardar cambios
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     MODAL REPONER MATERIAL
+===================================================== -->
+
+<div
+id="modalReponer"
+class="modal">
+
+<div class="modal-contenido">
+
+<h2 class="modal-titulo">
+Reponer material
+</h2>
+
+
+<p
+id="textoReponer"
+style="text-align:center;line-height:1.5">
+
+</p>
+
+
+<div class="campo">
+
+<label>
+Precio de la nueva compra
+</label>
+
+<input
+id="reponerPrecio"
+type="number"
+min="0"
+step="0.01"
+placeholder="Ej: 3.00">
+
+<small class="ayuda-campo">
+
+Lo que pagaste en esta nueva compra.
+
+</small>
+
+</div>
+
+
+<div class="campo">
+
+<label>
+Cantidad que compraste
+</label>
+
+<input
+id="reponerCantidad"
+type="number"
+min="0"
+step="0.01"
+placeholder="Ej: 600">
+
+</div>
+
+
+<div class="campo">
+
+<label>
+Stock que tienes después de recibir la compra
+</label>
+
+<input
+id="reponerStock"
+type="number"
+min="0"
+step="0.01"
+placeholder="Ej: 600">
+
+<small class="ayuda-campo">
+
+Puedes dejar aquí todo lo que tienes
+después de sumar la nueva compra.
+
+</small>
+
+</div>
+
+
+<div class="campo">
+
+<label>
+Notas de esta compra
+
+</label>
+
+<textarea
+id="reponerNotas"
+placeholder="Ej: Nueva funda de 600 mullos">
+
+</textarea>
+
+</div>
+
+
+<div class="modal-botones">
+
+<button
+class="btn-secundario"
+onclick="cerrarModalReponer()">
+
+Cancelar
+
+</button>
+
+
+<button
+class="btn-principal"
+onclick="guardarReposicion()">
+
+<img src="iconos/guardar.png" alt="">
+
+Guardar reposición
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
      ACCESO SECRETO
 ===================================================== -->
 
@@ -3223,13 +3120,10 @@ Made with love by Annie
 <img
 src="iconos/cinna.png"
 class="cinna-acceso"
-alt="Cinnamoroll"
->
-
+alt="Cinnamoroll">
 
 <h2
-style="font-family:Pacifico,cursive;margin:8px 0 15px"
->
+style="font-family:Pacifico,cursive;margin:8px 0 15px">
 
 Zona de Annie
 
@@ -3240,19 +3134,16 @@ Zona de Annie
 id="claveSecreta"
 type="password"
 placeholder="Contraseña"
-style="width:100%;padding:13px;border:2px solid #A9C7E8;border-radius:13px;outline:none;font-family:Quicksand,sans-serif"
->
+style="width:100%;padding:13px;border:2px solid #A9C7E8;border-radius:13px;outline:none;font-family:Quicksand,sans-serif">
 
 
 <button
 onclick="entrarZonaAnnie()"
-class="boton-entrar"
->
+class="boton-entrar">
 
 <img
 src="iconos/candado.png"
-alt=""
->
+alt="">
 
 Entrar
 
@@ -3261,8 +3152,7 @@ Entrar
 
 <button
 onclick="cerrarZonaAnnie()"
-style="margin-top:10px;padding:10px 16px;border:0;border-radius:12px;background:#DCEAF7;color:#7A6F60;font-weight:700"
->
+style="margin-top:10px;padding:10px 16px;border:0;border-radius:12px;background:#DCEAF7;color:#7A6F60;font-weight:700">
 
 Cancelar
 
@@ -3307,6 +3197,12 @@ let imagenMaterial="";
 
 let imagenProducto="";
 
+let imagenEditarMaterial="";
+
+let materialEditandoId=null;
+
+let materialReponiendoId=null;
+
 let materialesProducto=[];
 
 
@@ -3315,7 +3211,7 @@ id=>document.getElementById(id);
 
 
 /* =====================================================
-   NAVEGACION
+   NAVEGACIÓN
 ===================================================== */
 
 function irA(nombre){
@@ -3352,11 +3248,8 @@ btn.dataset.pantalla===nombre
 
 
 window.scrollTo({
-
 top:0,
-
 behavior:"smooth"
-
 });
 
 }
@@ -3405,7 +3298,7 @@ return cantidad;
 
 
 /* =====================================================
-   NORMALIZAR MATERIALES ANTIGUOS
+   NORMALIZAR
 ===================================================== */
 
 function normalizarMateriales(){
@@ -3450,7 +3343,10 @@ cantidadBase;
 const stockMinimo =
 Number(
 m.stockMinimo ??
-0
+convertirAUnidadBase(
+20,
+unidad
+)
 );
 
 
@@ -3502,35 +3398,24 @@ unidad
 
 
 /* =====================================================
-   GUARDAR TODOS LOS DATOS
+   GUARDAR DATOS
 ===================================================== */
 
 function guardarDatos(){
 
 localStorage.setItem(
-
 "materialesMadeByAnnieV3",
-
 JSON.stringify(materiales)
-
 );
 
-
 localStorage.setItem(
-
 "productosMadeByAnnieV3",
-
 JSON.stringify(productos)
-
 );
 
-
 localStorage.setItem(
-
 "comprasMadeByAnnieV1",
-
 JSON.stringify(compras)
-
 );
 
 }
@@ -3615,6 +3500,42 @@ lector.readAsDataURL(archivo);
 
 
 /* =====================================================
+   PREVISUALIZAR IMAGEN EDITADA
+===================================================== */
+
+function previsualizarImagenEditar(event){
+
+const archivo =
+event.target.files[0];
+
+if(!archivo)
+return;
+
+
+const lector =
+new FileReader();
+
+
+lector.onload=e=>{
+
+imagenEditarMaterial =
+e.target.result;
+
+$("vistaEditarImagen").src =
+imagenEditarMaterial;
+
+$("vistaEditarImagen")
+.style.display="block";
+
+};
+
+
+lector.readAsDataURL(archivo);
+
+}
+
+
+/* =====================================================
    PREVISUALIZAR PRODUCTO
 ===================================================== */
 
@@ -3659,97 +3580,75 @@ function guardarMaterial(){
 const nombre =
 $("nombre").value.trim();
 
-
 const categoria =
 $("categoria").value;
-
 
 const precio =
 parseFloat(
 $("precio").value
 );
 
-
 const cantidad =
 parseFloat(
 $("cantidad").value
 );
 
-
 const unidad =
 $("unidad").value;
-
 
 const cantidadActual =
 parseFloat(
 $("cantidadActual").value
 );
 
-
 const stockMinimo =
 parseFloat(
 $("stockMinimo").value
-)||0;
-
+);
 
 const notas =
 $("notas").value.trim();
 
 
-if(!nombre){
-
+if(!nombre)
 return alert(
 "Escribe el nombre del material."
 );
-
-}
 
 
 if(
 !Number.isFinite(precio)||
 precio<=0
-){
-
+)
 return alert(
 "Escribe un precio válido."
 );
-
-}
 
 
 if(
 !Number.isFinite(cantidad)||
 cantidad<=0
-){
-
+)
 return alert(
 "Escribe una cantidad comprada válida."
 );
-
-}
 
 
 if(
 !Number.isFinite(cantidadActual)||
 cantidadActual<0
-){
-
+)
 return alert(
 "Escribe una cantidad actual válida."
 );
 
-}
-
 
 if(
 cantidadActual>cantidad
-){
-
+)
 return alert(
 "La cantidad actual no puede ser mayor que la cantidad comprada."
 );
-
-}
 
 
 const cantidadBase =
@@ -3768,7 +3667,11 @@ unidad
 
 const stockMinimoBase =
 convertirAUnidadBase(
-stockMinimo,
+Number.isFinite(stockMinimo)
+?
+stockMinimo
+:
+20,
 unidad
 );
 
@@ -3824,12 +3727,10 @@ limpiarMaterial();
 
 
 alert(
-
 "Material guardado.\n\nCosto por "+
 unidadSingular(unidad)+
 ": $"+
 costoUnitario.toFixed(4)
-
 );
 
 }
@@ -3857,12 +3758,9 @@ lista.innerHTML=`
 
 <img
 src="iconos/tener.png"
-alt=""
->
+alt="">
 
 </div>
-
-<div>
 
 <div class="material-nombre">
 
@@ -3870,13 +3768,11 @@ Todavía no tienes materiales
 
 </div>
 
-<p style="text-align:left">
+<p style="text-align:center">
 
 Agrega tu primer material arriba.
 
 </p>
-
-</div>
 
 </div>
 
@@ -3893,14 +3789,11 @@ m=>{
 const stock =
 Number(m.stock)||0;
 
-
 const minimo =
 Number(m.stockMinimo)||0;
 
-
 const compradaBase =
 Number(m.cantidadBase)||0;
-
 
 const utilizadoBase =
 Math.max(
@@ -3959,8 +3852,7 @@ m.imagen
 `<img
 src="${m.imagen}"
 class="imagen-material"
-alt="${escapar(m.nombre)}"
->`
+alt="${escapar(m.nombre)}">`
 
 :
 
@@ -3970,16 +3862,13 @@ alt="${escapar(m.nombre)}"
 
 <img
 src="iconos/tener.png"
-alt=""
->
+alt="">
 
 </div>
 
 `
 }
 
-
-<div>
 
 <div class="material-nombre">
 
@@ -4019,7 +3908,6 @@ Compraste
 <strong>
 
 ${formatear(m.cantidadComprada)}
-
 ${unidadCorta(m.unidadOriginal)}
 
 </strong>
@@ -4033,8 +3921,7 @@ ${unidadCorta(m.unidadOriginal)}
 
 <img
 src="iconos/stock.png"
-alt=""
->
+alt="">
 
 Stock actual
 
@@ -4043,7 +3930,6 @@ Stock actual
 <strong>
 
 ${formatear(stockMostrado)}
-
 ${unidadCorta(m.unidadOriginal)}
 
 </strong>
@@ -4060,7 +3946,6 @@ Ya utilizado
 <strong>
 
 ${formatear(utilizadoMostrado)}
-
 ${unidadCorta(m.unidadOriginal)}
 
 </strong>
@@ -4071,11 +3956,7 @@ ${unidadCorta(m.unidadOriginal)}
 <div class="costo">
 
 <span>
-
-Costo por ${unidadSingular(
-m.unidadOriginal
-)}
-
+Costo por ${unidadSingular(m.unidadOriginal)}
 </span>
 
 <strong>
@@ -4096,6 +3977,28 @@ ${estado}
 </div>
 
 
+<div class="reposicion">
+
+<strong>
+¿Necesitas comprar más?
+</strong>
+
+<br>
+
+Puedes agregar una nueva compra
+sin borrar este material.
+
+<button
+class="btn-reponer"
+onclick="abrirModalReponer(${m.id})">
+
+Reponer material
+
+</button>
+
+</div>
+
+
 ${
 m.notas
 
@@ -4110,16 +4013,15 @@ ${escapar(m.notas)}
 :
 
 ""
-
 }
 
 
 <div class="acciones">
 
+
 <button
 class="btn-secundario"
-onclick="editarMaterial(${m.id})"
->
+onclick="editarMaterial(${m.id})">
 
 Editar
 
@@ -4128,8 +4030,7 @@ Editar
 
 <button
 class="btn-peligro"
-onclick="eliminarMaterial(${m.id})"
->
+onclick="eliminarMaterial(${m.id})">
 
 Eliminar
 
@@ -4137,7 +4038,6 @@ Eliminar
 
 </div>
 
-</div>
 
 </article>
 
@@ -4208,7 +4108,7 @@ Number(numero).toFixed(3)
 
 
 /* =====================================================
-   EDITAR MATERIAL
+   EDITAR MATERIAL COMPLETO
 ===================================================== */
 
 function editarMaterial(id){
@@ -4222,94 +4122,233 @@ if(!m)
 return;
 
 
-const nombreNuevo =
-prompt(
-"Nombre del material:",
-m.nombre
+materialEditandoId=id;
+
+imagenEditarMaterial="";
+
+
+$("editarNombre").value =
+m.nombre || "";
+
+
+$("editarCategoria").value =
+m.categoria || "Otros";
+
+
+$("editarPrecio").value =
+m.precio || "";
+
+
+$("editarCantidad").value =
+m.cantidadComprada || "";
+
+
+$("editarUnidad").value =
+m.unidadOriginal || "unidades";
+
+
+$("editarStock").value =
+convertirDesdeBase(
+Number(m.stock)||0,
+m.unidadOriginal
 );
 
-if(nombreNuevo===null)
+
+$("editarStockMinimo").value =
+convertirDesdeBase(
+Number(m.stockMinimo)||0,
+m.unidadOriginal
+);
+
+
+$("editarNotas").value =
+m.notas || "";
+
+
+$("editarImagen").value="";
+
+
+if(m.imagen){
+
+$("vistaEditarImagen").src =
+m.imagen;
+
+$("vistaEditarImagen")
+.style.display="block";
+
+}else{
+
+$("vistaEditarImagen")
+.style.display="none";
+
+}
+
+
+$("modalEditar")
+.classList.add("activo");
+
+}
+
+
+/* =====================================================
+   GUARDAR EDICIÓN
+===================================================== */
+
+function guardarEdicionMaterial(){
+
+const m =
+materiales.find(
+x=>x.id===materialEditandoId
+);
+
+if(!m)
 return;
 
 
-const precioNuevo =
+const nombre =
+$("editarNombre").value.trim();
+
+const categoria =
+$("editarCategoria").value;
+
+const precio =
 parseFloat(
-prompt(
-"Precio de compra:",
-m.precio
-)
+$("editarPrecio").value
 );
 
-
-if(
-!Number.isFinite(precioNuevo)||
-precioNuevo<=0
-){
-
-return alert(
-"Precio inválido."
-);
-
-}
-
-
-const stockActual =
-convertirDesdeBase(
-m.stock,
-m.unidadOriginal
-);
-
-
-const stockNuevo =
+const cantidad =
 parseFloat(
-prompt(
-"Cantidad actual que tienes:",
-stockActual
+$("editarCantidad").value
+);
+
+const unidad =
+$("editarUnidad").value;
+
+const stock =
+parseFloat(
+$("editarStock").value
+);
+
+const stockMinimo =
+parseFloat(
+$("editarStockMinimo").value
+);
+
+const notas =
+$("editarNotas").value.trim();
+
+
+if(!nombre)
+return alert(
+"Escribe el nombre del material."
+);
+
+
+if(
+!Number.isFinite(precio)||
+precio<=0
 )
+return alert(
+"Escribe un precio válido."
 );
 
 
 if(
-!Number.isFinite(stockNuevo)||
-stockNuevo<0
-){
-
+!Number.isFinite(cantidad)||
+cantidad<=0
+)
 return alert(
-"Cantidad actual inválida."
+"La cantidad comprada debe ser válida."
 );
-
-}
 
 
 if(
-stockNuevo>
-Number(m.cantidadComprada)
-){
-
+!Number.isFinite(stock)||
+stock<0
+)
 return alert(
-"La cantidad actual no puede ser mayor que la cantidad comprada."
+"El stock actual no es válido."
 );
 
-}
+
+if(
+stock>cantidad
+)
+return alert(
+"El stock actual no puede ser mayor que la cantidad comprada."
+);
+
+
+if(
+!Number.isFinite(stockMinimo)||
+stockMinimo<0
+)
+return alert(
+"El stock mínimo no es válido."
+);
+
+
+const cantidadBase =
+convertirAUnidadBase(
+cantidad,
+unidad
+);
+
+
+const stockBase =
+convertirAUnidadBase(
+stock,
+unidad
+);
+
+
+const stockMinimoBase =
+convertirAUnidadBase(
+stockMinimo,
+unidad
+);
 
 
 m.nombre =
-nombreNuevo.trim();
+nombre;
+
+m.categoria =
+categoria;
 
 m.precio =
-precioNuevo;
+precio;
+
+m.cantidadComprada =
+cantidad;
+
+m.unidadOriginal =
+unidad;
+
+m.cantidadBase =
+cantidadBase;
 
 m.stock =
-convertirAUnidadBase(
-stockNuevo,
-m.unidadOriginal
-);
+stockBase;
 
 m.cantidadActual =
-stockNuevo;
+stock;
+
+m.stockMinimo =
+stockMinimoBase;
 
 m.costoUnitario =
-precioNuevo/m.cantidadBase;
+precio/cantidadBase;
+
+m.notas =
+notas;
+
+
+if(imagenEditarMaterial){
+
+m.imagen =
+imagenEditarMaterial;
+
+}
 
 
 guardarDatos();
@@ -4323,6 +4362,135 @@ actualizarSelectorMateriales();
 mostrarComprasAutomaticas();
 
 actualizarInicio();
+
+cerrarModalEditar();
+
+
+alert(
+"Material actualizado correctamente."
+);
+
+}
+
+
+/* =====================================================
+   CERRAR EDITAR
+===================================================== */
+
+function cerrarModalEditar(){
+
+$("modalEditar")
+.classList.remove("activo");
+
+materialEditandoId=null;
+
+imagenEditarMaterial="";
+
+$("editarImagen").value="";
+
+}
+
+
+/* =====================================================
+   REPONER MATERIAL
+===================================================== */
+
+function abrirModalReponer(id){
+
+const m =
+materiales.find(
+x=>x.id===id
+);
+
+if(!m)
+return;
+
+
+materialReponiendoId=id;
+
+
+$("textoReponer").innerHTML =
+
+`Vas a reponer <strong>${escapar(m.nombre)}</strong>.<br>
+Actualmente tienes
+<strong>${formatear(
+convertirDesdeBase(
+m.stock,
+m.unidadOriginal
+)
+)} ${unidadCorta(m.unidadOriginal)}</strong>.`;
+
+
+$("reponerPrecio").value="";
+
+$("reponerCantidad").value="";
+
+$("reponerStock").value="";
+
+$("reponerNotas").value="";
+
+
+$("modalReponer")
+.classList.add("activo");
+
+}
+
+
+/* =====================================================
+   GUARDAR REPOSICIÓN
+===================================================== */
+
+function guardarReposicion(){
+const m=materiales.find(x=>x.id===materialReponiendoId);
+if(!m)return;
+const precioNuevo=parseFloat($("reponerPrecio").value);
+const cantidadNueva=parseFloat($("reponerCantidad").value);
+const stockNuevoTotal=parseFloat($("reponerStock").value);
+const notasNueva=$("reponerNotas").value.trim();
+if(!Number.isFinite(precioNuevo)||precioNuevo<=0)return alert("Escribe un precio válido para la nueva compra.");
+if(!Number.isFinite(cantidadNueva)||cantidadNueva<=0)return alert("Escribe una cantidad válida para la nueva compra.");
+if(!Number.isFinite(stockNuevoTotal)||stockNuevoTotal<0)return alert("Escribe el stock que tendrás después de la compra.");
+const stockAnterior=Number(m.stock)||0;
+const cantidadNuevaBase=convertirAUnidadBase(cantidadNueva,m.unidadOriginal);
+const stockNuevoBase=convertirAUnidadBase(stockNuevoTotal,m.unidadOriginal);
+if(stockNuevoBase<stockAnterior)return alert("El nuevo stock no puede ser menor que el stock que ya tenías.");
+const costoNuevaUnidad=precioNuevo/cantidadNuevaBase;
+const costoAnteriorUnidad=Number(m.costoUnitario)||0;
+let nuevoCostoUnitario=costoAnteriorUnidad;
+if(Math.abs(costoNuevaUnidad-costoAnteriorUnidad)>0.000000001){
+const valorInventarioAnterior=stockAnterior*costoAnteriorUnidad;
+const valorNuevaCompra=precioNuevo;
+const valorInventarioTotal=valorInventarioAnterior+valorNuevaCompra;
+nuevoCostoUnitario=stockNuevoBase>0?valorInventarioTotal/stockNuevoBase:costoNuevaUnidad;
+}
+m.stock=stockNuevoBase;
+m.cantidadActual=stockNuevoTotal;
+m.cantidadComprada=(Number(m.cantidadComprada)||0)+cantidadNueva;
+m.cantidadBase=(Number(m.cantidadBase)||0)+cantidadNuevaBase;
+m.precio=precioNuevo;
+m.costoUnitario=nuevoCostoUnitario;
+if(notasNueva){
+m.notas=m.notas?m.notas+"\nNueva compra: "+notasNueva:"Nueva compra: "+notasNueva;
+}
+guardarDatos();
+mostrarMateriales();
+actualizarResumen();
+actualizarSelectorMateriales();
+mostrarComprasAutomaticas();
+actualizarInicio();
+cerrarModalReponer();
+alert("Reposición registrada.\n\nNuevo stock: "+formatear(convertirDesdeBase(m.stock,m.unidadOriginal))+" "+unidadCorta(m.unidadOriginal)+"\nCosto por "+unidadSingular(m.unidadOriginal)+": $"+m.costoUnitario.toFixed(4));
+}
+/* =====================================================
+   CERRAR REPONER
+===================================================== */
+
+function cerrarModalReponer(){
+
+$("modalReponer")
+.classList.remove("activo");
+
+materialReponiendoId=null;
 
 }
 
@@ -4435,8 +4603,7 @@ $("inicioBajos").innerHTML=`
 
 <img
 src="iconos/stock.png"
-alt=""
->
+alt="">
 
 <p>
 
@@ -4487,8 +4654,7 @@ ${unidadCorta(m.unidadOriginal)}
 
 <button
 class="btn-secundario"
-onclick="irA('compras')"
->
+onclick="irA('compras')">
 
 Ver compras
 
@@ -4503,7 +4669,7 @@ Ver compras
 
 
 /* =====================================================
-   SELECTOR DE MATERIALES
+   SELECTOR
 ===================================================== */
 
 function actualizarSelectorMateriales(){
@@ -4568,25 +4734,19 @@ x=>x.id===id
 );
 
 
-if(!m){
-
+if(!m)
 return alert(
 "Selecciona un material."
 );
-
-}
 
 
 if(
 !Number.isFinite(cantidad)||
 cantidad<=0
-){
-
+)
 return alert(
 "Escribe una cantidad válida."
 );
-
-}
 
 
 const cantidadBase =
@@ -4599,13 +4759,10 @@ unidad
 if(
 cantidadBase>
 Number(m.stock)
-){
-
+)
 return alert(
 `No tienes suficiente "${m.nombre}".`
 );
-
-}
 
 
 const costo =
@@ -4676,10 +4833,10 @@ $${Number(x.costo).toFixed(2)}
 
 <button
 class="btn-quitar"
-onclick="quitarMaterialProducto(${i})"
->
+onclick="quitarMaterialProducto(${i})">
 
 ×
+
 </button>
 
 </div>
@@ -4835,28 +4992,21 @@ function guardarProducto(){
 
 const nombre =
 $("nombreProducto")
-.value
-.trim();
+.value.trim();
 
 
-if(!nombre){
-
+if(!nombre)
 return alert(
 "Escribe el nombre del producto."
 );
 
-}
-
 
 if(
 !materialesProducto.length
-){
-
+)
 return alert(
 "Agrega al menos un material."
 );
-
-}
 
 
 const r =
@@ -4938,8 +5088,7 @@ lista.innerHTML=`
 
 <img
 src="iconos/aun.png"
-alt=""
->
+alt="">
 
 </div>
 
@@ -4980,8 +5129,7 @@ p.imagen
 `<img
 src="${p.imagen}"
 class="imagen-producto"
-alt=""
->`
+alt="">`
 
 :
 
@@ -4991,8 +5139,7 @@ alt=""
 
 <img
 src="iconos/aun.png"
-alt=""
->
+alt="">
 
 </div>
 
@@ -5013,8 +5160,7 @@ ${escapar(p.nombre)}
 
 <img
 src="iconos/utilizados.png"
-alt=""
->
+alt="">
 
 Materiales
 
@@ -5037,8 +5183,7 @@ p.costoMateriales
 
 <img
 src="iconos/me.png"
-alt=""
->
+alt="">
 
 Mano de obra
 
@@ -5061,8 +5206,7 @@ p.manoObra
 
 <img
 src="iconos/empaque.png"
-alt=""
->
+alt="">
 
 Empaque
 
@@ -5106,8 +5250,7 @@ p.precioVenta
 
 
 <div
-style="margin-top:10px;padding:12px;border-radius:14px;background:var(--verde);text-align:center;font-weight:700"
->
+style="margin-top:10px;padding:12px;border-radius:14px;background:var(--verde);text-align:center;font-weight:700">
 
 Ganancia:
 $${Number(
@@ -5122,8 +5265,7 @@ p.ganancia
 
 <button
 class="btn-peligro"
-onclick="eliminarProducto(${p.id})"
->
+onclick="eliminarProducto(${p.id})">
 
 Eliminar
 
@@ -5167,20 +5309,17 @@ mostrarProductos();
 
 
 /* =====================================================
-   FABRICAR PRODUCTO
+   FABRICAR
 ===================================================== */
 
 function fabricarProducto(){
 
 if(
 !materialesProducto.length
-){
-
+)
 return alert(
 "Primero agrega los materiales utilizados."
 );
-
-}
 
 
 if(
@@ -5299,7 +5438,7 @@ $("vistaPrevia")
 imagenMaterial="";
 
 
-$("stockMinimo").value="1";
+$("stockMinimo").value="20";
 
 }
 
@@ -5312,23 +5451,18 @@ function agregarCompraManual(){
 
 const nombre =
 $("nombreCompra")
-.value
-.trim();
+.value.trim();
 
 
 const cantidad =
 $("cantidadCompra")
-.value
-.trim();
+.value.trim();
 
 
-if(!nombre){
-
+if(!nombre)
 return alert(
 "Escribe qué quieres comprar."
 );
-
-}
 
 
 compras.push({
@@ -5363,7 +5497,7 @@ alert(
 
 
 /* =====================================================
-   COMPRAS AUTOMATICAS
+   COMPRAS AUTOMÁTICAS
 ===================================================== */
 
 function obtenerComprasAutomaticas(){
@@ -5395,8 +5529,7 @@ lista.innerHTML=`
 
 <img
 src="iconos/stock.png"
-alt=""
->
+alt="">
 
 <p>
 
@@ -5460,9 +5593,6 @@ m.unidadOriginal
 </span>
 
 
-<br>
-
-
 <span class="etiqueta-auto">
 
 REPOSICIÓN AUTOMÁTICA
@@ -5474,11 +5604,10 @@ REPOSICIÓN AUTOMÁTICA
 
 
 <button
-class="btn-secundario"
-onclick="irA('materiales')"
->
+class="btn-reponer"
+onclick="abrirModalReponer(${m.id})">
 
-Ver material
+Reponer material
 
 </button>
 
@@ -5492,7 +5621,7 @@ Ver material
 
 
 /* =====================================================
-   MOSTRAR LISTA DE COMPRAS
+   MOSTRAR COMPRAS
 ===================================================== */
 
 function mostrarCompras(){
@@ -5509,8 +5638,7 @@ lista.innerHTML=`
 
 <img
 src="iconos/guardar.png"
-alt=""
->
+alt="">
 
 <p>
 
@@ -5565,8 +5693,7 @@ escapar(c.cantidad)
 
 <button
 class="btn-comprado"
-onclick="marcarCompra(${c.id})"
->
+onclick="marcarCompra(${c.id})">
 
 ${c.comprado
 ?
@@ -5579,8 +5706,7 @@ ${c.comprado
 
 <button
 class="btn-peligro"
-onclick="eliminarCompra(${c.id})"
->
+onclick="eliminarCompra(${c.id})">
 
 Eliminar
 
@@ -5631,7 +5757,7 @@ function eliminarCompra(id){
 
 compras =
 compras.filter(
-c=>c.id!==id
+x=>x.id!==id
 );
 
 
@@ -5643,14 +5769,14 @@ mostrarCompras();
 
 
 /* =====================================================
-   EXPORTAR RESPALDO
+   EXPORTAR
 ===================================================== */
 
 function exportarRespaldo(){
 
 const respaldo={
 
-version:3,
+version:4,
 
 app:
 "Calculadora de costos Made by Annie",
@@ -5723,7 +5849,7 @@ alert(
 
 
 /* =====================================================
-   IMPORTAR RESPALDO
+   IMPORTAR
 ===================================================== */
 
 function importarRespaldo(event){
