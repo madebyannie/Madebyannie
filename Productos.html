@@ -618,6 +618,32 @@ footer p{
  </div>
 
 <div class="card producto"
+    
+     data-img1="manilla-portada.png"
+     data-img2="manilla-detalle-1.png"
+     data-img3="manilla-detalle-2.png"
+     
+     data-precio="$3.50"
+
+     data-unico="no"
+     data-nuevo="no"
+     data-proximamente="si"
+     data-pedido="no"
+     data-vendido="no">
+
+    <img src="manilla-portada.png"><img src="proximo.png">
+
+    <h3 class="nombre">Black mirage</h3>
+
+    <div class="precio">$3.50</div>
+    <p class="ver-mas">Ver detalles</p>
+
+    <p class="desc">
+      Pulsera de tres hileras color negro.Diseñado con broche de apertura y cadena regulable. 
+    </p>
+  </div>
+
+<div class="card producto"
 
      onclick="verProducto(this)"
 
@@ -626,7 +652,7 @@ footer p{
      data-img3="rosario-detalle-2.png"
      data-img4="rosario-detalle-3.png"
      
-     data-precio="$12.00"
+     data-precio="$3.50"
 
      data-unico="si"
      data-nuevo="si"
@@ -635,8 +661,7 @@ footer p{
      data-vendido="no">
 
      <div class="etiquetas">
-        <span class="etiqueta nuevo">DISPONIBLE</span>
-        <span class="etiqueta unico">UNICO</span>
+       
     </div>
 
     <img src="rosario-portada.png">
@@ -645,9 +670,8 @@ footer p{
 
     <div class="precio">$12.00</div>
     <p class="ver-mas">Ver detalles</p>
-
     <p class="desc">
-     Rosario estilo gótico con murciélago y cruz.Diseñado con broche de apertura,cadena regulable para ajistar el tamaño y una caída larga que llega más abajo del pecho.
+     Rosario estilo gótico con murciélago y cruz.Diseñado con broche de apertura,cadena regulable para ajustar el tamaño y una caída larga que llega más abajo del pecho.
     </p>
   </div>
 </div>
@@ -728,6 +752,7 @@ function verProducto(card) {
     window.location.href = url;
 }
 
+
 function actualizarContador(){
 
     let carrito =
@@ -743,6 +768,41 @@ function actualizarContador(){
     document.querySelector(".carrito span").innerText =
         cantidad;
 }
+document.querySelectorAll(".producto").forEach(card => {
+
+    let proximamente = card.getAttribute("data-proximamente");
+
+    if (proximamente == "si") {
+
+        // Cambiar la imagen por la de PRÓXIMAMENTE
+        let imagenes = card.querySelectorAll("img");
+
+        imagenes[0].src = "proximo.png";
+
+        // Ocultar cualquier otra imagen
+        for (let i = 1; i < imagenes.length; i++) {
+            imagenes[i].style.display = "none";
+        }
+
+        // Ocultar la información
+        card.querySelector(".nombre").style.display = "none";
+        card.querySelector(".precio").style.display = "none";
+        card.querySelector(".ver-mas").style.display = "none";
+        card.querySelector(".desc").style.display = "none";
+
+        // Quitar apariencia de tarjeta clickeable
+        card.style.cursor = "default";
+
+    } else {
+
+        // Los productos normales sí se pueden abrir
+        card.onclick = function(){
+            verProducto(card);
+        };
+
+    }
+
+});
 
 actualizarContador();
 
