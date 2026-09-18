@@ -616,33 +616,6 @@ footer p{
     </p>
 
  </div>
-
-<div class="card producto"
-    
-     data-img1="manilla-portada.png"
-     data-img2="manilla-detalle-1.png"
-     data-img3="manilla-detalle-2.png"
-     
-     data-precio="$3.50"
-
-     data-unico="no"
-     data-nuevo="no"
-     data-proximamente="si"
-     data-pedido="no"
-     data-vendido="no">
-
-    <img src="proximo.png">
-
-    <h3 class="nombre">Black mirage</h3>
-
-    <div class="precio">$3.50</div>
-    <p class="ver-mas">Ver detalles</p>
-
-    <p class="desc">
-      Pulsera de tres hileras color negro.Diseñado con broche de apertura y cadena regulable. 
-    </p>
-  </div>
-
 <div class="card producto"
 
      onclick="verProducto(this)"
@@ -768,41 +741,6 @@ function actualizarContador(){
     document.querySelector(".carrito span").innerText =
         cantidad;
 }
-document.querySelectorAll(".producto").forEach(card => {
-
-    let proximamente = card.getAttribute("data-proximamente");
-
-    if (proximamente == "si") {
-
-        // Cambiar la imagen por la de PRÓXIMAMENTE
-        let imagenes = card.querySelectorAll("img");
-
-        imagenes[0].src = "proximo.png";
-
-        // Ocultar cualquier otra imagen
-        for (let i = 1; i < imagenes.length; i++) {
-            imagenes[i].style.display = "none";
-        }
-
-        // Ocultar la información
-        card.querySelector(".nombre").style.display = "none";
-        card.querySelector(".precio").style.display = "none";
-        card.querySelector(".ver-mas").style.display = "none";
-        card.querySelector(".desc").style.display = "none";
-
-        // Quitar apariencia de tarjeta clickeable
-        card.style.cursor = "default";
-
-    } else {
-
-        // Los productos normales sí se pueden abrir
-        card.onclick = function(){
-            verProducto(card);
-        };
-
-    }
-
-});
 
 actualizarContador();
 
