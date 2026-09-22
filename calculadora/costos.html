@@ -111,7 +111,7 @@ header{background:var(--crema);padding:18px 15px;text-align:center;box-shadow:0 
 .material{display:grid;grid-template-columns:100px 1fr;gap:3px 12px;align-items:start;background:#fff;border-radius:18px;padding:12px;width:500px;box-sizing:border-box;box-shadow:0 4px 12px var(--sombra);}
 
 /* IMAGEN MATERIAL */
-.material>.imagen-material,.material>.sin-imagen{grid-column:1;grid-row:1 / -1;width:100px;height:1313:01 10/9/20260px;margin:0;border-radius:15px;}
+.material>.imagen-material,.material>.sin-imagen{grid-column:1;grid-row:1 / -1;width:100px;height:100px;margin:0;border-radius:15px;}
 .material>.imagen-material{object-fit:cover;}
 .material>.sin-imagen{display:flex;align-items:center;justify-content:center;background:var(--celeste-claro);}
 .material>.sin-imagen img{width:60px;height:60px;object-fit:contain;}
@@ -201,6 +201,14 @@ header{background:var(--crema);padding:18px 15px;text-align:center;box-shadow:0 
 .modal-contenido{width:min(620px,100%);max-height:90vh;overflow-y:auto;background:var(--crema);border-radius:25px;padding:24px;box-shadow:0 12px 35px rgba(0,0,0,.2);}
 .modal-titulo{font-family:Pacifico,cursive;font-size:25px;text-align:center;margin:0 0 20px;}
 .modal-botones{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
+
+
+/* EDITAR PRODUCTOS */
+.producto-acciones{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;}
+.producto-estado{margin-top:10px;padding:9px;border-radius:11px;text-align:center;font-size:11px;font-weight:700;background:var(--celeste-claro);}
+.producto-estado.fabricado{background:var(--verde);color:var(--verde-texto);}
+.producto-materiales-editar{margin-top:8px;}
+.edicion-stock{margin-top:12px;padding:12px;border-radius:14px;background:var(--celeste-claro);font-size:12px;line-height:1.5;}
 
 /* FOOTER */
 footer{padding:20px 15px;background:var(--crema);text-align:center;font-size:12px;}
@@ -539,7 +547,7 @@ aparecerá en tu lista de compras.
 Notas
 </label>
 
-<textarea id="notas" placeholder="Ej: Funda de 600 mullos"></textarea>
+<textarea id="notas" placeholder="Ej: Funda de 100 mullos"></textarea>
 
 </div>
 
@@ -1099,6 +1107,150 @@ Guardar reposición
 
 </div>
 
+
+<!-- MODAL EDITAR PRODUCTO -->
+
+<div id="modalEditarProducto" class="modal">
+
+<div class="modal-contenido">
+
+<h2 class="modal-titulo">Editar producto</h2>
+
+<div class="campo">
+<label>Nombre del producto</label>
+<input id="editarNombreProducto" type="text">
+</div>
+
+<div class="campo">
+<label>Foto del producto</label>
+<div class="zona-imagen">
+<input type="file" id="editarImagenProducto" accept="image/*" onchange="previsualizarProductoEditar(event)">
+<img id="vistaEditarProducto" class="vista-previa">
+</div>
+<small class="ayuda-campo">
+Si no seleccionas una nueva imagen, se conservará la actual.
+</small>
+</div>
+
+<h3 class="subtitulo-seccion">
+<img src="iconos/utilizados.png" alt="">
+Materiales utilizados
+</h3>
+
+<div class="selector-material">
+
+<div class="campo">
+<label>Material</label>
+<select id="editarMaterialSeleccionado">
+<option value="">Selecciona un material</option>
+</select>
+</div>
+
+<div class="campo">
+<label>Cantidad</label>
+<input id="editarCantidadUsada" type="number" min="0" step="0.001" placeholder="35">
+</div>
+
+<div class="campo">
+<label>Unidad</label>
+<select id="editarUnidadUsada">
+<option value="unidades">unidades</option>
+<option value="metros">metros</option>
+<option value="centimetros">cm</option>
+<option value="gramos">gramos</option>
+<option value="kilogramos">kg</option>
+<option value="mililitros">ml</option>
+<option value="litros">L</option>
+</select>
+</div>
+
+<button class="btn-secundario" onclick="agregarMaterialProductoEdicion()">
+Agregar
+</button>
+
+</div>
+
+<div id="listaMaterialesEdicion"></div>
+
+<div id="estadoStockEdicion" class="edicion-stock"></div>
+
+<h3 class="subtitulo-seccion">
+<img src="iconos/me.png" alt="">
+Mano de obra
+</h3>
+
+<div class="fila">
+
+<div class="campo">
+<label>Tiempo trabajado (minutos)</label>
+<input id="editarMinutosTrabajo" type="number" min="0" value="30" oninput="calcularProductoEdicion()">
+</div>
+
+<div class="campo">
+<label>¿Cuánto quieres ganar por hora?</label>
+<input id="editarPrecioHora" type="number" min="0" step="0.01" value="3" oninput="calcularProductoEdicion()">
+</div>
+
+</div>
+
+<div class="campo">
+<label>
+<img src="iconos/empaque.png" alt="">
+Costo del empaque
+</label>
+<input id="editarCostoEmpaque" type="number" min="0" step="0.01" value="0" oninput="calcularProductoEdicion()">
+</div>
+
+<div class="campo">
+<label>Precio de venta</label>
+<input id="editarPrecioVenta" type="number" min="0" step="0.01" oninput="calcularProductoEdicion()">
+</div>
+
+<div class="resultado">
+
+<div class="resultado-linea">
+<span><img src="iconos/utilizados.png" alt="">Materiales</span>
+<strong id="editarResultadoMateriales">$0.00</strong>
+</div>
+
+<div class="resultado-linea">
+<span><img src="iconos/me.png" alt="">Mano de obra</span>
+<strong id="editarResultadoManoObra">$0.00</strong>
+</div>
+
+<div class="resultado-linea">
+<span><img src="iconos/empaque.png" alt="">Empaque</span>
+<strong id="editarResultadoEmpaque">$0.00</strong>
+</div>
+
+<div class="resultado-total">
+<span>COSTO TOTAL</span>
+<strong id="editarResultadoTotal">$0.00</strong>
+</div>
+
+<div class="ganancia">
+<span>GANANCIA</span>
+<strong id="editarResultadoGanancia">$0.00</strong>
+<div id="editarResultadoMargen">Margen: 0%</div>
+</div>
+
+</div>
+
+<div class="modal-botones">
+<button class="btn-secundario" onclick="cerrarModalEditarProducto()">
+Cancelar
+</button>
+
+<button class="btn-principal" onclick="guardarEdicionProducto()">
+<img src="iconos/guardar.png" alt="">
+Guardar cambios
+</button>
+</div>
+
+</div>
+
+</div>
+
 <!-- ACCESO SECRETO -->
 
 <div id="accesoSecreto">
@@ -1140,6 +1292,11 @@ let imagenEditarMaterial="";
 let materialEditandoId=null;
 let materialReponiendoId=null;
 let materialesProducto=[];
+let productoEditandoId=null;
+let materialesProductoEdicion=[];
+let imagenEditarProducto="";
+let productoActualId=null;
+
 
 const $=id=>document.getElementById(id);
 
@@ -1943,14 +2100,13 @@ if(!materialesProducto.length)
 return alert("Agrega al menos un material.");
 
 const r=calcularProducto();
+const nuevoId=Date.now();
 
 productos.push({
-id:Date.now(),
+id:nuevoId,
 nombre,
 imagen:imagenProducto,
-materiales:[
-...materialesProducto
-],
+materiales:[...materialesProducto],
 minutos:parseFloat($("minutosTrabajo").value)||0,
 precioHora:parseFloat($("precioHora").value)||0,
 empaque:r.empaque,
@@ -1958,8 +2114,12 @@ precioVenta:r.precioVenta,
 costoMateriales:r.costoMateriales,
 manoObra:r.manoObra,
 costoTotal:r.total,
-ganancia:r.ganancia
+ganancia:r.ganancia,
+fabricado:false,
+materialesDescontados:[]
 });
+
+productoActualId=nuevoId;
 
 guardarDatos();
 mostrarProductos();
@@ -1990,8 +2150,9 @@ Calcula tu primera creación.
 return;
 }
 
-productos.forEach(
-p=>{
+productos.forEach(p=>{
+const fabricado=Boolean(p.fabricado);
+
 lista.innerHTML+=`
 <article class="producto">
 
@@ -2018,78 +2179,70 @@ ${escapar(p.nombre)}
 
 <div class="dato">
 <span>
-<img
-src="iconos/utilizados.png"
-alt="">
+<img src="iconos/utilizados.png" alt="">
 Materiales
 </span>
 <strong>
-$${Number(
-p.costoMateriales
-).toFixed(2)}
+$${Number(p.costoMateriales||0).toFixed(2)}
 </strong>
 </div>
 
 <div class="dato">
 <span>
-<img
-src="iconos/me.png"
-alt="">
+<img src="iconos/me.png" alt="">
 Mano de obra
 </span>
 <strong>
-$${Number(
-p.manoObra
-).toFixed(2)}
+$${Number(p.manoObra||0).toFixed(2)}
 </strong>
 </div>
 
 <div class="dato">
 <span>
-<img
-src="iconos/empaque.png"
-alt="">
+<img src="iconos/empaque.png" alt="">
 Empaque
 </span>
 <strong>
-$${Number(
-p.empaque
-).toFixed(2)}
+$${Number(p.empaque||0).toFixed(2)}
 </strong>
 </div>
 
 <div class="producto-precio">
-<span>
-Costo real
-</span>
+<span>Costo real</span>
 <strong>
-$${Number(
-p.costoTotal
-).toFixed(2)}
+$${Number(p.costoTotal||0).toFixed(2)}
 </strong>
 <span>
 Precio de venta:
-$${Number(
-p.precioVenta
-).toFixed(2)}
+$${Number(p.precioVenta||0).toFixed(2)}
 </span>
 </div>
 
 <div
 style="margin-top:10px;padding:12px;border-radius:14px;background:var(--verde);text-align:center;font-weight:700">
 Ganancia:
-$${Number(
-p.ganancia
-).toFixed(2)}
+$${Number(p.ganancia||0).toFixed(2)}
 </div>
 
-<br>
+<div class="producto-estado ${fabricado?"fabricado":""}">
+${fabricado
+?"✓ Stock descontado para este producto"
+:"Producto guardado · stock todavía sin descontar"}
+</div>
+
+<div class="producto-acciones">
+<button
+class="btn-secundario"
+onclick="editarProducto(${p.id})">
+✏️ Editar
+</button>
 
 <button
 class="btn-peligro"
 onclick="eliminarProducto(${p.id})">
 Eliminar
 </button>
+</div>
 
 </article>
 `;
@@ -2099,15 +2252,48 @@ Eliminar
 /* ELIMINAR PRODUCTO */
 
 function eliminarProducto(id){
+const producto=productos.find(p=>p.id===id);
+
+if(!producto)
+return;
+
 if(!confirm("¿Eliminar este producto?"))
 return;
 
-productos=productos.filter(
-p=>p.id!==id
+/* Si ya había descontado stock, lo devuelve. */
+if(producto.fabricado && Array.isArray(producto.materialesDescontados)){
+for(const item of producto.materialesDescontados){
+const m=materiales.find(x=>x.id===item.materialId);
+
+if(m){
+m.stock=Number(m.stock)||0;
+m.stock+=Number(item.cantidadBase)||0;
+m.cantidadActual=convertirDesdeBase(
+m.stock,
+m.unidadOriginal
 );
+}
+}
+}
+
+productos=productos.filter(p=>p.id!==id);
+
+if(productoActualId===id)
+productoActualId=null;
 
 guardarDatos();
 mostrarProductos();
+mostrarMateriales();
+actualizarResumen();
+actualizarSelectorMateriales();
+mostrarComprasAutomaticas();
+actualizarInicio();
+
+alert(
+producto.fabricado
+?"Producto eliminado y materiales devueltos al stock."
+:"Producto eliminado."
+);
 }
 
 /* FABRICAR */
@@ -2116,44 +2302,504 @@ function fabricarProducto(){
 if(!materialesProducto.length)
 return alert("Primero agrega los materiales utilizados.");
 
+let producto=null;
+
+if(productoActualId!==null){
+producto=productos.find(p=>p.id===productoActualId);
+}
+
+if(!producto){
+return alert(
+"Primero guarda el producto y después podrás fabricar y descontar sus materiales."
+);
+}
+
+if(producto.fabricado){
+return alert("Este producto ya fue fabricado y sus materiales ya fueron descontados.");
+}
+
 if(!confirm("Esto descontará los materiales utilizados de tu stock. ¿Ya fabricaste este producto?"))
 return;
 
 for(const item of materialesProducto){
-const m=materiales.find(
-x=>x.id===item.materialId
-);
+const m=materiales.find(x=>x.id===item.materialId);
 
-if(m&&m.stock<item.cantidadBase){
+if(!m)
+return alert(`No encuentro el material "${item.nombre}".`);
+
+if(Number(m.stock)<Number(item.cantidadBase)){
 return alert(
 `No tienes suficiente "${m.nombre}".`
 );
 }
 }
 
+/* Descontar y guardar exactamente qué se descontó. */
+const descontados=[];
+
 for(const item of materialesProducto){
-const m=materiales.find(
-x=>x.id===item.materialId
-);
+const m=materiales.find(x=>x.id===item.materialId);
 
 if(m){
-m.stock-=item.cantidadBase;
-m.stock=Math.max(0,m.stock);
+m.stock=Math.max(
+0,
+(Number(m.stock)||0)-Number(item.cantidadBase)
+);
+
 m.cantidadActual=convertirDesdeBase(
 m.stock,
 m.unidadOriginal
 );
+
+descontados.push({
+materialId:m.id,
+cantidadBase:Number(item.cantidadBase)||0,
+nombre:m.nombre
+});
 }
 }
 
+producto.fabricado=true;
+producto.materialesDescontados=descontados;
+
 guardarDatos();
+mostrarProductos();
 mostrarMateriales();
 actualizarResumen();
 actualizarSelectorMateriales();
 mostrarComprasAutomaticas();
 actualizarInicio();
 
-alert("Materiales descontados del inventario.");
+alert("Materiales descontados del inventario y vinculados a este producto.");
+}
+
+/* PREVISUALIZAR PRODUCTO EDITADO */
+
+function previsualizarProductoEditar(event){
+const archivo=event.target.files[0];
+
+if(!archivo)
+return;
+
+const lector=new FileReader();
+
+lector.onload=e=>{
+imagenEditarProducto=e.target.result;
+$("vistaEditarProducto").src=imagenEditarProducto;
+$("vistaEditarProducto").style.display="block";
+};
+
+lector.readAsDataURL(archivo);
+}
+
+/* USO ACTUAL POR MATERIAL */
+
+function obtenerUsoPorMaterial(lista){
+const uso={};
+
+for(const item of lista||[]){
+const id=Number(item.materialId);
+
+if(!Number.isFinite(id))
+continue;
+
+uso[id]=(uso[id]||0)+(Number(item.cantidadBase)||0);
+}
+
+return uso;
+}
+
+/* STOCK DISPONIBLE PARA EDITAR
+   Si el producto ya descontó stock, se devuelve virtualmente
+   lo que ese mismo producto había usado. */
+
+function stockDisponibleParaEdicion(materialId){
+const m=materiales.find(x=>x.id===Number(materialId));
+
+if(!m)
+return 0;
+
+let stock=Number(m.stock)||0;
+
+const producto=productos.find(p=>p.id===productoEditandoId);
+
+if(
+producto &&
+producto.fabricado &&
+Array.isArray(producto.materialesDescontados)
+){
+const usadoAntes=producto.materialesDescontados
+.filter(x=>Number(x.materialId)===Number(materialId))
+.reduce(
+(s,x)=>s+(Number(x.cantidadBase)||0),
+0
+);
+
+stock+=usadoAntes;
+}
+
+return stock;
+}
+
+/* SELECTOR DE MATERIALES DE EDICIÓN */
+
+function actualizarSelectorMaterialesEdicion(){
+const selector=$("editarMaterialSeleccionado");
+
+selector.innerHTML=
+'<option value="">Selecciona un material</option>'+
+materiales.map(m=>{
+const disponible=stockDisponibleParaEdicion(m.id);
+
+return `
+<option value="${m.id}">
+${escapar(m.nombre)}
+— disponible:
+${formatear(convertirDesdeBase(disponible,m.unidadOriginal))}
+${unidadCorta(m.unidadOriginal)}
+</option>
+`;
+}).join("");
+}
+
+/* EDITAR PRODUCTO */
+
+function editarProducto(id){
+const producto=productos.find(p=>p.id===id);
+
+if(!producto)
+return;
+
+productoEditandoId=id;
+materialesProductoEdicion=(producto.materiales||[]).map(x=>({...x}));
+imagenEditarProducto="";
+
+$("editarNombreProducto").value=producto.nombre||"";
+$("editarImagenProducto").value="";
+
+if(producto.imagen){
+$("vistaEditarProducto").src=producto.imagen;
+$("vistaEditarProducto").style.display="block";
+}else{
+$("vistaEditarProducto").style.display="none";
+}
+
+$("editarMinutosTrabajo").value=Number(producto.minutos)||0;
+$("editarPrecioHora").value=Number(producto.precioHora)||0;
+$("editarCostoEmpaque").value=Number(producto.empaque)||0;
+$("editarPrecioVenta").value=Number(producto.precioVenta)||0;
+
+actualizarSelectorMaterialesEdicion();
+mostrarMaterialesEdicion();
+calcularProductoEdicion();
+
+$("modalEditarProducto").classList.add("activo");
+}
+
+/* AGREGAR MATERIAL EN EDICIÓN */
+
+function agregarMaterialProductoEdicion(){
+const id=Number($("editarMaterialSeleccionado").value);
+const cantidad=parseFloat($("editarCantidadUsada").value);
+const unidad=$("editarUnidadUsada").value;
+
+const m=materiales.find(x=>x.id===id);
+
+if(!m)
+return alert("Selecciona un material.");
+
+if(!Number.isFinite(cantidad)||cantidad<=0)
+return alert("Escribe una cantidad válida.");
+
+const cantidadBase=convertirAUnidadBase(cantidad,unidad);
+const usoActual=obtenerUsoPorMaterial(materialesProductoEdicion)[id]||0;
+const disponible=stockDisponibleParaEdicion(id);
+
+/* La suma de todas las filas del mismo material no puede superar el stock. */
+if(usoActual+cantidadBase>disponible+0.000000001){
+return alert(
+`No tienes suficiente "${m.nombre}".\n\nDisponible para este producto: `+
+`${formatear(convertirDesdeBase(disponible,m.unidadOriginal))} ${unidadCorta(m.unidadOriginal)}.`
+);
+}
+
+const costo=cantidadBase*Number(m.costoUnitario||0);
+
+materialesProductoEdicion.push({
+id:Date.now()+Math.floor(Math.random()*1000),
+materialId:id,
+nombre:m.nombre,
+cantidad,
+unidad,
+cantidadBase,
+costo
+});
+
+mostrarMaterialesEdicion();
+calcularProductoEdicion();
+
+$("editarCantidadUsada").value="";
+}
+
+/* MOSTRAR MATERIALES EN EDICIÓN */
+
+function mostrarMaterialesEdicion(){
+$("listaMaterialesEdicion").innerHTML=
+materialesProductoEdicion.map((x,i)=>`
+<div class="uso">
+<div class="uso-nombre">
+${escapar(x.nombre)}
+</div>
+<div>
+${formatear(x.cantidad)}
+${unidadCorta(x.unidad)}
+</div>
+<div class="uso-costo">
+$${Number(x.costo||0).toFixed(2)}
+</div>
+<button
+class="btn-quitar"
+onclick="quitarMaterialEdicion(${i})">
+×
+</button>
+</div>
+`).join("");
+
+actualizarEstadoStockEdicion();
+}
+
+/* QUITAR MATERIAL DE EDICIÓN */
+
+function quitarMaterialEdicion(i){
+materialesProductoEdicion.splice(i,1);
+mostrarMaterialesEdicion();
+calcularProductoEdicion();
+}
+
+/* CALCULAR EDICIÓN */
+
+function calcularProductoEdicion(){
+const costoMateriales=materialesProductoEdicion.reduce(
+(s,x)=>s+Number(x.costo||0),
+0
+);
+
+const minutos=parseFloat($("editarMinutosTrabajo").value)||0;
+const precioHora=parseFloat($("editarPrecioHora").value)||0;
+const empaque=parseFloat($("editarCostoEmpaque").value)||0;
+const precioVenta=parseFloat($("editarPrecioVenta").value)||0;
+
+const manoObra=minutos/60*precioHora;
+const total=costoMateriales+manoObra+empaque;
+const ganancia=precioVenta-total;
+const margen=precioVenta?ganancia/precioVenta*100:0;
+
+$("editarResultadoMateriales").textContent="$"+costoMateriales.toFixed(2);
+$("editarResultadoManoObra").textContent="$"+manoObra.toFixed(2);
+$("editarResultadoEmpaque").textContent="$"+empaque.toFixed(2);
+$("editarResultadoTotal").textContent="$"+total.toFixed(2);
+$("editarResultadoGanancia").textContent="$"+ganancia.toFixed(2);
+$("editarResultadoMargen").textContent="Margen: "+margen.toFixed(1)+"%";
+
+actualizarEstadoStockEdicion();
+
+return{
+costoMateriales,
+manoObra,
+empaque,
+precioVenta,
+total,
+ganancia
+};
+}
+
+/* AVISO DE CAMBIOS DE STOCK */
+
+function actualizarEstadoStockEdicion(){
+const producto=productos.find(p=>p.id===productoEditandoId);
+const estado=$("estadoStockEdicion");
+
+if(!producto){
+estado.innerHTML="";
+return;
+}
+
+if(!producto.fabricado){
+estado.innerHTML=
+"Este producto todavía no ha descontado materiales del stock. "+
+"Los cambios se guardarán y el stock se descontará cuando lo fabriques.";
+return;
+}
+
+const anterior=obtenerUsoPorMaterial(producto.materialesDescontados||[]);
+const nuevo=obtenerUsoPorMaterial(materialesProductoEdicion);
+
+const cambios=[];
+
+for(const id of new Set([
+...Object.keys(anterior),
+...Object.keys(nuevo)
+])){
+const delta=(nuevo[id]||0)-(anterior[id]||0);
+
+if(Math.abs(delta)<0.000000001)
+continue;
+
+const m=materiales.find(x=>x.id===Number(id));
+if(!m)
+continue;
+
+if(delta<0){
+cambios.push(
+`↩️ ${escapar(m.nombre)}: devuelve `+
+`${formatear(convertirDesdeBase(Math.abs(delta),m.unidadOriginal))} ${unidadCorta(m.unidadOriginal)}`
+);
+}else{
+cambios.push(
+`📦 ${escapar(m.nombre)}: descontará `+
+`${formatear(convertirDesdeBase(delta,m.unidadOriginal))} ${unidadCorta(m.unidadOriginal)}`
+);
+}
+}
+
+estado.innerHTML=cambios.length
+?`Al guardar:<br>${cambios.join("<br>")}`
+:"✓ No habrá cambios en el stock.";
+}
+
+/* AJUSTAR STOCK SEGÚN LA EDICIÓN */
+
+function ajustarStockPorEdicion(producto,materialesNuevos){
+const anterior=obtenerUsoPorMaterial(producto.materialesDescontados||[]);
+const nuevo=obtenerUsoPorMaterial(materialesNuevos);
+
+for(const id of new Set([
+...Object.keys(anterior),
+...Object.keys(nuevo)
+])){
+const delta=(nuevo[id]||0)-(anterior[id]||0);
+const m=materiales.find(x=>x.id===Number(id));
+
+if(!m||Math.abs(delta)<0.000000001)
+continue;
+
+/* delta positivo = necesita más material = quitar stock.
+   delta negativo = necesita menos = devolver stock. */
+if(delta>0){
+if(Number(m.stock)<delta-0.000000001){
+return alert(
+`No tienes suficiente "${m.nombre}" para aumentar la cantidad.`
+);
+}
+m.stock-=delta;
+}else{
+m.stock+=Math.abs(delta);
+}
+
+m.stock=Math.max(0,m.stock);
+m.cantidadActual=convertirDesdeBase(
+m.stock,
+m.unidadOriginal
+);
+}
+
+return true;
+}
+
+/* GUARDAR EDICIÓN DEL PRODUCTO */
+
+function guardarEdicionProducto(){
+const producto=productos.find(p=>p.id===productoEditandoId);
+
+if(!producto)
+return;
+
+const nombre=$("editarNombreProducto").value.trim();
+
+if(!nombre)
+return alert("Escribe el nombre del producto.");
+
+if(!materialesProductoEdicion.length)
+return alert("El producto debe tener al menos un material.");
+
+const r=calcularProductoEdicion();
+
+/* Primero comprobamos y ajustamos stock si ya estaba fabricado. */
+if(producto.fabricado){
+const anterior=obtenerUsoPorMaterial(producto.materialesDescontados||[]);
+const nuevo=obtenerUsoPorMaterial(materialesProductoEdicion);
+
+/* Comprobación completa antes de cambiar nada. */
+for(const id of new Set([
+...Object.keys(anterior),
+...Object.keys(nuevo)
+])){
+const delta=(nuevo[id]||0)-(anterior[id]||0);
+const m=materiales.find(x=>x.id===Number(id));
+
+if(delta>0 && m && Number(m.stock)<delta-0.000000001){
+return alert(
+`No tienes suficiente "${m.nombre}" para aumentar la cantidad.`
+);
+}
+}
+
+const ajustado=ajustarStockPorEdicion(
+producto,
+materialesProductoEdicion
+);
+
+if(!ajustado)
+return;
+
+/* El nuevo uso pasa a ser lo que está descontado. */
+producto.materialesDescontados=materialesProductoEdicion.map(x=>({
+materialId:x.materialId,
+cantidadBase:Number(x.cantidadBase)||0,
+nombre:x.nombre
+}));
+}
+
+producto.nombre=nombre;
+producto.materiales=materialesProductoEdicion.map(x=>({...x}));
+producto.minutos=parseFloat($("editarMinutosTrabajo").value)||0;
+producto.precioHora=parseFloat($("editarPrecioHora").value)||0;
+producto.empaque=r.empaque;
+producto.precioVenta=r.precioVenta;
+producto.costoMateriales=r.costoMateriales;
+producto.manoObra=r.manoObra;
+producto.costoTotal=r.total;
+producto.ganancia=r.ganancia;
+
+if(imagenEditarProducto){
+producto.imagen=imagenEditarProducto;
+}
+
+guardarDatos();
+mostrarProductos();
+mostrarMateriales();
+actualizarResumen();
+actualizarSelectorMateriales();
+mostrarComprasAutomaticas();
+actualizarInicio();
+
+cerrarModalEditarProducto();
+
+alert(
+producto.fabricado
+?"Producto actualizado y stock ajustado correctamente."
+:"Producto actualizado correctamente."
+);
+}
+
+/* CERRAR EDICIÓN */
+
+function cerrarModalEditarProducto(){
+$("modalEditarProducto").classList.remove("activo");
+productoEditandoId=null;
+materialesProductoEdicion=[];
+imagenEditarProducto="";
+$("editarImagenProducto").value="";
 }
 
 /* LIMPIAR MATERIAL */
@@ -2442,6 +3088,7 @@ respaldo.compras
 [];
 
 materialesProducto=[];
+productoActualId=null;
 
 normalizarMateriales();
 guardarDatos();
