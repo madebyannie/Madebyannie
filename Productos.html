@@ -658,6 +658,48 @@ footer p{
  </div>
 
 </div>
+
+ <div class="card producto"
+
+     onclick="verProducto(this)"
+
+     data-img1="manillas-negra-portada.png"
+     data-img2="manilla-delgada.png"
+     data-img3="manilla-gruesa.png"
+     data-img4="manillas-detalle.png"
+
+     data-precio="$3.50/6.00"
+
+     data-unico="no"
+     data-nuevo="si"
+     data-proximamente="no"
+     data-pedido="no"
+     data-versiones="si"
+     data-opcion1="V1"
+     data-opcion2="V2"
+     data-opcion3="Par"
+     data-titulo-opciones="Selecciona un modelo:"
+     data-vendido="no">
+
+    <div class="etiquetas">
+        <span class="etiqueta nuevo">DISPONIBLE</span>
+    </div>
+
+    <img src="manillas-negra-portada.png">
+
+    <h3 class="nombre">Black Dahlia</h3>
+
+    <div class="precio">$3.50/6.00</div>
+    <p class="ver-mas">Ver detalles</p>
+    <div id="nota-producto" class="nota-producto"></div>
+    <p class="desc">
+   Manillas de múltiples hileras con broche y cadena regulable.Elige a tu gusto, pide la version 1 o 2 individual o el par para compartir.
+   <br>
+  ★ Personalizable:puedes pedir la combinación de colores que prefieras(un solo color por manilla).
+  ★ Elaboración bajo pedido.
+    </p>
+ </div>
+</div>
 <footer>
 <div class="redes">
 
@@ -704,6 +746,12 @@ function verProducto(card) {
     let pedido = card.getAttribute("data-pedido");
    
     let proximamente = card.getAttribute("data-proximamente");
+     
+    let versiones = card.getAttribute("data-versiones") || "no";
+    let opcion1 = card.getAttribute("data-opcion1") || "";
+    let opcion2 = card.getAttribute("data-opcion2") || "";
+    let opcion3 = card.getAttribute("data-opcion3") || "";
+    let tituloOpciones = card.getAttribute("data-titulo-opciones") || "";
 
     let url =
     "Detalle.html?nombre=" + encodeURIComponent(nombre)
@@ -730,7 +778,12 @@ function verProducto(card) {
     
     + "&pedido=" + encodeURIComponent(pedido)
     
-    + "&nuevo=" + encodeURIComponent(nuevo);
+    + "&nuevo=" + encodeURIComponent(nuevo)
+    + "&versiones=" + encodeURIComponent(versiones)
+    + "&opcion1=" + encodeURIComponent(opcion1)
+    + "&opcion2=" + encodeURIComponent(opcion2)
+    + "&opcion3=" + encodeURIComponent(opcion3)
+    + "&tituloOpciones=" + encodeURIComponent(tituloOpciones);
 
     window.location.href = url;
 }

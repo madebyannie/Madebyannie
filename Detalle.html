@@ -418,6 +418,94 @@ footer p{
     background-color: #A9C7E8;
 }
 
+
+
+/* Opciones de versión/color */
+.contenedor-versiones {
+    width: 100%;
+    margin: 8px 0 5px;
+    font-family: "Quicksand", sans-serif;
+    text-align: left;
+}
+
+.titulo-versiones {
+    margin: 0 0 10px;
+    color: #7A6F60;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.opciones-versiones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.opcion-version {
+    position: relative;
+}
+
+.opcion-version input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.opcion-version label {
+    display: inline-block;
+    padding: 8px 15px;
+    border: 2px solid #A9C7E8;
+    border-radius: 20px;
+    background: #F5F2E8;
+    color: #7A6F60;
+    font-family: "Quicksand", sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.opcion-version label:hover {
+    background: #EEF6FD;
+}
+
+.opcion-version input[type="radio"]:checked + label {
+    background: #A9C7E8;
+    color: white;
+}
+
+.opciones-producto {
+    width: 100%;
+    margin-top: 15px;
+    text-align: left;
+    font-family: "Quicksand", sans-serif;
+}
+
+.opciones-producto h4 {
+    margin: 0 0 10px;
+    color: #7A6F60;
+    font-size: 15px;
+}
+
+.opciones-lista {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.opcion-radio {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #7A6F60;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.opcion-radio input {
+    accent-color: #A9C7E8;
+    cursor: pointer;
+}
+
 #visor {
 
     display: none;
@@ -461,7 +549,7 @@ footer p{
     right:18px;
     font-size:16px;
     top:15px;
-    transform:none
+    transform:none;
 
 }
 
@@ -677,20 +765,24 @@ footer p{
 
         <h3 id="precio"></h3>
 
-       <div id="estadoProducto"></div>
+        <div id="estadoProducto"></div>
 
-    <p id="desc"></p>
+        <div id="contenedor-versiones" class="contenedor-versiones" style="display:none;">
+            <p id="tituloVersiones" class="titulo-versiones"></p>
+            <div id="opcionesVersiones" class="opciones-versiones"></div>
+        </div>
 
-    <div id="nota-producto" class="nota-producto"></div>
+        <p id="desc"></p>
 
-    <a id="btnPedir" class="boton">Agregar al carrito</a> 
+        <div id="nota-producto" class="nota-producto"></div>
+
+        <a id="btnPedir" class="boton">Agregar al carrito</a> 
 
 </div>
 
 </div>
 
 <footer>
-
     <div class="redes">
 
     <a href="https://instagram.com/madebyannie.art" target="_blank">
@@ -734,6 +826,12 @@ let vendido = params.get("vendido");
 let nuevo = params.get("nuevo");
 
 let pedido = params.get("pedido");
+
+let versiones = params.get("versiones");
+let opcion1 = params.get("opcion1") || "";
+let opcion2 = params.get("opcion2") || "";
+let opcion3 = params.get("opcion3") || "";
+let tituloOpciones = params.get("tituloOpciones") || "";
 
 let proximamente = params.get("proximamente");
 
@@ -829,6 +927,38 @@ if (
 
 }
 
+const contenedorVersiones = document.getElementById("contenedor-versiones");
+const opcionesVersiones = document.getElementById("opcionesVersiones");
+const tituloVersiones = document.getElementById("tituloVersiones");
+
+if (versiones === "si" && opcion1 && opcion2) {
+
+    contenedorVersiones.style.display = "block";
+
+    tituloVersiones.innerText =
+        tituloOpciones || "Selecciona un modelo:";
+
+    opcionesVersiones.innerHTML = `
+        <div class="opcion-version">
+            <input type="radio" name="versionProducto" id="opcion1" value="${opcion1}">
+            <label for="opcion1">${opcion1}</label>
+        </div>
+
+        <div class="opcion-version">
+            <input type="radio" name="versionProducto" id="opcion2" value="${opcion2}">
+            <label for="opcion2">${opcion2}</label>
+        </div>
+
+        ${opcion3 ? `
+        <div class="opcion-version">
+            <input type="radio" name="versionProducto" id="opcion3" value="${opcion3}">
+            <label for="opcion3">${opcion3}</label>
+        </div>
+        ` : ""}
+    `;
+}
+
+// Nota del producto
 const notaProducto = document.getElementById("nota-producto");
 
 if (pedido == "si" && unico == "si") {
@@ -876,6 +1006,7 @@ if (pedido == "si" && unico == "si") {
     notaProducto.style.display = "none";
 
 }
+
 function cambiar(img) {
 
     document.getElementById("principal").src = img.src;
@@ -891,22 +1022,51 @@ document.getElementById("btnPedir").onclick = function(){
         return;
     }
 
+    let opcionSeleccionada = "";
+
+    if (versiones === "si" && opcion1 && opcion2) {
+
+        const radioSeleccionado =
+            document.querySelector('input[name="versionProducto"]:checked');
+
+        if (!radioSeleccionado) {
+            alert("Selecciona una opción antes de agregar el producto 🩵");
+            return;
+        }
+
+        opcionSeleccionada = radioSeleccionado.value;
+    }
+
     let carrito =
         JSON.parse(localStorage.getItem("carrito")) || [];
 
-    let precioNumero =
-        parseFloat(
+    // Precio según la opción elegida
+    let precioNumero = 0;
+
+    if (opcionSeleccionada === "V1" || opcionSeleccionada === "V2") {
+        precioNumero = 3.50;
+    } else if (opcionSeleccionada === "Par") {
+        precioNumero = 6.00;
+    } else {
+        precioNumero = parseFloat(
             precio.replace(/[^0-9.]/g, "")
         );
+    }
+
+    let precioTexto = "$" + precioNumero.toFixed(2);
 
     let productoExistente =
         carrito.find(
-            producto => producto.nombre === nombre
+            producto =>
+                producto.nombre === nombre &&
+                (producto.opcion || "") === opcionSeleccionada
         );
 
     if(productoExistente){
 
         productoExistente.cantidad += 1;
+        productoExistente.precio = precioNumero;
+        productoExistente.precioTexto = precioTexto;
 
     }else{
 
@@ -916,11 +1076,13 @@ document.getElementById("btnPedir").onclick = function(){
 
             precio: precioNumero,
 
-            precioTexto: precio,
+            precioTexto: precioTexto,
 
             img: img1,
 
             desc: desc,
+
+            opcion: opcionSeleccionada,
 
             cantidad: 1
 
@@ -937,6 +1099,7 @@ document.getElementById("btnPedir").onclick = function(){
 
     alert(
         nombre +
+        (opcionSeleccionada ? " - " + opcionSeleccionada : "") +
         " se agregó al carrito 🛒"
     );
 
@@ -1004,6 +1167,8 @@ function actualizarContador(){
 }
 
 actualizarContador();
+
+
 </script>
 
 </body>

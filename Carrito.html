@@ -820,6 +820,7 @@ function realizarPedido(){
         mensaje +=
             "• " +
             producto.nombre +
+            (producto.opcion ? " — Opción: " + producto.opcion : "") +
             " x" +
             producto.cantidad +
             " — $" +
