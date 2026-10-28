@@ -107,8 +107,8 @@ header{background:var(--crema);padding:18px 15px;text-align:center;box-shadow:0 
 .vista-previa{display:none;width:150px;height:150px;object-fit:cover;margin:15px auto 0;border-radius:20px;}
 
 /* MATERIALES Y PRODUCTOS */
-.materiales{display:flex;flex-direction:column;align-items:center;gap:18px;width:100%;box-sizing:border-box;}
-.material{display:grid;grid-template-columns:100px 1fr;gap:3px 12px;align-items:start;background:#fff;border-radius:18px;padding:12px;width:500px;box-sizing:border-box;box-shadow:0 4px 12px var(--sombra);}
+.materiales{display:flex;flex-direction:row;align-items:stretch;gap:18px;width:100%;box-sizing:border-box;overflow-x:auto;overflow-y:hidden;padding:8px 4px 18px;scroll-snap-type:x mandatory;scroll-behavior:smooth;justify-content:flex-start;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;}
+.material{flex:0 0 500px;scroll-snap-align:start;display:grid;grid-template-columns:100px 1fr;gap:3px 12px;align-items:start;background:#fff;border-radius:18px;padding:12px;width:500px;box-sizing:border-box;box-shadow:0 4px 12px var(--sombra);}
 
 /* IMAGEN MATERIAL */
 .material>.imagen-material,.material>.sin-imagen{grid-column:1;grid-row:1 / -1;width:100px;height:100px;margin:0;border-radius:15px;}
@@ -215,7 +215,7 @@ footer{padding:20px 15px;background:var(--crema);text-align:center;font-size:12p
 
 @media(max-width:750px){
 .materiales{width:100%;padding:0 10px;box-sizing:border-box;align-items:center;}
-.material{width:100%;max-width:375px;grid-template-columns:75px 1fr;gap:10px;padding:6px;box-sizing:border-box;}
+.material{flex:0 0 min(88%,375px);width:min(88%,375px);max-width:375px;grid-template-columns:75px 1fr;gap:10px;padding:6px;box-sizing:border-box;scroll-snap-align:center;}
 .material>.imagen-material,.material>.sin-imagen{width:75px;height:75px;}
 .material>.sin-imagen img{width:50px;height:50px;}
 .material-info{align-self:start;transform:none;}
@@ -1443,7 +1443,7 @@ actualizarInicio();
 
 limpiarMaterial();
 
-alert("Material guardado.\n\nCosto por "+unidadSingular(unidad)+": $"+costoUnitario.toFixed(4));
+alert("Material guardado.\n\nCosto por "+unidadSingular(unidad)+": "+costoUnitarioVisible(costoUnitario));
 
 }
 /* MOSTRAR MATERIALES */
@@ -1560,7 +1560,7 @@ ${unidadCorta(m.unidadOriginal)}
 Costo por ${unidadSingular(m.unidadOriginal)}
 </span>
 <strong>
-$${Number(m.costoUnitario).toFixed(4)}
+$${costoUnitarioVisible(m.costoUnitario).replace("$","")}
 </strong>
 </div>
 
@@ -1619,6 +1619,15 @@ litros:"L"
 
 function formatear(numero){
 return Number(Number(numero).toFixed(3));
+}
+
+/* Para mostrar costos unitarios en centavos, sin decimales interminables.
+   Todo costo positivo menor a un centavo se muestra como $0.01.
+   Los cálculos internos conservan su precisión original. */
+function costoUnitarioVisible(valor){
+valor=Number(valor)||0;
+if(valor<=0)return "$0.00";
+return "$"+Math.max(0.01,Math.round(valor*100)/100).toFixed(2);
 }
 
 /* EDITAR MATERIAL COMPLETO */
@@ -2050,6 +2059,7 @@ manoObra:r.manoObra,
 costoTotal:r.total,
 ganancia:r.ganancia,
 fabricado:false,
+cantidadProductos:1,
 materialesDescontados:[]
 });
 
@@ -2085,6 +2095,7 @@ return;
 }
 
 productos.forEach(p=>{
+if(!Number.isFinite(Number(p.cantidadProductos))||Number(p.cantidadProductos)<1)p.cantidadProductos=1;
 const fabricado=Boolean(p.fabricado);
 
 lista.innerHTML+=`
@@ -2110,6 +2121,7 @@ alt="">
 <div class="producto-nombre">
 ${escapar(p.nombre)}
 </div>
+<div class="producto-estado">Cantidad de productos: <strong>${Number(p.cantidadProductos)||1}</strong></div>
 
 <div class="dato">
 <span>
@@ -2180,23 +2192,37 @@ Eliminar
 });
 }
 
-/* DUPLICAR PRODUCTO: copia la receta, pero no descuenta stock */
+/* DUPLICAR PRODUCTO: aumenta la cantidad en la misma tarjeta y descuenta stock. */
 function duplicarProducto(id){
-const original=productos.find(p=>p.id===id);
-if(!original)return;
-
-const copia={
-...original,
-id:Date.now(),
-nombre:(original.nombre||"Producto")+" (copia)",
-materiales:(original.materiales||[]).map(x=>({...x,id:Date.now()+Math.floor(Math.random()*100000)})),
-fabricado:false,
-materialesDescontados:[]
-};
-productos.push(copia);
-guardarDatos();
-mostrarProductos();
-alert("Producto duplicado. Puedes editar el nombre, la foto o los materiales. No se descontó stock.");
+const p=productos.find(x=>x.id===id);
+if(!p)return;
+const receta=p.materiales||[];
+if(!receta.length)return alert("Este producto no tiene materiales guardados.");
+const cantidadActual=Math.max(1,Number(p.cantidadProductos)||1);
+// Si todavía no se había fabricado, el primer registro de stock corresponde a la unidad original.
+const unidadesADescontar=p.fabricado?1:cantidadActual+1;
+for(const item of receta){
+ const m=materiales.find(x=>Number(x.id)===Number(item.materialId));
+ if(!m)return alert(`No encuentro el material "${item.nombre}".`);
+ const requerido=(Number(item.cantidadBase)||0)*unidadesADescontar;
+ if((Number(m.stock)||0)<requerido)return alert(`No tienes suficiente "${m.nombre}". Necesitas ${formatear(convertirDesdeBase(requerido,m.unidadOriginal))} ${unidadCorta(m.unidadOriginal)} para registrar ${unidadesADescontar} producto(s).`);
+}
+// Si aún no estaba fabricado, descuenta también la unidad que ya estaba registrada.
+if(!p.fabricado){
+ p.materialesDescontados=receta.map(x=>({materialId:x.materialId,cantidadBase:(Number(x.cantidadBase)||0)*cantidadActual,nombre:x.nombre}));
+ for(const item of p.materialesDescontados){const m=materiales.find(x=>Number(x.id)===Number(item.materialId));if(m){m.stock-=item.cantidadBase;m.cantidadActual=convertirDesdeBase(m.stock,m.unidadOriginal);}}
+ p.fabricado=true;
+}
+for(const item of receta){
+ const m=materiales.find(x=>Number(x.id)===Number(item.materialId));
+ if(m){const cantidadBase=Number(item.cantidadBase)||0;m.stock=Math.max(0,(Number(m.stock)||0)-cantidadBase);m.cantidadActual=convertirDesdeBase(m.stock,m.unidadOriginal);}
+ const existente=p.materialesDescontados.find(x=>Number(x.materialId)===Number(item.materialId));
+ if(existente)existente.cantidadBase=(Number(existente.cantidadBase)||0)+(Number(item.cantidadBase)||0);
+ else p.materialesDescontados.push({materialId:item.materialId,cantidadBase:Number(item.cantidadBase)||0,nombre:item.nombre});
+}
+p.cantidadProductos=cantidadActual+1;
+guardarDatos();mostrarProductos();mostrarMateriales();actualizarResumen();actualizarSelectorMateriales();mostrarComprasAutomaticas();actualizarInicio();
+alert(`Listo, ahora tienes ${p.cantidadProductos} producto(s). Se descontaron los materiales del inventario.`);
 }
 
 /* ELIMINAR PRODUCTO */
