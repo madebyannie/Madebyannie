@@ -1443,7 +1443,7 @@ actualizarInicio();
 
 limpiarMaterial();
 
-alert("Material guardado.\n\nCosto por "+unidadSingular(unidad)+": "+costoUnitarioVisible(costoUnitario));
+alert("Material guardado.\n\nCosto por "+unidadSingular(unidad)+": "+costoUnitarioVisible(costoPorUnidadElegida(costoUnitario,unidad)));
 
 }
 /* MOSTRAR MATERIALES */
@@ -1560,7 +1560,7 @@ ${unidadCorta(m.unidadOriginal)}
 Costo por ${unidadSingular(m.unidadOriginal)}
 </span>
 <strong>
-$${costoUnitarioVisible(m.costoUnitario).replace("$","")}
+$${costoUnitarioVisible(costoPorUnidadElegida(m.costoUnitario,m.unidadOriginal)).replace("$","")}
 </strong>
 </div>
 
@@ -1624,6 +1624,16 @@ return Number(Number(numero).toFixed(3));
 /* Para mostrar costos unitarios en centavos, sin decimales interminables.
    Todo costo positivo menor a un centavo se muestra como $0.01.
    Los cálculos internos conservan su precisión original. */
+function costoPorUnidadElegida(costoBase,unidad){
+/* Los costos internos están calculados por unidad base:
+   metros para cm, kg para gramos y litros para mililitros.
+   Convertimos solo para mostrar el costo de la unidad que eligió Annie. */
+costoBase=Number(costoBase)||0;
+if(unidad==="centimetros")return costoBase/100;
+if(unidad==="gramos"||unidad==="mililitros")return costoBase/1000;
+return costoBase;
+}
+
 function costoUnitarioVisible(valor){
 valor=Number(valor)||0;
 if(valor<=0)return "$0.00";
@@ -1810,7 +1820,7 @@ actualizarSelectorMateriales();
 mostrarComprasAutomaticas();
 actualizarInicio();
 cerrarModalReponer();
-alert("Reposición registrada.\n\nNuevo stock: "+formatear(convertirDesdeBase(m.stock,m.unidadOriginal))+" "+unidadCorta(m.unidadOriginal)+"\nCosto por "+unidadSingular(m.unidadOriginal)+": $"+m.costoUnitario.toFixed(4));
+alert("Reposición registrada.\n\nNuevo stock: "+formatear(convertirDesdeBase(m.stock,m.unidadOriginal))+" "+unidadCorta(m.unidadOriginal)+"\nCosto por "+unidadSingular(m.unidadOriginal)+": "+costoUnitarioVisible(costoPorUnidadElegida(m.costoUnitario,m.unidadOriginal)));
 }
 
 /* CERRAR REPONER */
