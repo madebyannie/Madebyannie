@@ -135,8 +135,8 @@ header{background:var(--crema);padding:18px 15px;text-align:center;box-shadow:0 
 .acciones button{padding:6px 3px;font-size:9px;}
 
 /* PRODUCTOS */
-.productos{display:grid;grid-template-columns:repeat(1,480px);gap:18px;justify-content:center;align-items:start;}
-.producto{width:500px;box-sizing:border-box;background:#fff;border-radius:18px;padding:15px;box-shadow:0 4px 12px var(--sombra);}
+.productos{display:flex;gap:18px;overflow-x:auto;overflow-y:hidden;padding:8px 4px 18px;scroll-snap-type:x mandatory;scroll-behavior:smooth;justify-content:flex-start;align-items:stretch;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;}
+.producto{flex:0 0 320px;width:320px;max-width:100%;box-sizing:border-box;background:#fff;border-radius:18px;padding:15px;box-shadow:0 4px 12px var(--sombra);scroll-snap-align:start;}
 .producto-sin-imagen{width:100%;height:130px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;border-radius:15px;background:var(--celeste-claro);}
 .producto-sin-imagen img{width:85px;height:85px;object-fit:contain;}
 .imagen-producto{width:100%;height:150px;object-fit:cover;display:block;margin-bottom:10px;border-radius:15px;}
@@ -204,7 +204,7 @@ header{background:var(--crema);padding:18px 15px;text-align:center;box-shadow:0 
 
 
 /* EDITAR PRODUCTOS */
-.producto-acciones{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;}
+.producto-acciones{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px;}
 .producto-estado{margin-top:10px;padding:9px;border-radius:11px;text-align:center;font-size:11px;font-weight:700;background:var(--celeste-claro);}
 .producto-estado.fabricado{background:var(--verde);color:var(--verde-texto);}
 .producto-materiales-editar{margin-top:8px;}
@@ -221,8 +221,8 @@ footer{padding:20px 15px;background:var(--crema);text-align:center;font-size:12p
 .material-info{align-self:start;transform:none;}
 .material-nombre{font-size:16px;line-height:1.15;}
 .material-info p{margin:0 !important;padding:0 !important;font-size:12px;line-height:1.3;text-align:left;position:relative;top:0;}
-.productos{grid-template-columns:1fr;width:100%;max-width:360px;margin:0 auto;padding:0;}
-.producto{width:100%;max-width:370px;margin:0 auto;}
+.productos{display:flex;width:100%;max-width:100%;margin:0;padding:6px 0 16px;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;justify-content:flex-start;}
+.producto{flex:0 0 88%;width:88%;max-width:370px;margin:0;scroll-snap-align:center;}
 }
 </style>
 </head>
@@ -444,7 +444,6 @@ Agregar material
 <option>Arcilla</option>
 <option>Pintura</option>
 <option>Resina</option>
-<option>Empaque</option>
 <option>Otros</option>
 
 </select>
@@ -574,7 +573,7 @@ Guardar material
 
 <p class="descripcion">
 Calcula cuánto te cuesta hacer cada creación
-incluyendo materiales, mano de obra y empaque.
+incluyendo materiales y mano de obra.
 </p>
 
 <section class="tarjeta">
@@ -681,17 +680,6 @@ Mano de obra
 
 <div class="campo">
 
-<label>
-<img src="iconos/empaque.png" alt="">
-Costo del empaque
-</label>
-
-<input id="costoEmpaque" type="number" min="0" step="0.01" value="0" oninput="calcularProducto()">
-
-</div>
-
-<div class="campo">
-
 <label>Precio de venta</label>
 
 <input id="precioVenta" type="number" min="0" step="0.01" placeholder="Ej: 6.00" oninput="calcularProducto()">
@@ -719,17 +707,6 @@ Mano de obra
 </span>
 
 <strong id="resultadoManoObra">$0.00</strong>
-
-</div>
-
-<div class="resultado-linea">
-
-<span>
-<img src="iconos/empaque.png" alt="">
-Empaque
-</span>
-
-<strong id="resultadoEmpaque">$0.00</strong>
 
 </div>
 
@@ -931,7 +908,6 @@ Made with love by Annie
 <option>Arcilla</option>
 <option>Pintura</option>
 <option>Resina</option>
-<option>Empaque</option>
 <option>Otros</option>
 
 </select>
@@ -1194,14 +1170,6 @@ Mano de obra
 </div>
 
 <div class="campo">
-<label>
-<img src="iconos/empaque.png" alt="">
-Costo del empaque
-</label>
-<input id="editarCostoEmpaque" type="number" min="0" step="0.01" value="0" oninput="calcularProductoEdicion()">
-</div>
-
-<div class="campo">
 <label>Precio de venta</label>
 <input id="editarPrecioVenta" type="number" min="0" step="0.01" oninput="calcularProductoEdicion()">
 </div>
@@ -1216,11 +1184,6 @@ Costo del empaque
 <div class="resultado-linea">
 <span><img src="iconos/me.png" alt="">Mano de obra</span>
 <strong id="editarResultadoManoObra">$0.00</strong>
-</div>
-
-<div class="resultado-linea">
-<span><img src="iconos/empaque.png" alt="">Empaque</span>
-<strong id="editarResultadoEmpaque">$0.00</strong>
 </div>
 
 <div class="resultado-total">
@@ -2064,16 +2027,14 @@ const costoMateriales=materialesProducto.reduce(
 
 const minutos=parseFloat($("minutosTrabajo").value)||0;
 const precioHora=parseFloat($("precioHora").value)||0;
-const empaque=parseFloat($("costoEmpaque").value)||0;
 const precioVenta=parseFloat($("precioVenta").value)||0;
 const manoObra=minutos/60*precioHora;
-const total=costoMateriales+manoObra+empaque;
+const total=costoMateriales+manoObra;
 const ganancia=precioVenta-total;
 const margen=precioVenta?ganancia/precioVenta*100:0;
 
 $("resultadoMateriales").textContent="$"+costoMateriales.toFixed(2);
 $("resultadoManoObra").textContent="$"+manoObra.toFixed(2);
-$("resultadoEmpaque").textContent="$"+empaque.toFixed(2);
 $("resultadoTotal").textContent="$"+total.toFixed(2);
 $("resultadoGanancia").textContent="$"+ganancia.toFixed(2);
 $("resultadoMargen").textContent="Margen: "+margen.toFixed(1)+"%";
@@ -2081,7 +2042,6 @@ $("resultadoMargen").textContent="Margen: "+margen.toFixed(1)+"%";
 return {
 costoMateriales,
 manoObra,
-empaque,
 precioVenta,
 total,
 ganancia
@@ -2109,7 +2069,6 @@ imagen:imagenProducto,
 materiales:[...materialesProducto],
 minutos:parseFloat($("minutosTrabajo").value)||0,
 precioHora:parseFloat($("precioHora").value)||0,
-empaque:r.empaque,
 precioVenta:r.precioVenta,
 costoMateriales:r.costoMateriales,
 manoObra:r.manoObra,
@@ -2197,15 +2156,6 @@ $${Number(p.manoObra||0).toFixed(2)}
 </strong>
 </div>
 
-<div class="dato">
-<span>
-<img src="iconos/empaque.png" alt="">
-Empaque
-</span>
-<strong>
-$${Number(p.empaque||0).toFixed(2)}
-</strong>
-</div>
 
 <div class="producto-precio">
 <span>Costo real</span>
@@ -2238,6 +2188,12 @@ Editar
 </button>
 
 <button
+class="btn-comprado"
+onclick="duplicarProducto(${p.id})">
+Duplicar
+</button>
+
+<button
 class="btn-peligro"
 onclick="eliminarProducto(${p.id})">
 Eliminar
@@ -2247,6 +2203,25 @@ Eliminar
 </article>
 `;
 });
+}
+
+/* DUPLICAR PRODUCTO: copia la receta, pero no descuenta stock */
+function duplicarProducto(id){
+const original=productos.find(p=>p.id===id);
+if(!original)return;
+
+const copia={
+...original,
+id:Date.now(),
+nombre:(original.nombre||"Producto")+" (copia)",
+materiales:(original.materiales||[]).map(x=>({...x,id:Date.now()+Math.floor(Math.random()*100000)})),
+fabricado:false,
+materialesDescontados:[]
+};
+productos.push(copia);
+guardarDatos();
+mostrarProductos();
+alert("Producto duplicado. Puedes editar el nombre, la foto o los materiales. No se descontó stock.");
 }
 
 /* ELIMINAR PRODUCTO */
@@ -2486,7 +2461,6 @@ $("vistaEditarProducto").style.display="none";
 
 $("editarMinutosTrabajo").value=Number(producto.minutos)||0;
 $("editarPrecioHora").value=Number(producto.precioHora)||0;
-$("editarCostoEmpaque").value=Number(producto.empaque)||0;
 $("editarPrecioVenta").value=Number(producto.precioVenta)||0;
 
 actualizarSelectorMaterialesEdicion();
@@ -2586,17 +2560,15 @@ const costoMateriales=materialesProductoEdicion.reduce(
 
 const minutos=parseFloat($("editarMinutosTrabajo").value)||0;
 const precioHora=parseFloat($("editarPrecioHora").value)||0;
-const empaque=parseFloat($("editarCostoEmpaque").value)||0;
 const precioVenta=parseFloat($("editarPrecioVenta").value)||0;
 
 const manoObra=minutos/60*precioHora;
-const total=costoMateriales+manoObra+empaque;
+const total=costoMateriales+manoObra;
 const ganancia=precioVenta-total;
 const margen=precioVenta?ganancia/precioVenta*100:0;
 
 $("editarResultadoMateriales").textContent="$"+costoMateriales.toFixed(2);
 $("editarResultadoManoObra").textContent="$"+manoObra.toFixed(2);
-$("editarResultadoEmpaque").textContent="$"+empaque.toFixed(2);
 $("editarResultadoTotal").textContent="$"+total.toFixed(2);
 $("editarResultadoGanancia").textContent="$"+ganancia.toFixed(2);
 $("editarResultadoMargen").textContent="Margen: "+margen.toFixed(1)+"%";
@@ -2606,7 +2578,6 @@ actualizarEstadoStockEdicion();
 return{
 costoMateriales,
 manoObra,
-empaque,
 precioVenta,
 total,
 ganancia
@@ -2764,7 +2735,6 @@ producto.nombre=nombre;
 producto.materiales=materialesProductoEdicion.map(x=>({...x}));
 producto.minutos=parseFloat($("editarMinutosTrabajo").value)||0;
 producto.precioHora=parseFloat($("editarPrecioHora").value)||0;
-producto.empaque=r.empaque;
 producto.precioVenta=r.precioVenta;
 producto.costoMateriales=r.costoMateriales;
 producto.manoObra=r.manoObra;
